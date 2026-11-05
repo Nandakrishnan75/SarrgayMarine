@@ -315,12 +315,12 @@ const Contact: React.FC = () => {
                                                     onChange={handleInputChange}
                                                     required
                                                     placeholder="John Smith"
-                                                    className="w-full px-4 md:px-5 py-3 md:py-4 bg-secondary border border-border rounded-xl text-navy text-sm md:text-base placeholder-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                                                    className="w-full px-4 md:px-5 py-3 md:py-4 bg-secondary border border-border rounded-xl text-navy text-sm md:text-base placeholder-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-transparent transition-all"
                                                 />
                                             </div>
                                             <div>
                                                 <label className="block text-sm font-semibold text-navy mb-2">
-                                                    Email Address <span className="text-primary">*</span>
+                                                    Email Address <span className="text-navy font-bold">*</span>
                                                 </label>
                                                 <input
                                                     type="email"
@@ -329,7 +329,7 @@ const Contact: React.FC = () => {
                                                     onChange={handleInputChange}
                                                     required
                                                     placeholder="john@company.com"
-                                                    className="w-full px-4 md:px-5 py-3 md:py-4 bg-secondary border border-border rounded-xl text-navy text-sm md:text-base placeholder-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                                                    className="w-full px-4 md:px-5 py-3 md:py-4 bg-secondary border border-border rounded-xl text-navy text-sm md:text-base placeholder-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-transparent transition-all"
                                                 />
                                             </div>
                                         </div>
@@ -345,7 +345,7 @@ const Contact: React.FC = () => {
                                                     value={formData.phone}
                                                     onChange={handleInputChange}
                                                     placeholder="+1 234 567 8900"
-                                                    className="w-full px-4 md:px-5 py-3 md:py-4 bg-secondary border border-border rounded-xl text-navy text-sm md:text-base placeholder-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                                                    className="w-full px-4 md:px-5 py-3 md:py-4 bg-secondary border border-border rounded-xl text-navy text-sm md:text-base placeholder-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-transparent transition-all"
                                                 />
                                             </div>
                                             <div>
@@ -358,7 +358,7 @@ const Contact: React.FC = () => {
                                                     value={formData.company}
                                                     onChange={handleInputChange}
                                                     placeholder="Your Company Ltd."
-                                                    className="w-full px-4 md:px-5 py-3 md:py-4 bg-secondary border border-border rounded-xl text-navy text-sm md:text-base placeholder-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                                                    className="w-full px-4 md:px-5 py-3 md:py-4 bg-secondary border border-border rounded-xl text-navy text-sm md:text-base placeholder-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-transparent transition-all"
                                                 />
                                             </div>
                                         </div>
@@ -374,7 +374,7 @@ const Contact: React.FC = () => {
                                                     value={formData.vesselName}
                                                     onChange={handleInputChange}
                                                     placeholder="MV Vessel Name"
-                                                    className="w-full px-4 md:px-5 py-3 md:py-4 bg-secondary border border-border rounded-xl text-navy text-sm md:text-base placeholder-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                                                    className="w-full px-4 md:px-5 py-3 md:py-4 bg-secondary border border-border rounded-xl text-navy text-sm md:text-base placeholder-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-transparent transition-all"
                                                 />
                                             </div>
                                             <div>

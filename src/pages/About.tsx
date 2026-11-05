@@ -143,7 +143,7 @@ const About: React.FC = () => {
                                     />
                                     <div className="absolute bottom-0 right-0 p-6 z-20">
                                         <div className="bg-navy/90 backdrop-blur-md text-white p-6 rounded-2xl shadow-xl border border-white/10">
-                                            <p className="font-display text-4xl font-bold text-primary mb-1">24/7</p>
+                                            <p className="font-display text-4xl font-bold text-white mb-1">24/7</p>
                                             <p className="text-xs uppercase tracking-wide text-white/70 font-bold">
                                                 Global Support
                                             </p>

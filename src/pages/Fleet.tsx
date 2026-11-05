@@ -118,11 +118,11 @@ const Fleet: React.FC = () => {
                 <div className="container mx-auto px-4 md:px-6 lg:px-8">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-center">
                         <AnimatedSection direction="left">
-                            <div className="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full text-primary text-sm font-bold mb-6 border border-primary/10 shadow-sm">
+                            <div className="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full text-navy text-sm font-bold mb-6 border border-border shadow-sm">
                                 <ShieldCheck size={16} /> COMPLIANCE
                             </div>
                             <h2 className="font-display text-3xl md:text-5xl font-bold text-navy mb-6 leading-tight">
-                                Class <span className="text-primary">Approved</span>
+                                Class <span className="text-navy">Approved</span>
                             </h2>
                             <p className="text-muted-foreground mb-8 text-lg leading-relaxed">
                                 All repairs and overhauls meet the rigorous standards of major
@@ -132,8 +132,8 @@ const Fleet: React.FC = () => {
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                                 {standards.map((std, index) => (
                                     <div key={index} className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 bg-white rounded-xl border border-border shadow-sm hover:shadow-md transition-shadow">
-                                        <CheckCircle size={18} className="text-primary group-hover:scale-110 transition-transform" />
-                                        <span className="text-navy font-bold group-hover:text-primary transition-colors">{std}</span>
+                                        <CheckCircle size={18} className="text-navy group-hover:scale-110 transition-transform" />
+                                        <span className="text-navy font-bold group-hover:text-navy transition-colors">{std}</span>
                                     </div>
                                 ))}
                             </div>
@@ -164,16 +164,16 @@ const Fleet: React.FC = () => {
                 <div className="container mx-auto px-4 md:px-6 lg:px-8">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-center">
                         <AnimatedSection direction="right" className="lg:order-2">
-                            <div className="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full text-primary text-sm font-bold mb-6 border border-primary/20">
+                            <div className="inline-flex items-center gap-2 bg-navy/5 px-4 py-2 rounded-full text-navy text-sm font-bold mb-6 border border-navy/15">
                                 <CheckCircle size={16} /> QUALITY ASSURANCE
                             </div>
                             <h2 className="font-display text-3xl md:text-5xl font-bold text-navy mb-6 leading-tight">
-                                Rigorous <span className="text-primary">Protocols</span>
+                                Rigorous <span className="text-navy">Protocols</span>
                             </h2>
                             <div className="space-y-6">
                                 {qualityPoints.map((point, index) => (
                                     <div key={index} className="flex items-start gap-4 p-4 rounded-xl hover:bg-secondary/50 transition-colors duration-300">
-                                        <div className="w-8 h-8 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 mt-0.5 text-primary">
+                                        <div className="w-8 h-8 rounded-full bg-navy/5 border border-navy/15 flex items-center justify-center shrink-0 mt-0.5 text-navy">
                                             <CheckCircle className="w-5 h-5" />
                                         </div>
                                         <span className="text-navy text-lg font-medium leading-relaxed">{point}</span>
@@ -184,11 +184,11 @@ const Fleet: React.FC = () => {
 
                         <AnimatedSection direction="left" className="lg:order-1">
                             <div className="bg-navy text-white rounded-2xl md:rounded-[2.5rem] p-6 md:p-12 lg:p-16 shadow-2xl shadow-navy/20 relative overflow-hidden">
-                                <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+                                <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
 
                                 <h3 className="font-display text-2xl md:text-3xl font-bold text-white mb-6 md:mb-8 relative z-10">
                                     Technical Mobilization <br />
-                                    <span className="text-primary">& Global Response</span>
+                                    <span className="text-slate-300">& Global Response</span>
                                 </h3>
 
                                 <div className="space-y-8 relative z-10">
@@ -206,7 +206,7 @@ const Fleet: React.FC = () => {
                                     ].map((item, index) => (
                                         <div key={index} className="flex items-start gap-5">
                                             <div className="w-12 h-12 rounded-xl bg-white/10 border border-white/10 flex items-center justify-center shrink-0">
-                                                <item.icon className="w-6 h-6 text-primary" />
+                                                <item.icon className="w-6 h-6 text-white" />
                                             </div>
                                             <div>
                                                 <h4 className="font-display text-xl font-bold text-white mb-2">{item.title}</h4>

@@ -12,18 +12,25 @@ export default {
                 primary: {
                     DEFAULT: '#0A192F',
                     light: '#1E293B',
-                    dark: '#030712',
+                    dark: '#050D1A',
                     foreground: '#FFFFFF',
                 },
                 navy: {
                     DEFAULT: '#0A192F',
                     light: '#1E293B',
                     dark: '#050D1A',
+                    deep: '#030712',
                 },
                 silver: {
                     light: '#F8FAFC',
                     DEFAULT: '#E2E8F0',
                     dark: '#94A3B8',
+                },
+                slate: {
+                    surface: '#F8FAFC',
+                    border: '#E2E8F0',
+                    subtle: '#94A3B8',
+                    text: '#475569',
                 },
                 secondary: {
                     DEFAULT: '#F8FAFC',
@@ -42,7 +49,8 @@ export default {
             },
             fontFamily: {
                 sans: ['"DM Sans"', 'sans-serif'],
-                display: ['"Clash Display"', 'sans-serif'],
+                display: ['"Outfit"', '"Clash Display"', 'sans-serif'],
+                heading: ['"Outfit"', 'sans-serif'],
                 mono: ['"JetBrains Mono"', 'monospace'],
             },
             backgroundImage: {
