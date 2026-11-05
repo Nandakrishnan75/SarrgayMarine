@@ -143,19 +143,21 @@ export function Header() {
 export function Footer() {
   return (
     <footer className="border-t border-[#E5E7EB] bg-[#F8F9FA] text-[#1A1A1A]">
-      <div className="container-x grid gap-10 py-12 md:grid-cols-2 lg:grid-cols-[1.3fr_1.25fr_1.25fr_1fr]">
+      <div className="container-x grid gap-10 pt-10 sm:pt-12 pb-5 sm:pb-6 md:grid-cols-2 lg:grid-cols-[1.3fr_1.25fr_1.25fr_1fr]">
         {/* Column 1: Brand & Credential */}
-        <div className="space-y-3.5">
-          <Link to="/" className="inline-flex items-center gap-2.5 whitespace-nowrap">
-            <img src={logo} alt="Sarrgay Marine logo" width={26} height={26} className="h-6 w-6 object-contain shrink-0" />
-            <span className="font-serif text-sm md:text-base font-normal tracking-[0.14em] uppercase text-[#1A1A1A] whitespace-nowrap">
-              SARRGAY MARINE
-            </span>
-          </Link>
-          <p className="max-w-xs text-xs leading-[1.8] text-[#555555] font-normal">
-            Naval architecture, custom atelier engineering, and Mediterranean berth management for vessels of exceptional pedigree.
-          </p>
-          <p className="pt-1 text-[11px] font-medium tracking-[0.16em] text-[#B3804A] uppercase">
+        <div className="flex flex-col justify-between">
+          <div className="space-y-3.5">
+            <Link to="/" className="inline-flex items-center gap-2.5 whitespace-nowrap">
+              <img src={logo} alt="Sarrgay Marine logo" width={26} height={26} className="h-6 w-6 object-contain shrink-0" />
+              <span className="font-serif text-sm md:text-base font-normal tracking-[0.14em] uppercase text-[#1A1A1A] whitespace-nowrap">
+                SARRGAY MARINE
+              </span>
+            </Link>
+            <p className="max-w-xs text-xs leading-[1.8] text-[#555555] font-normal">
+              Naval architecture, custom atelier engineering, and Mediterranean berth management for vessels of exceptional pedigree.
+            </p>
+          </div>
+          <p className="pt-4 text-[11px] font-medium tracking-[0.16em] text-[#B3804A] uppercase">
             NAVAL WARRANT NO. 7192-MCO
           </p>
         </div>
