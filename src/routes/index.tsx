@@ -369,12 +369,12 @@ function Index() {
       </section>
 
       {/* Classification Society Strip */}
-      <section className="border-y bg-card py-10 scroll-reveal">
-        <div className="container-x flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
+      <section className="border-y border-border/50 bg-secondary/35 py-4.5 sm:py-5.5 scroll-reveal">
+        <div className="container-x flex flex-wrap items-center justify-center gap-x-6 sm:gap-x-8 md:gap-x-10 gap-y-2 text-center">
           {classes.map((c, i) => (
             <span
               key={c}
-              className={`font-display text-lg font-semibold text-muted-foreground transition-colors hover:text-foreground scroll-reveal delay-${((i % 4) + 1) * 75}`}
+              className={`font-mono text-[11px] sm:text-xs md:text-[13px] font-medium tracking-[0.16em] uppercase text-muted-foreground/75 transition-colors hover:text-foreground scroll-reveal delay-${((i % 4) + 1) * 75}`}
             >
               {c}
             </span>
