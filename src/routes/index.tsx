@@ -298,76 +298,72 @@ function Index() {
         </div>
       </section>
 
-      {/* Precision Defined (Modern Technical Standards Showcase) */}
-      <section className="relative overflow-hidden bg-navy py-24 sm:py-28 text-navy-foreground on-navy border-y border-white/10">
-        <div aria-hidden className="dot-grid absolute left-8 top-12 h-24 w-32 opacity-30 pointer-events-none" />
-        <div aria-hidden className="dot-grid absolute right-8 bottom-12 h-24 w-32 opacity-30 pointer-events-none" />
+      {/* Precision Defined (Floating Glassmorphism Showcase) */}
+      <section className="relative overflow-hidden py-24 sm:py-32 bg-[#061224]">
+        {/* Engine Room Atmospheric Background Image */}
+        <img
+          src={engine}
+          alt="Engine room technical inspection"
+          className="absolute inset-0 h-full w-full object-cover object-center filter brightness-[0.22] contrast-125 scale-105 pointer-events-none"
+          width={1920}
+          height={1080}
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#061224]/95 via-[#061224]/80 to-[#061224]/95" />
+        <div className="hero-overlay absolute inset-0 opacity-60" />
 
-        <div className="container-x relative z-10 max-w-6xl text-center">
-          <p className="eyebrow flex items-center justify-center gap-2 scroll-reveal">
-            <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
-            GLOBAL QUALITY PROTOCOLS • ZERO-TOLERANCE RIGOR
-          </p>
-          <h2 className="mt-4 text-3xl font-extrabold uppercase tracking-tight sm:text-5xl lg:text-6xl scroll-reveal delay-100">
-            Precision Defined.
-          </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-navy-muted sm:text-lg scroll-reveal delay-200">
-            Delivering zero-impact maintenance at sea and flawless shipyard execution with Chief Engineer authority on every project.
-          </p>
+        <div className="container-x relative z-10 max-w-5xl">
+          {/* Floating Glassmorphic Panel */}
+          <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl border border-white/15 bg-white/[0.04] p-8 sm:p-12 md:p-16 backdrop-blur-xl shadow-2xl scroll-reveal">
+            {/* Subtle atmospheric ambient glow */}
+            <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-accent/15 blur-3xl" />
+            <div className="pointer-events-none absolute -left-24 -bottom-24 h-72 w-72 rounded-full bg-primary/20 blur-3xl" />
 
-          <div className="mt-14 grid gap-6 md:grid-cols-3 text-left">
-            {[
-              {
-                idx: "01",
-                label: "PROCESS RIGOR",
-                sublabel: "IACS ALIGNED",
-                title: "ISO 9001:2015 Certified",
-                desc: "Strict compliance with international classification society standards, continuous calibration logs, and verified non-destructive testing (NDT).",
-                tag: "100% Surveyor Acceptance",
-              },
-              {
-                idx: "02",
-                label: "MOBILIZATION",
-                sublabel: "FLYING SQUAD",
-                title: "24/7 Global Response",
-                desc: "Rapid deployment from central hubs in Kochi, Singapore, and Dubai. Valid CDC seafarer endorsements and fly-away tooling ready for immediate mobilization.",
-                tag: "Under 15-Minute Standby",
-              },
-              {
-                idx: "03",
-                label: "DOCUMENTATION",
-                sublabel: "FULL AUDIT TRAIL",
-                title: "Surveyor Dossiers",
-                desc: "Complete micrometer calibration records, crankshaft deflection logs, optical line boring reports, and official class surveyor sign-off packages.",
-                tag: "Verified Class Sign-off",
-              },
-            ].map((card, i) => (
-              <div
-                key={card.title}
-                className={`group relative flex flex-col justify-between rounded-md border border-white/10 bg-white/[0.04] p-7 backdrop-blur-md transition-all duration-300 hover:border-accent/40 hover:bg-white/[0.08] hover:-translate-y-1 shadow-md scroll-reveal delay-${(i + 1) * 100}`}
-              >
-                <div>
-                  <div className="flex items-center justify-between border-b border-white/10 pb-3.5">
-                    <span className="font-mono text-xs font-bold uppercase tracking-widest text-accent">
-                      {card.idx} / {card.label}
-                    </span>
-                    <span className="font-mono text-[10px] uppercase tracking-wider text-white/45">
-                      {card.sublabel}
-                    </span>
-                  </div>
-                  <h3 className="mt-4 text-xl font-bold tracking-tight text-white transition-colors group-hover:text-accent">
-                    {card.title}
-                  </h3>
-                  <p className="mt-2.5 text-xs sm:text-sm leading-relaxed text-navy-muted">
-                    {card.desc}
-                  </p>
+            <div className="relative z-10 grid gap-10 lg:grid-cols-[1.1fr_1.35fr] lg:gap-14 lg:items-center">
+              {/* Left Column: Eyebrow Badge + 2-Line Headline + Accent Rule */}
+              <div className="space-y-4">
+                <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-3.5 py-1 text-xs font-mono uppercase tracking-[0.18em] text-white/90 backdrop-blur-sm">
+                  <svg className="h-3 w-3 text-accent" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2a3 3 0 0 0-3 3c0 1.31.84 2.42 2 2.83V10H9c-.55 0-1 .45-1 1s.45 1 1 1h2v7.92c-3.95-.49-7-3.85-7-7.92 0-.55-.45-1-1-1s-1 .45-1 1c0 5.18 3.95 9.45 9 9.95V22h2v-2.05c5.05-.5 9-4.77 9-9.95 0-.55-.45-1-1-1s-1 .45-1 1c0 4.07-3.05 7.43-7 7.92V12h2c.55 0 1-.45 1-1s-.45-1-1-1h-2V7.83c1.16-.41 2-1.52 2-2.83a3 3 0 0 0-3-3m0 2a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1" />
+                  </svg>
+                  <span>GLOBAL STANDARDS</span>
                 </div>
-                <div className="mt-6 flex items-center gap-2 border-t border-white/10 pt-4 font-mono text-[11px] font-semibold text-accent">
-                  <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-                  <span>{card.tag}</span>
+
+                <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold uppercase tracking-tight text-white leading-[1.05]">
+                  Precision<br />Defined.
+                </h2>
+
+                <div className="pt-2">
+                  <div className="h-0.5 w-16 bg-white/40 rounded-full" />
                 </div>
               </div>
-            ))}
+
+              {/* Right Column: Editorial Lead Copy + Circular Checkpoints */}
+              <div className="space-y-6 lg:border-l lg:border-white/10 lg:pl-10">
+                <p className="text-lg sm:text-xl text-white/90 leading-relaxed font-light">
+                  Our global team of marine engineers delivers{" "}
+                  <strong className="font-bold text-white">uncompromising expertise at</strong>{" "}
+                  every port, on every vessel.
+                </p>
+
+                <div className="space-y-3.5 pt-2">
+                  {[
+                    "ISO 9001:2015 Certified Processes",
+                    "24/7 Rapid Response Teams",
+                    "Comprehensive Technical Reports",
+                  ].map((chk, idx) => (
+                    <div
+                      key={chk}
+                      className={`flex items-center gap-3 text-sm sm:text-base text-white/85 transition-colors hover:text-white scroll-reveal delay-${(idx + 1) * 100}`}
+                    >
+                      <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-white/40 bg-white/10 text-[11px] text-accent font-semibold">
+                        ✓
+                      </span>
+                      <span>{chk}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
