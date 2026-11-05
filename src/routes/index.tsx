@@ -298,143 +298,76 @@ function Index() {
         </div>
       </section>
 
-      {/* Precision Defined (High-Tech Maritime Telemetry & Engineering Standards) */}
-      <section className="relative overflow-hidden bg-[#0A1628] py-24 text-navy-foreground on-navy border-y border-white/10">
-        {/* Ambient HUD grid & sonar glow */}
-        <div aria-hidden className="dot-grid absolute inset-0 opacity-20 pointer-events-none" />
-        <div
-          aria-hidden
-          className="absolute -top-40 left-1/2 -translate-x-1/2 h-96 w-[700px] rounded-full opacity-20 blur-3xl pointer-events-none bg-accent"
-        />
-        <div
-          aria-hidden
-          className="sonar absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[500px] pointer-events-none opacity-25"
-        />
+      {/* Precision Defined (Modern Technical Standards Showcase) */}
+      <section className="relative overflow-hidden bg-navy py-24 sm:py-28 text-navy-foreground on-navy border-y border-white/10">
+        <div aria-hidden className="dot-grid absolute left-8 top-12 h-24 w-32 opacity-30 pointer-events-none" />
+        <div aria-hidden className="dot-grid absolute right-8 bottom-12 h-24 w-32 opacity-30 pointer-events-none" />
 
-        <div className="container-x relative z-10">
-          {/* Header Area */}
-          <div className="mx-auto max-w-3xl text-center">
-            <div className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-3.5 py-1 text-[11px] font-mono tracking-widest text-accent uppercase scroll-reveal">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
-              </span>
-              IACS SURVEYOR LEVEL METRICS
-            </div>
-            <h2 className="mt-4 text-4xl sm:text-5xl md:text-6xl font-extrabold uppercase tracking-tight text-white scroll-reveal delay-100">
-              PRECISION <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-white to-accent">DEFINED.</span>
-            </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-base sm:text-lg leading-relaxed text-navy-muted scroll-reveal delay-200">
-              Uncompromising engineering tolerances, micrometer calibration, and instant global mobilization for critical marine propulsion systems.
-            </p>
-          </div>
+        <div className="container-x relative z-10 max-w-6xl text-center">
+          <p className="eyebrow flex items-center justify-center gap-2 scroll-reveal">
+            <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
+            GLOBAL QUALITY PROTOCOLS • ZERO-TOLERANCE RIGOR
+          </p>
+          <h2 className="mt-4 text-3xl font-extrabold uppercase tracking-tight sm:text-5xl lg:text-6xl scroll-reveal delay-100">
+            Precision Defined.
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-navy-muted sm:text-lg scroll-reveal delay-200">
+            Delivering zero-impact maintenance at sea and flawless shipyard execution with Chief Engineer authority on every project.
+          </p>
 
-          {/* 3 Precision HUD Telemetry Cards */}
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {/* Card 1 */}
-            <div className="group relative rounded-md border border-white/10 bg-white/[0.03] p-7 backdrop-blur-md transition-all duration-300 hover:border-accent/40 hover:bg-white/[0.06] hover:-translate-y-1.5 scroll-reveal delay-100">
-              <div className="flex items-center justify-between border-b border-white/10 pb-3">
-                <span className="font-mono text-[11px] uppercase tracking-widest text-accent font-semibold">
-                  01 // CALIBRATION
-                </span>
-                <span className="font-mono text-[10px] text-white/50">TOLERANCE SPEC</span>
-              </div>
-              <div className="mt-5">
-                <div className="font-mono text-3xl sm:text-4xl font-extrabold tracking-tight text-white group-hover:text-accent transition-colors">
-                  ±0.005 <span className="text-sm font-sans font-medium text-navy-muted">mm</span>
+          <div className="mt-14 grid gap-6 md:grid-cols-3 text-left">
+            {[
+              {
+                idx: "01",
+                label: "PROCESS RIGOR",
+                sublabel: "IACS ALIGNED",
+                title: "ISO 9001:2015 Certified",
+                desc: "Strict compliance with international classification society standards, continuous calibration logs, and verified non-destructive testing (NDT).",
+                tag: "100% Surveyor Acceptance",
+              },
+              {
+                idx: "02",
+                label: "MOBILIZATION",
+                sublabel: "FLYING SQUAD",
+                title: "24/7 Global Response",
+                desc: "Rapid deployment from central hubs in Kochi, Singapore, and Dubai. Valid CDC seafarer endorsements and fly-away tooling ready for immediate mobilization.",
+                tag: "Under 15-Minute Standby",
+              },
+              {
+                idx: "03",
+                label: "DOCUMENTATION",
+                sublabel: "FULL AUDIT TRAIL",
+                title: "Surveyor Dossiers",
+                desc: "Complete micrometer calibration records, crankshaft deflection logs, optical line boring reports, and official class surveyor sign-off packages.",
+                tag: "Verified Class Sign-off",
+              },
+            ].map((card, i) => (
+              <div
+                key={card.title}
+                className={`group relative flex flex-col justify-between rounded-md border border-white/10 bg-white/[0.04] p-7 backdrop-blur-md transition-all duration-300 hover:border-accent/40 hover:bg-white/[0.08] hover:-translate-y-1 shadow-md scroll-reveal delay-${(i + 1) * 100}`}
+              >
+                <div>
+                  <div className="flex items-center justify-between border-b border-white/10 pb-3.5">
+                    <span className="font-mono text-xs font-bold uppercase tracking-widest text-accent">
+                      {card.idx} / {card.label}
+                    </span>
+                    <span className="font-mono text-[10px] uppercase tracking-wider text-white/45">
+                      {card.sublabel}
+                    </span>
+                  </div>
+                  <h3 className="mt-4 text-xl font-bold tracking-tight text-white transition-colors group-hover:text-accent">
+                    {card.title}
+                  </h3>
+                  <p className="mt-2.5 text-xs sm:text-sm leading-relaxed text-navy-muted">
+                    {card.desc}
+                  </p>
                 </div>
-                <h3 className="mt-2 text-lg font-bold text-white">Micrometer Truing</h3>
-                <p className="mt-2 text-xs leading-relaxed text-navy-muted">
-                  Laser deflection alignment, crankshaft truing, and hydrodynamic bearing clearance verified with calibrated micrometers.
-                </p>
-              </div>
-              <div className="mt-6 space-y-2 border-t border-white/10 pt-4">
-                <div className="flex items-center justify-between text-[10px] font-mono">
-                  <span className="text-navy-muted">DEVIATION TEST</span>
-                  <span className="font-bold text-accent">0.002mm (PASS)</span>
-                </div>
-                <div className="h-1.5 w-full rounded-full bg-white/10 overflow-hidden">
-                  <div className="h-full bg-accent rounded-full w-4/5 animate-pulse" />
-                </div>
-              </div>
-            </div>
-
-            {/* Card 2 */}
-            <div className="group relative rounded-md border border-white/10 bg-white/[0.03] p-7 backdrop-blur-md transition-all duration-300 hover:border-emerald-500/40 hover:bg-white/[0.06] hover:-translate-y-1.5 scroll-reveal delay-200">
-              <div className="flex items-center justify-between border-b border-white/10 pb-3">
-                <span className="font-mono text-[11px] uppercase tracking-widest text-emerald-400 font-semibold">
-                  02 // VELOCITY
-                </span>
-                <span className="font-mono text-[10px] text-white/50">DISPATCH SLA</span>
-              </div>
-              <div className="mt-5">
-                <div className="font-mono text-3xl sm:text-4xl font-extrabold tracking-tight text-white group-hover:text-emerald-400 transition-colors">
-                  &lt; 15 <span className="text-sm font-sans font-medium text-navy-muted">mins</span>
-                </div>
-                <h3 className="mt-2 text-lg font-bold text-white">Emergency Response</h3>
-                <p className="mt-2 text-xs leading-relaxed text-navy-muted">
-                  Worldwide flying squad deployment ready 24/7 with fly-away toolkits across major hubs in Kochi, Singapore, and Dubai.
-                </p>
-              </div>
-              <div className="mt-6 space-y-2 border-t border-white/10 pt-4">
-                <div className="flex items-center justify-between text-[10px] font-mono">
-                  <span className="text-navy-muted">STANDBY STATUS</span>
-                  <span className="font-bold text-emerald-400 flex items-center gap-1.5">
-                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-ping" />
-                    LIVE ON-CALL
-                  </span>
-                </div>
-                <div className="h-1.5 w-full rounded-full bg-white/10 overflow-hidden">
-                  <div className="h-full bg-emerald-400 rounded-full w-full" />
+                <div className="mt-6 flex items-center gap-2 border-t border-white/10 pt-4 font-mono text-[11px] font-semibold text-accent">
+                  <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                  <span>{card.tag}</span>
                 </div>
               </div>
-            </div>
-
-            {/* Card 3 */}
-            <div className="group relative rounded-md border border-white/10 bg-white/[0.03] p-7 backdrop-blur-md transition-all duration-300 hover:border-accent/40 hover:bg-white/[0.06] hover:-translate-y-1.5 scroll-reveal delay-300 sm:col-span-2 lg:col-span-1">
-              <div className="flex items-center justify-between border-b border-white/10 pb-3">
-                <span className="font-mono text-[11px] uppercase tracking-widest text-accent font-semibold">
-                  03 // COMPLIANCE
-                </span>
-                <span className="font-mono text-[10px] text-white/50">AUDIT RECORD</span>
-              </div>
-              <div className="mt-5">
-                <div className="font-mono text-3xl sm:text-4xl font-extrabold tracking-tight text-white group-hover:text-accent transition-colors">
-                  100%
-                </div>
-                <h3 className="mt-2 text-lg font-bold text-white">Surveyor Acceptance</h3>
-                <p className="mt-2 text-xs leading-relaxed text-navy-muted">
-                  Flawless first-pass sign-off from Lloyd's Register, DNV, ABS, ClassNK, and IRS surveyors with complete digital dossiers.
-                </p>
-              </div>
-              <div className="mt-6 space-y-2 border-t border-white/10 pt-4">
-                <div className="flex items-center justify-between text-[10px] font-mono">
-                  <span className="text-navy-muted">PROCESS STANDARD</span>
-                  <span className="font-bold text-accent">ISO 9001:2015</span>
-                </div>
-                <div className="h-1.5 w-full rounded-full bg-white/10 overflow-hidden">
-                  <div className="h-full bg-accent rounded-full w-full" />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Technical Telemetry Ribbon */}
-          <div className="mt-12 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 rounded-md border border-white/10 bg-white/[0.02] py-4 px-6 text-center font-mono text-[11px] uppercase tracking-widest text-navy-muted backdrop-blur-sm scroll-reveal delay-350">
-            <span className="flex items-center gap-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-              Dynamic Balancing: &lt; 34dB
-            </span>
-            <span className="hidden sm:inline text-white/20">•</span>
-            <span className="flex items-center gap-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-              Propulsion: Up to 80,000 BHP
-            </span>
-            <span className="hidden sm:inline text-white/20">•</span>
-            <span className="flex items-center gap-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-              VHF Ch. 12 &amp; 68 Standby
-            </span>
+            ))}
           </div>
         </div>
       </section>
