@@ -146,10 +146,10 @@ export function Footer() {
       <div className="container-x grid gap-10 py-12 md:grid-cols-2 lg:grid-cols-[1.3fr_1.25fr_1.25fr_1fr]">
         {/* Column 1: Brand & Credential */}
         <div className="space-y-3.5">
-          <Link to="/" className="inline-flex items-center gap-2.5">
-            <img src={logo} alt="Sarrgay Marine logo" width={28} height={28} className="h-7 w-7 object-contain" />
-            <span className="font-serif text-sm md:text-base font-normal tracking-[0.22em] uppercase text-[#1A1A1A]">
-              S A R R G A Y &nbsp; M A R I N E
+          <Link to="/" className="inline-flex items-center gap-2.5 whitespace-nowrap">
+            <img src={logo} alt="Sarrgay Marine logo" width={26} height={26} className="h-6 w-6 object-contain shrink-0" />
+            <span className="font-serif text-sm md:text-base font-normal tracking-[0.14em] uppercase text-[#1A1A1A] whitespace-nowrap">
+              SARRGAY MARINE
             </span>
           </Link>
           <p className="max-w-xs text-xs leading-[1.8] text-[#555555] font-normal">
