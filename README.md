@@ -1,41 +1,24 @@
-﻿# SARRGAY MARINE
+# Website Content Refiner
 
-> Technical Partners in Maritime Engineering Excellence.
+the contain the website cotents  for each page analyze it mae it better clean standard website
 
-Official web application for **SARRGAY MARINE**, providing high-precision mechanical, electrical, generator maintenance, main engine overhauls, dry dock assistance, and riding squads worldwide.
+This project was built with [Lovable](https://lovable.dev).
 
-## Tech Stack
-- **Framework**: React 19 + TypeScript + Vite
-- **Styling**: Tailwind CSS + Vanilla CSS (Pure Oceanic Navy & Silver Design System)
-- **Icons**: Lucide React
-- **Animations**: Framer Motion
-- **Form Integration**: Web3Forms API
+## Build with Lovable
 
-## Getting Started
+Continue developing this project in the [Lovable editor](https://lovable.dev/projects/cba74bef-b3de-4747-ada9-4126743c4ef9).
 
-### Prerequisites
-- Node.js (v18 or higher recommended)
-- npm
+- **Ship faster**: describe what you want to build and Lovable handles the code.
+- **Stay in sync**: every change made in Lovable is committed straight to this repository.
+- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
 
-### Installation
-```bash
-npm install
-```
+## Development
 
-### Development
-```bash
+Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+
+```sh
+git clone <this-repository-url>
+cd <repository-name>
+npm i
 npm run dev
 ```
-
-### Production Build
-```bash
-npm run build
-```
-
-### Preview Build
-```bash
-npm run preview
-```
-
-## License
-Proprietary — All rights reserved by SARRGAY MARINE.
