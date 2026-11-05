@@ -75,6 +75,9 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
   * { border-color: var(--color-border); }
   body {
     background-color: var(--color-background);
@@ -121,4 +124,38 @@
 }
 @utility title-bar {
   &::after { content: ""; display: block; width: 3rem; height: 3px; margin-top: 0.9rem; background: var(--color-primary); }
+}
+
+@keyframes stat-breathe-enlarge {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.92;
+  }
+  50% {
+    transform: scale(1.06);
+    opacity: 1;
+    filter: drop-shadow(0 0 10px color-mix(in oklab, var(--color-accent) 45%, transparent));
+  }
+}
+
+@utility animate-stat-enlarge {
+  animation: stat-breathe-enlarge 3.6s ease-in-out infinite;
+  transform-origin: left center;
+}
+
+@keyframes nav-indicator-enlarge {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 1;
+    filter: drop-shadow(0 0 8px color-mix(in oklab, var(--color-accent) 40%, transparent));
+  }
+}
+
+@utility animate-indicator-enlarge {
+  animation: nav-indicator-enlarge 3.4s ease-in-out infinite;
+  transform-origin: right center;
 }

@@ -88,48 +88,86 @@ const advantages = [
 const classes = ["ABS", "DNV", "Lloyd's Register", "Bureau Veritas", "ClassNK", "KR", "IRS", "ISO 9001:2015"];
 
 function Index() {
+  const handleScrollTo = (targetId: string) => {
+    const target = document.querySelector(targetId);
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
     <>
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-navy text-navy-foreground on-navy">
+      <section className="relative overflow-hidden bg-navy text-navy-foreground on-navy min-h-[100dvh] lg:h-[100dvh] flex flex-col justify-between pt-18">
         <img
           src={hero}
           alt="Cargo vessel at sea at dusk"
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover object-center"
           width={1920}
           height={1088}
         />
         <div className="hero-overlay absolute inset-0" />
-        <div aria-hidden className="dot-grid absolute left-6 top-10 h-16 w-24 opacity-60" />
-        <div aria-hidden className="dot-grid absolute bottom-28 right-10 h-20 w-20 opacity-50" />
+        <div aria-hidden className="dot-grid absolute left-8 top-24 h-20 w-28 opacity-50 pointer-events-none" />
+        <div aria-hidden className="dot-grid absolute right-8 bottom-24 h-20 w-28 opacity-50 pointer-events-none" />
 
-        <div className="container-x relative py-28 md:py-40">
+        {/* Floating section indicators for quick navigation on desktop */}
+        <nav aria-label="Page sections" className="absolute right-8 top-1/2 z-10 hidden -translate-y-1/2 flex-col items-end gap-3.5 font-display lg:flex">
+          {([
+            ["01", "Services", "#services"],
+            ["02", "Propulsion", "#propulsion"],
+            ["03", "Contact", "#contact"],
+          ] as const).map(([num, label, targetId]) => (
+            <button
+              key={num}
+              type="button"
+              onClick={() => handleScrollTo(targetId)}
+              className="group flex items-center gap-3 py-1.5 transition-all duration-300 ease-out hover:scale-120 active:scale-95 origin-right cursor-pointer bg-transparent text-left outline-none"
+            >
+              <span className="text-xs sm:text-sm font-bold uppercase tracking-[0.18em] text-white/90 transition-colors group-hover:text-white drop-shadow-md">
+                {label}
+              </span>
+              <span className="font-mono text-base sm:text-lg font-extrabold tracking-tight text-accent transition-colors group-hover:text-white drop-shadow-md">
+                {num}
+              </span>
+            </button>
+          ))}
+        </nav>
+
+        {/* Main Content Area */}
+        <div className="container-x relative z-10 flex flex-1 flex-col justify-center py-8 sm:py-12 md:py-16">
           <p className="eyebrow flex items-center gap-2">
             <span className="h-2 w-2 animate-pulse rounded-full bg-primary" />
-            Technical Partners, Not Just Fixers
+            Technical Partners, Not Just Fixers • 24/7 Worldwide
           </p>
-          <h1 className="mt-5 max-w-4xl text-5xl font-extrabold uppercase tracking-tight leading-[1.05] md:text-7xl">
+          <h1 className="mt-4 max-w-4xl text-3xl font-extrabold uppercase tracking-tight leading-[1.08] sm:text-5xl md:text-6xl lg:text-7xl break-words">
             Mastering Maritime Precision
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-navy-muted">
+          <p className="mt-4 sm:mt-5 max-w-2xl text-base sm:text-lg leading-relaxed text-navy-muted">
             Providing high-precision mechanical and electrical solutions that exceed international maritime standards. From main engine overhauls to zero-impact maintenance at sea. Led by Chief Engineers.
           </p>
-          <div className="mt-9 flex flex-wrap gap-4">
+          <div className="mt-7 sm:mt-9 flex flex-wrap items-center gap-3.5">
             <Btn to="/services">Explore Services</Btn>
             <Btn href={WHATSAPP} variant="ghostLight">WhatsApp Us</Btn>
           </div>
         </div>
 
         {/* Key Statistics Bar */}
-        <div className="relative border-t border-navy-foreground/15 bg-navy/40 backdrop-blur-md">
-          <div className="container-x grid grid-cols-2 md:grid-cols-4">
-            {stats.map(([n, l]) => (
+        <div className="relative z-10 mt-auto border-t border-white/10 bg-navy/60 backdrop-blur-md">
+          <div className="container-x grid grid-cols-2 md:grid-cols-4 divide-y divide-white/10 md:divide-y-0 md:divide-x md:divide-white/10">
+            {stats.map(([n, l], idx) => (
               <div
                 key={l}
-                className="border-navy-foreground/10 py-6 md:border-r md:last:border-0 md:px-6 md:first:pl-0"
+                className="py-2 sm:py-2.5 px-3 sm:px-4 flex items-center gap-2 sm:gap-3 first:pl-0 last:pr-0 transition-colors hover:bg-white/[0.03]"
               >
-                <div className="font-display text-3xl font-bold">{n}</div>
-                <div className="mt-1 text-sm text-navy-muted">{l}</div>
+                <span
+                  className="font-display text-base sm:text-lg md:text-xl font-extrabold tracking-tight text-white inline-block animate-stat-enlarge drop-shadow-sm shrink-0"
+                  style={{ animationDelay: `${idx * 0.75}s` }}
+                >
+                  {n}
+                </span>
+                <span className="text-[9px] sm:text-[10px] md:text-[11px] font-mono uppercase tracking-[0.12em] text-navy-muted/90 leading-tight">
+                  {l}
+                </span>
               </div>
             ))}
           </div>

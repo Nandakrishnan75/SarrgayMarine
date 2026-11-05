@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { useState, type ReactNode } from "react";
+import { useState, useEffect, type ReactNode } from "react";
 import logo from "@/assets/sarrgay-logo.png";
 import { Button } from "@/components/ui/button";
 
@@ -24,8 +24,12 @@ function Logo({ light }: { light?: boolean }) {
     <Link to="/" className="flex items-center gap-2.5">
       <img src={logo} alt="Sarrgay Marine logo" width={40} height={40} className="h-10 w-10 object-contain" />
       <span className="leading-tight">
-        <span className="block font-display text-base font-bold tracking-wide">SARRGAY MARINE</span>
-        <span className={`block text-[11px] ${light ? "text-navy-muted" : "text-muted-foreground"}`}>Maritime Engineering • Global</span>
+        <span className={`block font-display text-base font-bold tracking-wide transition-colors ${light ? "text-white" : "text-foreground"}`}>
+          SARRGAY MARINE
+        </span>
+        <span className={`block text-[11px] transition-colors ${light ? "text-white/70" : "text-muted-foreground"}`}>
+          Maritime Engineering • Global
+        </span>
       </span>
     </Link>
   );
@@ -33,45 +37,119 @@ function Logo({ light }: { light?: boolean }) {
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const isTransparent = !isScrolled && !open;
+
   return (
-    <header className="sticky top-0 z-50 border-b bg-background/95 shadow-[0_1px_12px_-6px_color-mix(in_oklab,var(--navy)_25%,transparent)] backdrop-blur-md">
+    <header
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
+        isTransparent
+          ? "border-b border-transparent bg-transparent shadow-none"
+          : "border-b border-border/80 bg-background/95 shadow-[0_1px_12px_-6px_color-mix(in_oklab,var(--navy)_25%,transparent)] backdrop-blur-md"
+      }`}
+    >
       <div className="container-x flex h-18 items-center justify-between">
-        <Logo />
+        <Logo light={isTransparent} />
         <nav className="hidden items-center gap-8 text-sm font-medium lg:flex">
           {nav.map((n) => (
             <Link
               key={n.to}
               to={n.to}
               activeOptions={{ exact: true }}
-              className="relative py-2 text-muted-foreground transition-colors after:absolute after:inset-x-0 after:bottom-0 after:h-0.5 after:origin-left after:scale-x-0 after:bg-primary after:transition-transform hover:text-foreground hover:after:scale-x-100"
-              activeProps={{ className: "text-primary after:scale-x-100" }}
+              className={`relative py-2 transition-colors after:absolute after:inset-x-0 after:bottom-0 after:h-0.5 after:origin-left after:scale-x-0 after:transition-transform hover:after:scale-x-100 ${
+                isTransparent
+                  ? "text-white/90 hover:text-white after:bg-white font-medium"
+                  : "text-muted-foreground hover:text-foreground after:bg-primary font-medium"
+              }`}
+              activeProps={{
+                className: isTransparent
+                  ? "text-white after:scale-x-100 font-bold"
+                  : "text-primary after:scale-x-100 font-bold",
+              }}
             >
               {n.label}
             </Link>
           ))}
         </nav>
-        <div className="hidden items-center gap-3 lg:flex">
-          <a href={WHATSAPP} target="_blank" rel="noreferrer" className="text-xs font-semibold text-muted-foreground hover:text-primary transition-colors">
-            WhatsApp 24/7
-          </a>
-          <a href={TEL} className="inline-flex items-center gap-2 rounded-sm bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition hover:opacity-90">
-            <span className="h-2 w-2 animate-pulse rounded-full bg-primary-foreground/80" />
-            24/7 Hotline
+        <div className="hidden items-center lg:flex">
+          {/* 24/7 Hotline Button — Direct WhatsApp Liaison */}
+          <a
+            href={WHATSAPP}
+            target="_blank"
+            rel="noreferrer"
+            className="group inline-flex items-center gap-2.5 rounded-sm bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-md transition-all duration-200 hover:opacity-95"
+          >
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+            </span>
+            <svg
+              className="h-3.5 w-3.5 opacity-90 group-hover:rotate-12 transition-transform"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+            </svg>
+            <span>24/7 Hotline</span>
           </a>
         </div>
-        <button aria-label="Menu" onClick={() => setOpen(!open)} className="p-2 lg:hidden">
-          <div className="space-y-1.5"><span className="block h-0.5 w-6 bg-foreground" /><span className="block h-0.5 w-6 bg-foreground" /><span className="block h-0.5 w-6 bg-foreground" /></div>
+        <button
+          aria-label="Menu"
+          onClick={() => setOpen(!open)}
+          className="p-2 lg:hidden"
+        >
+          <div className="space-y-1.5">
+            <span className={`block h-0.5 w-6 transition-colors ${isTransparent ? "bg-white" : "bg-foreground"}`} />
+            <span className={`block h-0.5 w-6 transition-colors ${isTransparent ? "bg-white" : "bg-foreground"}`} />
+            <span className={`block h-0.5 w-6 transition-colors ${isTransparent ? "bg-white" : "bg-foreground"}`} />
+          </div>
         </button>
       </div>
+
       {open && (
-        <div className="border-t lg:hidden bg-background">
-          <div className="container-x py-4">
+        <div className="border-t bg-navy text-navy-foreground lg:hidden shadow-xl border-white/15">
+          <div className="container-x py-5">
             {nav.map((n) => (
-              <Link key={n.to} to={n.to} onClick={() => setOpen(false)} className="block border-b py-3 text-base last:border-0">{n.label}</Link>
+              <Link
+                key={n.to}
+                to={n.to}
+                onClick={() => setOpen(false)}
+                className="block border-b border-white/10 py-3 text-base text-white/90 hover:text-white last:border-0"
+              >
+                {n.label}
+              </Link>
             ))}
-            <div className="mt-4 flex flex-col gap-2">
-              <a href={TEL} className="block rounded-sm bg-primary px-4 py-3 text-center font-semibold text-primary-foreground">24/7 Hotline: {PHONE}</a>
-              <a href={WHATSAPP} target="_blank" rel="noreferrer" className="block rounded-sm border border-input px-4 py-2.5 text-center text-sm font-semibold">WhatsApp Liaison</a>
+            <div className="mt-5">
+              <a
+                href={WHATSAPP}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center justify-center gap-2.5 rounded-sm bg-primary px-4 py-3 text-center font-semibold text-primary-foreground shadow-md"
+              >
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+                </span>
+                <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg>
+                <span>24/7 Hotline (WhatsApp)</span>
+              </a>
             </div>
           </div>
         </div>
@@ -225,14 +303,14 @@ export function Footer() {
 
 export function PageHero({ eyebrow, title, sub, image }: { eyebrow: string; title: string; sub: string; image?: string }) {
   return (
-    <section className="relative overflow-hidden bg-navy text-navy-foreground on-navy">
-      {image && <img src={image} alt="" className="absolute inset-0 h-full w-full object-cover" width={1920} height={1088} />}
+    <section className="relative overflow-hidden bg-navy text-navy-foreground on-navy pt-20 sm:pt-24">
+      {image && <img src={image} alt="" className="absolute inset-0 h-full w-full object-cover object-center" width={1920} height={1088} />}
       <div className={image ? "hero-overlay absolute inset-0" : "hidden"} />
-      <div aria-hidden className="dot-grid absolute right-10 top-10 h-20 w-28 opacity-50" />
-      <div className="container-x relative py-20 md:py-28">
+      <div aria-hidden className="dot-grid absolute right-10 top-24 h-20 w-28 opacity-50 pointer-events-none" />
+      <div className="container-x relative py-12 sm:py-16 md:py-20 lg:py-24">
         <p className="eyebrow">{eyebrow}</p>
-        <h1 className="mt-4 max-w-3xl text-4xl font-bold leading-[1.08] md:text-6xl">{title}</h1>
-        <p className="mt-6 max-w-2xl text-base leading-relaxed text-navy-muted md:text-lg">{sub}</p>
+        <h1 className="mt-3.5 max-w-3xl text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold uppercase leading-[1.08] break-words">{title}</h1>
+        <p className="mt-4 sm:mt-5 max-w-2xl text-sm sm:text-base leading-relaxed text-navy-muted md:text-lg">{sub}</p>
       </div>
     </section>
   );
