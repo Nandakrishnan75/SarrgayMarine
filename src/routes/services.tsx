@@ -206,8 +206,6 @@ function Services() {
           </div>
         </div>
       </section>
-
-      <CtaBanner />
     </>
   );
 }

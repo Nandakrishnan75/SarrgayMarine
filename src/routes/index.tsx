@@ -383,7 +383,7 @@ function Index() {
       </section>
 
       {/* Need Expert Support? Climax CTA */}
-      <section className="bg-secondary py-20 overflow-hidden">
+      <section id="contact" className="scroll-mt-24 bg-secondary py-20 overflow-hidden">
         <div className="container-x flex flex-col items-center justify-between gap-8 md:flex-row text-center md:text-left">
           <div className="max-w-2xl scroll-reveal scroll-reveal-left">
             <p className="eyebrow">24/7 GLOBAL REACH</p>
@@ -401,8 +401,6 @@ function Index() {
           </div>
         </div>
       </section>
-
-      <CtaBanner />
     </>
   );
 }

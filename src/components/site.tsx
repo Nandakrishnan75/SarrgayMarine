@@ -284,22 +284,7 @@ export function Btn({ children, href, to, variant = "primary" }: { children: Rea
 }
 
 export function CtaBanner() {
-  return (
-    <section id="contact" className="scroll-mt-24 bg-primary text-primary-foreground scroll-reveal">
-      <div className="container-x flex flex-col items-start gap-6 py-14 md:flex-row md:items-center md:justify-between">
-        <div className="max-w-2xl scroll-reveal delay-100">
-          <p className="font-mono text-xs uppercase tracking-[0.2em] opacity-80">Direct Technical Support</p>
-          <h2 className="mt-2 text-2xl font-bold md:text-3xl">Require Urgent Technical Support or Yard Mobilization?</h2>
-          <p className="mt-2 opacity-90 text-sm leading-relaxed">Our worldwide team of Chief Engineers and specialized riding squads are on standby 24/7 for immediate mobilization to your vessel.</p>
-        </div>
-        <div className="flex flex-wrap gap-3 scroll-reveal delay-200">
-          <a href={WHATSAPP} target="_blank" rel="noreferrer" className="rounded-sm bg-navy px-6 py-3 text-sm font-semibold text-navy-foreground shadow-md hover:opacity-90 transition">WhatsApp Dispatch</a>
-          <Link to="/contact" className="rounded-sm border border-primary-foreground/50 px-6 py-3 text-sm font-semibold hover:bg-primary-foreground/10 transition">Transmit Inquiry Dossier</Link>
-        </div>
-      </div>
-      <div className="container-x pb-8 font-mono text-xs opacity-80 scroll-reveal delay-300">VHF Standby Ch. 16 • Emergency Response Hotline: +91 80099 09888 • Under 15 Minutes Response</div>
-    </section>
-  );
+  return null;
 }
 
 export function Reveal({

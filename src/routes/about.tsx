@@ -211,8 +211,6 @@ function About() {
           </div>
         </div>
       </section>
-
-      <CtaBanner />
     </>
   );
 }

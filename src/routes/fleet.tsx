@@ -283,8 +283,6 @@ function Fleet() {
           </div>
         </div>
       </section>
-
-      <CtaBanner />
     </>
   );
 }
