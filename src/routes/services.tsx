@@ -191,7 +191,7 @@ function Services() {
       </section>
 
       {/* Services CTA Banner */}
-      <section className="bg-secondary py-16 overflow-hidden">
+      <section className="bg-secondary py-16 overflow-hidden border-b border-border">
         <div className="container-x flex flex-col items-center justify-between gap-6 md:flex-row text-center md:text-left">
           <div className="scroll-reveal scroll-reveal-left">
             <p className="eyebrow">LET'S DISCUSS YOUR FLEET</p>
