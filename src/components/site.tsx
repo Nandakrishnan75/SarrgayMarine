@@ -143,22 +143,22 @@ export function Header() {
 export function Footer() {
   return (
     <footer className="border-t border-border/60 bg-[#FAFAFA] text-[#1A1A1A]">
-      <div className="container-x grid gap-10 py-16 md:grid-cols-2 lg:grid-cols-[1.2fr_1.1fr_1.15fr_1fr]">
+      <div className="container-x grid gap-8 py-10 md:py-12 md:grid-cols-2 lg:grid-cols-[1.2fr_1.1fr_1.15fr_1fr]">
         {/* Column 1: Brand & Credential */}
         <div>
           <Link to="/" className="inline-flex items-center gap-2.5">
-            <img src={logo} alt="Sarrgay Marine logo" width={26} height={26} className="h-6 w-6 object-contain" />
+            <img src={logo} alt="Sarrgay Marine logo" width={24} height={24} className="h-6 w-6 object-contain" />
             <span className="font-serif text-sm font-bold tracking-[0.2em] uppercase text-foreground">
               S A R R G A Y &nbsp; M A R I N E
             </span>
           </Link>
-          <p className="mt-4 max-w-xs text-xs leading-[1.8] text-muted-foreground font-normal">
+          <p className="mt-3 max-w-xs text-xs leading-relaxed text-muted-foreground font-normal">
             Naval architecture, technical marine engineering, and worldwide riding squad superintendency for commercial vessels and yachts of exceptional pedigree.
           </p>
-          <p className="mt-5 text-[11px] font-semibold tracking-[0.14em] text-[#B3804A] uppercase">
+          <p className="mt-3 text-[11px] font-semibold tracking-[0.14em] text-[#B3804A] uppercase">
             NAVAL WARRANT NO. 7192-MCO • ISO 9001:2015
           </p>
-          <p className="mt-2 text-[11px] text-muted-foreground">
+          <p className="mt-1 text-[11px] text-muted-foreground">
             HQ: 65/1599A, Shenoy Road, Kaloor, Kochi – 682017
           </p>
         </div>
@@ -168,7 +168,7 @@ export function Footer() {
           <h4 className="font-serif text-[11px] font-bold uppercase tracking-[0.2em] text-foreground">
             OUTPOSTS &amp; BERTHS
           </h4>
-          <ul className="mt-4 space-y-2.5 text-xs leading-[1.8] text-muted-foreground">
+          <ul className="mt-3 space-y-1.5 text-xs leading-normal text-muted-foreground">
             <li>
               <span className="font-medium text-foreground">Port of Kochi</span> · Central Engineering Operations Hub
             </li>
@@ -179,9 +179,9 @@ export function Footer() {
               <span className="font-medium text-foreground">Singapore OPL</span> · Southeast Asia Flying Squad Hub
             </li>
           </ul>
-          <div className="mt-5 border-t border-border/40 pt-3">
+          <div className="mt-3 border-t border-border/40 pt-2.5">
             <span className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">Class Approved:</span>
-            <p className="mt-1 text-xs text-muted-foreground">
+            <p className="mt-0.5 text-xs text-muted-foreground">
               ABS · DNV · Lloyd's Register (+100A1) · BV · ClassNK · IRS
             </p>
           </div>
@@ -192,7 +192,7 @@ export function Footer() {
           <h4 className="font-serif text-[11px] font-bold uppercase tracking-[0.2em] text-foreground">
             THE ATELIER DISPATCH
           </h4>
-          <p className="mt-4 text-xs leading-[1.8] text-muted-foreground">
+          <p className="mt-3 text-xs leading-normal text-muted-foreground">
             Receive confidential briefings on ocean trials, shipyard build slots, engine overhauls, and private anchorages.
           </p>
           <form
@@ -200,14 +200,14 @@ export function Footer() {
               e.preventDefault();
               alert("Thank you. You have been registered for technical briefings.");
             }}
-            className="mt-4 flex items-center border border-[#D1D5DB] bg-white p-1"
+            className="mt-3 flex items-center border border-[#D1D5DB] bg-white p-1"
           >
             <input
               aria-label="Atelier correspondence address"
               type="email"
               required
               placeholder="Atelier correspondence address"
-              className="h-8 w-full min-w-0 bg-transparent px-2.5 text-xs text-[#1A1A1A] outline-none placeholder:text-muted-foreground/70"
+              className="h-7 w-full min-w-0 bg-transparent px-2.5 text-xs text-[#1A1A1A] outline-none placeholder:text-muted-foreground/70"
             />
             <Button
               type="submit"
@@ -216,7 +216,7 @@ export function Footer() {
               JOIN
             </Button>
           </form>
-          <div className="mt-4 flex gap-4 text-xs text-muted-foreground">
+          <div className="mt-3 flex gap-4 text-xs text-muted-foreground">
             <a href="https://www.linkedin.com/company/sarrgaymarine/" target="_blank" rel="noreferrer" className="hover:text-foreground transition-colors">LinkedIn</a>
             <span>•</span>
             <a href="https://www.instagram.com/sarrgaymarine/" target="_blank" rel="noreferrer" className="hover:text-foreground transition-colors">Instagram</a>
@@ -228,14 +228,14 @@ export function Footer() {
           <h4 className="font-serif text-[11px] font-bold uppercase tracking-[0.2em] text-foreground">
             DIRECT LIAISON
           </h4>
-          <div className="mt-4">
+          <div className="mt-3">
             <a
               href={TEL}
-              className="font-serif text-xl font-bold tracking-tight text-foreground transition-colors hover:text-[#B3804A]"
+              className="font-serif text-lg font-bold tracking-tight text-foreground transition-colors hover:text-[#B3804A]"
             >
               {PHONE}
             </a>
-            <p className="mt-1">
+            <p className="mt-0.5">
               <a
                 href="tel:+918009980888"
                 className="font-mono text-xs text-muted-foreground transition-colors hover:text-foreground"
@@ -244,7 +244,7 @@ export function Footer() {
               </a>
             </p>
           </div>
-          <div className="mt-3">
+          <div className="mt-2">
             <a
               href={`mailto:${EMAIL}`}
               className="break-all text-xs text-muted-foreground transition-colors hover:text-foreground"
@@ -252,10 +252,10 @@ export function Footer() {
               {EMAIL}
             </a>
           </div>
-          <p className="mt-3 font-serif text-xs text-muted-foreground">
+          <p className="mt-2 font-serif text-xs text-muted-foreground">
             VHF Ch. 12 &amp; 68 Maritime Standby
           </p>
-          <div className="mt-4">
+          <div className="mt-2.5">
             <a
               href={WHATSAPP}
               target="_blank"
@@ -269,10 +269,10 @@ export function Footer() {
       </div>
 
       {/* Bottom Bar matching exact layout */}
-      <div className="border-t border-[#E5E7EB] py-6">
-        <div className="container-x flex flex-col gap-4 text-[10px] font-medium uppercase tracking-[0.12em] text-muted-foreground lg:flex-row lg:items-center lg:justify-between">
+      <div className="border-t border-[#E5E7EB] py-3.5">
+        <div className="container-x flex flex-col gap-2 text-[10px] font-medium uppercase tracking-[0.12em] text-muted-foreground lg:flex-row lg:items-center lg:justify-between">
           <span>© 2026 SARRGAY MARINE ATELIER. ALL RIGHTS RESERVED.</span>
-          <div className="flex flex-wrap gap-x-6 gap-y-2">
+          <div className="flex flex-wrap gap-x-6 gap-y-1">
             <span>INDIAN &amp; INTERNATIONAL MARITIME REGISTRY</span>
             <span>BESPOKE CLASSIFICATION LLOYD'S 100A1</span>
             <Link to="/contact" className="hover:text-foreground transition-colors">TERMS &amp; BERTHING DISPATCHES</Link>
