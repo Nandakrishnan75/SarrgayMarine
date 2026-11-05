@@ -146,33 +146,26 @@ export function Footer() {
       <div className="container-x grid gap-10 py-12 md:grid-cols-2 lg:grid-cols-[1.3fr_1.25fr_1.25fr_1fr]">
         {/* Column 1: Brand & Credential */}
         <div className="space-y-3.5">
-          <Link to="/" className="inline-flex items-center gap-2">
-            <svg
-              className="h-4.5 w-4.5 shrink-0 text-[#1A1A1A]"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              aria-hidden="true"
-            >
-              <path d="M12 2a3 3 0 0 0-3 3c0 1.31.84 2.42 2 2.83V10H9c-.55 0-1 .45-1 1s.45 1 1 1h2v7.92c-3.95-.49-7-3.85-7-7.92 0-.55-.45-1-1-1s-1 .45-1 1c0 5.18 3.95 9.45 9 9.95V22h2v-2.05c5.05-.5 9-4.77 9-9.95 0-.55-.45-1-1-1s-1 .45-1 1c0 4.07-3.05 7.43-7 7.92V12h2c.55 0 1-.45 1-1s-.45-1-1-1h-2V7.83c1.16-.41 2-1.52 2-2.83a3 3 0 0 0-3-3m0 2a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1" />
-            </svg>
-            <span className="font-serif text-sm md:text-base font-bold tracking-[0.22em] uppercase text-[#1A1A1A]">
+          <Link to="/" className="inline-flex items-center gap-2.5">
+            <img src={logo} alt="Sarrgay Marine logo" width={28} height={28} className="h-7 w-7 object-contain" />
+            <span className="font-serif text-sm md:text-base font-normal tracking-[0.22em] uppercase text-[#1A1A1A]">
               S A R R G A Y &nbsp; M A R I N E
             </span>
           </Link>
           <p className="max-w-xs text-xs leading-[1.8] text-[#555555] font-normal">
             Naval architecture, custom atelier engineering, and Mediterranean berth management for vessels of exceptional pedigree.
           </p>
-          <p className="pt-1 text-[11px] font-bold tracking-[0.16em] text-[#B3804A] uppercase">
+          <p className="pt-1 text-[11px] font-medium tracking-[0.16em] text-[#B3804A] uppercase">
             NAVAL WARRANT NO. 7192-MCO
           </p>
         </div>
 
         {/* Column 2: Outposts & Berths */}
         <div className="space-y-3.5">
-          <h4 className="font-serif text-[11px] font-bold uppercase tracking-[0.22em] text-[#1A1A1A]">
+          <h4 className="font-serif text-[11px] font-medium uppercase tracking-[0.22em] text-[#1A1A1A]">
             OUTPOSTS &amp; BERTHS
           </h4>
-          <ul className="space-y-2 text-xs leading-[1.8] text-[#555555]">
+          <ul className="space-y-2 text-xs leading-[1.8] text-[#555555] font-normal">
             <li>Port Hercule, Monaco · Quai des Sanctuaires</li>
             <li>Rue du Rhône 42, Geneva · Private Office</li>
             <li>Mayfair, London · Curzon Maritime Suite</li>
@@ -181,10 +174,10 @@ export function Footer() {
 
         {/* Column 3: The Atelier Dispatch */}
         <div className="space-y-3.5">
-          <h4 className="font-serif text-[11px] font-bold uppercase tracking-[0.22em] text-[#1A1A1A]">
+          <h4 className="font-serif text-[11px] font-medium uppercase tracking-[0.22em] text-[#1A1A1A]">
             THE ATELIER DISPATCH
           </h4>
-          <p className="text-xs leading-[1.8] text-[#555555]">
+          <p className="text-xs leading-[1.8] text-[#555555] font-normal">
             Receive confidential briefings on ocean trials, shipyard build slots, and private anchorages.
           </p>
           <form
@@ -199,11 +192,11 @@ export function Footer() {
               type="email"
               required
               placeholder="Atelier correspondence addre"
-              className="h-7 w-full min-w-0 bg-transparent px-2.5 text-xs text-[#1A1A1A] outline-none placeholder:text-[#777777]"
+              className="h-7 w-full min-w-0 bg-transparent px-2.5 text-xs font-normal text-[#1A1A1A] outline-none placeholder:text-[#777777]"
             />
             <button
               type="submit"
-              className="h-7 shrink-0 bg-black px-4 text-[10px] font-bold tracking-widest text-white transition-opacity hover:opacity-90"
+              className="h-7 shrink-0 bg-black px-4 text-[10px] font-medium tracking-widest text-white transition-opacity hover:opacity-90"
             >
               JOIN
             </button>
@@ -212,23 +205,23 @@ export function Footer() {
 
         {/* Column 4: Direct Liaison */}
         <div className="space-y-3.5">
-          <h4 className="font-serif text-[11px] font-bold uppercase tracking-[0.22em] text-[#1A1A1A]">
+          <h4 className="font-serif text-[11px] font-medium uppercase tracking-[0.22em] text-[#1A1A1A]">
             DIRECT LIAISON
           </h4>
           <div className="space-y-1">
             <a
               href="tel:+37798062000"
-              className="block font-serif text-xl font-bold tracking-tight text-[#1A1A1A] transition-colors hover:text-[#B3804A]"
+              className="block font-serif text-xl font-normal tracking-tight text-[#1A1A1A] transition-colors hover:text-[#B3804A]"
             >
               +377 98 06 20 00
             </a>
             <a
               href="mailto:concierge@sarrgaymarine.mc"
-              className="block text-xs text-[#555555] transition-colors hover:text-[#1A1A1A]"
+              className="block text-xs font-normal text-[#555555] transition-colors hover:text-[#1A1A1A]"
             >
               concierge@sarrgaymarine.mc
             </a>
-            <p className="font-serif text-xs text-[#555555]">
+            <p className="font-serif text-xs font-normal text-[#555555]">
               VHF Ch. 12 &amp; 68 Maritime Standby
             </p>
           </div>
@@ -237,7 +230,7 @@ export function Footer() {
 
       {/* Bottom Bar matching exact layout */}
       <div className="border-t border-[#E5E7EB] py-4">
-        <div className="container-x flex flex-col gap-3 text-[10px] font-medium uppercase tracking-[0.14em] text-[#666666] lg:flex-row lg:items-center lg:justify-between">
+        <div className="container-x flex flex-col gap-3 text-[10px] font-normal uppercase tracking-[0.14em] text-[#666666] lg:flex-row lg:items-center lg:justify-between">
           <span>© MDXCI SARRGAY MARINE ATELIER. ALL RIGHTS RESERVED.</span>
           <div className="flex flex-wrap gap-x-8 gap-y-1">
             <span>MONACO MARITIME REGISTRY</span>
