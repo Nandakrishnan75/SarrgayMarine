@@ -122,9 +122,9 @@ function Services() {
 
       {/* Service Catalog */}
       <section className="container-x divide-y py-12">
-        {catalog.map((s) => (
-          <article key={s.t} className="grid gap-8 py-14 lg:grid-cols-[1fr_1.3fr]">
-            <div>
+        {catalog.map((s, idx) => (
+          <article key={s.t} className="grid gap-8 py-14 lg:grid-cols-[1fr_1.3fr] overflow-hidden">
+            <div className="scroll-reveal scroll-reveal-left">
               <span className="font-mono text-sm font-semibold text-primary">Service {s.id}</span>
               <h2 className="mt-2 text-3xl font-bold">{s.t}</h2>
               <p className="mt-2 italic text-muted-foreground">{s.tag}</p>
@@ -135,9 +135,12 @@ function Services() {
                 <span className="rounded-sm bg-secondary px-2.5 py-1 text-xs font-mono font-medium text-foreground">24/7 Mobilization</span>
               </div>
             </div>
-            <ul className="grid content-start gap-3 sm:grid-cols-2">
-              {s.items.map((it) => (
-                <li key={it} className="rounded-sm border border-l-2 border-l-primary bg-card p-4 text-sm shadow-sm leading-relaxed">
+            <ul className="grid content-start gap-3 sm:grid-cols-2 scroll-reveal scroll-reveal-right delay-100">
+              {s.items.map((it, itemIdx) => (
+                <li
+                  key={it}
+                  className={`rounded-sm border border-l-2 border-l-primary bg-card p-4 text-sm shadow-sm leading-relaxed transition hover:shadow-md hover:border-primary/40 scroll-reveal delay-${((itemIdx % 4) + 1) * 75}`}
+                >
                   {it}
                 </li>
               ))}
@@ -147,9 +150,9 @@ function Services() {
       </section>
 
       {/* Feature Spotlight — Riding Teams & On-Voyage Repairs */}
-      <section className="bg-navy py-20 text-navy-foreground on-navy">
+      <section className="bg-navy py-20 text-navy-foreground on-navy overflow-hidden">
         <div className="container-x">
-          <div className="mx-auto max-w-3xl text-center">
+          <div className="mx-auto max-w-3xl text-center scroll-reveal">
             <p className="eyebrow">ON-VOYAGE REPAIRS • ZERO OFF-HIRE</p>
             <h2 className="mt-3 text-3xl font-bold md:text-4xl">Zero Downtime Maintenance</h2>
             <p className="mt-5 leading-relaxed text-navy-muted">
@@ -158,14 +161,14 @@ function Services() {
           </div>
 
           <div className="mt-14 grid gap-8 md:grid-cols-2">
-            <div className="rounded-md border border-navy-foreground/15 bg-navy/60 p-8 backdrop-blur-sm">
+            <div className="rounded-md border border-navy-foreground/15 bg-navy/60 p-8 backdrop-blur-sm scroll-reveal scroll-reveal-left delay-100">
               <div className="font-mono text-xs uppercase tracking-wider text-accent">Pillar 01</div>
               <h3 className="mt-2 text-xl font-bold">Qualified & Certified Personnel</h3>
               <p className="mt-3 text-sm leading-relaxed text-navy-muted">
                 All technicians and riding squad specialists are fully certified with valid <b>CDC (Continuous Discharge Certificates)</b> and <b>STCW 2010</b> seafarer endorsements, holding medical fitness certificates ready for rapid visa processing and worldwide deployment.
               </p>
             </div>
-            <div className="rounded-md border border-navy-foreground/15 bg-navy/60 p-8 backdrop-blur-sm">
+            <div className="rounded-md border border-navy-foreground/15 bg-navy/60 p-8 backdrop-blur-sm scroll-reveal scroll-reveal-right delay-200">
               <div className="font-mono text-xs uppercase tracking-wider text-accent">Pillar 02</div>
               <h3 className="mt-2 text-xl font-bold">Sea-Going Project Management</h3>
               <p className="mt-3 text-sm leading-relaxed text-navy-muted">
@@ -174,7 +177,7 @@ function Services() {
             </div>
           </div>
 
-          <div className="mt-12 text-center">
+          <div className="mt-12 text-center scroll-reveal delay-300">
             <div className="inline-flex items-center gap-2 rounded-full border border-navy-foreground/20 bg-navy-foreground/5 px-4 py-1.5 text-xs font-mono text-accent">
               <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
               Deploying teams to any port worldwide • Middle East • Asia • Europe
@@ -188,16 +191,16 @@ function Services() {
       </section>
 
       {/* Services CTA Banner */}
-      <section className="bg-secondary py-16">
+      <section className="bg-secondary py-16 overflow-hidden">
         <div className="container-x flex flex-col items-center justify-between gap-6 md:flex-row text-center md:text-left">
-          <div>
+          <div className="scroll-reveal scroll-reveal-left">
             <p className="eyebrow">LET'S DISCUSS YOUR FLEET</p>
             <h2 className="mt-2 text-2xl font-bold md:text-3xl">Ready to Optimize Your Operations?</h2>
             <p className="mt-2 text-sm text-muted-foreground">
               Get a competitive quote for your next dry docking or riding squad requirement within 24 hours.
             </p>
           </div>
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-wrap gap-3 scroll-reveal scroll-reveal-right delay-100">
             <Btn href={WHATSAPP}>WhatsApp Now</Btn>
             <Btn to="/contact" variant="outline">Request Quote</Btn>
           </div>

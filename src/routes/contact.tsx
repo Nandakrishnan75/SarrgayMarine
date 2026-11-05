@@ -61,9 +61,9 @@ function Contact() {
         sub="Whether you need emergency repairs, routine maintenance, or technical consultation, our team is ready to assist you 24/7."
       />
 
-      <section className="container-x grid gap-12 py-20 lg:grid-cols-[1fr_1.6fr]">
+      <section className="container-x grid gap-12 py-20 lg:grid-cols-[1fr_1.6fr] overflow-hidden">
         {/* Contact Information & Channels */}
-        <aside className="space-y-6">
+        <aside className="space-y-6 scroll-reveal scroll-reveal-left">
           <div>
             <h2 className="text-xl font-bold">Direct Contact Channels</h2>
             <p className="mt-1 text-sm text-muted-foreground">
@@ -72,7 +72,7 @@ function Contact() {
           </div>
 
           {/* Hotline Card */}
-          <div className="rounded-md border bg-card p-6 shadow-sm">
+          <div className="rounded-md border bg-card p-6 shadow-sm transition hover:shadow-md">
             <span className="font-mono text-xs uppercase tracking-wider text-primary">24/7 Emergency Support</span>
             <h3 className="mt-1 text-lg font-bold">Telephone Hotline</h3>
             <div className="mt-3 space-y-2">
@@ -96,7 +96,7 @@ function Contact() {
             href={WHATSAPP}
             target="_blank"
             rel="noreferrer"
-            className="block rounded-md border border-primary/30 bg-primary/5 p-6 transition hover:bg-primary/10"
+            className="block rounded-md border border-primary/30 bg-primary/5 p-6 transition hover:bg-primary/10 hover:shadow-md"
           >
             <span className="font-mono text-xs uppercase tracking-wider text-primary">Instant Response</span>
             <h3 className="mt-1 text-lg font-bold">Chat on WhatsApp</h3>
@@ -109,7 +109,7 @@ function Contact() {
           </a>
 
           {/* Email Card */}
-          <div className="rounded-md border bg-card p-6 shadow-sm">
+          <div className="rounded-md border bg-card p-6 shadow-sm transition hover:shadow-md">
             <span className="font-mono text-xs uppercase tracking-wider text-primary">Email Communications</span>
             <h3 className="mt-1 text-lg font-bold">Send us your inquiry</h3>
             <div className="mt-3 space-y-3 text-sm">
@@ -129,7 +129,7 @@ function Contact() {
           </div>
 
           {/* Office Headquarters Card */}
-          <div className="rounded-md border bg-card p-6 shadow-sm">
+          <div className="rounded-md border bg-card p-6 shadow-sm transition hover:shadow-md">
             <span className="font-mono text-xs uppercase tracking-wider text-primary">Corporate Headquarters</span>
             <h3 className="mt-1 text-lg font-bold">Kochi, Kerala, India</h3>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
@@ -144,7 +144,7 @@ function Contact() {
         </aside>
 
         {/* Technical Inquiry Form */}
-        <div className="rounded-md border bg-card p-8 shadow-sm">
+        <div className="rounded-md border bg-card p-8 shadow-sm scroll-reveal scroll-reveal-right delay-150">
           {submitted ? (
             <div className="py-16 text-center">
               <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 text-primary">

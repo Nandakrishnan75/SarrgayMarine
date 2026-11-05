@@ -290,9 +290,9 @@ export function PageHero({ eyebrow, title, sub, image }: { eyebrow: string; titl
       <div className={image ? "hero-overlay absolute inset-0" : "hidden"} />
       <div aria-hidden className="dot-grid absolute right-10 top-24 h-20 w-28 opacity-50 pointer-events-none" />
       <div className="container-x relative py-12 sm:py-16 md:py-20 lg:py-24">
-        <p className="eyebrow">{eyebrow}</p>
-        <h1 className="mt-3.5 max-w-3xl text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold uppercase leading-[1.08] break-words">{title}</h1>
-        <p className="mt-4 sm:mt-5 max-w-2xl text-sm sm:text-base leading-relaxed text-navy-muted md:text-lg">{sub}</p>
+        <p className="eyebrow scroll-reveal">{eyebrow}</p>
+        <h1 className="mt-3.5 max-w-3xl text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold uppercase leading-[1.08] break-words scroll-reveal delay-100">{title}</h1>
+        <p className="mt-4 sm:mt-5 max-w-2xl text-sm sm:text-base leading-relaxed text-navy-muted md:text-lg scroll-reveal delay-200">{sub}</p>
       </div>
     </section>
   );
@@ -300,7 +300,7 @@ export function PageHero({ eyebrow, title, sub, image }: { eyebrow: string; titl
 
 export function SectionHead({ eyebrow, title, sub, center }: { eyebrow: string; title: string; sub?: string; center?: boolean }) {
   return (
-    <div className={center ? "mx-auto max-w-2xl text-center" : "max-w-2xl"}>
+    <div className={`scroll-reveal ${center ? "mx-auto max-w-2xl text-center" : "max-w-2xl"}`}>
       <p className="eyebrow">{eyebrow}</p>
       <h2 className={`${center ? "[&::after]:mx-auto " : ""}title-bar mt-3 text-3xl leading-tight md:text-4xl font-extrabold uppercase`}>{title}</h2>
       {sub && <p className="mt-4 leading-relaxed text-muted-foreground">{sub}</p>}
@@ -321,20 +321,48 @@ export function Btn({ children, href, to, variant = "primary" }: { children: Rea
 
 export function CtaBanner() {
   return (
-    <section id="contact" className="scroll-mt-24 bg-primary text-primary-foreground">
+    <section id="contact" className="scroll-mt-24 bg-primary text-primary-foreground scroll-reveal">
       <div className="container-x flex flex-col items-start gap-6 py-14 md:flex-row md:items-center md:justify-between">
-        <div className="max-w-2xl">
+        <div className="max-w-2xl scroll-reveal delay-100">
           <p className="font-mono text-xs uppercase tracking-[0.2em] opacity-80">Direct Technical Support</p>
           <h2 className="mt-2 text-2xl font-bold md:text-3xl">Require Urgent Technical Support or Yard Mobilization?</h2>
           <p className="mt-2 opacity-90 text-sm leading-relaxed">Our worldwide team of Chief Engineers and specialized riding squads are on standby 24/7 for immediate mobilization to your vessel.</p>
         </div>
-        <div className="flex flex-wrap gap-3">
+        <div className="flex flex-wrap gap-3 scroll-reveal delay-200">
           <a href={WHATSAPP} target="_blank" rel="noreferrer" className="rounded-sm bg-navy px-6 py-3 text-sm font-semibold text-navy-foreground shadow-md hover:opacity-90 transition">WhatsApp Dispatch</a>
           <Link to="/contact" className="rounded-sm border border-primary-foreground/50 px-6 py-3 text-sm font-semibold hover:bg-primary-foreground/10 transition">Transmit Inquiry Dossier</Link>
         </div>
       </div>
-      <div className="container-x pb-8 font-mono text-xs opacity-80">VHF Standby Ch. 16 • Emergency Response Hotline: +91 80099 09888 • Under 15 Minutes Response</div>
+      <div className="container-x pb-8 font-mono text-xs opacity-80 scroll-reveal delay-300">VHF Standby Ch. 16 • Emergency Response Hotline: +91 80099 09888 • Under 15 Minutes Response</div>
     </section>
+  );
+}
+
+export function Reveal({
+  children,
+  className = "",
+  variant = "up",
+  delay = 0,
+}: {
+  children: ReactNode;
+  className?: string;
+  variant?: "up" | "left" | "right" | "scale";
+  delay?: number;
+}) {
+  const variantClass = {
+    up: "",
+    left: "scroll-reveal-left",
+    right: "scroll-reveal-right",
+    scale: "scroll-reveal-scale",
+  }[variant];
+
+  return (
+    <div
+      className={`scroll-reveal ${variantClass} ${className}`}
+      style={delay ? { transitionDelay: `${delay}ms` } : undefined}
+    >
+      {children}
+    </div>
   );
 }
 

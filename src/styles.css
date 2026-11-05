@@ -159,3 +159,52 @@
   animation: nav-indicator-enlarge 3.4s ease-in-out infinite;
   transform-origin: right center;
 }
+
+/* ==========================================================================
+   Smooth Scroll-Driven Reveal Animations (Progressive Enhancement)
+   ========================================================================== */
+.has-scroll-observer .scroll-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition-property: opacity, transform;
+  transition-duration: 0.75s;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.has-scroll-observer .scroll-reveal.scroll-reveal-left {
+  transform: translateX(-32px);
+}
+
+.has-scroll-observer .scroll-reveal.scroll-reveal-right {
+  transform: translateX(32px);
+}
+
+.has-scroll-observer .scroll-reveal.scroll-reveal-scale {
+  transform: scale(0.94);
+}
+
+.has-scroll-observer .scroll-reveal.is-revealed {
+  opacity: 1;
+  transform: translate(0, 0) scale(1);
+}
+
+/* Stagger delay classes */
+.delay-75 { transition-delay: 75ms; }
+.delay-100 { transition-delay: 100ms; }
+.delay-150 { transition-delay: 150ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-250 { transition-delay: 250ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+.delay-500 { transition-delay: 500ms; }
+.delay-600 { transition-delay: 600ms; }
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .has-scroll-observer .scroll-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

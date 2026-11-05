@@ -64,8 +64,8 @@ function About() {
       />
 
       {/* Mission & Leadership Section */}
-      <section className="container-x grid gap-12 py-24 lg:grid-cols-2 lg:items-center">
-        <div>
+      <section className="container-x grid gap-12 py-24 lg:grid-cols-2 lg:items-center overflow-hidden">
+        <div className="scroll-reveal scroll-reveal-left">
           <SectionHead eyebrow="OUR MISSION" title="More Than a Repair Company" />
           <p className="mt-5 leading-relaxed text-muted-foreground">
             Sarrgay Marine is your trusted technical partner in maritime engineering. We specialize in diesel engine overhauls, generator maintenance, dry dock assistance, and comprehensive mechanical and electrical services for vessels of all types and classes.
@@ -84,7 +84,7 @@ function About() {
           </div>
         </div>
 
-        <div className="relative">
+        <div className="relative scroll-reveal scroll-reveal-right delay-150">
           <img
             src={engine}
             alt="Chief Marine Engineer conducting engine inspection"
@@ -102,10 +102,10 @@ function About() {
       </section>
 
       {/* Stats Bar */}
-      <section className="border-y bg-card py-12">
+      <section className="border-y bg-card py-12 scroll-reveal">
         <div className="container-x grid grid-cols-2 gap-8 md:grid-cols-4">
-          {credentials.map((c) => (
-            <div key={c.label} className="text-center md:text-left">
+          {credentials.map((c, idx) => (
+            <div key={c.label} className={`text-center md:text-left scroll-reveal delay-${(idx + 1) * 100}`}>
               <div className="font-display text-4xl font-bold text-primary">{c.stat}</div>
               <div className="mt-1 text-sm text-muted-foreground">{c.label}</div>
             </div>
@@ -123,8 +123,11 @@ function About() {
             sub="Foundation of trust built on safety, precision, and global reliability."
           />
           <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {values.map((v) => (
-              <div key={v.title} className="rounded-md border bg-card p-7 shadow-sm transition hover:shadow-md">
+            {values.map((v, i) => (
+              <div
+                key={v.title}
+                className={`rounded-md border bg-card p-7 shadow-sm transition hover:shadow-md hover:-translate-y-1 scroll-reveal delay-${((i % 4) + 1) * 100}`}
+              >
                 <span className="font-mono text-xs font-semibold text-primary">{v.num}</span>
                 <h3 className="mt-3 text-lg font-bold">{v.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{v.desc}</p>
@@ -135,17 +138,20 @@ function About() {
       </section>
 
       {/* Technical Expertise & OEM Adherence */}
-      <section className="container-x py-24">
+      <section className="container-x py-24 overflow-hidden">
         <div className="grid gap-12 lg:grid-cols-[1.2fr_1fr] lg:items-start">
-          <div>
+          <div className="scroll-reveal scroll-reveal-left">
             <SectionHead
               eyebrow="TECHNICAL EXPERTISE"
               title="Specialized Knowledge Across Major OEMs"
               sub="Our engineers hold comprehensive experience across all major marine engine manufacturers and auxiliary systems, ensuring expert service regardless of your fleet composition."
             />
             <ul className="mt-8 grid gap-3 sm:grid-cols-2">
-              {machinery.map((m) => (
-                <li key={m} className="flex items-center gap-3 rounded-sm border bg-card p-3.5 text-sm shadow-sm">
+              {machinery.map((m, idx) => (
+                <li
+                  key={m}
+                  className={`flex items-center gap-3 rounded-sm border bg-card p-3.5 text-sm shadow-sm scroll-reveal delay-${((idx % 4) + 1) * 75}`}
+                >
                   <span className="h-2 w-2 rounded-full bg-primary flex-shrink-0" />
                   <span className="font-medium">{m}</span>
                 </li>
@@ -153,7 +159,7 @@ function About() {
             </ul>
           </div>
 
-          <div className="rounded-md border border-primary/20 bg-card p-8 shadow-sm">
+          <div className="rounded-md border border-primary/20 bg-card p-8 shadow-sm scroll-reveal scroll-reveal-right delay-150">
             <span className="eyebrow">QUALITY COMPLIANCE</span>
             <h3 className="mt-2 text-xl font-bold">OEM Compliant Execution</h3>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
@@ -181,7 +187,7 @@ function About() {
       </section>
 
       {/* Panoramic Break / Slogan */}
-      <section className="relative overflow-hidden bg-navy py-16 text-center text-navy-foreground on-navy">
+      <section className="relative overflow-hidden bg-navy py-16 text-center text-navy-foreground on-navy scroll-reveal">
         <div className="container-x relative">
           <p className="font-mono text-xs uppercase tracking-[0.3em] text-accent">PRECISION DEFINED</p>
           <h2 className="mt-2 font-display text-2xl font-bold md:text-3xl">High-Precision Mechanical & Electrical Solutions</h2>
@@ -192,14 +198,14 @@ function About() {
       </section>
 
       {/* Partner With Us CTA */}
-      <section className="bg-secondary py-16">
+      <section className="bg-secondary py-16 overflow-hidden">
         <div className="container-x flex flex-col items-center justify-between gap-6 md:flex-row text-center md:text-left">
-          <div>
+          <div className="scroll-reveal scroll-reveal-left">
             <p className="eyebrow">PARTNER WITH US</p>
             <h2 className="mt-2 text-2xl font-bold md:text-3xl">Ready for World-Class Engineering?</h2>
             <p className="mt-2 text-sm text-muted-foreground">Experience maritime support defined by precision, speed, and safety.</p>
           </div>
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-wrap gap-3 scroll-reveal scroll-reveal-right delay-100">
             <Btn href={WHATSAPP}>WhatsApp Now</Btn>
             <Btn to="/contact" variant="outline">Contact Us</Btn>
           </div>

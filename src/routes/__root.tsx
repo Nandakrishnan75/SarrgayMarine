@@ -115,6 +115,46 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const router = useRouter();
+  const pathname = router.state.location.pathname;
+
+  useEffect(() => {
+    document.documentElement.classList.add("has-scroll-observer");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-revealed");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: "0px 0px -40px 0px",
+      }
+    );
+
+    const initObserver = () => {
+      const targets = document.querySelectorAll(".scroll-reveal, [data-reveal]");
+      targets.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 30) {
+          el.classList.add("is-revealed");
+        } else {
+          observer.observe(el);
+        }
+      });
+    };
+
+    const timer = setTimeout(initObserver, 40);
+
+    return () => {
+      clearTimeout(timer);
+      observer.disconnect();
+    };
+  }, [pathname]);
 
   return (
     <QueryClientProvider client={queryClient}>

@@ -185,7 +185,7 @@ function Index() {
           {services.map((s, i) => (
             <div
               key={s.title}
-              className="group bg-card p-8 transition duration-300 hover:bg-primary hover:text-primary-foreground [&:hover_p]:text-primary-foreground/80 [&:hover_span]:text-primary-foreground"
+              className={`group bg-card p-8 transition duration-300 hover:bg-primary hover:text-primary-foreground [&:hover_p]:text-primary-foreground/80 [&:hover_span]:text-primary-foreground scroll-reveal delay-${((i % 3) + 1) * 100}`}
             >
               <span className="font-mono text-xs font-semibold text-primary">0{i + 1}</span>
               <h3 className="mt-3 text-xl font-bold">{s.title}</h3>
@@ -196,16 +196,16 @@ function Index() {
             </div>
           ))}
         </div>
-        <div className="mt-10 flex flex-wrap gap-4">
+        <div className="mt-10 flex flex-wrap gap-4 scroll-reveal delay-200">
           <Btn to="/services">View All Services →</Btn>
           <Btn to="/contact" variant="outline">Get a Quote</Btn>
         </div>
       </section>
 
       {/* Flagship Technical Showcase */}
-      <section id="propulsion" className="scroll-mt-24 bg-navy py-24 text-navy-foreground on-navy">
+      <section id="propulsion" className="scroll-mt-24 bg-navy py-24 text-navy-foreground on-navy overflow-hidden">
         <div className="container-x grid gap-12 lg:grid-cols-2 lg:items-center">
-          <div>
+          <div className="scroll-reveal scroll-reveal-left">
             <div className="flex flex-wrap gap-2 font-mono text-[11px] uppercase tracking-wider">
               <span className="rounded-full bg-accent px-3 py-1 text-accent-foreground font-semibold">Flagship Engineering</span>
               <span className="rounded-full border border-navy-foreground/20 px-3 py-1">24/7 Global Dispatch</span>
@@ -225,7 +225,7 @@ function Index() {
             </div>
           </div>
 
-          <dl className="grid content-center gap-px overflow-hidden rounded-md bg-navy-foreground/10">
+          <dl className="grid content-center gap-px overflow-hidden rounded-md bg-navy-foreground/10 scroll-reveal scroll-reveal-right delay-150">
             {[
               ["Engine Types", "2-Stroke & 4-Stroke Marine Diesel"],
               ["OEM Coverage", "MAN B&W, Wärtsilä, WinGD, Caterpillar, Yanmar"],
@@ -242,9 +242,9 @@ function Index() {
       </section>
 
       {/* About Us Preview */}
-      <section className="bg-secondary py-24">
+      <section className="bg-secondary py-24 overflow-hidden">
         <div className="container-x grid items-center gap-12 lg:grid-cols-2">
-          <div className="relative">
+          <div className="relative scroll-reveal scroll-reveal-left">
             <div aria-hidden className="dot-grid-dark absolute -left-6 -top-6 h-24 w-24" />
             <img
               src={engine}
@@ -259,7 +259,7 @@ function Index() {
             </div>
           </div>
 
-          <div>
+          <div className="scroll-reveal scroll-reveal-right delay-150">
             <SectionHead eyebrow="About Us" title="Your Technical Partner in Maritime Excellence" />
             <p className="mt-5 leading-relaxed text-muted-foreground">
               Led by a team of highly experienced Chief Engineers, we are a premier marine engineering company specializing in diesel engine overhauls, generator maintenance, and comprehensive mechanical and electrical services worldwide.
@@ -283,10 +283,10 @@ function Index() {
           sub="Industry-leading expertise, global reach, and unwavering commitment to maritime safety and quality."
         />
         <div className="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {advantages.map((a) => (
+          {advantages.map((a, i) => (
             <div
               key={a.title}
-              className="rounded-sm border-t-4 border-t-primary bg-card p-7 shadow-[0_10px_30px_-12px_color-mix(in_oklab,var(--navy)_25%,transparent)] transition hover:-translate-y-1"
+              className={`rounded-sm border-t-4 border-t-primary bg-card p-7 shadow-[0_10px_30px_-12px_color-mix(in_oklab,var(--navy)_25%,transparent)] transition hover:-translate-y-1 scroll-reveal delay-${((i % 3) + 1) * 150}`}
             >
               <h3 className="text-lg font-bold">{a.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{a.desc}</p>
@@ -301,9 +301,9 @@ function Index() {
       {/* Precision Defined (Quality & Standards Checkpoints) */}
       <section className="bg-navy py-20 text-navy-foreground on-navy">
         <div className="container-x max-w-4xl text-center">
-          <p className="eyebrow">GLOBAL STANDARDS</p>
-          <h2 className="mt-3 text-3xl font-extrabold uppercase md:text-5xl">Precision Defined.</h2>
-          <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-navy-muted">
+          <p className="eyebrow scroll-reveal">GLOBAL STANDARDS</p>
+          <h2 className="mt-3 text-3xl font-extrabold uppercase md:text-5xl scroll-reveal delay-100">Precision Defined.</h2>
+          <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-navy-muted scroll-reveal delay-200">
             Our global team of marine engineers delivers uncompromising expertise at every port, on every vessel.
           </p>
 
@@ -312,10 +312,10 @@ function Index() {
               "ISO 9001:2015 Certified Processes",
               "24/7 Rapid Response Teams",
               "Comprehensive Technical Reports",
-            ].map((chk) => (
+            ].map((chk, idx) => (
               <div
                 key={chk}
-                className="flex items-center justify-center gap-2.5 rounded-sm border border-navy-foreground/15 bg-navy/60 px-4 py-3 text-sm font-medium backdrop-blur-sm"
+                className={`flex items-center justify-center gap-2.5 rounded-sm border border-navy-foreground/15 bg-navy/60 px-4 py-3 text-sm font-medium backdrop-blur-sm scroll-reveal delay-${(idx + 1) * 100}`}
               >
                 <span className="text-accent font-bold">✓</span>
                 <span>{chk}</span>
@@ -326,10 +326,13 @@ function Index() {
       </section>
 
       {/* Classification Society Strip */}
-      <section className="border-y bg-card py-10">
+      <section className="border-y bg-card py-10 scroll-reveal">
         <div className="container-x flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
-          {classes.map((c) => (
-            <span key={c} className="font-display text-lg font-semibold text-muted-foreground">
+          {classes.map((c, i) => (
+            <span
+              key={c}
+              className={`font-display text-lg font-semibold text-muted-foreground transition-colors hover:text-foreground scroll-reveal delay-${((i % 4) + 1) * 75}`}
+            >
               {c}
             </span>
           ))}
@@ -337,9 +340,9 @@ function Index() {
       </section>
 
       {/* Need Expert Support? Climax CTA */}
-      <section className="bg-secondary py-20">
+      <section className="bg-secondary py-20 overflow-hidden">
         <div className="container-x flex flex-col items-center justify-between gap-8 md:flex-row text-center md:text-left">
-          <div className="max-w-2xl">
+          <div className="max-w-2xl scroll-reveal scroll-reveal-left">
             <p className="eyebrow">24/7 GLOBAL REACH</p>
             <h2 className="mt-2 text-3xl font-extrabold md:text-4xl">Need Expert Support?</h2>
             <p className="mt-3 text-base text-muted-foreground">
@@ -349,7 +352,7 @@ function Index() {
               ● Response time under 5 minutes on WhatsApp
             </p>
           </div>
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-wrap gap-4 scroll-reveal scroll-reveal-right delay-150">
             <Btn href={WHATSAPP}>WhatsApp Us</Btn>
             <Btn to="/contact" variant="outline">Get a Quote</Btn>
           </div>
