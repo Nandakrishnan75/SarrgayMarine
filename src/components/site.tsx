@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useState, useEffect, type ReactNode } from "react";
-import logo from "@/assets/sarrgay-logo.png";
+import emblemNavy from "@/assets/sarrgay-emblem.png";
+import emblemLight from "@/assets/sarrgay-emblem-light.png";
 import { Button } from "@/components/ui/button";
 
 export const PHONE = "+91 80099 09888";
@@ -21,14 +22,28 @@ const nav = [
 
 function Logo({ light }: { light?: boolean }) {
   return (
-    <Link to="/" className="flex items-center gap-2.5">
-      <img src={logo} alt="Sarrgay Marine logo" width={40} height={40} className="h-10 w-10 object-contain" />
+    <Link to="/" className="flex items-center gap-3 group">
+      <img
+        src={light ? emblemLight : emblemNavy}
+        alt="Sarrgay Marine"
+        width={38}
+        height={38}
+        className="h-9.5 w-9.5 object-contain shrink-0 transition-transform duration-300 group-hover:scale-105"
+      />
       <span className="leading-tight">
-        <span className={`block font-display text-base font-bold tracking-wide transition-colors ${light ? "text-white" : "text-foreground"}`}>
+        <span
+          className={`block font-serif text-base sm:text-lg font-bold tracking-[0.16em] uppercase whitespace-nowrap transition-colors ${
+            light ? "text-white" : "text-foreground"
+          }`}
+        >
           SARRGAY MARINE
         </span>
-        <span className={`block text-[11px] transition-colors ${light ? "text-white/70" : "text-muted-foreground"}`}>
-          Maritime Engineering • Global
+        <span
+          className={`block text-[9.5px] font-sans font-medium uppercase tracking-[0.22em] transition-colors ${
+            light ? "text-white/70" : "text-muted-foreground"
+          }`}
+        >
+          Maritime Engineering
         </span>
       </span>
     </Link>
@@ -142,105 +157,142 @@ export function Header() {
 
 export function Footer() {
   return (
-    <footer className="border-t border-[#E5E7EB] bg-[#F8F9FA] text-[#1A1A1A]">
-      <div className="container-x grid gap-10 pt-10 sm:pt-12 pb-5 sm:pb-6 md:grid-cols-2 lg:grid-cols-[1.3fr_1.25fr_1.25fr_1fr]">
+    <footer className="bg-white text-[#1A1A1A] pt-8 sm:pt-10 pb-5 sm:pb-6">
+      <div className="container-x grid gap-8 sm:gap-10 md:grid-cols-2 lg:grid-cols-[1.3fr_1.25fr_1.25fr_1fr]">
         {/* Column 1: Brand & Credential */}
-        <div className="flex flex-col justify-between">
-          <div className="space-y-3.5">
-            <Link to="/" className="inline-flex items-center gap-2.5 whitespace-nowrap">
-              <img src={logo} alt="Sarrgay Marine logo" width={26} height={26} className="h-6 w-6 object-contain shrink-0" />
-              <span className="font-serif text-sm md:text-base font-normal tracking-[0.14em] uppercase text-[#1A1A1A] whitespace-nowrap">
+        <div className="flex flex-col justify-between space-y-3.5">
+          <div className="space-y-3">
+            <Link to="/" className="inline-flex items-center gap-3 group">
+              <img
+                src={emblemNavy}
+                alt="Sarrgay Marine"
+                width={34}
+                height={34}
+                className="h-8.5 w-8.5 object-contain shrink-0 transition-transform duration-300 group-hover:scale-105"
+              />
+              <span className="font-serif text-base font-normal tracking-[0.18em] uppercase text-[#1A1A1A] whitespace-nowrap">
                 SARRGAY MARINE
               </span>
             </Link>
-            <p className="max-w-xs text-xs leading-[1.8] text-[#555555] font-normal">
-              Naval architecture, custom atelier engineering, and Mediterranean berth management for vessels of exceptional pedigree.
+            <p className="max-w-xs text-xs leading-[1.75] text-[#555555] font-normal">
+              Your trusted technical partner in maritime excellence. Delivering precision engineering solutions and expert management for the global shipping industry.
             </p>
           </div>
-          <p className="pt-4 text-[11px] font-medium tracking-[0.16em] text-[#B3804A] uppercase">
+          <p className="text-[11px] font-medium tracking-[0.16em] text-primary uppercase">
             NAVAL WARRANT NO. 7192-MCO
           </p>
         </div>
 
-        {/* Column 2: Outposts & Berths */}
-        <div className="space-y-3.5">
+        {/* Column 2: Operational Hubs */}
+        <div className="space-y-3">
           <h4 className="font-serif text-[11px] font-medium uppercase tracking-[0.22em] text-[#1A1A1A]">
-            OUTPOSTS &amp; BERTHS
+            OPERATIONAL HUBS
           </h4>
-          <ul className="space-y-2 text-xs leading-[1.8] text-[#555555] font-normal">
-            <li>Port Hercule, Monaco · Quai des Sanctuaires</li>
-            <li>Rue du Rhône 42, Geneva · Private Office</li>
-            <li>Mayfair, London · Curzon Maritime Suite</li>
+          <ul className="space-y-2 text-xs leading-[1.75] text-[#555555] font-normal">
+            <li>
+              <span className="font-medium text-[#1A1A1A]">Port of Kochi</span> · Central Engineering Operations Hub
+            </li>
+            <li>
+              <span className="font-medium text-[#1A1A1A]">Dubai Maritime City</span> · Middle East Technical Office
+            </li>
+            <li>
+              <span className="font-medium text-[#1A1A1A]">Singapore OPL</span> · Southeast Asia Flying Squad Hub
+            </li>
           </ul>
+          <div className="pt-1 text-xs text-[#666666]">
+            <span className="text-[10px] uppercase tracking-wider font-medium text-[#1A1A1A] block mb-0.5">Classification Standards</span>
+            ABS · DNV · Lloyd's Register · IRS · ClassNK · BV
+          </div>
         </div>
 
-        {/* Column 3: The Atelier Dispatch */}
-        <div className="space-y-3.5">
+        {/* Column 3: Core Capabilities */}
+        <div className="space-y-3">
           <h4 className="font-serif text-[11px] font-medium uppercase tracking-[0.22em] text-[#1A1A1A]">
-            THE ATELIER DISPATCH
+            CORE CAPABILITIES
           </h4>
-          <p className="text-xs leading-[1.8] text-[#555555] font-normal">
-            Receive confidential briefings on ocean trials, shipyard build slots, and private anchorages.
-          </p>
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              alert("Thank you. You have been registered for technical briefings.");
-            }}
-            className="flex items-center border border-[#D1D5DB] bg-white p-0.5 shadow-xs"
-          >
-            <input
-              aria-label="Atelier correspondence address"
-              type="email"
-              required
-              placeholder="Atelier correspondence addre"
-              className="h-7 w-full min-w-0 bg-transparent px-2.5 text-xs font-normal text-[#1A1A1A] outline-none placeholder:text-[#777777]"
-            />
-            <button
-              type="submit"
-              className="h-7 shrink-0 bg-black px-4 text-[10px] font-medium tracking-widest text-white transition-opacity hover:opacity-90"
-            >
-              JOIN
-            </button>
-          </form>
+          <ul className="space-y-2 text-xs leading-[1.75] text-[#555555] font-normal">
+            <li>
+              <Link to="/services" className="hover:text-primary transition-colors">
+                Generator &amp; Auxiliary Engine Overhauls
+              </Link>
+            </li>
+            <li>
+              <Link to="/services" className="hover:text-primary transition-colors">
+                Main Propulsion Machinery Maintenance
+              </Link>
+            </li>
+            <li>
+              <Link to="/services" className="hover:text-primary transition-colors">
+                Dry Dock Assistance &amp; Superintendency
+              </Link>
+            </li>
+            <li>
+              <Link to="/services" className="hover:text-primary transition-colors">
+                Riding Squads &amp; Voyage Repairs (CDC/STCW)
+              </Link>
+            </li>
+            <li>
+              <Link to="/services" className="hover:text-primary transition-colors">
+                Mechanical, Electrical &amp; Automation Systems
+              </Link>
+            </li>
+          </ul>
+          <div className="pt-1 flex gap-4 text-xs text-[#666666]">
+            <a href="https://www.linkedin.com/company/sarrgaymarine/" target="_blank" rel="noreferrer" className="hover:text-primary transition-colors font-medium">LinkedIn</a>
+            <span>•</span>
+            <a href="https://www.instagram.com/sarrgaymarine/" target="_blank" rel="noreferrer" className="hover:text-primary transition-colors font-medium">Instagram</a>
+          </div>
         </div>
 
-        {/* Column 4: Direct Liaison */}
-        <div className="space-y-3.5">
+        {/* Column 4: Contact Us */}
+        <div className="space-y-3">
           <h4 className="font-serif text-[11px] font-medium uppercase tracking-[0.22em] text-[#1A1A1A]">
-            DIRECT LIAISON
+            CONTACT US
           </h4>
-          <div className="space-y-1">
-            <a
-              href="tel:+37798062000"
-              className="block w-fit font-serif text-xl font-normal tracking-tight text-[#1A1A1A] transition-colors hover:text-primary"
-            >
-              +377 98 06 20 00
-            </a>
-            <a
-              href="mailto:concierge@sarrgaymarine.mc"
-              className="w-fit block text-xs font-normal text-[#555555] transition-colors hover:text-[#1A1A1A]"
-            >
-              concierge@sarrgaymarine.mc
-            </a>
-            <p className="font-serif text-xs font-normal text-[#555555]">
-              VHF Ch. 12 &amp; 68 Maritime Standby
+          <div className="space-y-2 text-xs">
+            <div>
+              <span className="block text-[10px] font-medium uppercase tracking-wider text-[#777777] mb-0.5">
+                24/7 Hotline
+              </span>
+              <a
+                href={TEL}
+                className="block w-fit font-serif text-base sm:text-lg font-normal tracking-tight text-[#1A1A1A] transition-colors hover:text-primary"
+              >
+                {PHONE}
+              </a>
+            </div>
+
+            <div className="space-y-1">
+              <a
+                href={"mailto:" + EMAIL}
+                className="block w-fit text-[#555555] transition-colors hover:text-primary"
+              >
+                {EMAIL}
+              </a>
+              <a
+                href={"mailto:" + EMAIL_OPS}
+                className="block w-fit text-[#555555] transition-colors hover:text-primary"
+              >
+                {EMAIL_OPS}
+              </a>
+            </div>
+
+            <p className="pt-0.5 text-xs leading-relaxed text-[#666666] max-w-[240px]">
+              65/1599A, Mathilicherril, Shenoy Road, Kaloor, Kochi – 682017
             </p>
           </div>
         </div>
       </div>
 
-      {/* Bottom Bar matching exact layout */}
-      <div className="border-t border-[#E5E7EB] py-4">
-        <div className="container-x flex flex-col gap-3 text-[10px] font-normal uppercase tracking-[0.14em] text-[#666666] lg:flex-row lg:items-center lg:justify-between">
-          <span>© MDXCI SARRGAY MARINE ATELIER. ALL RIGHTS RESERVED.</span>
-          <div className="flex flex-wrap gap-x-8 gap-y-1">
-            <span>MONACO MARITIME REGISTRY</span>
-            <span>BESPOKE CLASSIFICATION LLOYD'S 100A1</span>
-            <Link to="/contact" className="hover:text-[#1A1A1A] transition-colors">
-              TERMS &amp; BERTHING DISPATCHES
-            </Link>
-          </div>
+      {/* Bottom Bar */}
+      <div className="container-x mt-8 sm:mt-10 flex flex-col gap-2.5 text-[10px] font-normal uppercase tracking-[0.14em] text-[#666666] lg:flex-row lg:items-center lg:justify-between">
+        <span>© {new Date().getFullYear()} SARRGAY MARINE. ALL RIGHTS RESERVED.</span>
+        <div className="flex flex-wrap gap-x-8 gap-y-1">
+          <span>INDIAN &amp; INTERNATIONAL MARITIME REGISTRY</span>
+          <span>BESPOKE CLASSIFICATION LLOYD'S 100A1</span>
+          <Link to="/contact" className="hover:text-primary transition-colors">
+            TERMS &amp; MARITIME DISPATCHES
+          </Link>
         </div>
       </div>
     </footer>
