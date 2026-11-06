@@ -213,13 +213,13 @@ export function Footer() {
           <div className="space-y-1">
             <a
               href="tel:+37798062000"
-              className="block font-serif text-xl font-normal tracking-tight text-[#1A1A1A] transition-colors hover:text-[#B3804A]"
+              className="block w-fit font-serif text-xl font-normal tracking-tight text-[#1A1A1A] transition-colors hover:text-primary"
             >
               +377 98 06 20 00
             </a>
             <a
               href="mailto:concierge@sarrgaymarine.mc"
-              className="block text-xs font-normal text-[#555555] transition-colors hover:text-[#1A1A1A]"
+              className="w-fit block text-xs font-normal text-[#555555] transition-colors hover:text-[#1A1A1A]"
             >
               concierge@sarrgaymarine.mc
             </a>
