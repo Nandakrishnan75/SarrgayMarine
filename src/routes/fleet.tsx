@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import hero from "@/assets/hero-ship.jpg";
+import fleetHero from "@/assets/fleet-hero.jpg";
 import { Btn, CtaBanner, PageHero, SectionHead, WHATSAPP, meta } from "@/components/site";
 
 export const Route = createFileRoute("/fleet")({
@@ -113,7 +113,7 @@ function Fleet() {
   return (
     <>
       <PageHero
-        image={hero}
+        image={fleetHero}
         eyebrow="Global Reach • Fleet Experience"
         title="Global Fleet Support & Technical Coverage"
         sub="Specialized support for complex fleets. We handle logistics, visa requirements, and tool clearance for rapid global deployment across all vessel categories."

@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
-import hero from "@/assets/hero-ship.jpg";
+import contactHero from "@/assets/contact-hero.jpg";
 import {
   ADDRESS,
   EMAIL,
@@ -55,7 +55,7 @@ function Contact() {
   return (
     <>
       <PageHero
-        image={hero}
+        image={contactHero}
         eyebrow="Contact Us • 24/7 Direct Liaison"
         title="Let's Start a Conversation"
         sub="Whether you need emergency repairs, routine maintenance, or technical consultation, our team is ready to assist you 24/7."
