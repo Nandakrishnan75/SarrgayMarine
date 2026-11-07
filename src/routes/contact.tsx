@@ -54,8 +54,8 @@ function Contact() {
 
   return (
     <div className="bg-white text-[#1A1A1A]">
-      {/* Luxury Cinematic Maritime Hero (Visible BG + Premium Finishes) */}
-      <section className="relative overflow-hidden bg-[#061220] text-navy-foreground on-navy pt-28 pb-14 sm:pt-36 sm:pb-16 border-b border-accent/25 shadow-2xl">
+      {/* Luxury Cinematic Maritime Hero — Pure Monochrome & Crisp White (NO GOLD, NO GREEN) */}
+      <section className="relative overflow-hidden bg-[#061220] text-navy-foreground on-navy pt-28 pb-14 sm:pt-36 sm:pb-16 border-b border-white/10 shadow-2xl">
         {/* Clearly Visible Cinematic Ocean Vessel Background */}
         <div className="absolute inset-0 z-0">
           <img
@@ -65,7 +65,7 @@ function Contact() {
             width={1920}
             height={1080}
           />
-          {/* Directional Luxury Vignette: readable text on left, visible cinematic vessel on right */}
+          {/* Directional Luxury Vignette */}
           <div className="absolute inset-0 bg-gradient-to-r from-[#061220]/95 via-[#061220]/70 to-[#061220]/30 pointer-events-none" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#061220] via-transparent to-transparent pointer-events-none" />
           <div aria-hidden className="dot-grid absolute right-8 top-12 h-24 w-32 opacity-25 pointer-events-none" />
@@ -74,25 +74,25 @@ function Contact() {
         <div className="container-x relative z-10 max-w-5xl">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div className="max-w-2xl space-y-3">
-              <div className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-navy/70 backdrop-blur-md px-3.5 py-1 text-[11px] font-mono uppercase tracking-[0.2em] text-accent shadow-sm">
-                <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3.5 py-1 text-[11px] font-mono uppercase tracking-[0.2em] text-white/90 backdrop-blur-md shadow-sm">
+                <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse" />
                 <span>COMMAND LIAISON &bull; 24/7 GLOBAL OPERATIONS</span>
               </div>
               <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-white leading-[1.08] font-display drop-shadow-lg">
-                Get in <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-amber-200">Touch</span>
+                Get in Touch
               </h1>
               <p className="text-sm sm:text-base md:text-lg text-slate-200 font-light leading-relaxed max-w-xl drop-shadow">
                 Direct connection with our Chief Engineers and operations superintendents for propulsion overhauls, drydocking, or emergency response.
               </p>
             </div>
 
-            {/* Premium Glassmorphic Status Tags */}
+            {/* Clean White/Monochrome Glassmorphic Badges */}
             <div className="flex flex-wrap items-center gap-2.5 font-mono text-xs shrink-0">
-              <span className="inline-flex items-center gap-2 rounded-full border border-emerald-400/40 bg-navy/80 px-4 py-1.5 text-emerald-400 backdrop-blur-md shadow-md">
-                <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+              <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-navy/80 px-4 py-1.5 text-white backdrop-blur-md shadow-md">
+                <span className="h-2 w-2 rounded-full bg-white animate-pulse" />
                 Duty Desk Active 24/7
               </span>
-              <span className="rounded-full border border-white/20 bg-navy/70 px-3.5 py-1.5 text-white/90 backdrop-blur-md shadow-md">
+              <span className="rounded-full border border-white/20 bg-navy/70 px-3.5 py-1.5 text-white/80 backdrop-blur-md shadow-md">
                 SLA &lt; 15 Mins
               </span>
             </div>
