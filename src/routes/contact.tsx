@@ -9,7 +9,7 @@ import {
   ArrowRight,
   CheckCircle2,
 } from "lucide-react";
-import heroShip from "@/assets/hero-ship.jpg";
+import contactHero from "@/assets/contact-hero.jpg";
 import { WHATSAPP, meta } from "@/components/site";
 
 export const Route = createFileRoute("/contact")({
@@ -67,21 +67,20 @@ function Contact() {
 
         {/* Unified Luxury Dual-Pane Card */}
         <div className="grid grid-cols-1 lg:grid-cols-12 rounded-2xl border border-border/80 bg-white shadow-xl overflow-hidden">
-          {/* Left Pane: Navy Command Desk (Dark Luxury Aesthetic) */}
-          <div className="lg:col-span-5 bg-[#0A1628] text-white p-7 sm:p-9 flex flex-col justify-between space-y-8 relative overflow-hidden">
-            <div className="absolute -right-16 -top-16 w-48 h-48 rounded-full bg-primary/10 blur-3xl pointer-events-none" />
+          {/* Left Pane: Navy Command Desk with Visible Website Background Image */}
+          <div className="relative lg:col-span-5 bg-[#061220] text-white p-7 sm:p-9 flex flex-col justify-between space-y-7 overflow-hidden">
+            {/* Background Image on BG */}
+            <img
+              src={contactHero}
+              alt="Maritime Fleet Operations"
+              className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none opacity-45 filter contrast-125 brightness-90"
+              width={1080}
+              height={1080}
+            />
+            {/* Dark Navy Glassmorphic Gradient Overlay: Image is clearly visible on BG while text stays 100% legible */}
+            <div className="absolute inset-0 bg-gradient-to-b from-[#061220]/95 via-[#061220]/75 to-[#061220]/95 pointer-events-none" />
 
-            <div className="space-y-5 relative z-10">
-              {/* Vessel Operations Visual */}
-              <div className="overflow-hidden rounded-xl border border-white/10 aspect-[16/9] shadow-md">
-                <img
-                  src={heroShip}
-                  alt="Maritime Fleet Operations"
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
-              </div>
-
+            <div className="relative z-10 space-y-5">
               <div>
                 <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-white/60 font-semibold block">
                   Direct Inquiries
@@ -164,7 +163,7 @@ function Contact() {
             </div>
 
             {/* Bottom SLA Stamp */}
-            <div className="pt-4 border-t border-white/10 flex items-center gap-2 text-[11px] font-mono text-white/60">
+            <div className="relative z-10 pt-4 border-t border-white/10 flex items-center gap-2 text-[11px] font-mono text-white/60">
               <Clock className="h-3.5 w-3.5 text-primary" />
               <span>SLA: &lt; 15m for casualties &bull; &lt; 24h quotations</span>
             </div>
