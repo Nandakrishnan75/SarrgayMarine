@@ -21,6 +21,9 @@ import drydockImg from "@/assets/drydock-superintendency.jpg";
 import electricalImg from "@/assets/marine-electrical-automation.jpg";
 import emergencyImg from "@/assets/emergency-repairs-flying-squad.jpg";
 import ridingImg from "@/assets/sailing-riding-crew.jpg";
+import turbochargerImg from "@/assets/turbocharger-overhaul.jpg";
+import lngImg from "@/assets/lng-dualfuel-engineering.jpg";
+import steeringImg from "@/assets/hydraulic-steering-gear.jpg";
 import { Btn, WHATSAPP, meta } from "@/components/site";
 
 export const Route = createFileRoute("/services")({
@@ -170,6 +173,30 @@ const serviceCatalog = [
       "Voyage mechanical, piping, and valve overhaul programs",
       "Class documentation & signed sea-trial handover logs upon arrival",
     ],
+  },
+];
+
+const specializedCapabilities = [
+  {
+    title: "Turbocharger Dynamic Balancing",
+    image: turbochargerImg,
+    badge: "ISO 1940-1 G2.5 TOLERANCE",
+    desc: "In-situ and workshop rotor dynamic balancing, cartridge renewal, and nozzle ring refurbishment across ABB, MAN, and Mitsubishi MET units.",
+    oems: "ABB • MAN • Mitsubishi MET",
+  },
+  {
+    title: "LNG & Dual-Fuel Propulsion",
+    image: lngImg,
+    badge: "CRYOGENIC -162°C COMPLIANCE",
+    desc: "Gas Valve Unit (GVU-2) overhaul, boil-off gas handling, double-walled piping pressure certification, and dual-fuel ESD safety loop tests.",
+    oems: "WinGD X-DF • MAN ME-GI • Wärtsilä DF",
+  },
+  {
+    title: "Electro-Hydraulic Steering Gear",
+    image: steeringImg,
+    badge: "CLASS SURV. & RAM ACTUATION",
+    desc: "4-cylinder ram overhauls, high-pressure hydraulic pump renewals, proportional servo valves calibration, and emergency helm changeover checks.",
+    oems: "Rolls-Royce • Kongsberg • Hatlapa",
   },
 ];
 
@@ -409,6 +436,68 @@ function Services() {
             </article>
           );
         })}
+      </section>
+
+      {/* Specialized Technical Machinery Capabilities */}
+      <section className="border-t border-border/80 bg-white py-16 sm:py-20">
+        <div className="container-x">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-8 border-b border-border/70">
+            <div className="max-w-2xl">
+              <p className="eyebrow flex items-center gap-2">
+                <Sparkles className="h-3.5 w-3.5 text-primary" />
+                <span>HIGH-TECH MACHINERY SPECIALIZATION</span>
+              </p>
+              <h2 className="mt-2 text-2xl sm:text-3xl font-extrabold uppercase tracking-tight text-foreground">
+                Advanced Machinery Capabilities
+              </h2>
+              <p className="mt-2 text-sm text-muted-foreground font-light">
+                Specialized in-situ precision tooling and certified diagnostic engineers for critical high-performance shipboard systems.
+              </p>
+            </div>
+            <span className="font-mono text-xs uppercase tracking-wider text-primary font-semibold shrink-0">
+              OEM &bull; CLASS RECOGNIZED
+            </span>
+          </div>
+
+          <div className="mt-8 grid gap-8 md:grid-cols-3">
+            {specializedCapabilities.map((item) => (
+              <div
+                key={item.title}
+                className="group overflow-hidden rounded-xl border border-border/80 bg-card shadow-sm transition hover:shadow-md hover:border-primary/40 flex flex-col"
+              >
+                <div className="relative aspect-[16/10] overflow-hidden bg-navy">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between pointer-events-none">
+                    <span className="rounded-sm border border-accent/40 bg-navy/90 backdrop-blur-sm px-2 py-0.5 text-[10px] font-mono font-semibold text-accent uppercase tracking-wider">
+                      {item.badge}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="p-5 flex-1 flex flex-col justify-between space-y-3">
+                  <div className="space-y-2">
+                    <h3 className="text-base font-bold text-foreground">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs text-muted-foreground font-light leading-relaxed">
+                      {item.desc}
+                    </p>
+                  </div>
+                  <div className="pt-2 border-t border-border/60 flex items-center justify-between text-[11px] font-mono text-muted-foreground">
+                    <span>Makers:</span>
+                    <span className="font-semibold text-foreground/80">{item.oems}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* The Sarrgay Execution Standard (4-Step Precision Workflow) */}
