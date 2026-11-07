@@ -19,8 +19,8 @@ import generatorImg from "@/assets/generator-maintenance.jpg";
 import propulsionImg from "@/assets/main-engine-propulsion.jpg";
 import drydockImg from "@/assets/drydock-superintendency.jpg";
 import electricalImg from "@/assets/marine-electrical-automation.jpg";
-import emergencyImg from "@/assets/contact-hero.jpg";
-import ridingImg from "@/assets/fleet-hero.jpg";
+import emergencyImg from "@/assets/emergency-repairs-flying-squad.jpg";
+import ridingImg from "@/assets/sailing-riding-crew.jpg";
 import { Btn, WHATSAPP, meta } from "@/components/site";
 
 export const Route = createFileRoute("/services")({
