@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import {
   Anchor,
+  ArrowRight,
   CheckCircle2,
   Compass,
   PhoneCall,
@@ -29,18 +30,60 @@ export const Route = createFileRoute("/fleet")({
 });
 
 const vessels = [
-  { n: "VLCC Tankers", f: "Tankers", image: fleetVlcc },
-  { n: "Gas / LNG Carriers", f: "Gas Carriers", image: fleetGasLng },
-  { n: "Chemical Tankers", f: "Tankers", image: fleetChemical },
-  { n: "Bulk Carriers", f: "Bulk Carriers", image: fleetBulk },
-  { n: "Container Vessels", f: "Container", image: fleetContainer },
-  { n: "Ro-Ro Vessels", f: "Ro-Ro", image: fleetRoro },
-  { n: "Offshore Support Vessels", f: "Offshore", image: fleetOffshore },
+  {
+    n: "VLCC Tankers",
+    c: "Crude Oil",
+    f: "Tankers",
+    image: fleetVlcc,
+    desc: "Crankshaft alignment, main engine cylinder unit renewal, and submerged cargo pump servicing under Chief Engineer supervision.",
+  },
+  {
+    n: "Gas / LNG Carriers",
+    c: "Cryogenic Gas",
+    f: "Gas Carriers",
+    image: fleetGasLng,
+    desc: "Dual-fuel gas valve train (GVU) overhauls, cryogenic manifold maintenance, and reliquefaction auxiliary plant care.",
+  },
+  {
+    n: "Chemical Tankers",
+    c: "Chemical & Product",
+    f: "Tankers",
+    image: fleetChemical,
+    desc: "Submerged hydraulic cargo pump rebuilding, stainless-steel cargo valves, and auxiliary generator ±0.01mm realignment.",
+  },
+  {
+    n: "Bulk Carriers",
+    c: "Dry Bulk",
+    f: "Bulk Carriers",
+    image: fleetBulk,
+    desc: "Hatch cover hydraulic rams, heavy diesel auxiliary generator rebuilds, and overboard sea chest valve refurbishment.",
+  },
+  {
+    n: "Container Vessels",
+    c: "Boxship Fleet",
+    f: "Container",
+    image: fleetContainer,
+    desc: "High-output turbocharger dynamic balancing, 440V reefer switchboard maintenance, and fast-turnaround port casualty repairs.",
+  },
+  {
+    n: "Ro-Ro Vessels",
+    c: "Vehicle Carrier",
+    f: "Ro-Ro",
+    image: fleetRoro,
+    desc: "Stern ramp hydraulic power units, internal hoistable deck cylinders, and controllable pitch propeller (CPP) thruster servicing.",
+  },
+  {
+    n: "Offshore Support Vessels",
+    c: "DP-2 / DP-3",
+    f: "Offshore",
+    image: fleetOffshore,
+    desc: "Azimuth and tunnel thruster overhauls, dynamic positioning hydraulics, and Power Management System (PMS) generator load testing.",
+  },
 ];
 
 const filters = ["All Vessels", "Tankers", "Gas Carriers", "Bulk Carriers", "Container", "Ro-Ro", "Offshore"];
 
-const complianceSocieties = ["ABS", "DNV", "LR", "BV", "NK", "KR"];
+const complianceSocieties = ["ABS", "DNV", "LR", "BV", "NK", "KR", "IRS"];
 
 const qualityProtocols = [
   "Rigorous testing protocols for all overhauled auxiliary machinery",
@@ -57,7 +100,7 @@ function Fleet() {
 
   return (
     <div className="bg-white text-[#1A1A1A]">
-      {/* Modern Fleet Hero Header (Preserving Exact Reference Image) */}
+      {/* Modern Fleet Hero Header */}
       <section className="relative pt-28 pb-16 md:pt-44 md:pb-28 overflow-hidden bg-navy text-navy-foreground on-navy border-b border-white/10">
         <div className="absolute inset-0 z-0">
           <img
@@ -87,7 +130,7 @@ function Fleet() {
             </h1>
 
             <p className="text-sm sm:text-lg md:text-xl text-white/90 max-w-2xl mx-auto leading-relaxed font-light">
-              Specialized technical support for commercial fleets. We handle global logistics, visa requirements, and fly-away tooling for rapid deployment across all vessel categories.
+              Specialized technical support for commercial fleets. We handle global logistics, visa requirements, and tool clearance for rapid deployment across all vessel categories.
             </p>
 
             {/* Quick Metrics Strip */}
@@ -107,7 +150,7 @@ function Fleet() {
         </div>
       </section>
 
-      {/* Vessels Served Section (Elevated Architecture matching Screenshot) */}
+      {/* Vessels Served Section */}
       <section className="py-20 sm:py-24 bg-white">
         <div className="container-x">
           <div className="mb-12 text-center max-w-3xl mx-auto space-y-3">
@@ -120,8 +163,8 @@ function Fleet() {
               Comprehensive <span className="text-primary">Coverage</span>
             </h2>
 
-            <p className="text-sm sm:text-base text-muted-foreground font-light leading-relaxed">
-              Proven Chief Engineer expertise, precision machinery overhauls, and riding squad support across wet, dry, gas, container, and offshore marine sectors.
+            <p className="text-sm sm:text-base text-muted-foreground font-light leading-relaxed max-w-xl mx-auto">
+              Specialized engineering, propulsion overhauls, and technical superintendency across global commercial vessel categories.
             </p>
 
             {/* Modern Pill Filters */}
@@ -143,29 +186,53 @@ function Fleet() {
             </div>
           </div>
 
-          {/* 3-Column Clean Vessel Cards Grid (Matching Screenshot) */}
+          {/* 3-Column Modern Vessel Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredList.map((v) => (
-              <div key={v.n} className="flex flex-col">
-                {/* Title with Bullet Point Above Image */}
-                <div className="mb-4 flex items-center gap-3">
-                  <div className="w-2.5 h-2.5 rounded-full bg-navy" />
-                  <h4 className="text-navy font-bold text-xl md:text-2xl font-display">
-                    {v.n}
-                  </h4>
+              <article
+                key={v.n}
+                className="group flex flex-col justify-between rounded-2xl border border-border/80 bg-card p-6 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-primary/40"
+              >
+                <div>
+                  {/* Title with Bullet Point Above Image */}
+                  <div className="mb-3.5 flex items-center justify-between gap-2">
+                    <h3 className="text-base sm:text-lg font-bold tracking-tight text-foreground flex items-center gap-2">
+                      <span className="h-2 w-2 rounded-full bg-primary shrink-0" />
+                      <span>• {v.n}</span>
+                    </h3>
+                    <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground bg-secondary px-2 py-0.5 rounded border border-border/60 shrink-0">
+                      {v.c}
+                    </span>
+                  </div>
+
+                  {/* Clean Rounded Image Container: STRICTLY ZERO OVERLAYS */}
+                  <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-border/60 bg-navy/5 shadow-inner">
+                    <img
+                      src={v.image}
+                      alt={v.n}
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-108"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-navy/10 group-hover:bg-transparent transition-colors duration-500 pointer-events-none" />
+                  </div>
+
+                  {/* Concise Engineering Scope Description */}
+                  <p className="mt-4 text-xs sm:text-sm text-muted-foreground font-light leading-relaxed">
+                    {v.desc}
+                  </p>
                 </div>
 
-                {/* Clean Rounded Image Container: STRICTLY ZERO OVERLAYS */}
-                <div className="group relative aspect-[4/3] overflow-hidden rounded-2xl md:rounded-3xl border border-gray-100 shadow-lg shadow-navy/5 bg-navy/5">
-                  <img
-                    src={v.image}
-                    alt={v.n}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-108"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-navy/10 group-hover:bg-transparent transition-colors duration-500 pointer-events-none" />
+                {/* Direct Action */}
+                <div className="mt-5 pt-4 border-t border-border/60 flex items-center justify-between">
+                  <span className="inline-flex items-center gap-1.5 text-xs font-mono text-primary font-semibold group-hover:text-primary/80 transition-colors">
+                    <span>Consult Scope</span>
+                    <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                  </span>
+                  <Btn to="/contact" className="text-xs py-1 px-3">
+                    Request Scope
+                  </Btn>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
         </div>
