@@ -305,16 +305,16 @@ function Index() {
         <img
           src={engine}
           alt="Engine room technical inspection"
-          className="absolute inset-0 h-full w-full object-cover object-center filter brightness-[0.48] contrast-110 pointer-events-none"
+          className="absolute inset-0 h-full w-full object-cover object-center filter brightness-[0.7] contrast-105 pointer-events-none"
           width={1920}
           height={1080}
         />
-        <div className="absolute inset-0 bg-[#071322]/70 pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#061224] via-transparent to-[#061224]/80 pointer-events-none" />
+        <div className="absolute inset-0 bg-[#040c18]/55 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#061224] via-transparent to-[#061224]/85 pointer-events-none" />
 
-        <div className="container-x relative z-10 max-w-4xl lg:max-w-5xl">
+        <div className="container-x relative z-10 max-w-4xl lg:max-w-4.5xl">
           {/* Floating Glassmorphic Panel Matching Reference Card */}
-          <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl border border-white/12 bg-[#091526]/50 p-8 sm:p-12 md:p-14 lg:p-16 backdrop-blur-2xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.65),inset_0_1px_1px_rgba(255,255,255,0.12)] scroll-reveal">
+          <div className="relative overflow-hidden rounded-[26px] sm:rounded-[32px] border border-white/15 bg-white/[0.04] p-8 sm:p-10 md:p-12 lg:p-14 backdrop-blur-md shadow-[0_20px_50px_rgba(0,0,0,0.5),inset_0_1px_1px_rgba(255,255,255,0.15)] scroll-reveal">
             <div className="relative z-10 grid gap-8 lg:grid-cols-2 lg:gap-12 lg:items-center">
               {/* Left Column: Eyebrow Badge + 2-Line Headline + Accent Rule */}
               <div className="space-y-4">
@@ -323,25 +323,25 @@ function Index() {
                   <span>GLOBAL STANDARDS</span>
                 </div>
 
-                <h2 className="text-4xl sm:text-5xl lg:text-[54px] font-bold tracking-tight text-white leading-[1.05]">
+                <h2 className="text-4xl sm:text-5xl lg:text-[50px] font-bold tracking-tight text-white leading-[1.05]">
                   Precision<br />
                   Defined.
                 </h2>
 
-                <div className="pt-2">
-                  <div className="h-[2.5px] w-12 bg-white/40 rounded-full" />
+                <div className="pt-1">
+                  <div className="h-[2px] w-12 bg-white/40 rounded-full" />
                 </div>
               </div>
 
               {/* Right Column: Editorial Lead Copy + Circular Checkpoints */}
-              <div className="space-y-6 lg:border-l lg:border-white/15 lg:pl-12">
-                <p className="text-base sm:text-lg lg:text-[18px] text-white/85 leading-relaxed font-normal">
+              <div className="space-y-5 lg:border-l lg:border-white/15 lg:pl-10">
+                <p className="text-[15px] sm:text-base lg:text-[16.5px] text-white/85 leading-relaxed font-normal">
                   Our global team of marine engineers delivers{" "}
                   <strong className="font-bold text-white">uncompromising expertise</strong>{" "}
                   at every port, on every vessel.
                 </p>
 
-                <div className="space-y-3 pt-1">
+                <div className="space-y-2.5 pt-1">
                   {[
                     "ISO 9001:2015 Certified Processes",
                     "24/7 Rapid Response Teams",
@@ -349,9 +349,9 @@ function Index() {
                   ].map((chk, idx) => (
                     <div
                       key={chk}
-                      className={`flex items-center gap-3 text-xs sm:text-sm text-white/80 transition-colors hover:text-white scroll-reveal delay-${(idx + 1) * 100}`}
+                      className={`flex items-center gap-2.5 text-xs sm:text-[13px] text-white/80 transition-colors hover:text-white scroll-reveal delay-${(idx + 1) * 100}`}
                     >
-                      <CheckCircle2 className="h-4 w-4 shrink-0 text-white/70" strokeWidth={1.8} />
+                      <CheckCircle2 className="h-4 w-4 shrink-0 text-white/70" strokeWidth={1.75} />
                       <span className="font-normal tracking-wide">{chk}</span>
                     </div>
                   ))}
