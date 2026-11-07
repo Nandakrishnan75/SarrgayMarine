@@ -1,6 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import fleetHero from "@/assets/fleet-hero.jpg";
+import vlccImg from "@/assets/fleet-vlcc-supertanker.jpg";
+import lngImg from "@/assets/lng-dualfuel-engineering.jpg";
+import chemImg from "@/assets/generator-maintenance.jpg";
+import bulkImg from "@/assets/drydock-superintendency.jpg";
+import containerImg from "@/assets/hero-ship.jpg";
+import roroImg from "@/assets/main-engine-propulsion.jpg";
+import offshoreImg from "@/assets/hydraulic-steering-gear.jpg";
 import { Btn, CtaBanner, PageHero, SectionHead, WHATSAPP, meta } from "@/components/site";
 
 export const Route = createFileRoute("/fleet")({
@@ -17,6 +24,7 @@ const vessels = [
     n: "VLCC Supertankers",
     c: "Crude Oil Tankers",
     f: "Tankers",
+    img: vlccImg,
     spec: "300,000+ DWT • 2-Stroke Low-Speed Diesel",
     len: "330M / 1,080 FT",
     speed: "16.5 Knots Cruising",
@@ -27,6 +35,7 @@ const vessels = [
     n: "Gas / LNG & LPG Carriers",
     c: "Cryogenic Gas Transport",
     f: "Gas Carriers",
+    img: lngImg,
     spec: "174,000 m³ • Dual-Fuel ME-GI / X-DF Engines",
     len: "299M / 980 FT",
     speed: "19.5 Knots Cruising",
@@ -37,6 +46,7 @@ const vessels = [
     n: "Chemical Parcel Tankers",
     c: "Chemical & Product",
     f: "Tankers",
+    img: chemImg,
     spec: "50,000 DWT • Stainless Steel 316LN Tanks",
     len: "183M / 600 FT",
     speed: "15 Knots Cruising",
@@ -47,6 +57,7 @@ const vessels = [
     n: "Bulk Carriers (Capesize & Panamax)",
     c: "Dry Bulk Fleet",
     f: "Bulk Carriers",
+    img: bulkImg,
     spec: "60,000 to 210,000 DWT • Heavy Fuel Auxiliary Packages",
     len: "225M – 300M",
     speed: "14.5 Knots Cruising",
@@ -57,6 +68,7 @@ const vessels = [
     n: "Container Vessels",
     c: "Feeder to Ultra-Large Container",
     f: "Container",
+    img: containerImg,
     spec: "1,500 to 24,000 TEU • High-Output 2-Stroke Propulsion",
     len: "170M – 400M",
     speed: "22 Knots Cruising",
@@ -67,6 +79,7 @@ const vessels = [
     n: "Ro-Ro & Car Carriers",
     c: "Roll-on / Roll-off",
     f: "Ro-Ro",
+    img: roroImg,
     spec: "6,500 to 8,500 CEU • Multi-Deck Vehicle Carriers",
     len: "200M / 656 FT",
     speed: "20 Knots Cruising",
@@ -77,6 +90,7 @@ const vessels = [
     n: "Offshore Support Vessels (AHTS & PSV)",
     c: "Offshore DP-2 / DP-3",
     f: "Offshore",
+    img: offshoreImg,
     spec: "200T Bollard Pull • Dynamic Positioning 2/3",
     len: "88M / 288 FT",
     speed: "16 Knots Cruising",
@@ -161,34 +175,47 @@ function Fleet() {
           </div>
         </div>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {filteredList.map((v, idx) => (
             <article
               key={v.n}
-              className={`flex flex-col rounded-md border bg-card p-7 shadow-sm transition hover:shadow-md hover:-translate-y-1 scroll-reveal delay-${((idx % 3) + 1) * 100}`}
+              className={`group flex flex-col overflow-hidden rounded-xl border border-border/80 bg-card shadow-sm transition-all duration-300 hover:shadow-lg hover:border-primary/40 scroll-reveal delay-${((idx % 3) + 1) * 100}`}
             >
-              <span className="eyebrow">{v.c}</span>
-              <h3 className="mt-2 text-xl font-bold">{v.n}</h3>
-              <p className="mt-1 font-mono text-xs text-muted-foreground">{v.spec}</p>
+              {/* Pristine Unobstructed Image: No overlays top or bottom */}
+              <div className="aspect-[16/10] overflow-hidden bg-navy">
+                <img
+                  src={v.img}
+                  alt={v.n}
+                  className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                  loading="lazy"
+                />
+              </div>
 
-              <dl className="mt-6 grid grid-cols-3 gap-2 border-y py-4 text-xs">
-                <div>
-                  <dt className="text-muted-foreground">Length</dt>
-                  <dd className="mt-1 font-mono font-semibold">{v.len}</dd>
-                </div>
-                <div>
-                  <dt className="text-muted-foreground">Speed</dt>
-                  <dd className="mt-1 font-mono font-semibold">{v.speed}</dd>
-                </div>
-                <div>
-                  <dt className="text-muted-foreground">Range</dt>
-                  <dd className="mt-1 font-mono font-semibold">{v.range}</dd>
-                </div>
-              </dl>
+              {/* Clean structured technical details below image */}
+              <div className="flex flex-1 flex-col p-6 sm:p-7">
+                <span className="eyebrow">{v.c}</span>
+                <h3 className="mt-2 text-xl font-bold tracking-tight text-foreground">{v.n}</h3>
+                <p className="mt-1 font-mono text-xs text-muted-foreground">{v.spec}</p>
 
-              <div className="mt-4 flex-1">
-                <span className="text-xs font-semibold uppercase tracking-wider text-primary">Technical Focus:</span>
-                <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{v.focus}</p>
+                <dl className="mt-6 grid grid-cols-3 gap-2 border-y border-border/70 py-4 text-xs">
+                  <div>
+                    <dt className="text-muted-foreground font-mono text-[11px] uppercase">Length</dt>
+                    <dd className="mt-1 font-mono font-semibold text-foreground">{v.len}</dd>
+                  </div>
+                  <div>
+                    <dt className="text-muted-foreground font-mono text-[11px] uppercase">Speed</dt>
+                    <dd className="mt-1 font-mono font-semibold text-foreground">{v.speed}</dd>
+                  </div>
+                  <div>
+                    <dt className="text-muted-foreground font-mono text-[11px] uppercase">Range</dt>
+                    <dd className="mt-1 font-mono font-semibold text-foreground">{v.range}</dd>
+                  </div>
+                </dl>
+
+                <div className="mt-5 flex-1">
+                  <span className="text-xs font-semibold uppercase tracking-wider text-primary">Technical Focus:</span>
+                  <p className="mt-1.5 text-xs sm:text-sm leading-relaxed text-muted-foreground font-light">{v.focus}</p>
+                </div>
               </div>
             </article>
           ))}
