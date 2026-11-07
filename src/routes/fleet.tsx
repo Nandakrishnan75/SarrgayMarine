@@ -188,7 +188,7 @@ function Fleet() {
         <img
           src={fleetHero}
           alt="Commercial fleet operations underway at sea"
-          className="absolute inset-0 h-full w-full object-cover object-center pointer-events-none opacity-40"
+          className="absolute inset-0 h-full w-full object-cover object-center pointer-events-none"
           width={1920}
           height={1080}
         />
