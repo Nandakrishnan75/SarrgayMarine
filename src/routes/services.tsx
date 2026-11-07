@@ -1,12 +1,11 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   ArrowRight,
   Check,
   Compass,
   Cpu,
   FileCheck2,
-  Shield,
+  ShieldCheck,
   ShieldAlert,
   Ship,
   Sparkles,
@@ -16,13 +15,19 @@ import {
 } from "lucide-react";
 import engine from "@/assets/engine-room.jpg";
 import servicesHero from "@/assets/services-hero.jpg";
+import generatorImg from "@/assets/generator-maintenance.jpg";
+import propulsionImg from "@/assets/main-engine-propulsion.jpg";
+import drydockImg from "@/assets/drydock-superintendency.jpg";
+import electricalImg from "@/assets/marine-electrical-automation.jpg";
+import emergencyImg from "@/assets/contact-hero.jpg";
+import ridingImg from "@/assets/fleet-hero.jpg";
 import { Btn, WHATSAPP, meta } from "@/components/site";
 
 export const Route = createFileRoute("/services")({
   head: () =>
     meta(
       "Marine Engineering Solutions | SARRGAY MARINE",
-      "Interactive directory of marine engineering solutions: auxiliary diesel generators, main engine propulsion overhauls, dry dock superintendency, electrical systems, 24/7 flying squads, and riding teams."
+      "Delivering precision engineering, technical management, and riding squad services to the global maritime industry. Generator maintenance, main engine overhauls, dry dock assistance, mechanical & electrical, and emergency repairs."
     ),
   component: Services,
 });
@@ -30,12 +35,14 @@ export const Route = createFileRoute("/services")({
 const serviceCatalog = [
   {
     id: "01",
-    shortName: "Generators & Aux",
+    anchor: "generators",
     icon: Zap,
     title: "Generator & Auxiliary Engine Maintenance",
     tagline: "Uninterrupted onboard electrical generation & precision calibration",
     desc: "Comprehensive power solutions ensuring your vessel never goes dark. We specialize in the heart of your ship's electrical system, eliminating blackout risks through micrometer-exact crankshaft alignment, bedplate inspection, and governor tuning under Chief Engineer supervision.",
-    tolerances: "Crankshaft deflections to ±0.01mm • Web clearance verification",
+    image: generatorImg,
+    imageAlt: "Chief marine engineer inspecting auxiliary diesel generator crankshaft deflection with micrometer gauge",
+    imageBadge: "DIESEL GENSET CALIBRATION • ±0.01mm",
     oems: ["Yanmar", "Daihatsu", "Hyundai HiMSEN", "MAN B&W", "Caterpillar / MaK"],
     specs: ["Yanmar & Daihatsu Specialists", "Crankshaft Deflections to ±0.01mm", "OEM Clearance Adherence"],
     items: [
@@ -51,13 +58,15 @@ const serviceCatalog = [
   },
   {
     id: "02",
-    shortName: "Propulsion Care",
+    anchor: "propulsion",
     icon: Ship,
     title: "Main Engine Overhauls & Propulsion Care",
     tagline: "Propulsion integrity for uninterrupted ocean passages",
     desc: "Expert care for your vessel's primary propulsion. From scheduled routine overhauls to complex casualty repairs, we ensure peak mechanical reliability across 2-stroke and 4-stroke marine diesel propulsion plants under former Chief Engineer oversight.",
-    tolerances: "Optical laser line boring • Micrometer cylinder liner wear mapping",
-    oems: ["MAN B&W (2 & 4 Stroke)", "Wärtsilä / Sulzer", "WinGD", "Mitsubishi Heavy", "Caterpillar"],
+    image: propulsionImg,
+    imageAlt: "Marine propulsion engineers executing precision laser optical line boring and crankshaft alignment on 2-stroke engine",
+    imageBadge: "PROPULSION DIESEL OVERHAUL • 2 & 4 STROKE",
+    oems: ["MAN B&W", "Wärtsilä / Sulzer", "WinGD", "Mitsubishi Heavy", "Caterpillar"],
     specs: ["MAN B&W & Wärtsilä Scope", "Laser Optical Line Boring & Honing", "Sea Trial Indicator Analysis"],
     items: [
       "Complete and partial propulsion overhauls",
@@ -72,13 +81,15 @@ const serviceCatalog = [
   },
   {
     id: "03",
-    shortName: "Dry Dock Support",
+    anchor: "drydock",
     icon: Wrench,
     title: "Dry Dock Assistance & Superintendency",
     tagline: "Naval superintendent leadership & shipyard management",
     desc: "Strategic technical support during critical dry docking periods. We manage technical heavy lifting so your operations department can focus on fleet logistics, eliminating costly off-hire delays and protecting shipowners from unexpected shipyard extras.",
-    tolerances: "Zero-variation audit control • Verified surveyor inspection milestones",
-    oems: ["Simplex Seals", "Kongsberg / Rolls-Royce Steering", "Alfa Laval Boilers", "All Class Societies"],
+    image: drydockImg,
+    imageAlt: "Marine superintendents inspecting bronze propeller, rudder clearances and underwater hull in shipyard drydock",
+    imageBadge: "SUPERINTENDENCY • HULL & RUNNING GEAR",
+    oems: ["Simplex Seals", "Kongsberg Steering", "Alfa Laval", "All Major Yards"],
     specs: ["Daily Superintendent Logs", "Tailshaft & Rudder Surveys", "Yard Variation Control"],
     items: [
       "Pre-dock inspection, work scope compilation & yard tender review",
@@ -93,13 +104,15 @@ const serviceCatalog = [
   },
   {
     id: "04",
-    shortName: "Electrical & Auto",
+    anchor: "electrical",
     icon: Cpu,
     title: "Mechanical & Electrical Systems Engineering",
     tagline: "Holistic mechanical robustness & advanced electrical automation",
     desc: "Integrating traditional heavy machinery with modern digital controls. We troubleshoot PLC automation, main switchboard busbars, reverse-power protections, and motor rewinds with full class documentation.",
-    tolerances: "Class H thermal insulation • ACB secondary injection precision",
-    oems: ["Schneider / ABB Switchboards", "Terasaki Circuit Breakers", "Siemens S7 Marine", "Deif Power Management"],
+    image: electricalImg,
+    imageAlt: "Marine electrical engineer conducting infrared thermal survey and diagnostic testing on 440V main switchboard",
+    imageBadge: "440V / 6.6kV AUTOMATION & THERMOGRAPHY",
+    oems: ["Schneider / ABB", "Terasaki ACB", "Siemens S7 Marine", "Deif PMS"],
     specs: ["Class H Motor Rewinding", "Main Switchboard (440V/6.6kV)", "Thermographic Infrared Surveys"],
     items: [
       "Pumps, compressors, and heat exchangers refurbishment",
@@ -114,13 +127,15 @@ const serviceCatalog = [
   },
   {
     id: "05",
-    shortName: "Emergency Flying Squad",
+    anchor: "emergency",
     icon: ShieldAlert,
     title: "24/7 Emergency Technical Repairs",
     tagline: "Rapid mobilization flying squads for critical maritime casualties",
-    desc: "Round-the-clock emergency support with rapid mobilization for urgent on-site interventions. Our flying squads deploy with specialized portable fly-away tooling to resolve voyage breakdowns at berth or anchorage.",
-    tolerances: "Under 15-minute dispatch latency • Class-approved temporary & permanent repairs",
-    oems: ["In-Situ Crankshaft Grinding", "Hydraulic Torque Calibration", "Boiler Refurbishment", "VHF Standby"],
+    desc: "Round-the-clock emergency support with rapid mobilization for urgent on-site interventions. Our flying squads deploy with specialized portable fly-away tooling to resolve voyage breakdowns at berth, anchorage, or offshore terminals.",
+    image: emergencyImg,
+    imageAlt: "Emergency flying squad engineers mobilizing rapid repair toolkit for critical engine casualty",
+    imageBadge: "12-HOUR FLYING SQUAD MOBILIZATION",
+    oems: ["Worldwide Visa Ready", "Fly-Away Portable Tooling", "Hydraulic & In-Situ Tools"],
     specs: ["12-Hour Mobilization", "Fly-Away Portable Tooling", "Worldwide Visa Readiness"],
     items: [
       "24/7 rapid-response teams mobilized within hours",
@@ -135,13 +150,15 @@ const serviceCatalog = [
   },
   {
     id: "06",
-    shortName: "Riding Crew At Sea",
+    anchor: "riding-crew",
     icon: Users,
     title: "Sailing Teams & Riding Crew Deployment",
     tagline: "Zero-downtime maintenance while underway on ocean passages",
-    desc: "Skilled marine engineers and technicians deployed onboard for voyage-based engine maintenance, compliance support, and crew augmentation without disrupting commercial sailing schedules.",
-    tolerances: "Zero commercial off-hire • Fully certified STCW 2010 seafarers",
-    oems: ["Auxiliary Generator Overhaul", "Voyage Piping & Valve Renewals", "Pump Overhauls At Sea", "Daily Logs"],
+    desc: "Skilled marine engineers and certified fitters deployed onboard for voyage-based engine maintenance, major overhauls, and compliance support without taking your vessel off-hire or disrupting commercial voyages.",
+    image: ridingImg,
+    imageAlt: "Sailing riding crew technicians conducting machinery maintenance underway on ocean passage",
+    imageBadge: "ZERO OFF-HIRE • VOYAGE MAINTENANCE",
+    oems: ["STCW 2010 Endorsed", "CDC Certified Seafarers", "Offshore Medical Clearances"],
     specs: ["Valid CDC & STCW 2010", "Zero Off-Hire At Sea", "Turnkey Tooling Kits"],
     items: [
       "Zero off-hire voyage maintenance underway at sea",
@@ -156,44 +173,51 @@ const serviceCatalog = [
   },
 ];
 
-const workflowSteps = [
+const executionSteps = [
   {
-    step: "01",
-    title: "Telemetry & Diagnostics",
-    desc: "Remote analysis of combustion diagrams, lube oil reports, and deflection records to establish an exact OEM-compliant repair protocol.",
+    num: "01",
+    phase: "DIAGNOSTIC & AUDIT",
+    title: "Scope Compilation",
+    desc: "Machinery log analysis, defect evaluation, and OEM tolerance matching before deployment.",
   },
   {
-    step: "02",
-    title: "Rapid Squad Mobilization",
-    desc: "Certified Chief Engineers and fitters deployed with portable fly-away toolkits, holding active CDC endorsements for immediate boarding.",
+    num: "02",
+    phase: "MOBILIZATION",
+    title: "Squad Deployment",
+    desc: "Licensed Chief Engineers and certified fitters dispatched with fly-away calibration kits within 12-24 hours.",
   },
   {
-    step: "03",
-    title: "Precision Execution",
-    desc: "In-situ machining, component renewals, and optical laser alignments executed strictly to micrometer manufacturing tolerances.",
+    num: "03",
+    phase: "EXECUTION",
+    title: "Precision Overhaul",
+    desc: "Machinery works executed to strict micrometer tolerances under continuous daily superintendent logs.",
   },
   {
-    step: "04",
-    title: "Class Surveyor Sign-Off",
-    desc: "Sea-trial load tests, performance data validation, and comprehensive technical handover dossiers endorsed by classification surveyors.",
+    num: "04",
+    phase: "VALIDATION",
+    title: "Sea Trials & Class Handover",
+    desc: "Full load indicator diagrams, deflection logs, and classification society certificate clearance.",
   },
 ];
 
-const oemMakers = [
-  "MAN Energy Solutions",
-  "Wärtsilä Marine",
-  "Yanmar Marine",
-  "Daihatsu Diesel",
-  "Hyundai HiMSEN",
-  "Caterpillar / MaK",
-  "Alfa Laval",
-  "ABB Turbocharging",
+const classes = [
+  "ABS",
+  "DNV",
+  "Lloyd's Register",
+  "Bureau Veritas",
+  "ClassNK",
+  "KR",
+  "IRS",
+  "ISO 9001:2015",
 ];
 
 function Services() {
-  const [activeId, setActiveId] = useState("01");
-  const currentService = serviceCatalog.find((s) => s.id === activeId) || serviceCatalog[0];
-  const CurrentIcon = currentService.icon;
+  const handleScrollTo = (anchor: string) => {
+    const el = document.getElementById(anchor);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
 
   return (
     <div className="bg-white text-[#1A1A1A]">
@@ -210,11 +234,11 @@ function Services() {
         <div aria-hidden className="dot-grid absolute right-8 top-12 h-20 w-28 opacity-40 pointer-events-none" />
 
         <div className="container-x relative z-10">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-white/15">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 sm:pb-8 border-b border-white/15">
             <div className="max-w-2xl">
               <p className="eyebrow flex items-center gap-2">
                 <Compass className="h-3.5 w-3.5 text-accent" />
-                <span>TECHNICAL DIRECTORY &bull; CHIEF ENGINEER OVERSIGHT</span>
+                <span>SERVICES DIRECTORY &bull; TECHNICAL SOLUTIONS</span>
               </p>
 
               <h1 className="mt-3 text-2xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight text-white leading-[1.12]">
@@ -222,7 +246,7 @@ function Services() {
               </h1>
 
               <p className="mt-3 text-sm sm:text-base text-navy-muted leading-relaxed max-w-xl">
-                Explore our full technical scope across 6 specialized marine engineering disciplines. From in-voyage overhauls to critical dry dock superintendency.
+                From voyage overhauls by sailing riding squads to scheduled major dry dock superintendency, we deliver zero-defect technical execution under licensed Chief Engineer oversight.
               </p>
             </div>
 
@@ -240,222 +264,189 @@ function Services() {
               </span>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* Modern Interactive Discipline Hub */}
-      <section className="py-12 sm:py-16 bg-[#FAFAFC] border-b border-border/80">
-        <div className="container-x">
-          {/* Section Eyebrow */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-border/70">
-            <div>
-              <span className="font-mono text-xs uppercase tracking-widest text-primary font-semibold flex items-center gap-2">
-                <Sparkles className="h-3.5 w-3.5" />
-                <span>INTERACTIVE DISCIPLINE SELECTOR</span>
-              </span>
-              <h2 className="text-xl sm:text-2xl font-bold uppercase tracking-tight text-foreground mt-1">
-                Select Discipline to Inspect Technical Scope
-              </h2>
-            </div>
-            <div className="text-xs font-mono text-muted-foreground">
-              Direct liaison available 24/7 via WhatsApp
-            </div>
-          </div>
-
-          {/* Clean 6-Button Discipline Switcher Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2.5 pt-6">
-            {serviceCatalog.map((s) => {
-              const Icon = s.icon;
-              const isActive = s.id === activeId;
-              return (
+          {/* Quick Anchor Navigation Strip */}
+          <div className="pt-5 overflow-x-auto">
+            <div className="flex items-center gap-2 min-w-max text-xs font-mono">
+              <span className="text-navy-muted mr-1 uppercase tracking-wider text-[11px]">Jump to:</span>
+              {serviceCatalog.map((s) => (
                 <button
                   key={s.id}
                   type="button"
-                  onClick={() => setActiveId(s.id)}
-                  className={`group relative flex flex-col items-start p-3.5 sm:p-4 rounded-md border text-left transition-all duration-200 cursor-pointer ${
-                    isActive
-                      ? "bg-navy text-white border-navy shadow-md ring-1 ring-navy"
-                      : "bg-white text-foreground border-border hover:border-primary/50 hover:bg-white shadow-xs"
-                  }`}
+                  onClick={() => handleScrollTo(s.anchor)}
+                  className="rounded-sm border border-white/15 bg-white/5 px-3 py-1 text-white/90 hover:bg-white/15 hover:text-white transition cursor-pointer"
                 >
-                  <div className="flex items-center justify-between w-full">
-                    <span
-                      className={`font-mono text-xs font-bold ${
-                        isActive ? "text-accent" : "text-primary"
-                      }`}
-                    >
-                      {s.id}
-                    </span>
-                    <Icon
-                      className={`h-4 w-4 transition-transform group-hover:scale-110 ${
-                        isActive ? "text-accent" : "text-muted-foreground"
-                      }`}
-                    />
-                  </div>
-
-                  <span
-                    className={`mt-2 font-display text-xs sm:text-[13px] font-bold uppercase tracking-wider leading-snug ${
-                      isActive ? "text-white" : "text-foreground"
-                    }`}
-                  >
-                    {s.shortName}
-                  </span>
-
-                  {/* Active Indicator Bar */}
-                  {isActive && (
-                    <span className="absolute bottom-0 inset-x-2 h-0.5 bg-accent rounded-full" />
-                  )}
+                  <span className="text-accent font-semibold mr-1.5">{s.id}</span>
+                  <span>{s.title.split(" ")[0]}</span>
                 </button>
-              );
-            })}
-          </div>
-
-          {/* Active Discipline Detailed Presentation Card */}
-          <div className="mt-8 rounded-xl border border-border/80 bg-white p-6 sm:p-10 shadow-sm transition-all duration-300">
-            <div className="grid gap-10 lg:grid-cols-12 lg:items-start">
-              {/* Left Column: Scope, Directive, Tolerances & Action */}
-              <div className="lg:col-span-5 space-y-4">
-                <div className="flex items-center gap-3">
-                  <span className="font-mono text-2xl sm:text-3xl font-extrabold text-primary">
-                    {currentService.id}
-                  </span>
-                  <div className="h-6 w-px bg-border" />
-                  <div className="flex items-center gap-2">
-                    <div className="flex h-7 w-7 items-center justify-center rounded bg-primary/10 text-primary">
-                      <CurrentIcon className="h-4 w-4" />
-                    </div>
-                    <span className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground font-semibold">
-                      CHIEF ENGINEER DIRECTIVE
-                    </span>
-                  </div>
-                </div>
-
-                <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold uppercase tracking-tight text-foreground leading-tight">
-                  {currentService.title}
-                </h3>
-
-                <p className="font-serif text-xs sm:text-sm italic text-muted-foreground leading-relaxed">
-                  {currentService.tagline}
-                </p>
-
-                <p className="text-xs sm:text-sm leading-relaxed text-muted-foreground font-light pt-1">
-                  {currentService.desc}
-                </p>
-
-                {/* Precision Tolerances Box */}
-                <div className="rounded-md border border-primary/20 bg-primary/[0.03] p-3.5 space-y-1">
-                  <div className="font-mono text-[10px] uppercase tracking-wider text-primary font-bold flex items-center gap-1.5">
-                    <Shield className="h-3 w-3" />
-                    <span>PRECISION TOLERANCE &amp; BENCHMARK</span>
-                  </div>
-                  <p className="font-mono text-xs text-foreground/90 font-medium">
-                    {currentService.tolerances}
-                  </p>
-                </div>
-
-                {/* OEM Coverage Tags */}
-                <div>
-                  <span className="block font-mono text-[10px] uppercase tracking-wider text-muted-foreground font-semibold mb-2">
-                    OEM Engine Makers &amp; Systems Covered:
-                  </span>
-                  <div className="flex flex-wrap gap-1.5">
-                    {currentService.oems.map((oem) => (
-                      <span
-                        key={oem}
-                        className="inline-block rounded-sm bg-secondary px-2.5 py-0.5 text-[11px] font-mono text-foreground border border-border/60"
-                      >
-                        {oem}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Purposeful Contextual Action Buttons */}
-                <div className="flex flex-wrap items-center gap-3 pt-3">
-                  <Btn to="/contact">
-                    Inquire Scope Dossier
-                    <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
-                  </Btn>
-                  <Btn href={WHATSAPP} variant="outline">
-                    WhatsApp Duty Desk
-                  </Btn>
-                </div>
-              </div>
-
-              {/* Right Column: Clean Technical Deliverables Matrix */}
-              <div className="lg:col-span-7 rounded-lg border border-border/80 bg-[#FAFAFC] p-5 sm:p-7 space-y-4">
-                <div className="flex items-center justify-between pb-3.5 border-b border-border/80">
-                  <div className="flex items-center gap-2">
-                    <span className="h-2 w-2 rounded-full bg-primary" />
-                    <h4 className="font-mono text-xs uppercase tracking-widest text-foreground font-bold">
-                      Key Technical Deliverables &bull; Discipline {currentService.id}
-                    </h4>
-                  </div>
-                  <span className="font-mono text-[10px] uppercase tracking-wider text-primary font-bold bg-primary/10 px-2 py-0.5 rounded">
-                    IACS COMPLIANT
-                  </span>
-                </div>
-
-                {/* 2-Column Checklist */}
-                <div className="grid gap-2.5 sm:grid-cols-2 pt-1">
-                  {currentService.items.map((it) => (
-                    <div
-                      key={it}
-                      className="flex items-start gap-2.5 rounded-sm p-2 text-xs text-foreground/90 transition hover:bg-white border border-transparent hover:border-border/60 shadow-2xs"
-                    >
-                      <Check className="h-3.5 w-3.5 shrink-0 text-primary mt-0.5" />
-                      <span className="leading-relaxed font-light">{it}</span>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Verification Notice */}
-                <div className="pt-3 border-t border-border/70 flex items-center justify-between text-[11px] font-mono text-muted-foreground">
-                  <span>Signed Class Surveyor Handover</span>
-                  <span>Zero Off-Hire Guarantee</span>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* 4-Step Technical Mobilization Protocol */}
-      <section className="py-16 sm:py-20 border-b border-border/80 bg-white">
+      {/* Main Service Catalog: Clean Visual Engineering Disciplines */}
+      <section className="divide-y divide-border/70">
+        {serviceCatalog.map((s, idx) => {
+          const Icon = s.icon;
+          const isReversed = idx % 2 === 1;
+
+          return (
+            <article
+              id={s.anchor}
+              key={s.id}
+              className={`scroll-mt-24 py-16 sm:py-24 ${idx % 2 === 1 ? "bg-[#FAFAFC]" : "bg-white"}`}
+            >
+              <div className="container-x">
+                <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
+                  {/* Visual Imagery Showcase */}
+                  <div className={`lg:col-span-6 ${isReversed ? "lg:order-2" : "lg:order-1"}`}>
+                    <div className="group relative overflow-hidden rounded-xl border border-border/80 bg-navy shadow-lg">
+                      <img
+                        src={s.image}
+                        alt={s.imageAlt}
+                        className="aspect-[16/11] w-full object-cover object-center filter brightness-[0.92] contrast-[1.05] transition-transform duration-700 group-hover:scale-105"
+                        width={960}
+                        height={660}
+                        loading="lazy"
+                      />
+
+                      {/* Image Overlay Telemetry */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/20 to-transparent pointer-events-none" />
+
+                      {/* Top Corner Pill */}
+                      <div className="absolute top-4 left-4 z-10">
+                        <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-navy/85 backdrop-blur-md px-3 py-1 text-[11px] font-mono font-medium text-white shadow-sm">
+                          <Icon className="h-3.5 w-3.5 text-accent" />
+                          <span>DISCIPLINE {s.id}</span>
+                        </span>
+                      </div>
+
+                      {/* Bottom Telemetry Bar */}
+                      <div className="absolute bottom-4 left-4 right-4 z-10 flex flex-col gap-2">
+                        <div className="inline-flex items-center gap-2 self-start rounded-sm border border-accent/30 bg-navy/90 backdrop-blur-md px-2.5 py-1 text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-accent font-semibold">
+                          <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
+                          {s.imageBadge}
+                        </div>
+
+                        {/* OEM Machinery Tags */}
+                        <div className="flex flex-wrap items-center gap-1.5">
+                          {s.oems.map((maker) => (
+                            <span
+                              key={maker}
+                              className="rounded-sm bg-white/10 backdrop-blur-md px-2 py-0.5 text-[10px] font-mono text-white/90 border border-white/10"
+                            >
+                              {maker}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Narrative & Technical Scope */}
+                  <div className={`lg:col-span-6 space-y-5 ${isReversed ? "lg:order-1" : "lg:order-2"}`}>
+                    <div className="flex items-center gap-3">
+                      <span className="font-serif text-3xl sm:text-4xl font-normal text-primary">
+                        {s.id}
+                      </span>
+                      <div className="h-6 w-px bg-border" />
+                      <span className="font-mono text-xs uppercase tracking-wider text-muted-foreground font-semibold">
+                        CHIEF ENGINEER DIRECTIVE
+                      </span>
+                    </div>
+
+                    <div>
+                      <h2 className="text-2xl sm:text-3xl font-extrabold uppercase tracking-tight text-foreground leading-tight">
+                        {s.title}
+                      </h2>
+                      <p className="mt-1 font-serif text-sm italic text-muted-foreground leading-relaxed">
+                        {s.tagline}
+                      </p>
+                    </div>
+
+                    <p className="text-sm leading-relaxed text-muted-foreground font-light">
+                      {s.desc}
+                    </p>
+
+                    {/* Deliverables Matrix */}
+                    <div className="rounded-lg border border-border/70 bg-card p-5 sm:p-6 shadow-sm">
+                      <div className="flex items-center justify-between pb-3 border-b border-border/70">
+                        <h3 className="font-mono text-xs uppercase tracking-widest text-foreground font-semibold">
+                          Key Technical Deliverables
+                        </h3>
+                        <span className="font-mono text-[10px] uppercase tracking-wider text-primary font-bold bg-primary/10 px-2 py-0.5 rounded">
+                          CLASS VERIFIED
+                        </span>
+                      </div>
+
+                      <div className="mt-3.5 grid gap-2.5 sm:grid-cols-2">
+                        {s.items.map((it) => (
+                          <div
+                            key={it}
+                            className="flex items-start gap-2 rounded-sm p-1.5 text-xs text-foreground/90 transition hover:bg-secondary/60"
+                          >
+                            <Check className="h-3.5 w-3.5 shrink-0 text-primary mt-0.5" />
+                            <span className="leading-snug font-light">{it}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Action Buttons */}
+                    <div className="flex flex-wrap items-center gap-3 pt-2">
+                      <Btn to="/contact">
+                        Request Scope Consultation
+                        <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
+                      </Btn>
+                      <Btn href={WHATSAPP} variant="outline">
+                        Consult Duty Engineer
+                      </Btn>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+          );
+        })}
+      </section>
+
+      {/* The Sarrgay Execution Standard (4-Step Precision Workflow) */}
+      <section className="border-t border-border/80 bg-secondary/40 py-16 sm:py-20">
         <div className="container-x">
           <div className="max-w-2xl">
-            <span className="eyebrow flex items-center gap-2">
-              <span className="h-2 w-2 rounded-full bg-primary" />
-              <span>EXECUTION RIGOR &bull; STANDARD OPERATING PROCEDURE</span>
-            </span>
+            <p className="eyebrow flex items-center gap-2">
+              <ShieldCheck className="h-3.5 w-3.5 text-primary" />
+              <span>MOBILIZATION &amp; QUALITY ASSURANCE</span>
+            </p>
             <h2 className="mt-2 text-2xl sm:text-3xl font-extrabold uppercase tracking-tight text-foreground">
-              4-Step Technical Mobilization Protocol
+              The Sarrgay Execution Standard
             </h2>
-            <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-              Every project follows strict technical milestones from initial telemetry scoping to final sea-trial classification sign-off.
+            <p className="mt-2 text-sm text-muted-foreground font-light">
+              Every overhaul follows a four-phase technical protocol to eliminate off-hire risk and ensure swift classification surveyor sign-off.
             </p>
           </div>
 
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {workflowSteps.map((wf) => (
+            {executionSteps.map((step) => (
               <div
-                key={wf.step}
-                className="relative flex flex-col justify-between rounded-lg border border-border/80 bg-[#FAFAFC] p-6 transition-all duration-200 hover:-translate-y-1 hover:border-primary/40 hover:shadow-sm"
+                key={step.num}
+                className="relative rounded-lg border border-border/80 bg-card p-6 shadow-sm transition-all hover:border-primary/50 hover:shadow-md"
               >
-                <div>
-                  <span className="font-mono text-2xl font-bold text-primary">
-                    {wf.step}
+                <div className="flex items-center justify-between pb-3 border-b border-border/50">
+                  <span className="font-mono text-xs uppercase tracking-wider text-primary font-bold">
+                    Phase {step.num}
                   </span>
-                  <h3 className="mt-3 text-base font-bold uppercase tracking-tight text-foreground">
-                    {wf.title}
-                  </h3>
-                  <p className="mt-2 text-xs leading-relaxed text-muted-foreground font-light">
-                    {wf.desc}
-                  </p>
+                  <span className="font-mono text-[10px] text-muted-foreground uppercase tracking-widest">
+                    {step.phase}
+                  </span>
                 </div>
-                <div className="mt-4 pt-3 border-t border-border/60 font-mono text-[10px] uppercase tracking-wider text-primary font-semibold">
-                  Milestone Verified &bull; Chief Engineer
-                </div>
+                <h3 className="mt-4 text-base font-bold text-foreground">
+                  {step.title}
+                </h3>
+                <p className="mt-2 text-xs leading-relaxed text-muted-foreground font-light">
+                  {step.desc}
+                </p>
               </div>
             ))}
           </div>
@@ -463,7 +454,7 @@ function Services() {
       </section>
 
       {/* Feature Spotlight — Riding Teams & On-Voyage Repairs */}
-      <section className="relative overflow-hidden bg-navy py-16 sm:py-20 text-navy-foreground on-navy border-b border-white/10">
+      <section className="relative overflow-hidden bg-navy py-16 sm:py-24 text-navy-foreground on-navy border-t border-white/10">
         <img
           src={engine}
           alt=""
@@ -483,12 +474,12 @@ function Services() {
             <h2 className="mt-3 text-2xl sm:text-4xl font-extrabold uppercase tracking-tight text-white leading-tight">
               Zero Downtime Maintenance at Sea
             </h2>
-            <p className="mt-3 text-sm sm:text-base leading-relaxed text-navy-muted max-w-2xl mx-auto">
+            <p className="mt-4 text-sm sm:text-base leading-relaxed text-navy-muted max-w-2xl mx-auto">
               Our specialized sailing teams perform critical machinery maintenance while your vessel remains underway on ocean passages, ensuring you never miss a commercial charter or docking window.
             </p>
           </div>
 
-          <div className="mt-10 grid gap-6 md:grid-cols-2">
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
             <div className="rounded-lg border border-white/15 bg-white/5 p-7 backdrop-blur-md space-y-3">
               <div className="font-mono text-xs uppercase tracking-wider text-accent font-semibold flex items-center gap-2">
                 <FileCheck2 className="h-4 w-4" />
@@ -502,41 +493,50 @@ function Services() {
 
             <div className="rounded-lg border border-white/15 bg-white/5 p-7 backdrop-blur-md space-y-3">
               <div className="font-mono text-xs uppercase tracking-wider text-accent font-semibold flex items-center gap-2">
-                <Compass className="h-4 w-4" />
-                <span>Pillar 02 &bull; Chief Engineer Supervision</span>
+                <ShieldAlert className="h-4 w-4" />
+                <span>Pillar 02 &bull; Precision Tooling</span>
               </div>
-              <h3 className="text-lg font-bold text-white">At-Sea Project Management</h3>
+              <h3 className="text-lg font-bold text-white">Turnkey Fly-Away Toolkits</h3>
               <p className="text-xs sm:text-sm leading-relaxed text-navy-muted">
-                Led by former Chief Engineers who manage daily overhaul logs, work scopes, spare parts calibration, and sea-trial indicator cards. We integrate seamlessly with shipboard crew, upholding the highest ISM Code safety standards.
+                Each team mobilizes with comprehensive calibrated instrumentation — including laser shaft alignment systems, digital deflection indicators, pneumatic hydraulic torque wrenches, and in-situ honing equipment packed in rugged Pelican cases ready for air freight.
               </p>
+            </div>
+          </div>
+
+          <div className="mt-10 text-center">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-4 py-1.5 text-xs font-mono text-accent">
+              <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
+              Rapid fly-in teams available across Asia, Middle East, and Mediterranean corridors
+            </div>
+            <div className="mt-6 flex flex-wrap justify-center gap-3">
+              <Btn to="/contact">Request Riding Squad Quote</Btn>
+              <Btn href={WHATSAPP} variant="ghostLight">WhatsApp Rapid Desk</Btn>
             </div>
           </div>
         </div>
       </section>
 
-      {/* OEM Machinery Compatibility Ticker Ribbon */}
-      <section className="border-b border-border/80 bg-[#FAFAFC] py-5">
-        <div className="container-x flex flex-col md:flex-row items-center justify-between gap-4">
-          <span className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground/80 shrink-0">
-            Recognized OEM Machinery Coverage:
-          </span>
-          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 font-mono text-xs text-foreground/80 font-medium">
-            {oemMakers.map((maker) => (
-              <span key={maker} className="transition-colors hover:text-primary">
-                {maker}
-              </span>
-            ))}
-          </div>
+      {/* Classification Society Strip */}
+      <section className="border-y border-border/50 bg-secondary/35 py-4.5 sm:py-5.5">
+        <div className="container-x flex flex-wrap items-center justify-center gap-x-6 sm:gap-x-8 md:gap-x-10 gap-y-2 text-center">
+          {classes.map((c, i) => (
+            <span
+              key={c}
+              className={`font-mono text-xs sm:text-sm tracking-wider uppercase font-semibold text-foreground/70 transition-colors hover:text-primary ${i === classes.length - 1 ? "text-primary font-bold" : ""}`}
+            >
+              {c}
+            </span>
+          ))}
         </div>
       </section>
 
-      {/* Unified Climax CTA (Consistent with other pages) */}
+      {/* Unified Climax Call to Action */}
       <section className="bg-secondary py-16 overflow-hidden border-b border-border">
         <div className="container-x flex flex-col items-center justify-between gap-6 md:flex-row text-center md:text-left">
           <div>
             <p className="eyebrow">LET&apos;S DISCUSS YOUR FLEET</p>
-            <h2 className="mt-2 text-2xl font-bold md:text-3xl">Ready to Optimize Your Operations?</h2>
-            <p className="mt-2 text-sm text-muted-foreground">
+            <h2 className="mt-2 text-2xl font-bold md:text-3xl text-foreground">Ready to Optimize Your Fleet Operations?</h2>
+            <p className="mt-2 text-sm text-muted-foreground font-light">
               Get an exact scope consultation or dispatch quote for your vessel within 24 hours.
             </p>
           </div>
@@ -549,4 +549,3 @@ function Services() {
     </div>
   );
 }
-

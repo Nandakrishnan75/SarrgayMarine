@@ -300,30 +300,30 @@ function Index() {
       </section>
 
       {/* Precision Defined (Floating Glassmorphism Showcase) */}
-      <section className="relative overflow-hidden py-20 sm:py-28 lg:py-32 bg-[#050d1a]">
-        {/* Atmospheric Background Image */}
+      <section className="relative overflow-hidden py-24 sm:py-32 bg-[#061224]">
+        {/* Engine Room Atmospheric Background Image */}
         <img
           src={engine}
-          alt="Marine engineers inspection and precision overhauling"
-          className="absolute inset-0 h-full w-full object-cover object-center filter brightness-[0.28] contrast-110 pointer-events-none"
+          alt="Engine room technical inspection"
+          className="absolute inset-0 h-full w-full object-cover object-center filter brightness-[0.22] contrast-125 scale-105 pointer-events-none"
           width={1920}
           height={1080}
         />
-        <div className="absolute inset-0 bg-[#061224]/75 backdrop-brightness-95" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#061224] via-transparent to-[#061224]/80" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#061224]/95 via-[#061224]/80 to-[#061224]/95" />
+        <div className="hero-overlay absolute inset-0 opacity-60" />
 
         <div className="container-x relative z-10 max-w-4xl lg:max-w-5xl">
-          {/* Centered Floating Glassmorphic Panel */}
-          <div className="relative overflow-hidden rounded-3xl border border-white/15 bg-white/[0.04] p-8 sm:p-12 md:p-14 lg:p-16 backdrop-blur-2xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.7),inset_0_1px_1px_rgba(255,255,255,0.12)] scroll-reveal">
-            {/* Ambient lighting accents */}
-            <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-accent/10 blur-3xl" />
-            <div className="pointer-events-none absolute -left-20 -bottom-20 h-64 w-64 rounded-full bg-primary/15 blur-3xl" />
+          {/* Floating Glassmorphic Panel Matching Reference Card */}
+          <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl border border-white/15 bg-white/[0.04] p-8 sm:p-12 md:p-16 backdrop-blur-xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.7),inset_0_1px_1px_rgba(255,255,255,0.12)] scroll-reveal">
+            {/* Subtle atmospheric ambient glow */}
+            <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-accent/15 blur-3xl" />
+            <div className="pointer-events-none absolute -left-24 -bottom-24 h-72 w-72 rounded-full bg-primary/20 blur-3xl" />
 
             <div className="relative z-10 grid gap-8 lg:grid-cols-2 lg:gap-12 lg:items-center">
-              {/* Left Column: Eyebrow Badge + Mixed-Case Headline + Accent Underline */}
+              {/* Left Column: Eyebrow Badge + 2-Line Headline + Accent Rule */}
               <div className="space-y-4">
-                <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/[0.06] px-3.5 py-1 text-xs font-mono uppercase tracking-[0.16em] text-white/90 backdrop-blur-sm">
-                  <Anchor className="h-3.5 w-3.5 text-white/90" strokeWidth={2} />
+                <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-3 py-1 text-xs font-mono uppercase tracking-[0.16em] text-white/90 backdrop-blur-sm">
+                  <Anchor className="h-3 w-3 text-white/80" strokeWidth={2} />
                   <span>GLOBAL STANDARDS</span>
                 </div>
 
@@ -339,7 +339,7 @@ function Index() {
 
               {/* Right Column: Editorial Lead Copy + Circular Checkpoints */}
               <div className="space-y-6 lg:border-l lg:border-white/15 lg:pl-12">
-                <p className="text-base sm:text-lg lg:text-[19px] text-white/80 leading-relaxed font-normal">
+                <p className="text-base sm:text-lg lg:text-[19px] text-white/85 leading-relaxed font-normal">
                   Our global team of marine engineers delivers{" "}
                   <strong className="font-bold text-white">uncompromising expertise</strong>{" "}
                   at every port, on every vessel.
@@ -355,8 +355,8 @@ function Index() {
                       key={chk}
                       className={`flex items-center gap-3 text-xs sm:text-sm text-white/80 transition-colors hover:text-white scroll-reveal delay-${(idx + 1) * 100}`}
                     >
-                      <CheckCircle2 className="h-4.5 w-4.5 shrink-0 text-white/70" strokeWidth={1.8} />
-                      <span className="font-medium tracking-wide">{chk}</span>
+                      <CheckCircle2 className="h-4 w-4 shrink-0 text-white/70" strokeWidth={1.8} />
+                      <span className="font-normal tracking-wide">{chk}</span>
                     </div>
                   ))}
                 </div>
