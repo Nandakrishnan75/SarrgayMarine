@@ -9,6 +9,7 @@ import {
   ArrowRight,
   CheckCircle2,
 } from "lucide-react";
+import heroShip from "@/assets/hero-ship.jpg";
 import { WHATSAPP, meta } from "@/components/site";
 
 export const Route = createFileRoute("/contact")({
@@ -70,7 +71,17 @@ function Contact() {
           <div className="lg:col-span-5 bg-[#0A1628] text-white p-7 sm:p-9 flex flex-col justify-between space-y-8 relative overflow-hidden">
             <div className="absolute -right-16 -top-16 w-48 h-48 rounded-full bg-primary/10 blur-3xl pointer-events-none" />
 
-            <div className="space-y-6 relative z-10">
+            <div className="space-y-5 relative z-10">
+              {/* Vessel Operations Visual */}
+              <div className="overflow-hidden rounded-xl border border-white/10 aspect-[16/9] shadow-md">
+                <img
+                  src={heroShip}
+                  alt="Maritime Fleet Operations"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+
               <div>
                 <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-white/60 font-semibold block">
                   Direct Inquiries
