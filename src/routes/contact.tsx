@@ -49,7 +49,7 @@ function Contact() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F8F9FA] text-[#1A1A1A] pt-24 sm:pt-28 pb-16 border-b border-border">
+    <div className="bg-white text-[#1A1A1A] pt-20 sm:pt-24 pb-8 sm:pb-10 border-b border-border">
       <div className="container-x max-w-6xl">
         {/* Architectural Header */}
         <div className="mb-8 md:mb-10 text-center max-w-2xl mx-auto space-y-2">
