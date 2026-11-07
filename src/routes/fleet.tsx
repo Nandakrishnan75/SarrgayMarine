@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import {
   Anchor,
-  ArrowRight,
   CheckCircle2,
   Compass,
   PhoneCall,
@@ -30,111 +29,13 @@ export const Route = createFileRoute("/fleet")({
 });
 
 const vessels = [
-  {
-    n: "VLCC Tankers",
-    c: "Crude Oil Tankers",
-    f: "Tankers",
-    image: fleetVlcc,
-    spec: "300,000+ DWT • 2-Stroke Low-Speed Diesel",
-    len: "330M / 1,080 FT",
-    speed: "16.5 Knots",
-    range: "22,000 NM",
-    focus: "Main engine cylinder unit renewal, crankshaft deflection, steam turbine governors, and Framo cargo pump overhauls.",
-    deliverables: [
-      "In-situ crankshaft deflection & web clearance verification",
-      "Framo hydraulic submerged cargo pump overhauls",
-    ],
-  },
-  {
-    n: "Gas / LNG Carriers",
-    c: "Cryogenic Gas",
-    f: "Gas Carriers",
-    image: fleetGasLng,
-    spec: "174,000 m³ • Dual-Fuel ME-GI / X-DF Engines",
-    len: "299M / 980 FT",
-    speed: "19.5 Knots",
-    range: "18,500 NM",
-    focus: "Dual-fuel gas injection valve servicing, cryogenic valve maintenance, Gas Valve Unit (GVU-2) overhauls, and reliquefaction plants.",
-    deliverables: [
-      "Gas Valve Unit (GVU) overhaul & pressure testing",
-      "Cryogenic manifold & safety shut-off loop validation",
-    ],
-  },
-  {
-    n: "Chemical Tankers",
-    c: "Chemical & Product",
-    f: "Tankers",
-    image: fleetChemical,
-    spec: "50,000 DWT • Stainless Steel 316LN Tanks",
-    len: "183M / 600 FT",
-    speed: "15.0 Knots",
-    range: "14,000 NM",
-    focus: "Framo hydraulic submerged pump rebuilding, cargo line manifold valves, and nitrogen inert gas generator servicing.",
-    deliverables: [
-      "Hydraulic power unit (HPU) valve pack overhauls",
-      "Deepwell cargo pump shaft alignment & seal renewals",
-    ],
-  },
-  {
-    n: "Bulk Carriers",
-    c: "Dry Bulk Fleet",
-    f: "Bulk Carriers",
-    image: fleetBulk,
-    spec: "60,000 to 210,000 DWT • Heavy Fuel Auxiliary Packages",
-    len: "225M – 300M",
-    speed: "14.5 Knots",
-    range: "20,000 NM",
-    focus: "Hatch cover hydraulic rams, heavy diesel generator overhauls, ballast sea valve refurbishment, and deck crane winches.",
-    deliverables: [
-      "Hydraulic hatch cover cylinder rebuilds & seal renewals",
-      "Heavy diesel auxiliary engine major overhaul routines",
-    ],
-  },
-  {
-    n: "Container Vessels",
-    c: "Boxship Fleet",
-    f: "Container",
-    image: fleetContainer,
-    spec: "1,500 to 24,000 TEU • High-Output 2-Stroke Propulsion",
-    len: "170M – 400M",
-    speed: "22.0 Knots",
-    range: "25,000 NM",
-    focus: "High-output turbocharger rotor cartridge overhaul, 440V reefer switchboard maintenance, and fast-turnaround port casualty repairs.",
-    deliverables: [
-      "Turbocharger dynamic rotor balancing (ISO 1940-1)",
-      "Main propulsion liner wear mapping & hone overhaul",
-    ],
-  },
-  {
-    n: "Ro-Ro Vessels",
-    c: "Roll-on / Roll-off",
-    f: "Ro-Ro",
-    image: fleetRoro,
-    spec: "6,500 to 8,500 CEU • Multi-Deck Vehicle Carriers",
-    len: "200M / 656 FT",
-    speed: "20.0 Knots",
-    range: "16,000 NM",
-    focus: "Quarter ramp hydraulic power units, internal hoistable deck cylinders, and bow thruster pitch mechanism overhauls.",
-    deliverables: [
-      "Stern & quarter ramp hydraulic cylinder refurbishment",
-      "Controllable pitch propeller (CPP) bow thruster service",
-    ],
-  },
-  {
-    n: "Offshore Support Vessels",
-    c: "Offshore DP-2 / DP-3",
-    f: "Offshore",
-    image: fleetOffshore,
-    spec: "200T Bollard Pull • Dynamic Positioning 2/3",
-    len: "88M / 288 FT",
-    speed: "16.0 Knots",
-    range: "9,000 NM",
-    focus: "Azimuth thruster rebuilds, tunnel bow thrusters, diesel-electric power management, and towing winch hydraulics.",
-    deliverables: [
-      "Azimuth thruster lower gearbox inspection & seals",
-      "Power Management System (PMS) generator load testing",
-    ],
-  },
+  { n: "VLCC Tankers", f: "Tankers", image: fleetVlcc },
+  { n: "Gas / LNG Carriers", f: "Gas Carriers", image: fleetGasLng },
+  { n: "Chemical Tankers", f: "Tankers", image: fleetChemical },
+  { n: "Bulk Carriers", f: "Bulk Carriers", image: fleetBulk },
+  { n: "Container Vessels", f: "Container", image: fleetContainer },
+  { n: "Ro-Ro Vessels", f: "Ro-Ro", image: fleetRoro },
+  { n: "Offshore Support Vessels", f: "Offshore", image: fleetOffshore },
 ];
 
 const filters = ["All Vessels", "Tankers", "Gas Carriers", "Bulk Carriers", "Container", "Ro-Ro", "Offshore"];
@@ -242,83 +143,29 @@ function Fleet() {
             </div>
           </div>
 
-          {/* 3-Column Modern Cards Grid */}
+          {/* 3-Column Clean Vessel Cards Grid (Matching Screenshot) */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredList.map((v) => (
-              <article
-                key={v.n}
-                className="group flex flex-col justify-between rounded-2xl border border-border/80 bg-card p-6 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-primary/40"
-              >
-                <div>
-                  {/* Card Header: Title with Bullet + Category Tag Above Image */}
-                  <div className="mb-3.5 flex items-center justify-between gap-2">
-                    <h3 className="text-base sm:text-lg font-extrabold uppercase tracking-tight text-foreground flex items-center gap-2">
-                      <span className="h-2 w-2 rounded-full bg-primary shrink-0" />
-                      <span>{v.n}</span>
-                    </h3>
-                    <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground bg-secondary px-2 py-0.5 rounded border border-border/60 shrink-0">
-                      {v.c}
-                    </span>
-                  </div>
-
-                  {/* Clean Rounded Image Container: STRICTLY ZERO OVERLAYS */}
-                  <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-border/70 bg-navy/5 shadow-inner">
-                    <img
-                      src={v.image}
-                      alt={v.n}
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-108"
-                      loading="lazy"
-                    />
-                  </div>
-
-                  {/* Specification Subtitle */}
-                  <p className="mt-4 font-mono text-xs font-medium text-primary">
-                    {v.spec}
-                  </p>
-
-                  {/* 3-Metric Telemetry Grid */}
-                  <dl className="mt-3 grid grid-cols-3 gap-2 rounded-xl border border-border/60 bg-secondary/40 p-2.5 text-center text-xs">
-                    <div>
-                      <dt className="text-muted-foreground font-mono text-[10px] uppercase">Length</dt>
-                      <dd className="mt-0.5 font-mono font-semibold text-foreground text-[11px] sm:text-xs">{v.len}</dd>
-                    </div>
-                    <div>
-                      <dt className="text-muted-foreground font-mono text-[10px] uppercase">Speed</dt>
-                      <dd className="mt-0.5 font-mono font-semibold text-foreground text-[11px] sm:text-xs">{v.speed}</dd>
-                    </div>
-                    <div>
-                      <dt className="text-muted-foreground font-mono text-[10px] uppercase">Range</dt>
-                      <dd className="mt-0.5 font-mono font-semibold text-foreground text-[11px] sm:text-xs">{v.range}</dd>
-                    </div>
-                  </dl>
-
-                  {/* Machinery Engineering Focus */}
-                  <p className="mt-3.5 text-xs text-muted-foreground font-light leading-relaxed">
-                    {v.focus}
-                  </p>
-
-                  {/* Verified Deliverables Checkpoints */}
-                  <div className="mt-3 pt-3 border-t border-border/60 space-y-1.5">
-                    {v.deliverables.map((d) => (
-                      <div key={d} className="flex items-start gap-2 text-xs text-foreground/90">
-                        <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-primary mt-0.5" />
-                        <span className="font-light leading-snug">{d}</span>
-                      </div>
-                    ))}
-                  </div>
+              <div key={v.n} className="flex flex-col">
+                {/* Title with Bullet Point Above Image */}
+                <div className="mb-4 flex items-center gap-3">
+                  <div className="w-2.5 h-2.5 rounded-full bg-navy" />
+                  <h4 className="text-navy font-bold text-xl md:text-2xl font-display">
+                    {v.n}
+                  </h4>
                 </div>
 
-                {/* Direct Action Buttons */}
-                <div className="mt-5 pt-4 border-t border-border/70 flex items-center justify-between gap-3">
-                  <Btn to="/contact" className="text-xs">
-                    Request Scope
-                    <ArrowRight className="ml-1 h-3.5 w-3.5" />
-                  </Btn>
-                  <Btn href={WHATSAPP} variant="outline" className="text-xs">
-                    Duty Desk
-                  </Btn>
+                {/* Clean Rounded Image Container: STRICTLY ZERO OVERLAYS */}
+                <div className="group relative aspect-[4/3] overflow-hidden rounded-2xl md:rounded-3xl border border-gray-100 shadow-lg shadow-navy/5 bg-navy/5">
+                  <img
+                    src={v.image}
+                    alt={v.n}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-108"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-navy/10 group-hover:bg-transparent transition-colors duration-500 pointer-events-none" />
                 </div>
-              </article>
+              </div>
             ))}
           </div>
         </div>
