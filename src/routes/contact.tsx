@@ -51,15 +51,15 @@ function Contact() {
     <div className="min-h-screen bg-[#F8F9FA] text-[#1A1A1A] pt-24 sm:pt-28 pb-16 border-b border-border">
       <div className="container-x max-w-6xl">
         {/* Architectural Header */}
-        <div className="mb-8 md:mb-10 text-center max-w-2xl mx-auto space-y-2.5">
+        <div className="mb-8 md:mb-10 text-center max-w-2xl mx-auto space-y-2">
           <div className="inline-flex items-center gap-2 rounded-full border border-border/80 bg-white px-3.5 py-1 text-[11px] font-mono uppercase tracking-[0.18em] text-foreground/80 shadow-xs">
             <span className="h-1.5 w-1.5 rounded-full bg-primary" />
             <span>24/7 Technical Liaison &bull; Global Operations</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-foreground font-display">
+          <h1 className="text-2xl sm:text-3xl font-extrabold uppercase tracking-tight text-foreground font-display">
             Contact Technical Command
           </h1>
-          <p className="text-sm sm:text-base text-muted-foreground font-light leading-relaxed">
+          <p className="text-xs sm:text-sm text-muted-foreground font-light leading-relaxed max-w-xl mx-auto">
             Direct connection with our Chief Engineers and operations superintendents for vessel maintenance, riding squads, or urgent emergency response.
           </p>
         </div>
@@ -75,7 +75,7 @@ function Contact() {
                 <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-white/60 font-semibold block">
                   Direct Inquiries
                 </span>
-                <h2 className="mt-1 text-xl sm:text-2xl font-bold tracking-tight text-white font-display">
+                <h2 className="mt-0.5 text-base sm:text-lg font-bold text-white font-display">
                   Operations Duty Desk
                 </h2>
                 <p className="mt-1 text-xs text-white/70 font-light leading-relaxed">
@@ -91,7 +91,7 @@ function Contact() {
                 </div>
                 <a
                   href="tel:+918009909888"
-                  className="block text-xl sm:text-2xl font-extrabold font-mono tracking-tight text-white hover:text-primary transition-colors"
+                  className="block text-lg sm:text-xl font-bold font-mono text-white hover:text-primary transition-colors"
                 >
                   +91 80099 09888
                 </a>
@@ -183,9 +183,9 @@ function Contact() {
                 </div>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
-                <div className="border-b border-border/70 pb-3">
-                  <h2 className="text-lg font-bold tracking-tight text-foreground">
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="border-b border-border/70 pb-2.5">
+                  <h2 className="text-base font-bold text-foreground">
                     Request Technical Scope
                   </h2>
                   <p className="text-xs text-muted-foreground font-light">
@@ -193,9 +193,9 @@ function Contact() {
                   </p>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                   <div>
-                    <label className="block text-xs font-semibold text-foreground uppercase tracking-wider mb-1.5">
+                    <label className="block text-[11px] font-medium uppercase tracking-wider text-muted-foreground mb-1">
                       Full Name *
                     </label>
                     <input
@@ -204,12 +204,12 @@ function Contact() {
                       placeholder="John Smith"
                       value={formState.name}
                       onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                      className="w-full rounded-lg border border-border/80 bg-background px-3.5 py-2.5 text-sm outline-none transition focus:border-primary focus:ring-1 focus:ring-primary"
+                      className="w-full rounded-md border border-border/80 bg-background px-3 py-2 text-xs sm:text-sm outline-none transition focus:border-primary focus:ring-1 focus:ring-primary"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-foreground uppercase tracking-wider mb-1.5">
+                    <label className="block text-[11px] font-medium uppercase tracking-wider text-muted-foreground mb-1">
                       Email Address *
                     </label>
                     <input
@@ -218,14 +218,14 @@ function Contact() {
                       placeholder="john@company.com"
                       value={formState.email}
                       onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                      className="w-full rounded-lg border border-border/80 bg-background px-3.5 py-2.5 text-sm outline-none transition focus:border-primary focus:ring-1 focus:ring-primary"
+                      className="w-full rounded-md border border-border/80 bg-background px-3 py-2 text-xs sm:text-sm outline-none transition focus:border-primary focus:ring-1 focus:ring-primary"
                     />
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                   <div>
-                    <label className="block text-xs font-semibold text-foreground uppercase tracking-wider mb-1.5">
+                    <label className="block text-[11px] font-medium uppercase tracking-wider text-muted-foreground mb-1">
                       Phone Number (Optional)
                     </label>
                     <input
@@ -233,12 +233,12 @@ function Contact() {
                       placeholder="+91 98765 43210"
                       value={formState.phone}
                       onChange={(e) => setFormState({ ...formState, phone: e.target.value })}
-                      className="w-full rounded-lg border border-border/80 bg-background px-3.5 py-2.5 text-sm outline-none transition focus:border-primary focus:ring-1 focus:ring-primary"
+                      className="w-full rounded-md border border-border/80 bg-background px-3 py-2 text-xs sm:text-sm outline-none transition focus:border-primary focus:ring-1 focus:ring-primary"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-foreground uppercase tracking-wider mb-1.5">
+                    <label className="block text-[11px] font-medium uppercase tracking-wider text-muted-foreground mb-1">
                       Vessel Name / IMO (Optional)
                     </label>
                     <input
@@ -246,20 +246,20 @@ function Contact() {
                       placeholder="MV Ocean Trader"
                       value={formState.vessel}
                       onChange={(e) => setFormState({ ...formState, vessel: e.target.value })}
-                      className="w-full rounded-lg border border-border/80 bg-background px-3.5 py-2.5 text-sm outline-none transition focus:border-primary focus:ring-1 focus:ring-primary"
+                      className="w-full rounded-md border border-border/80 bg-background px-3 py-2 text-xs sm:text-sm outline-none transition focus:border-primary focus:ring-1 focus:ring-primary"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-foreground uppercase tracking-wider mb-1.5">
+                  <label className="block text-[11px] font-medium uppercase tracking-wider text-muted-foreground mb-1">
                     Service Scope *
                   </label>
                   <select
                     required
                     value={formState.service}
                     onChange={(e) => setFormState({ ...formState, service: e.target.value })}
-                    className="w-full rounded-lg border border-border/80 bg-background px-3.5 py-2.5 text-sm outline-none transition focus:border-primary focus:ring-1 focus:ring-primary"
+                    className="w-full rounded-md border border-border/80 bg-background px-3 py-2 text-xs sm:text-sm outline-none transition focus:border-primary focus:ring-1 focus:ring-primary"
                   >
                     {serviceOptions.map((opt) => (
                       <option key={opt} value={opt}>
@@ -270,7 +270,7 @@ function Contact() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-foreground uppercase tracking-wider mb-1.5">
+                  <label className="block text-[11px] font-medium uppercase tracking-wider text-muted-foreground mb-1">
                     Message / Machinery Details *
                   </label>
                   <textarea
@@ -279,14 +279,14 @@ function Contact() {
                     placeholder="Describe the machinery maker, scope required, port of attendance, or target dates..."
                     value={formState.message}
                     onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                    className="w-full rounded-lg border border-border/80 bg-background px-3.5 py-2.5 text-sm outline-none transition focus:border-primary focus:ring-1 focus:ring-primary resize-none"
+                    className="w-full rounded-md border border-border/80 bg-background px-3 py-2 text-xs sm:text-sm outline-none transition focus:border-primary focus:ring-1 focus:ring-primary resize-none"
                   />
                 </div>
 
                 <div className="pt-2">
                   <button
                     type="submit"
-                    className="w-full sm:w-auto rounded-lg bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-8 py-3 text-sm uppercase tracking-wider shadow-md transition-all cursor-pointer"
+                    className="w-full sm:w-auto rounded-md bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-6 py-2.5 text-xs uppercase tracking-wider shadow-sm transition-all cursor-pointer"
                   >
                     Submit Technical Inquiry
                   </button>
