@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useLocation } from "@tanstack/react-router";
 import { useState, useEffect, type ReactNode } from "react";
 import emblemNavy from "@/assets/sarrgay-emblem.png";
 import emblemLight from "@/assets/sarrgay-emblem-light.png";
@@ -53,6 +53,7 @@ function Logo({ light }: { light?: boolean }) {
 export function Header() {
   const [open, setOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -64,7 +65,8 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const isTransparent = !isScrolled && !open;
+  const isLightPage = location.pathname === "/contact";
+  const isTransparent = !isScrolled && !open && !isLightPage;
 
   return (
     <header
