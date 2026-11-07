@@ -16,7 +16,7 @@ export const Route = createFileRoute("/contact")({
   head: () =>
     meta(
       "Contact Us | 24/7 Global Maritime Support | SARRGAY MARINE",
-      "Connect with our Chief Engineers and operations desk for routine maintenance, dry dock assistance, or 24/7 emergency riding squads."
+      "Direct connection with our Chief Engineers and operations desk for vessel maintenance, riding squads, or emergency response."
     ),
   component: Contact,
 });
@@ -25,15 +25,15 @@ const serviceOptions = [
   "Generator & Auxiliary Engine Maintenance",
   "Main Engine Overhauls",
   "Dry Dock Assistance & Superintendency",
-  "Mechanical & Electrical Systems",
-  "Sailing Riding Squads (CDC/STCW)",
-  "Emergency Repairs & Flying Squad",
-  "Technical Consultation & Scope Assessment",
+  "Mechanical & Electrical Services",
+  "Sailing Teams & Riding Crew",
+  "Emergency Repairs",
+  "Technical Scope Assessment",
   "Other Requirements",
 ];
 
 const inputClass =
-  "mt-1.5 w-full rounded-lg border border-border/80 bg-white px-3.5 py-2.5 text-sm text-foreground outline-none transition placeholder:text-muted-foreground/50 focus:border-primary focus:ring-1 focus:ring-primary hover:border-foreground/30";
+  "mt-2 w-full rounded-lg border border-border/80 bg-white px-4 py-3 text-base text-foreground outline-none transition placeholder:text-muted-foreground/45 focus:border-primary focus:ring-2 focus:ring-primary/20 hover:border-foreground/30";
 
 function Contact() {
   const [submitted, setSubmitted] = useState(false);
@@ -52,142 +52,142 @@ function Contact() {
   };
 
   return (
-    <div className="bg-white text-[#1A1A1A] pt-24 sm:pt-28 pb-16 sm:pb-24">
-      <div className="container-x max-w-5xl">
-        {/* Simple, Clean Header Directly on the Page (Zero Hero Banner) */}
-        <div className="mb-10 sm:mb-14 pb-8 border-b border-border/50">
-          <p className="text-xs font-mono uppercase tracking-[0.2em] text-primary font-semibold">
+    <div className="bg-white text-[#1A1A1A] pt-28 sm:pt-36 pb-20 sm:pb-28 border-b border-border">
+      <div className="container-x max-w-6xl">
+        {/* Clean, Bold Header Directly on the Page */}
+        <div className="mb-12 sm:mb-16 pb-8 border-b border-border/60">
+          <p className="text-xs sm:text-sm font-mono uppercase tracking-[0.2em] text-primary font-bold">
             24/7 TECHNICAL LIAISON
           </p>
-          <h1 className="mt-2 text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-foreground font-display">
+          <h1 className="mt-3 text-4xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-foreground font-display">
             Contact Us
           </h1>
-          <p className="mt-2 text-sm sm:text-base text-muted-foreground font-light max-w-xl leading-relaxed">
+          <p className="mt-3 text-base sm:text-lg text-muted-foreground font-light max-w-2xl leading-relaxed">
             Direct connection with our Chief Engineers and operations desk for vessel maintenance, riding squads, or emergency response.
           </p>
         </div>
 
         {/* Main 2-Column Content: Left Channels / Right Clean Form */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          {/* Left Column: Minimal, Elegant Info (Unboxed & Typographic) */}
-          <div className="lg:col-span-5 space-y-8">
-            {/* Telephone */}
-            <div className="space-y-1.5">
-              <span className="block text-[11px] font-mono uppercase tracking-widest text-muted-foreground">
+          {/* Left Column: Direct Contact Channels with Bigger Text */}
+          <div className="lg:col-span-5 space-y-9">
+            {/* 24/7 Operations Hotline */}
+            <div className="space-y-2">
+              <span className="block text-xs font-mono uppercase tracking-widest text-muted-foreground font-semibold">
                 24/7 Operations Hotline
               </span>
               <a
-                href={TEL}
-                className="block text-2xl font-bold font-mono tracking-tight text-foreground hover:text-primary transition-colors"
+                href="tel:+918009909888"
+                className="block text-2xl sm:text-3xl font-extrabold font-mono tracking-tight text-foreground hover:text-primary transition-colors"
               >
-                {PHONE}
+                +91 80099 09888
               </a>
-              <span className="block text-xs text-muted-foreground font-mono">
+              <span className="block text-sm text-muted-foreground font-mono">
                 Secondary Line:{" "}
                 <a
-                  href={`tel:${PHONE_ALT.replace(/\s+/g, "")}`}
-                  className="hover:text-foreground transition-colors"
+                  href="tel:+918009980888"
+                  className="font-medium text-foreground hover:text-primary transition-colors"
                 >
-                  {PHONE_ALT}
+                  +91 80099 80888
                 </a>
               </span>
             </div>
 
-            {/* WhatsApp */}
-            <div className="space-y-1.5 pt-2 border-t border-border/40">
-              <span className="block text-[11px] font-mono uppercase tracking-widest text-muted-foreground">
+            {/* Instant Messaging */}
+            <div className="space-y-2 pt-4 border-t border-border/50">
+              <span className="block text-xs font-mono uppercase tracking-widest text-muted-foreground font-semibold">
                 Instant Messaging
               </span>
               <a
                 href={WHATSAPP}
                 target="_blank"
                 rel="noreferrer"
-                className="group inline-flex items-center gap-2 text-sm font-semibold text-foreground hover:text-primary transition-colors"
+                className="group inline-flex items-center gap-2 text-base sm:text-lg font-bold text-foreground hover:text-primary transition-colors"
               >
                 Direct WhatsApp Liaison
-                <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </a>
-              <p className="text-xs text-muted-foreground font-light">
+              <p className="text-sm text-muted-foreground font-light leading-relaxed">
                 Direct channel with our Chief Engineers for urgent breakdown diagnosis.
               </p>
             </div>
 
-            {/* Email */}
-            <div className="space-y-2 pt-2 border-t border-border/40">
-              <span className="block text-[11px] font-mono uppercase tracking-widest text-muted-foreground">
+            {/* Electronic Mail */}
+            <div className="space-y-3 pt-4 border-t border-border/50">
+              <span className="block text-xs font-mono uppercase tracking-widest text-muted-foreground font-semibold">
                 Electronic Mail
               </span>
               <div>
-                <span className="block text-xs text-muted-foreground font-light">
-                  Technical Operations & Scopes
+                <span className="block text-xs text-muted-foreground uppercase tracking-wider font-mono">
+                  Technical Operations &amp; Scopes
                 </span>
                 <a
-                  href={`mailto:${EMAIL_OPS}`}
-                  className="block font-mono text-sm text-foreground hover:text-primary transition-colors"
+                  href="mailto:service@sarrgaymarine.com"
+                  className="block font-mono text-base font-semibold text-foreground hover:text-primary transition-colors"
                 >
-                  {EMAIL_OPS}
+                  service@sarrgaymarine.com
                 </a>
               </div>
-              <div className="pt-1">
-                <span className="block text-xs text-muted-foreground font-light">
+              <div className="pt-2">
+                <span className="block text-xs text-muted-foreground uppercase tracking-wider font-mono">
                   General Inquiries
                 </span>
                 <a
-                  href={`mailto:${EMAIL}`}
-                  className="block font-mono text-sm text-foreground hover:text-primary transition-colors"
+                  href="mailto:info@sarrgaymarine.com"
+                  className="block font-mono text-base font-semibold text-foreground hover:text-primary transition-colors"
                 >
-                  {EMAIL}
+                  info@sarrgaymarine.com
                 </a>
               </div>
             </div>
 
-            {/* Location */}
-            <div className="space-y-1.5 pt-2 border-t border-border/40">
-              <span className="block text-[11px] font-mono uppercase tracking-widest text-muted-foreground">
+            {/* Operational Base */}
+            <div className="space-y-2 pt-4 border-t border-border/50">
+              <span className="block text-xs font-mono uppercase tracking-widest text-muted-foreground font-semibold">
                 Operational Base
               </span>
-              <p className="text-sm font-semibold text-foreground">
+              <p className="text-base font-bold text-foreground">
                 Kochi, Kerala, India
               </p>
-              <p className="text-xs text-muted-foreground leading-relaxed font-light">
-                {ADDRESS}
+              <p className="text-sm text-muted-foreground leading-relaxed font-light">
+                65/1599A, Mathilicherril, Shenoy Road, Kaloor, Kochi – 682017, Kerala, India
               </p>
             </div>
 
-            {/* Reassurance */}
-            <div className="pt-4 border-t border-border/40 text-xs text-muted-foreground font-light leading-relaxed">
+            {/* Confidentiality Notice */}
+            <div className="pt-5 border-t border-border/50 text-xs sm:text-sm text-muted-foreground font-light leading-relaxed">
               Average emergency confirmation within 15 minutes. All technical consultations and vessel data are protected under standard maritime confidentiality.
             </div>
           </div>
 
-          {/* Right Column: Clean Form */}
+          {/* Right Column: Clean Form with Prominent Fields */}
           <div className="lg:col-span-7">
-            <div className="rounded-2xl border border-border/80 bg-white p-6 sm:p-8 md:p-10 shadow-sm">
+            <div className="rounded-2xl border border-border/80 bg-white p-7 sm:p-10 shadow-sm">
               {submitted ? (
-                <div className="py-12 text-center space-y-3">
-                  <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
-                    <CheckCircle2 className="h-6 w-6" />
+                <div className="py-12 text-center space-y-4">
+                  <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 text-primary">
+                    <CheckCircle2 className="h-8 w-8" />
                   </div>
-                  <h3 className="text-xl font-bold tracking-tight text-foreground font-display">
+                  <h3 className="text-2xl font-bold tracking-tight text-foreground font-display">
                     Inquiry Received
                   </h3>
-                  <p className="text-sm text-muted-foreground font-light max-w-sm mx-auto leading-relaxed">
-                    Our technical superintendent will review your vessel requirements and respond shortly. For urgent emergencies, please dial {PHONE}.
+                  <p className="text-base text-muted-foreground font-light max-w-md mx-auto leading-relaxed">
+                    Our technical superintendent will review your vessel requirements and respond shortly. For urgent emergencies, please dial +91 80099 09888.
                   </p>
                   <div className="pt-4">
                     <button
                       type="button"
                       onClick={() => setSubmitted(false)}
-                      className="text-xs font-mono uppercase tracking-wider text-primary hover:underline cursor-pointer"
+                      className="text-sm font-mono uppercase tracking-wider text-primary hover:underline cursor-pointer"
                     >
-                      ← Submit another inquiry
+                      &larr; Submit another inquiry
                     </button>
                   </div>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <label className="text-xs font-medium text-foreground">
+                <form onSubmit={handleSubmit} className="space-y-5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <label className="text-sm font-semibold text-foreground">
                       Full Name *
                       <input
                         required
@@ -199,7 +199,7 @@ function Contact() {
                       />
                     </label>
 
-                    <label className="text-xs font-medium text-foreground">
+                    <label className="text-sm font-semibold text-foreground">
                       Email Address *
                       <input
                         required
@@ -212,8 +212,8 @@ function Contact() {
                     </label>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <label className="text-xs font-medium text-foreground">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <label className="text-sm font-semibold text-foreground">
                       Phone Number (Optional)
                       <input
                         type="tel"
@@ -224,7 +224,7 @@ function Contact() {
                       />
                     </label>
 
-                    <label className="text-xs font-medium text-foreground">
+                    <label className="text-sm font-semibold text-foreground">
                       Vessel Name / IMO (Optional)
                       <input
                         type="text"
@@ -236,7 +236,7 @@ function Contact() {
                     </label>
                   </div>
 
-                  <label className="block text-xs font-medium text-foreground">
+                  <label className="block text-sm font-semibold text-foreground">
                     Service Scope *
                     <select
                       required
@@ -252,11 +252,11 @@ function Contact() {
                     </select>
                   </label>
 
-                  <label className="block text-xs font-medium text-foreground">
+                  <label className="block text-sm font-semibold text-foreground">
                     Message / Machinery Details *
                     <textarea
                       required
-                      rows={4}
+                      rows={5}
                       placeholder="Describe the machinery maker, scope required, port of attendance, or target dates..."
                       value={formState.message}
                       onChange={(e) => setFormState({ ...formState, message: e.target.value })}
@@ -264,16 +264,16 @@ function Contact() {
                     />
                   </label>
 
-                  <div className="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                  <div className="pt-2 space-y-3">
                     <button
                       type="submit"
-                      className="rounded-lg bg-navy hover:bg-navy/90 text-white font-medium px-7 py-3 text-sm transition-all shadow-sm cursor-pointer"
+                      className="w-full sm:w-auto rounded-lg bg-primary px-8 py-3.5 text-base font-bold text-primary-foreground shadow-md transition hover:opacity-90 cursor-pointer"
                     >
                       Submit Inquiry
                     </button>
-                    <span className="text-[11px] font-mono text-muted-foreground">
-                      Response within 24h • SLA &lt; 15m for emergencies
-                    </span>
+                    <p className="text-xs text-muted-foreground font-mono">
+                      Response within 24h &bull; SLA &lt; 15m for emergencies
+                    </p>
                   </div>
                 </form>
               )}
