@@ -5,7 +5,6 @@ import {
   MessageSquare,
   Mail,
   MapPin,
-  Clock,
   ArrowRight,
   CheckCircle2,
 } from "lucide-react";
@@ -161,12 +160,6 @@ function Contact() {
                 </div>
               </div>
             </div>
-
-            {/* Bottom SLA Stamp */}
-            <div className="relative z-10 pt-4 border-t border-white/10 flex items-center gap-2 text-[11px] font-mono text-white/60">
-              <Clock className="h-3.5 w-3.5 text-primary" />
-              <span>SLA: &lt; 15m for casualties &bull; &lt; 24h quotations</span>
-            </div>
           </div>
 
           {/* Right Pane: Clean Architectural Form */}
@@ -300,9 +293,6 @@ function Contact() {
                   >
                     Submit Technical Inquiry
                   </button>
-                  <span className="block mt-2 text-[11px] text-muted-foreground font-mono">
-                    Protected by maritime engineering confidentiality &bull; Response &lt; 24h
-                  </span>
                 </div>
               </form>
             )}
