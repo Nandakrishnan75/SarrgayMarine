@@ -325,39 +325,17 @@ function Services() {
             >
               <div className="container-x">
                 <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
-                  {/* Clean Visual Imagery Showcase (Unobstructed Image) */}
+                  {/* Pristine Unobstructed Image */}
                   <div className={`lg:col-span-6 ${isReversed ? "lg:order-2" : "lg:order-1"}`}>
-                    <div className="group overflow-hidden rounded-xl border border-border/80 bg-navy shadow-lg">
-                      <div className="overflow-hidden">
-                        <img
-                          src={s.image}
-                          alt={s.imageAlt}
-                          className="aspect-[16/11] w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
-                          width={960}
-                          height={660}
-                          loading="lazy"
-                        />
-                      </div>
-
-                      {/* Clean Telemetry Bar Below Image */}
-                      <div className="bg-[#0A1628] px-4 py-3 border-t border-white/10 flex flex-wrap items-center justify-between gap-2">
-                        <div className="inline-flex items-center gap-2 text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-accent font-semibold">
-                          <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-                          {s.imageBadge}
-                        </div>
-
-                        {/* OEM Machinery Tags */}
-                        <div className="flex flex-wrap items-center gap-1.5">
-                          {s.oems.map((maker) => (
-                            <span
-                              key={maker}
-                              className="rounded-sm bg-white/10 px-2 py-0.5 text-[10px] font-mono text-white/80 border border-white/10"
-                            >
-                              {maker}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
+                    <div className="group overflow-hidden rounded-xl border border-border/80 bg-card shadow-lg">
+                      <img
+                        src={s.image}
+                        alt={s.imageAlt}
+                        className="aspect-[16/10] w-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.02]"
+                        width={960}
+                        height={600}
+                        loading="lazy"
+                      />
                     </div>
                   </div>
 
