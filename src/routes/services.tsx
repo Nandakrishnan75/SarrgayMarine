@@ -258,7 +258,6 @@ function Services() {
           height={1088}
         />
         <div className="hero-overlay absolute inset-0 pointer-events-none" />
-        <div aria-hidden className="dot-grid absolute right-8 top-12 h-20 w-28 opacity-40 pointer-events-none" />
 
         <div className="container-x relative z-10">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 sm:pb-8 border-b border-white/15">
@@ -326,33 +325,24 @@ function Services() {
             >
               <div className="container-x">
                 <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
-                  {/* Visual Imagery Showcase */}
+                  {/* Clean Visual Imagery Showcase (Unobstructed Image) */}
                   <div className={`lg:col-span-6 ${isReversed ? "lg:order-2" : "lg:order-1"}`}>
-                    <div className="group relative overflow-hidden rounded-xl border border-border/80 bg-navy shadow-lg">
-                      <img
-                        src={s.image}
-                        alt={s.imageAlt}
-                        className="aspect-[16/11] w-full object-cover object-center filter brightness-[0.92] contrast-[1.05] transition-transform duration-700 group-hover:scale-105"
-                        width={960}
-                        height={660}
-                        loading="lazy"
-                      />
-
-                      {/* Image Overlay Telemetry */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/20 to-transparent pointer-events-none" />
-
-                      {/* Top Corner Pill */}
-                      <div className="absolute top-4 left-4 z-10">
-                        <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-navy/85 backdrop-blur-md px-3 py-1 text-[11px] font-mono font-medium text-white shadow-sm">
-                          <Icon className="h-3.5 w-3.5 text-accent" />
-                          <span>DISCIPLINE {s.id}</span>
-                        </span>
+                    <div className="group overflow-hidden rounded-xl border border-border/80 bg-navy shadow-lg">
+                      <div className="overflow-hidden">
+                        <img
+                          src={s.image}
+                          alt={s.imageAlt}
+                          className="aspect-[16/11] w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                          width={960}
+                          height={660}
+                          loading="lazy"
+                        />
                       </div>
 
-                      {/* Bottom Telemetry Bar */}
-                      <div className="absolute bottom-4 left-4 right-4 z-10 flex flex-col gap-2">
-                        <div className="inline-flex items-center gap-2 self-start rounded-sm border border-accent/30 bg-navy/90 backdrop-blur-md px-2.5 py-1 text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-accent font-semibold">
-                          <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
+                      {/* Clean Telemetry Bar Below Image */}
+                      <div className="bg-[#0A1628] px-4 py-3 border-t border-white/10 flex flex-wrap items-center justify-between gap-2">
+                        <div className="inline-flex items-center gap-2 text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-accent font-semibold">
+                          <span className="h-1.5 w-1.5 rounded-full bg-accent" />
                           {s.imageBadge}
                         </div>
 
@@ -361,7 +351,7 @@ function Services() {
                           {s.oems.map((maker) => (
                             <span
                               key={maker}
-                              className="rounded-sm bg-white/10 backdrop-blur-md px-2 py-0.5 text-[10px] font-mono text-white/90 border border-white/10"
+                              className="rounded-sm bg-white/10 px-2 py-0.5 text-[10px] font-mono text-white/80 border border-white/10"
                             >
                               {maker}
                             </span>
@@ -472,16 +462,15 @@ function Services() {
                     className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-transparent to-transparent pointer-events-none" />
-                  <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between pointer-events-none">
-                    <span className="rounded-sm border border-accent/40 bg-navy/90 backdrop-blur-sm px-2 py-0.5 text-[10px] font-mono font-semibold text-accent uppercase tracking-wider">
-                      {item.badge}
-                    </span>
-                  </div>
                 </div>
 
                 <div className="p-5 flex-1 flex flex-col justify-between space-y-3">
                   <div className="space-y-2">
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] font-mono font-semibold text-primary uppercase tracking-wider">
+                        {item.badge}
+                      </span>
+                    </div>
                     <h3 className="text-base font-bold text-foreground">
                       {item.title}
                     </h3>
