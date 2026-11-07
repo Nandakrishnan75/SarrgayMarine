@@ -186,53 +186,33 @@ function Fleet() {
             </div>
           </div>
 
-          {/* 3-Column Modern Vessel Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* 3-Column Modern Clean Vessel Cards Matching Live Reference */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
             {filteredList.map((v) => (
-              <article
-                key={v.n}
-                className="group flex flex-col justify-between rounded-2xl border border-border/80 bg-card p-6 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-primary/40"
-              >
-                <div>
-                  {/* Title with Bullet Point Above Image */}
-                  <div className="mb-3.5 flex items-center justify-between gap-2">
-                    <h3 className="text-base sm:text-lg font-bold tracking-tight text-foreground flex items-center gap-2">
-                      <span className="h-2 w-2 rounded-full bg-primary shrink-0" />
-                      <span>• {v.n}</span>
-                    </h3>
-                    <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground bg-secondary px-2 py-0.5 rounded border border-border/60 shrink-0">
-                      {v.c}
-                    </span>
-                  </div>
-
-                  {/* Clean Rounded Image Container: STRICTLY ZERO OVERLAYS */}
-                  <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-border/60 bg-navy/5 shadow-inner">
-                    <img
-                      src={v.image}
-                      alt={v.n}
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-108"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-navy/10 group-hover:bg-transparent transition-colors duration-500 pointer-events-none" />
-                  </div>
-
-                  {/* Concise Engineering Scope Description */}
-                  <p className="mt-4 text-xs sm:text-sm text-muted-foreground font-light leading-relaxed">
-                    {v.desc}
-                  </p>
+              <div key={v.n} className="flex flex-col group">
+                {/* Title with Clean Bullet Point Above Image */}
+                <div className="mb-3.5 flex items-center gap-2.5">
+                  <span className="w-2 h-2 rounded-full bg-navy shrink-0" />
+                  <h3 className="text-lg sm:text-xl font-bold tracking-tight text-navy font-display">
+                    {v.n}
+                  </h3>
                 </div>
 
-                {/* Direct Action */}
-                <div className="mt-5 pt-4 border-t border-border/60 flex items-center justify-between">
-                  <span className="inline-flex items-center gap-1.5 text-xs font-mono text-primary font-semibold group-hover:text-primary/80 transition-colors">
-                    <span>Consult Scope</span>
-                    <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
-                  </span>
-                  <Btn to="/contact" className="text-xs py-1 px-3">
-                    Request Scope
-                  </Btn>
+                {/* Pure Clean Rounded Image Container with ZERO Overlays */}
+                <div className="relative aspect-[4/3] overflow-hidden rounded-2xl md:rounded-3xl border border-gray-100 shadow-lg shadow-navy/5 bg-navy/5">
+                  <img
+                    src={v.image}
+                    alt={v.n}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
+                  />
                 </div>
-              </article>
+
+                {/* Concise Engineering Scope Description */}
+                <p className="mt-3.5 text-xs sm:text-sm text-muted-foreground font-light leading-relaxed">
+                  {v.desc}
+                </p>
+              </div>
             ))}
           </div>
         </div>

@@ -305,41 +305,37 @@ function Index() {
         <img
           src={engine}
           alt="Engine room technical inspection"
-          className="absolute inset-0 h-full w-full object-cover object-center filter brightness-[0.22] contrast-125 scale-105 pointer-events-none"
+          className="absolute inset-0 h-full w-full object-cover object-center filter brightness-[0.48] contrast-110 pointer-events-none"
           width={1920}
           height={1080}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#061224]/95 via-[#061224]/80 to-[#061224]/95" />
-        <div className="hero-overlay absolute inset-0 opacity-60" />
+        <div className="absolute inset-0 bg-[#071322]/70 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#061224] via-transparent to-[#061224]/80 pointer-events-none" />
 
         <div className="container-x relative z-10 max-w-4xl lg:max-w-5xl">
           {/* Floating Glassmorphic Panel Matching Reference Card */}
-          <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl border border-white/15 bg-white/[0.04] p-8 sm:p-12 md:p-16 backdrop-blur-xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.7),inset_0_1px_1px_rgba(255,255,255,0.12)] scroll-reveal">
-            {/* Subtle atmospheric ambient glow */}
-            <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-accent/15 blur-3xl" />
-            <div className="pointer-events-none absolute -left-24 -bottom-24 h-72 w-72 rounded-full bg-primary/20 blur-3xl" />
-
+          <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl border border-white/12 bg-[#091526]/50 p-8 sm:p-12 md:p-14 lg:p-16 backdrop-blur-2xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.65),inset_0_1px_1px_rgba(255,255,255,0.12)] scroll-reveal">
             <div className="relative z-10 grid gap-8 lg:grid-cols-2 lg:gap-12 lg:items-center">
               {/* Left Column: Eyebrow Badge + 2-Line Headline + Accent Rule */}
               <div className="space-y-4">
-                <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-3 py-1 text-xs font-mono uppercase tracking-[0.16em] text-white/90 backdrop-blur-sm">
+                <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-3 py-1 text-[11px] font-mono uppercase tracking-[0.18em] text-white/90 backdrop-blur-sm">
                   <Anchor className="h-3 w-3 text-white/80" strokeWidth={2} />
                   <span>GLOBAL STANDARDS</span>
                 </div>
 
-                <h2 className="text-4xl sm:text-5xl lg:text-[54px] font-bold tracking-tight text-white leading-[1.08]">
+                <h2 className="text-4xl sm:text-5xl lg:text-[54px] font-bold tracking-tight text-white leading-[1.05]">
                   Precision<br />
                   Defined.
                 </h2>
 
                 <div className="pt-2">
-                  <div className="h-[2px] w-14 bg-white/40 rounded-full" />
+                  <div className="h-[2.5px] w-12 bg-white/40 rounded-full" />
                 </div>
               </div>
 
               {/* Right Column: Editorial Lead Copy + Circular Checkpoints */}
               <div className="space-y-6 lg:border-l lg:border-white/15 lg:pl-12">
-                <p className="text-base sm:text-lg lg:text-[19px] text-white/85 leading-relaxed font-normal">
+                <p className="text-base sm:text-lg lg:text-[18px] text-white/85 leading-relaxed font-normal">
                   Our global team of marine engineers delivers{" "}
                   <strong className="font-bold text-white">uncompromising expertise</strong>{" "}
                   at every port, on every vessel.
