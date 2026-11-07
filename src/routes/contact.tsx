@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
+import contactHero from "@/assets/contact-hero.jpg";
 import {
   ADDRESS,
   EMAIL,
@@ -53,20 +54,49 @@ function Contact() {
 
   return (
     <div className="bg-white text-[#1A1A1A]">
-      {/* Minimal Header */}
-      <div className="border-b border-border/40">
-        <div className="container-x max-w-5xl pt-28 pb-10 sm:pt-36 sm:pb-14">
-          <span className="text-xs font-mono uppercase tracking-[0.2em] text-primary font-semibold">
-            CONTACT • 24/7 SUPPORT
-          </span>
-          <h1 className="mt-2 text-3xl sm:text-5xl font-extrabold tracking-tight text-foreground font-display">
-            Get in Touch
-          </h1>
-          <p className="mt-2.5 text-sm sm:text-base text-muted-foreground font-light max-w-xl leading-relaxed">
-            Speak directly with our Chief Engineers and operations desk for scheduled maintenance, shipyard superintendency, or urgent emergency mobilization.
-          </p>
+      {/* Compact Modern Luxury Maritime Hero */}
+      <section className="relative overflow-hidden bg-navy text-navy-foreground on-navy pt-28 pb-12 sm:pt-32 sm:pb-14 border-b border-white/10">
+        {/* Subtle Atmospheric Maritime Image & Navy Gradient */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src={contactHero}
+            alt=""
+            className="w-full h-full object-cover object-center pointer-events-none opacity-20 filter contrast-125"
+            width={1920}
+            height={1080}
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/95 to-navy/85 pointer-events-none" />
+          <div aria-hidden className="dot-grid absolute right-12 top-10 h-24 w-32 opacity-30 pointer-events-none" />
         </div>
-      </div>
+
+        <div className="container-x relative z-10 max-w-5xl">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div className="max-w-2xl space-y-2.5">
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-3 py-1 text-[11px] font-mono uppercase tracking-[0.18em] text-accent backdrop-blur-md">
+                <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
+                <span>DIRECT LIAISON &bull; 24/7 FLEET DESK</span>
+              </div>
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight text-white leading-tight font-display">
+                Get in Touch
+              </h1>
+              <p className="text-sm sm:text-base text-slate-300 font-light leading-relaxed">
+                Connect directly with our Chief Engineers and operations desk for technical scopes, voyage riding squads, or urgent breakdown mobilization.
+              </p>
+            </div>
+
+            {/* Quick Status Pill */}
+            <div className="flex flex-wrap items-center gap-2 font-mono text-xs shrink-0">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/40 bg-emerald-500/10 px-3 py-1 text-emerald-400 backdrop-blur-md">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                Duty Desk Active 24/7
+              </span>
+              <span className="rounded-full border border-white/15 bg-white/5 px-3 py-1 text-white/80 backdrop-blur-md">
+                Kochi &bull; Dubai &bull; Singapore
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Main 2-Column Content */}
       <div className="container-x max-w-5xl py-12 sm:py-16">
