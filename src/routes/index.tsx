@@ -125,11 +125,9 @@ function Index() {
           height={1088}
         />
         <div className="hero-overlay absolute inset-0 pointer-events-none" />
-        <div aria-hidden className="dot-grid absolute left-8 top-24 h-20 w-28 opacity-50 pointer-events-none" />
-        <div aria-hidden className="dot-grid absolute right-8 bottom-24 h-20 w-28 opacity-50 pointer-events-none" />
 
         {/* Floating section indicators for quick navigation on desktop */}
-        <nav aria-label="Page sections" className="absolute right-8 top-1/2 z-10 hidden -translate-y-1/2 flex-col items-end gap-3.5 font-display lg:flex">
+        <nav aria-label="Page sections" className="hero-adaptive-nav absolute right-8 top-1/2 z-10 hidden -translate-y-1/2 flex-col items-end gap-3.5 font-display lg:flex">
           {([
             ["01", "Services", "#services"],
             ["02", "Propulsion", "#propulsion"],
@@ -151,14 +149,14 @@ function Index() {
           ))}
         </nav>
 
-        {/* Main Content Area - Exactly matches 5b99f85 on 1080p desktop, adapts automatically on shorter laptop viewports */}
-        <div className="hero-adaptive-content container-x relative z-10 flex flex-1 flex-col justify-center py-8 sm:py-12 md:py-16">
+        {/* Main Content Area - Exactly matches 5b99f85 on 1080p desktop, adapts automatically on 720p laptop viewports */}
+        <div className="hero-adaptive-content container-x relative z-10 flex flex-1 flex-col justify-center my-auto py-8 sm:py-12 md:py-16 max-w-4xl lg:pr-24">
           <p className="eyebrow flex items-center gap-2">
             <span className="h-2 w-2 animate-pulse rounded-full bg-primary shrink-0" />
             <span>Technical Partners, Not Just Fixers • 24/7 Worldwide</span>
           </p>
           <h1 className="hero-adaptive-title mt-4 max-w-4xl text-3xl font-extrabold uppercase tracking-tight leading-[1.08] sm:text-5xl md:text-6xl lg:text-7xl break-words">
-            Mastering Maritime Precision
+            Mastering Maritime<br className="hidden sm:inline" /> Precision
           </h1>
           <p className="hero-adaptive-desc mt-4 sm:mt-5 max-w-2xl text-base sm:text-lg leading-relaxed text-navy-muted">
             Providing high-precision mechanical and electrical solutions that exceed international maritime standards. From main engine overhauls to zero-impact maintenance at sea. Led by Chief Engineers.
@@ -175,7 +173,7 @@ function Index() {
             {stats.map(([n, l], idx) => (
               <div
                 key={l}
-                className="py-2.5 sm:py-3 px-3 sm:px-4 flex items-center gap-2 sm:gap-3 transition-colors hover:bg-white/[0.03]"
+                className="hero-adaptive-stat py-2.5 sm:py-3 px-3 sm:px-4 flex items-center gap-2 sm:gap-3 transition-colors hover:bg-white/[0.03]"
               >
                 <span
                   className="font-display text-base sm:text-lg md:text-xl font-extrabold tracking-tight text-white inline-block animate-stat-enlarge drop-shadow-sm shrink-0"
