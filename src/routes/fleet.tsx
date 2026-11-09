@@ -19,12 +19,32 @@ import fleetRoro from "@/assets/fleet-roro.jpg";
 import fleetOffshore from "@/assets/fleet-offshore.jpg";
 import fleetInspection from "@/assets/fleet-inspection.jpg";
 import { Btn, WHATSAPP, meta } from "@/components/site";
+import { getBreadcrumbSchema } from "@/lib/seo";
 
 export const Route = createFileRoute("/fleet")({
   head: () =>
     meta(
-      "Fleet Experience & Vessels Served | SARRGAY MARINE",
-      "Specialized support across VLCC tankers, LNG/LPG carriers, chemical tankers, bulk carriers, container vessels, Ro-Ro car carriers, and offshore support vessels."
+      "Fleet Experience & Vessel Types Serviced | SARRGAY MARINE",
+      "Specialized engineering support across VLCC crude tankers, LNG/LPG carriers, chemical carriers, container ships, bulkers, Ro-Ro carriers, and offshore support vessels.",
+      {
+        path: "/fleet",
+        keywords: [
+          "commercial fleet technical support",
+          "VLCC tanker machinery maintenance",
+          "LNG LPG carrier cryogenic engineering",
+          "chemical tanker cargo pumping overhaul",
+          "container vessel propulsion repair",
+          "bulk carrier dry dock superintendence",
+          "Ro-Ro car carrier engineering",
+          "offshore support vessel DP repair",
+          "IACS class fleet compliance",
+          "Indian Ocean vessel superintendents",
+        ],
+        jsonLd: getBreadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Fleet Experience", path: "/fleet" },
+        ]),
+      }
     ),
   component: Fleet,
 });
@@ -105,7 +125,7 @@ function Fleet() {
         <div className="absolute inset-0 z-0">
           <img
             src={fleetHero}
-            alt="Fleet Support Hero"
+            alt="Commercial fleet vessels and offshore engineering support at sea"
             className="w-full h-full object-cover pointer-events-none"
             width={1920}
             height={1080}
@@ -202,7 +222,7 @@ function Fleet() {
                 <div className="relative aspect-[4/3] overflow-hidden rounded-2xl md:rounded-3xl border border-gray-100 shadow-lg shadow-navy/5 bg-navy/5">
                   <img
                     src={v.image}
-                    alt={v.n}
+                    alt={`${v.n} (${v.c}) - Marine Engineering & Fleet Superintendency`}
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     loading="lazy"
                   />
@@ -252,7 +272,7 @@ function Fleet() {
             <div className="relative group rounded-2xl md:rounded-3xl overflow-hidden aspect-[4/3] md:aspect-square shadow-xl border border-border/80">
               <img
                 src={fleetInspection}
-                alt="Quality Control Inspection"
+                alt="Marine engineer conducting Lloyd's Register class inspection and quality control audit"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"
               />

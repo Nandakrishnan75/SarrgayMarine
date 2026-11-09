@@ -1,7 +1,19 @@
+# Sarrgay Marine Robots Exclusion File
+# https://sarrgaymarine.com
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /_nitro/
+
+# Search Engine Specific
 User-agent: Googlebot
 Allow: /
 
 User-agent: Bingbot
+Allow: /
+
+User-agent: Applebot
 Allow: /
 
 User-agent: Twitterbot
@@ -10,5 +22,11 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
-User-agent: *
+User-agent: LinkedInBot
 Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+# Canonical Sitemap
+Sitemap: https://sarrgaymarine.com/sitemap.xml

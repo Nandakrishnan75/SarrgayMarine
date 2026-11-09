@@ -3,6 +3,7 @@ import { useState, useEffect, type ReactNode } from "react";
 import emblemNavy from "@/assets/sarrgay-emblem.png";
 import emblemLight from "@/assets/sarrgay-emblem-light.png";
 import { Button } from "@/components/ui/button";
+import { buildPageMeta, type PageMetaOptions } from "@/lib/seo";
 
 export const PHONE = "+91 80099 09888";
 export const PHONE_ALT = "+91 80099 80888";
@@ -372,7 +373,15 @@ export function Footer() {
 export function PageHero({ eyebrow, title, sub, image }: { eyebrow: string; title: string; sub: string; image?: string }) {
   return (
     <section className="relative overflow-hidden bg-navy text-navy-foreground on-navy pt-20 sm:pt-24">
-      {image && <img src={image} alt="" className="absolute inset-0 h-full w-full object-cover object-center" width={1920} height={1088} />}
+      {image && (
+        <img
+          src={image}
+          alt={title ? `${title} - Sarrgay Marine Maritime Operations` : "Maritime Engineering Operations"}
+          className="absolute inset-0 h-full w-full object-cover object-center"
+          width={1920}
+          height={1088}
+        />
+      )}
       <div className={image ? "hero-overlay absolute inset-0" : "hidden"} />
       <div aria-hidden className="dot-grid absolute right-10 top-24 h-20 w-28 opacity-50 pointer-events-none" />
       <div className="container-x relative py-12 sm:py-16 md:py-20 lg:py-24">
@@ -449,15 +458,16 @@ export function Reveal({
   );
 }
 
-export function meta(title: string, description: string) {
-  return {
-    meta: [
-      { title },
-      { name: "description", content: description },
-      { property: "og:title", content: title },
-      { property: "og:description", content: description },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-  };
+export function meta(
+  title: string,
+  description: string,
+  options?: Omit<PageMetaOptions, "title" | "description">
+) {
+  return buildPageMeta({
+    title,
+    description,
+    ...options,
+  });
 }
+
+export { buildPageMeta };

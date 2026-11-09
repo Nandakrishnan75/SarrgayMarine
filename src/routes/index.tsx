@@ -7,8 +7,25 @@ import { Btn, CtaBanner, SectionHead, WHATSAPP, meta } from "@/components/site";
 export const Route = createFileRoute("/")({
   head: () =>
     meta(
-      "SARRGAY MARINE | Maritime Engineering & Repair Services",
-      "Your trusted technical partner for maritime engineering. Generator maintenance, engine overhauls, dry dock assistance, and 24/7 worldwide support."
+      "SARRGAY MARINE | Worldwide Maritime Engineering & Technical Services",
+      "Premier marine engineering & vessel technical management: MAN B&W & Wärtsilä main engine overhauls, auxiliary generator care, dry dock superintendency & 24/7 flying squads.",
+      {
+        path: "/",
+        keywords: [
+          "marine engineering company",
+          "ship repair services India",
+          "main engine overhauls",
+          "auxiliary generator maintenance",
+          "dry dock superintendency",
+          "marine flying squad",
+          "riding crew deployment",
+          "MAN B&W diesel overhaul",
+          "Wärtsilä marine specialist",
+          "Indian Ocean vessel repairs",
+          "Cochin port ship maintenance",
+          "24/7 marine emergency response",
+        ],
+      }
     ),
   component: Index,
 });

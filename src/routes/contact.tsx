@@ -21,12 +21,45 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { getBreadcrumbSchema, SITE_URL } from "@/lib/seo";
 
 export const Route = createFileRoute("/contact")({
   head: () =>
     meta(
-      "Contact Technical Command | SARRGAY MARINE",
-      "Direct connection with our Chief Engineers and operations desk for vessel maintenance, riding squads, or emergency response."
+      "Contact Technical Command | 24/7 Operations Desk | SARRGAY MARINE",
+      "Direct 24/7 connection with our Chief Engineers and operations superintendents for active vessel breakdown response, riding squad dispatch, and drydock inquiries.",
+      {
+        path: "/contact",
+        keywords: [
+          "contact marine engineers",
+          "24/7 ship repair emergency hotline",
+          "marine breakdown WhatsApp desk",
+          "flying squad emergency mobilization",
+          "Sarrgay Marine Kochi headquarters",
+          "Shenoy Road Kaloor marine engineers",
+          "drydock superintendency quotation",
+          "urgent voyage repair attendance",
+          "Cochin port ship technical attendance",
+        ],
+        jsonLd: [
+          getBreadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Contact", path: "/contact" },
+          ]),
+          {
+            "@context": "https://schema.org",
+            "@type": "ContactPage",
+            "@id": `${SITE_URL}/contact#contactpage`,
+            name: "Contact Sarrgay Marine Technical Command",
+            url: `${SITE_URL}/contact`,
+            description:
+              "Direct 24/7 connection with our Chief Engineers and operations superintendents for active vessel breakdown response, riding squad dispatch, and drydock inquiries.",
+            mainEntity: {
+              "@id": `${SITE_URL}/#organization`,
+            },
+          },
+        ],
+      }
     ),
   component: Contact,
 });

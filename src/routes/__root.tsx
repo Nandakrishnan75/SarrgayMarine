@@ -13,6 +13,7 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Header, Footer } from "../components/site";
+import { getOrganizationSchema, getWebsiteSchema } from "../lib/seo";
 
 function NotFoundComponent() {
   return (
@@ -79,6 +80,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: "theme-color", content: "#061220" },
+      { name: "format-detection", content: "telephone=no" },
       { title: "SARRGAY MARINE | Maritime Engineering & Repair Services" },
       { name: "description", content: "Generator maintenance, engine overhauls, dry dock assistance and 24/7 worldwide marine engineering support." },
     ],
@@ -90,11 +93,22 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: appCss,
       },
+      { rel: "manifest", href: "/site.webmanifest" },
       { rel: "icon", href: "/favicon.ico", sizes: "any" },
       { rel: "icon", href: "/favicon.png", type: "image/png" },
       { rel: "icon", href: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
       { rel: "icon", href: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
       { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(getOrganizationSchema()),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(getWebsiteSchema()),
+      },
     ],
   }),
   shellComponent: RootShell,
@@ -105,7 +119,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <head>
         <HeadContent />
       </head>

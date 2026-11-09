@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://sarrgaymarine.com/</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://sarrgaymarine.com/og-image.jpg</image:loc>
+      <image:title>Sarrgay Marine Maritime Engineering Command</image:title>
+      <image:caption>Global maritime engineering, auxiliary engine overhaul, main propulsion care and 24/7 technical support.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://sarrgaymarine.com/services</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://sarrgaymarine.com/og-image.jpg</image:loc>
+      <image:title>Marine Engineering Solutions and Technical Services</image:title>
+      <image:caption>Main engine overhauls, generator maintenance, dry dock assistance, automation and riding squads.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://sarrgaymarine.com/fleet</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://sarrgaymarine.com/og-image.jpg</image:loc>
+      <image:title>Fleet Experience and Vessels Served</image:title>
+      <image:caption>Technical superintendency across VLCCs, LNG carriers, chemical tankers, container vessels and offshore ships.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://sarrgaymarine.com/about</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://sarrgaymarine.com/og-image.jpg</image:loc>
+      <image:title>About Sarrgay Marine Technical Authority</image:title>
+      <image:caption>Licensed Chief Engineers and superintendents delivering precision marine engineering worldwide.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://sarrgaymarine.com/contact</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://sarrgaymarine.com/og-image.jpg</image:loc>
+      <image:title>Contact Sarrgay Marine Operations Duty Desk</image:title>
+      <image:caption>24/7 technical hotline, WhatsApp emergency desk, and Kochi operations headquarters.</image:caption>
+    </image:image>
+  </url>
+</urlset>

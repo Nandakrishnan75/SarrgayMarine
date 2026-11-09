@@ -25,12 +25,36 @@ import turbochargerImg from "@/assets/turbocharger-overhaul.jpg";
 import lngImg from "@/assets/lng-dualfuel-engineering.jpg";
 import steeringImg from "@/assets/hydraulic-steering-gear.jpg";
 import { Btn, WHATSAPP, meta } from "@/components/site";
+import { getBreadcrumbSchema, getServicesSchema } from "@/lib/seo";
 
 export const Route = createFileRoute("/services")({
   head: () =>
     meta(
-      "Marine Engineering Solutions | SARRGAY MARINE",
-      "Delivering precision engineering, technical management, and riding squad services to the global maritime industry. Generator maintenance, main engine overhauls, dry dock assistance, mechanical & electrical, and emergency repairs."
+      "Marine Engineering Solutions & Specialized Services | SARRGAY MARINE",
+      "Comprehensive marine technical solutions: auxiliary generator maintenance, 2-stroke/4-stroke main engine overhauls, dry dock superintendency, PLC automation & 24/7 flying squads.",
+      {
+        path: "/services",
+        keywords: [
+          "marine engineering solutions",
+          "auxiliary engine overhaul",
+          "propulsion machinery maintenance",
+          "dry dock superintendency services",
+          "marine automation and switchboard repair",
+          "riding squad STCW voyage repairs",
+          "turbocharger servicing balancing",
+          "emergency ship breakdown repair 24/7",
+          "hydraulic steering gear overhaul",
+          "dual fuel LNG engine engineering",
+          "IACS class survey preparation",
+        ],
+        jsonLd: [
+          getBreadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Services", path: "/services" },
+          ]),
+          getServicesSchema(),
+        ],
+      }
     ),
   component: Services,
 });

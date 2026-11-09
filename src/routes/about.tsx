@@ -12,12 +12,43 @@ import {
 import engine from "@/assets/engine-room.jpg";
 import aboutHero from "@/assets/about-hero.jpg";
 import { Btn, WHATSAPP, TEL, PHONE, EMAIL, EMAIL_OPS, meta } from "@/components/site";
+import { getBreadcrumbSchema, SITE_URL } from "@/lib/seo";
 
 export const Route = createFileRoute("/about")({
   head: () =>
     meta(
       "About Us | Technical Authority & Leadership | SARRGAY MARINE",
-      "Sarrgay Marine is your trusted technical partner in maritime engineering. Led by veteran Chief Engineers, delivering precision propulsion overhauls, auxiliary maintenance, and shipyard management worldwide."
+      "Founded by senior Chief Engineers, Sarrgay Marine delivers technical precision, OEM tolerance compliance, Lloyd's/IACS standards, and worldwide riding squad deployment.",
+      {
+        path: "/about",
+        keywords: [
+          "about Sarrgay Marine",
+          "marine engineering leadership",
+          "veteran Chief Engineers superintendents",
+          "Lloyds Register 100A1 compliance",
+          "IACS class engineering standards",
+          "DG Shipping STCW certified squads",
+          "marine technical management Kochi",
+          "global maritime engineering authority",
+        ],
+        jsonLd: [
+          getBreadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "About Us", path: "/about" },
+          ]),
+          {
+            "@context": "https://schema.org",
+            "@type": "AboutPage",
+            "@id": `${SITE_URL}/about#about`,
+            name: "About Sarrgay Marine Technical Authority",
+            description:
+              "Founded by senior Chief Engineers, Sarrgay Marine delivers technical precision, OEM tolerance compliance, Lloyd's/IACS standards, and worldwide riding squad deployment.",
+            mainEntity: {
+              "@id": `${SITE_URL}/#organization`,
+            },
+          },
+        ],
+      }
     ),
   component: About,
 });
