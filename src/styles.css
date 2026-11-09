@@ -259,3 +259,46 @@
     transition: none !important;
   }
 }
+
+/* ==========================================================================
+   Hero Viewport-Adaptive Sizing (Guarantees full hero fits on laptops)
+   ========================================================================== */
+@media (max-height: 740px) {
+  .hero-adaptive-content {
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+  }
+  .hero-adaptive-title {
+    font-size: clamp(1.85rem, 3.2vw, 2.75rem) !important;
+    line-height: 1.08 !important;
+    margin-top: 0.5rem !important;
+  }
+  .hero-adaptive-desc {
+    font-size: 0.8125rem !important;
+    line-height: 1.45 !important;
+    margin-top: 0.5rem !important;
+  }
+  .hero-adaptive-btns {
+    margin-top: 0.75rem !important;
+  }
+}
+
+@media (max-height: 580px) {
+  .hero-adaptive-content {
+    padding-top: 0.25rem !important;
+    padding-bottom: 0.25rem !important;
+  }
+  .hero-adaptive-title {
+    font-size: 1.75rem !important;
+    line-height: 1.06 !important;
+    margin-top: 0.35rem !important;
+  }
+  .hero-adaptive-desc {
+    font-size: 0.75rem !important;
+    line-height: 1.35 !important;
+    margin-top: 0.35rem !important;
+  }
+  .hero-adaptive-btns {
+    margin-top: 0.5rem !important;
+  }
+}

@@ -116,20 +116,20 @@ function Index() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-navy text-navy-foreground on-navy min-h-[100dvh] lg:h-[100dvh] flex flex-col justify-between pt-18">
+      <section className="relative overflow-hidden bg-navy text-navy-foreground on-navy min-h-[100dvh] lg:h-[100dvh] flex flex-col justify-between pt-16 sm:pt-18">
         <img
           src={hero}
           alt="Cargo vessel at sea at dusk"
-          className="absolute inset-0 h-full w-full object-cover object-center"
+          className="absolute inset-0 h-full w-full object-cover object-center pointer-events-none"
           width={1920}
           height={1088}
         />
-        <div className="hero-overlay absolute inset-0" />
+        <div className="hero-overlay absolute inset-0 pointer-events-none" />
         <div aria-hidden className="dot-grid absolute left-8 top-24 h-20 w-28 opacity-50 pointer-events-none" />
-        <div aria-hidden className="dot-grid absolute right-8 bottom-24 h-20 w-28 opacity-50 pointer-events-none" />
+        <div aria-hidden className="dot-grid absolute right-8 bottom-20 sm:bottom-24 h-20 w-28 opacity-50 pointer-events-none" />
 
         {/* Floating section indicators for quick navigation on desktop */}
-        <nav aria-label="Page sections" className="absolute right-8 top-1/2 z-10 hidden -translate-y-1/2 flex-col items-end gap-3.5 font-display lg:flex">
+        <nav aria-label="Page sections" className="absolute right-6 lg:right-8 xl:right-10 top-1/2 z-10 hidden -translate-y-1/2 flex-col items-end gap-3 font-display lg:flex">
           {([
             ["01", "Services", "#services"],
             ["02", "Propulsion", "#propulsion"],
@@ -139,12 +139,12 @@ function Index() {
               key={num}
               type="button"
               onClick={() => handleScrollTo(targetId)}
-              className="group flex items-center gap-3 py-1.5 transition-all duration-300 ease-out hover:scale-120 active:scale-95 origin-right cursor-pointer bg-transparent text-left outline-none"
+              className="group flex items-center gap-3 py-1 transition-all duration-300 ease-out hover:scale-115 active:scale-95 origin-right cursor-pointer bg-transparent text-left outline-none"
             >
               <span className="text-xs sm:text-sm font-bold uppercase tracking-[0.18em] text-white/90 transition-colors group-hover:text-white drop-shadow-md">
                 {label}
               </span>
-              <span className="font-mono text-base sm:text-lg font-extrabold tracking-tight text-accent transition-colors group-hover:text-white drop-shadow-md">
+              <span className="font-mono text-xs sm:text-sm md:text-base font-extrabold tracking-tight text-accent transition-colors group-hover:text-white drop-shadow-md">
                 {num}
               </span>
             </button>
@@ -152,18 +152,18 @@ function Index() {
         </nav>
 
         {/* Main Content Area */}
-        <div className="container-x relative z-10 flex flex-1 flex-col justify-center py-8 sm:py-12 md:py-16">
-          <p className="eyebrow flex items-center gap-2">
-            <span className="h-2 w-2 animate-pulse rounded-full bg-primary" />
-            Technical Partners, Not Just Fixers • 24/7 Worldwide
+        <div className="hero-adaptive-content container-x relative z-10 flex flex-1 flex-col justify-center my-auto py-3 sm:py-5 lg:py-6 max-w-3xl lg:max-w-4xl xl:max-w-5xl lg:pr-32 xl:pr-36">
+          <p className="eyebrow flex items-center gap-2 text-[10px] sm:text-xs">
+            <span className="h-2 w-2 animate-pulse rounded-full bg-primary shrink-0" />
+            <span>Technical Partners, Not Just Fixers • 24/7 Worldwide</span>
           </p>
-          <h1 className="mt-4 max-w-4xl text-3xl font-extrabold uppercase tracking-tight leading-[1.08] sm:text-5xl md:text-6xl lg:text-7xl break-words">
+          <h1 className="hero-adaptive-title mt-2.5 sm:mt-3.5 max-w-3xl lg:max-w-4xl text-3xl sm:text-4xl md:text-5xl lg:text-[clamp(2.5rem,3.6vw,3.75rem)] xl:text-6xl font-extrabold uppercase tracking-tight leading-[1.06] break-words">
             Mastering Maritime Precision
           </h1>
-          <p className="mt-4 sm:mt-5 max-w-2xl text-base sm:text-lg leading-relaxed text-navy-muted">
+          <p className="hero-adaptive-desc mt-2.5 sm:mt-3.5 max-w-2xl text-xs sm:text-sm md:text-base lg:text-[1.05rem] leading-relaxed text-navy-muted font-light">
             Providing high-precision mechanical and electrical solutions that exceed international maritime standards. From main engine overhauls to zero-impact maintenance at sea. Led by Chief Engineers.
           </p>
-          <div className="mt-7 sm:mt-9 flex flex-wrap items-center gap-3.5">
+          <div className="hero-adaptive-btns mt-4 sm:mt-6 flex flex-wrap items-center gap-3 sm:gap-3.5">
             <Btn to="/services">Explore Services</Btn>
             <Btn href={WHATSAPP} variant="ghostLight">WhatsApp Us</Btn>
           </div>
@@ -171,14 +171,18 @@ function Index() {
 
         {/* Key Statistics Bar */}
         <div className="relative z-10 mt-auto border-t border-white/10 bg-navy/60 backdrop-blur-md">
-          <div className="container-x grid grid-cols-2 md:grid-cols-4 divide-y divide-white/10 md:divide-y-0 md:divide-x md:divide-white/10">
+          <div className="container-x grid grid-cols-2 md:grid-cols-4">
             {stats.map(([n, l], idx) => (
               <div
                 key={l}
-                className="py-2.5 sm:py-3 px-3 sm:px-4 flex items-center gap-2 sm:gap-3 transition-colors hover:bg-white/[0.03]"
+                className={`py-2 sm:py-2.5 lg:py-3 px-3 sm:px-4 flex items-center gap-2 sm:gap-3 transition-colors hover:bg-white/[0.03] ${
+                  idx % 2 === 1 ? "border-l border-white/10" : ""
+                } ${idx >= 2 ? "border-t border-white/10 md:border-t-0" : ""} ${
+                  idx > 0 ? "md:border-l md:border-white/10" : ""
+                }`}
               >
                 <span
-                  className="font-display text-base sm:text-lg md:text-xl font-extrabold tracking-tight text-white inline-block animate-stat-enlarge drop-shadow-sm shrink-0"
+                  className="font-display text-sm sm:text-base md:text-lg lg:text-xl font-extrabold tracking-tight text-white inline-block animate-stat-enlarge drop-shadow-sm shrink-0"
                   style={{ animationDelay: `${idx * 0.75}s` }}
                 >
                   {n}
