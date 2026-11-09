@@ -52,10 +52,6 @@ function Contact() {
       <div className="container-x max-w-6xl">
         {/* Architectural Header */}
         <div className="mb-8 md:mb-10 text-center max-w-2xl mx-auto space-y-2">
-          <div className="inline-flex items-center gap-2 rounded-full border border-border/80 bg-white px-3.5 py-1 text-[11px] font-mono uppercase tracking-[0.18em] text-foreground/80 shadow-xs">
-            <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-            <span>24/7 Technical Liaison &bull; Global Operations</span>
-          </div>
           <h1 className="text-2xl sm:text-3xl font-extrabold uppercase tracking-tight text-foreground font-display">
             Contact Technical Command
           </h1>
