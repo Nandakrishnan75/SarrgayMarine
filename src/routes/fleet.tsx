@@ -100,8 +100,8 @@ function Fleet() {
 
   return (
     <div className="bg-white text-[#1A1A1A]">
-      {/* Modern Fleet Hero Header */}
-      <section className="relative pt-28 pb-16 md:pt-44 md:pb-28 overflow-hidden bg-navy text-navy-foreground on-navy border-b border-white/10">
+      {/* Modern Fleet Hero Header - Compact Architectural */}
+      <section className="relative pt-24 sm:pt-28 pb-10 sm:pb-12 overflow-hidden bg-navy text-navy-foreground on-navy border-b border-white/10">
         <div className="absolute inset-0 z-0">
           <img
             src={fleetHero}
@@ -114,35 +114,35 @@ function Fleet() {
         </div>
 
         <div className="container-x relative z-10">
-          <div className="max-w-4xl mx-auto text-center space-y-5">
-            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 shadow-sm mx-auto backdrop-blur-md">
-              <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-              <span className="text-white font-mono font-semibold text-xs tracking-widest uppercase">
+          <div className="max-w-3xl mx-auto text-center space-y-3.5">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 shadow-sm mx-auto backdrop-blur-md">
+              <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+              <span className="text-white font-mono font-semibold text-[11px] tracking-widest uppercase">
                 Global Reach &bull; Fleet Experience
               </span>
             </div>
 
-            <h1 className="font-display text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold uppercase tracking-tight text-white leading-[1.1] drop-shadow-xl">
+            <h1 className="font-display text-2xl sm:text-4xl md:text-5xl font-extrabold uppercase tracking-tight text-white leading-[1.12] drop-shadow-md">
               Global{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-slate-300">
                 Fleet Support
               </span>
             </h1>
 
-            <p className="text-sm sm:text-lg md:text-xl text-white/90 max-w-2xl mx-auto leading-relaxed font-light">
+            <p className="text-xs sm:text-sm md:text-base text-navy-muted max-w-xl mx-auto leading-relaxed font-light">
               Specialized technical support for commercial fleets. We handle global logistics, visa requirements, and tool clearance for rapid deployment across all vessel categories.
             </p>
 
             {/* Quick Metrics Strip */}
-            <div className="pt-4 flex flex-wrap items-center justify-center gap-3 text-xs font-mono">
-              <span className="inline-flex items-center gap-1.5 rounded-sm border border-white/20 bg-navy/60 backdrop-blur-sm px-3 py-1 text-accent">
+            <div className="pt-2 flex flex-wrap items-center justify-center gap-2 text-[10px] sm:text-[11px] font-mono tracking-wider">
+              <span className="inline-flex items-center gap-1.5 rounded-sm border border-white/20 bg-navy/60 backdrop-blur-sm px-2.5 py-1 text-accent">
                 <span className="h-1.5 w-1.5 rounded-full bg-accent" />
                 7 VESSEL CATEGORIES
               </span>
-              <span className="inline-flex items-center gap-1.5 rounded-sm border border-white/20 bg-navy/60 backdrop-blur-sm px-3 py-1 text-white/90">
+              <span className="inline-flex items-center gap-1.5 rounded-sm border border-white/20 bg-navy/60 backdrop-blur-sm px-2.5 py-1 text-navy-foreground/90">
                 WORLDWIDE PORT ACCESS
               </span>
-              <span className="inline-flex items-center gap-1.5 rounded-sm border border-white/20 bg-navy/60 backdrop-blur-sm px-3 py-1 text-white/90">
+              <span className="inline-flex items-center gap-1.5 rounded-sm border border-white/20 bg-navy/60 backdrop-blur-sm px-2.5 py-1 text-navy-foreground/90">
                 100% SURVEYOR SIGN-OFF
               </span>
             </div>
@@ -151,9 +151,9 @@ function Fleet() {
       </section>
 
       {/* Vessels Served Section */}
-      <section className="py-20 sm:py-24 bg-white">
+      <section className="py-12 sm:py-16 bg-white">
         <div className="container-x">
-          <div className="mb-12 text-center max-w-3xl mx-auto space-y-3">
+          <div className="mb-8 sm:mb-10 text-center max-w-3xl mx-auto space-y-2.5">
             <div className="inline-flex items-center gap-2 rounded-full border border-border/80 bg-secondary/60 px-4 py-1.5 text-xs font-mono uppercase tracking-wider text-primary font-semibold shadow-sm">
               <Anchor className="h-3.5 w-3.5" />
               <span>VESSELS SERVED</span>
