@@ -116,7 +116,7 @@ function Index() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-navy text-navy-foreground on-navy min-h-[100dvh] lg:h-[100dvh] flex flex-col justify-between pt-16 sm:pt-18">
+      <section className="hero-adaptive-section relative overflow-hidden bg-navy text-navy-foreground on-navy h-[100dvh] min-h-[100dvh] flex flex-col justify-between pt-16 sm:pt-18">
         <img
           src={hero}
           alt="Cargo vessel at sea at dusk"
@@ -152,18 +152,18 @@ function Index() {
         </nav>
 
         {/* Main Content Area */}
-        <div className="hero-adaptive-content container-x relative z-10 flex flex-1 flex-col justify-center my-auto py-3 sm:py-5 lg:py-6 max-w-3xl lg:max-w-4xl xl:max-w-5xl lg:pr-32 xl:pr-36">
+        <div className="hero-adaptive-content container-x relative z-10 flex flex-1 flex-col justify-center my-auto py-2 sm:py-3 lg:py-4 max-w-3xl lg:max-w-4xl xl:max-w-5xl lg:pr-32 xl:pr-36">
           <p className="eyebrow flex items-center gap-2 text-[10px] sm:text-xs">
             <span className="h-2 w-2 animate-pulse rounded-full bg-primary shrink-0" />
             <span>Technical Partners, Not Just Fixers • 24/7 Worldwide</span>
           </p>
-          <h1 className="hero-adaptive-title mt-2.5 sm:mt-3.5 max-w-3xl lg:max-w-4xl text-3xl sm:text-4xl md:text-5xl lg:text-[clamp(2.5rem,3.6vw,3.75rem)] xl:text-6xl font-extrabold uppercase tracking-tight leading-[1.06] break-words">
-            Mastering Maritime Precision
+          <h1 className="hero-adaptive-title mt-2 sm:mt-3 max-w-3xl lg:max-w-4xl text-3xl sm:text-4xl md:text-5xl lg:text-[clamp(2.4rem,3.4vw,3.6rem)] xl:text-[3.75rem] font-extrabold uppercase tracking-tight leading-[1.06] break-words">
+            Mastering Maritime<br className="hidden xs:inline sm:inline" /> Precision
           </h1>
-          <p className="hero-adaptive-desc mt-2.5 sm:mt-3.5 max-w-2xl text-xs sm:text-sm md:text-base lg:text-[1.05rem] leading-relaxed text-navy-muted font-light">
+          <p className="hero-adaptive-desc mt-2 sm:mt-3 max-w-2xl text-xs sm:text-sm md:text-base lg:text-[1.05rem] leading-relaxed text-navy-muted font-light">
             Providing high-precision mechanical and electrical solutions that exceed international maritime standards. From main engine overhauls to zero-impact maintenance at sea. Led by Chief Engineers.
           </p>
-          <div className="hero-adaptive-btns mt-4 sm:mt-6 flex flex-wrap items-center gap-3 sm:gap-3.5">
+          <div className="hero-adaptive-btns mt-4 sm:mt-5 flex flex-wrap items-center gap-3 sm:gap-3.5">
             <Btn to="/services">Explore Services</Btn>
             <Btn href={WHATSAPP} variant="ghostLight">WhatsApp Us</Btn>
           </div>

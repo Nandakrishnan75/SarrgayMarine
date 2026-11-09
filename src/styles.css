@@ -263,42 +263,48 @@
 /* ==========================================================================
    Hero Viewport-Adaptive Sizing (Guarantees full hero fits on laptops)
    ========================================================================== */
-@media (max-height: 740px) {
-  .hero-adaptive-content {
-    padding-top: 0.5rem !important;
-    padding-bottom: 0.5rem !important;
+@media (max-height: 760px) {
+  .hero-adaptive-section {
+    padding-top: 3.75rem !important;
   }
-  .hero-adaptive-title {
-    font-size: clamp(1.85rem, 3.2vw, 2.75rem) !important;
-    line-height: 1.08 !important;
-    margin-top: 0.5rem !important;
-  }
-  .hero-adaptive-desc {
-    font-size: 0.8125rem !important;
-    line-height: 1.45 !important;
-    margin-top: 0.5rem !important;
-  }
-  .hero-adaptive-btns {
-    margin-top: 0.75rem !important;
-  }
-}
-
-@media (max-height: 580px) {
   .hero-adaptive-content {
     padding-top: 0.25rem !important;
     padding-bottom: 0.25rem !important;
   }
   .hero-adaptive-title {
-    font-size: 1.75rem !important;
+    font-size: clamp(1.75rem, 3.2vw, 2.5rem) !important;
     line-height: 1.06 !important;
     margin-top: 0.35rem !important;
   }
   .hero-adaptive-desc {
-    font-size: 0.75rem !important;
-    line-height: 1.35 !important;
+    font-size: 0.8125rem !important;
+    line-height: 1.4 !important;
     margin-top: 0.35rem !important;
   }
   .hero-adaptive-btns {
-    margin-top: 0.5rem !important;
+    margin-top: 0.65rem !important;
+  }
+}
+
+@media (max-height: 560px) {
+  .hero-adaptive-section {
+    padding-top: 3.25rem !important;
+  }
+  .hero-adaptive-content {
+    padding-top: 0.125rem !important;
+    padding-bottom: 0.125rem !important;
+  }
+  .hero-adaptive-title {
+    font-size: clamp(1.35rem, 2.8vw, 1.85rem) !important;
+    line-height: 1.05 !important;
+    margin-top: 0.25rem !important;
+  }
+  .hero-adaptive-desc {
+    font-size: 0.725rem !important;
+    line-height: 1.3 !important;
+    margin-top: 0.25rem !important;
+  }
+  .hero-adaptive-btns {
+    margin-top: 0.45rem !important;
   }
 }
