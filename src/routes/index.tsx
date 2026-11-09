@@ -169,19 +169,23 @@ function Index() {
 
         {/* Key Statistics Bar */}
         <div className="relative z-10 mt-auto border-t border-white/10 bg-navy/60 backdrop-blur-md">
-          <div className="container-x grid grid-cols-2 md:grid-cols-4 divide-y divide-white/10 md:divide-y-0 md:divide-x md:divide-white/10">
+          <div className="container-x grid grid-cols-2 md:grid-cols-4">
             {stats.map(([n, l], idx) => (
               <div
                 key={l}
-                className="hero-adaptive-stat py-2.5 sm:py-3 px-3 sm:px-4 flex items-center gap-2 sm:gap-3 transition-colors hover:bg-white/[0.03]"
+                className={`hero-adaptive-stat py-1.5 sm:py-2 px-2.5 sm:px-3 md:px-4 flex items-center gap-2 sm:gap-2.5 transition-colors hover:bg-white/[0.03] ${
+                  idx % 2 === 1 ? "border-l border-white/10" : ""
+                } ${idx >= 2 ? "border-t border-white/10 md:border-t-0" : ""} ${
+                  idx > 0 ? "md:border-l md:border-white/10" : ""
+                }`}
               >
                 <span
-                  className="font-display text-base sm:text-lg md:text-xl font-extrabold tracking-tight text-white inline-block animate-stat-enlarge drop-shadow-sm shrink-0"
+                  className="font-display text-sm sm:text-base md:text-lg font-bold tracking-tight text-white inline-block animate-stat-enlarge drop-shadow-sm shrink-0"
                   style={{ animationDelay: `${idx * 0.75}s` }}
                 >
                   {n}
                 </span>
-                <span className="text-[9px] sm:text-[10px] md:text-[11px] font-mono uppercase tracking-[0.12em] text-navy-muted/90 leading-tight">
+                <span className="text-[8.5px] sm:text-[9.5px] md:text-[10px] font-mono uppercase tracking-[0.1em] text-navy-muted/90 leading-tight">
                   {l}
                 </span>
               </div>
