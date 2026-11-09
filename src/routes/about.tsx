@@ -407,7 +407,7 @@ function About() {
         </div>
       </section>
 
-      {/* Direct Technical Liaison & Engagement (CTA with Clear Atmospheric Background Image) */}
+      {/* Technical Consultation & Engagement (CTA with Clear Atmospheric Background Image) */}
       <section className="relative overflow-hidden bg-navy text-navy-foreground on-navy py-14 sm:py-18 border-t border-white/10">
         <img
           src={engine}
@@ -424,7 +424,7 @@ function About() {
             <div className="lg:col-span-8 space-y-3">
               <p className="eyebrow flex items-center gap-2">
                 <span className="h-2 w-2 rounded-full bg-accent" />
-                DIRECT TECHNICAL LIAISON &bull; 24/7 WORLDWIDE
+                WORLDWIDE TECHNICAL OPERATIONS &bull; 24/7 DISPATCH
               </p>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold uppercase tracking-tight text-white leading-tight">
                 Consult With Our Chief Engineers

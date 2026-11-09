@@ -189,33 +189,6 @@ export function Footer() {
   return (
     <footer className="border-t border-border/80 bg-white text-[#1A1A1A] pt-10 sm:pt-14 pb-8 sm:pb-10">
       <div className="container-x">
-        {/* Mobile Quick Action Strip (only on mobile) */}
-        <div className="mb-8 rounded-xl border border-primary/20 bg-secondary/60 p-4 sm:hidden flex flex-col gap-3 shadow-xs">
-          <div className="flex items-center justify-between">
-            <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-primary flex items-center gap-2">
-              <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
-              24/7 Technical Liaison
-            </span>
-            <span className="text-[10px] font-mono text-muted-foreground uppercase">Global Dispatch</span>
-          </div>
-          <div className="grid grid-cols-2 gap-2.5">
-            <a
-              href={TEL}
-              className="flex items-center justify-center gap-1.5 rounded-md bg-navy text-white py-2.5 px-3 text-xs font-bold font-mono tracking-tight shadow-sm active:scale-95 transition-transform"
-            >
-              Call Hotline
-            </a>
-            <a
-              href={WHATSAPP}
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-center justify-center gap-1.5 rounded-md border border-border/80 bg-white text-navy py-2.5 px-3 text-xs font-bold font-mono tracking-tight shadow-xs active:scale-95 transition-transform"
-            >
-              WhatsApp Desk
-            </a>
-          </div>
-        </div>
-
         <div className="grid gap-8 sm:gap-10 md:grid-cols-2 lg:grid-cols-[1.3fr_1.25fr_1.25fr_1fr]">
           {/* Column 1: Brand & Credential */}
           <div className="space-y-4">
@@ -340,7 +313,7 @@ export function Footer() {
             <div className="space-y-2.5 text-xs">
               <div>
                 <span className="block text-[10px] font-semibold uppercase tracking-wider text-[#777777] mb-0.5">
-                  24/7 Technical Liaison
+                  24/7 Hotline
                 </span>
                 <a
                   href={TEL}
