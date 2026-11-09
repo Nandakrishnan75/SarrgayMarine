@@ -63,19 +63,20 @@ function Contact() {
         {/* Unified Luxury Dual-Pane Card */}
         <div className="grid grid-cols-1 lg:grid-cols-12 rounded-2xl border border-border/80 bg-white shadow-xl overflow-hidden">
           {/* Left Pane: Navy Command Desk with Visible Website Background Image */}
-          <div className="relative lg:col-span-5 bg-[#061220] text-white p-5 sm:p-8 md:p-9 flex flex-col justify-between space-y-6 sm:space-y-7 overflow-hidden">
-            {/* Background Image on BG */}
+          <div className="relative lg:col-span-5 bg-[#061220] text-white p-5 sm:p-7 md:p-8 flex flex-col justify-between overflow-hidden">
+            {/* Background Image on BG: Maritime vessel and superstructure with bottom pavement fully eliminated */}
             <img
               src={contactHero}
               alt="Maritime Fleet Operations"
-              className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none opacity-45 filter contrast-125 brightness-90"
+              className="absolute inset-0 w-full h-full object-cover object-top pointer-events-none opacity-35 filter contrast-125 brightness-90"
               width={1080}
               height={1080}
             />
-            {/* Dark Navy Glassmorphic Gradient Overlay: Image is clearly visible on BG while text stays 100% legible */}
-            <div className="absolute inset-0 bg-gradient-to-b from-[#061220]/95 via-[#061220]/75 to-[#061220]/95 pointer-events-none" />
+            {/* Dark Navy Gradient Overlay: smoothly fades into solid #061220 navy with zero gray bleeding */}
+            <div className="absolute inset-0 bg-gradient-to-b from-[#061220]/85 via-[#061220]/80 to-[#061220] pointer-events-none" />
 
-            <div className="relative z-10 space-y-4 sm:space-y-5">
+            {/* Upper Content Section */}
+            <div className="relative z-10 space-y-4">
               <div>
                 <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-white/60 font-semibold block">
                   Direct Inquiries
@@ -146,13 +147,15 @@ function Contact() {
                   </div>
                 </div>
               </div>
+            </div>
 
-              {/* Address */}
-              <div className="flex items-start gap-3 text-xs text-white/70 pt-1">
+            {/* Lower Content Section: Anchors Address Elegantly on Desktop & Mobile */}
+            <div className="relative z-10 pt-4 mt-4 border-t border-white/10">
+              <div className="flex items-start gap-3 text-xs text-white/70">
                 <MapPin className="h-4 w-4 text-primary shrink-0 mt-0.5" />
                 <div>
                   <strong className="block text-white font-medium">Kochi Operations Headquarters</strong>
-                  <span>65/1599A, Mathilicherril, Shenoy Road, Kaloor, Kochi – 682017, Kerala, India</span>
+                  <span className="leading-relaxed">65/1599A, Mathilicherril, Shenoy Road, Kaloor, Kochi – 682017, Kerala, India</span>
                 </div>
               </div>
             </div>
