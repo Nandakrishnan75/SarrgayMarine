@@ -63,7 +63,7 @@ function Contact() {
         {/* Unified Luxury Dual-Pane Card */}
         <div className="grid grid-cols-1 lg:grid-cols-12 rounded-2xl border border-border/80 bg-white shadow-xl overflow-hidden">
           {/* Left Pane: Navy Command Desk with Visible Website Background Image */}
-          <div className="relative lg:col-span-5 bg-[#061220] text-white p-7 sm:p-9 flex flex-col justify-between space-y-7 overflow-hidden">
+          <div className="relative lg:col-span-5 bg-[#061220] text-white p-5 sm:p-8 md:p-9 flex flex-col justify-between space-y-6 sm:space-y-7 overflow-hidden">
             {/* Background Image on BG */}
             <img
               src={contactHero}
@@ -75,7 +75,7 @@ function Contact() {
             {/* Dark Navy Glassmorphic Gradient Overlay: Image is clearly visible on BG while text stays 100% legible */}
             <div className="absolute inset-0 bg-gradient-to-b from-[#061220]/95 via-[#061220]/75 to-[#061220]/95 pointer-events-none" />
 
-            <div className="relative z-10 space-y-5">
+            <div className="relative z-10 space-y-4 sm:space-y-5">
               <div>
                 <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-white/60 font-semibold block">
                   Direct Inquiries
@@ -89,7 +89,7 @@ function Contact() {
               </div>
 
               {/* 24/7 Hotline */}
-              <div className="rounded-xl border border-white/10 bg-white/5 p-4 space-y-1.5 backdrop-blur-xs">
+              <div className="rounded-xl border border-white/10 bg-white/5 p-3.5 sm:p-4 space-y-1.5 backdrop-blur-xs">
                 <div className="flex items-center gap-2 text-white/70 text-xs font-mono">
                   <Phone className="h-3.5 w-3.5 text-primary" />
                   <span>24/7 EMERGENCY HOTLINE</span>
@@ -113,7 +113,7 @@ function Contact() {
                 href={WHATSAPP}
                 target="_blank"
                 rel="noreferrer"
-                className="group flex items-center justify-between rounded-xl border border-white/10 bg-white/5 p-4 text-xs font-medium text-white hover:bg-white/10 transition-all"
+                className="group flex items-center justify-between rounded-xl border border-white/10 bg-white/5 p-3.5 sm:p-4 text-xs font-medium text-white hover:bg-white/10 transition-all"
               >
                 <div className="flex items-center gap-2.5">
                   <MessageSquare className="h-4 w-4 text-primary" />
@@ -126,7 +126,7 @@ function Contact() {
               </a>
 
               {/* Email Addresses */}
-              <div className="rounded-xl border border-white/10 bg-white/5 p-4 space-y-3 text-xs">
+              <div className="rounded-xl border border-white/10 bg-white/5 p-3.5 sm:p-4 space-y-3 text-xs">
                 <div className="flex items-center gap-2 text-white/70 font-mono">
                   <Mail className="h-3.5 w-3.5 text-primary" />
                   <span>OFFICIAL CORRESPONDENCE</span>
@@ -134,13 +134,13 @@ function Contact() {
                 <div className="space-y-2">
                   <div>
                     <span className="block text-[10px] text-white/50 uppercase font-mono">Technical &amp; Drydock</span>
-                    <a href="mailto:service@sarrgaymarine.com" className="font-mono text-xs sm:text-sm text-white hover:text-primary transition-colors">
+                    <a href="mailto:service@sarrgaymarine.com" className="font-mono text-xs sm:text-sm text-white hover:text-primary transition-colors break-all">
                       service@sarrgaymarine.com
                     </a>
                   </div>
                   <div>
                     <span className="block text-[10px] text-white/50 uppercase font-mono">Commercial &amp; General</span>
-                    <a href="mailto:info@sarrgaymarine.com" className="font-mono text-xs sm:text-sm text-white hover:text-primary transition-colors">
+                    <a href="mailto:info@sarrgaymarine.com" className="font-mono text-xs sm:text-sm text-white hover:text-primary transition-colors break-all">
                       info@sarrgaymarine.com
                     </a>
                   </div>
@@ -159,7 +159,7 @@ function Contact() {
           </div>
 
           {/* Right Pane: Clean Architectural Form */}
-          <div className="lg:col-span-7 p-7 sm:p-9 md:p-10 flex flex-col justify-center bg-white">
+          <div className="lg:col-span-7 p-5 sm:p-8 md:p-10 flex flex-col justify-center bg-white">
             {submitted ? (
               <div className="py-12 text-center space-y-4">
                 <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 text-primary">
@@ -203,7 +203,7 @@ function Contact() {
                       placeholder="John Smith"
                       value={formState.name}
                       onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                      className="w-full rounded-md border border-border/80 bg-background px-3 py-2 text-xs sm:text-sm outline-none transition focus:border-primary focus:ring-1 focus:ring-primary"
+                      className="w-full rounded-md border border-border/80 bg-background px-3 py-2.5 text-base sm:text-sm outline-none transition focus:border-primary focus:ring-1 focus:ring-primary"
                     />
                   </div>
 
@@ -217,7 +217,7 @@ function Contact() {
                       placeholder="john@company.com"
                       value={formState.email}
                       onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                      className="w-full rounded-md border border-border/80 bg-background px-3 py-2 text-xs sm:text-sm outline-none transition focus:border-primary focus:ring-1 focus:ring-primary"
+                      className="w-full rounded-md border border-border/80 bg-background px-3 py-2.5 text-base sm:text-sm outline-none transition focus:border-primary focus:ring-1 focus:ring-primary"
                     />
                   </div>
                 </div>
@@ -232,7 +232,7 @@ function Contact() {
                       placeholder="+91 98765 43210"
                       value={formState.phone}
                       onChange={(e) => setFormState({ ...formState, phone: e.target.value })}
-                      className="w-full rounded-md border border-border/80 bg-background px-3 py-2 text-xs sm:text-sm outline-none transition focus:border-primary focus:ring-1 focus:ring-primary"
+                      className="w-full rounded-md border border-border/80 bg-background px-3 py-2.5 text-base sm:text-sm outline-none transition focus:border-primary focus:ring-1 focus:ring-primary"
                     />
                   </div>
 
@@ -245,7 +245,7 @@ function Contact() {
                       placeholder="MV Ocean Trader"
                       value={formState.vessel}
                       onChange={(e) => setFormState({ ...formState, vessel: e.target.value })}
-                      className="w-full rounded-md border border-border/80 bg-background px-3 py-2 text-xs sm:text-sm outline-none transition focus:border-primary focus:ring-1 focus:ring-primary"
+                      className="w-full rounded-md border border-border/80 bg-background px-3 py-2.5 text-base sm:text-sm outline-none transition focus:border-primary focus:ring-1 focus:ring-primary"
                     />
                   </div>
                 </div>
@@ -258,7 +258,7 @@ function Contact() {
                     required
                     value={formState.service}
                     onChange={(e) => setFormState({ ...formState, service: e.target.value })}
-                    className="w-full rounded-md border border-border/80 bg-background px-3 py-2 text-xs sm:text-sm outline-none transition focus:border-primary focus:ring-1 focus:ring-primary"
+                    className="w-full rounded-md border border-border/80 bg-background px-3 py-2.5 text-base sm:text-sm outline-none transition focus:border-primary focus:ring-1 focus:ring-primary"
                   >
                     {serviceOptions.map((opt) => (
                       <option key={opt} value={opt}>
@@ -278,7 +278,7 @@ function Contact() {
                     placeholder="Describe the machinery maker, scope required, port of attendance, or target dates..."
                     value={formState.message}
                     onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                    className="w-full rounded-md border border-border/80 bg-background px-3 py-2 text-xs sm:text-sm outline-none transition focus:border-primary focus:ring-1 focus:ring-primary resize-none"
+                    className="w-full rounded-md border border-border/80 bg-background px-3 py-2.5 text-base sm:text-sm outline-none transition focus:border-primary focus:ring-1 focus:ring-primary resize-none"
                   />
                 </div>
 

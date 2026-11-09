@@ -292,15 +292,15 @@ function Services() {
           </div>
 
           {/* Quick Anchor Navigation Strip */}
-          <div className="pt-5 overflow-x-auto">
-            <div className="flex items-center gap-2 min-w-max text-xs font-mono">
+          <div className="pt-4 sm:pt-5 overflow-x-auto no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0">
+            <div className="flex items-center gap-2 min-w-max text-xs font-mono pb-1">
               <span className="text-navy-muted mr-1 uppercase tracking-wider text-[11px]">Jump to:</span>
               {serviceCatalog.map((s) => (
                 <button
                   key={s.id}
                   type="button"
                   onClick={() => handleScrollTo(s.anchor)}
-                  className="rounded-sm border border-white/15 bg-white/5 px-3 py-1 text-white/90 hover:bg-white/15 hover:text-white transition cursor-pointer"
+                  className="rounded-sm border border-white/15 bg-white/5 px-3 py-1.5 text-white/90 hover:bg-white/15 hover:text-white transition cursor-pointer active:scale-95"
                 >
                   <span className="text-accent font-semibold mr-1.5">{s.id}</span>
                   <span>{s.title.split(" ")[0]}</span>
@@ -321,10 +321,10 @@ function Services() {
             <article
               id={s.anchor}
               key={s.id}
-              className={`scroll-mt-24 py-16 sm:py-24 ${idx % 2 === 1 ? "bg-[#FAFAFC]" : "bg-white"}`}
+              className={`scroll-mt-24 py-12 sm:py-20 ${idx % 2 === 1 ? "bg-[#FAFAFC]" : "bg-white"}`}
             >
               <div className="container-x">
-                <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
+                <div className="grid gap-8 lg:gap-12 lg:grid-cols-12 lg:items-center">
                   {/* Pristine Unobstructed Image */}
                   <div className={`lg:col-span-6 ${isReversed ? "lg:order-2" : "lg:order-1"}`}>
                     <div className="group overflow-hidden rounded-xl border border-border/80 bg-card shadow-lg">

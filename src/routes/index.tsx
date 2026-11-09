@@ -158,7 +158,7 @@ function Index() {
             {stats.map(([n, l], idx) => (
               <div
                 key={l}
-                className="py-2 sm:py-2.5 px-3 sm:px-4 flex items-center gap-2 sm:gap-3 first:pl-0 last:pr-0 transition-colors hover:bg-white/[0.03]"
+                className="py-2.5 sm:py-3 px-3 sm:px-4 flex items-center gap-2 sm:gap-3 transition-colors hover:bg-white/[0.03]"
               >
                 <span
                   className="font-display text-base sm:text-lg md:text-xl font-extrabold tracking-tight text-white inline-block animate-stat-enlarge drop-shadow-sm shrink-0"
@@ -176,51 +176,51 @@ function Index() {
       </section>
 
       {/* Services Overview (What We Do) */}
-      <section id="services" className="container-x scroll-mt-24 py-24">
+      <section id="services" className="container-x scroll-mt-24 py-16 sm:py-24">
         <SectionHead
           eyebrow="What We Do"
           title="OUR SERVICES"
           sub="Comprehensive maritime engineering solutions, from routine maintenance to complex overhauls, delivered with precision worldwide."
         />
-        <div className="mt-12 grid gap-px overflow-hidden rounded-md border bg-border md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 sm:mt-12 grid gap-px overflow-hidden rounded-md border bg-border md:grid-cols-2 lg:grid-cols-3">
           {services.map((s, i) => (
             <div
               key={s.title}
-              className={`group bg-card p-8 transition duration-300 hover:bg-primary hover:text-primary-foreground [&:hover_p]:text-primary-foreground/80 [&:hover_span]:text-primary-foreground scroll-reveal delay-${((i % 3) + 1) * 100}`}
+              className={`group bg-card p-5 sm:p-8 transition duration-300 hover:bg-primary hover:text-primary-foreground [&:hover_p]:text-primary-foreground/80 [&:hover_span]:text-primary-foreground scroll-reveal delay-${((i % 3) + 1) * 100}`}
             >
               <span className="font-mono text-xs font-semibold text-primary">0{i + 1}</span>
-              <h3 className="mt-3 text-xl font-bold">{s.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
-              <span className="mt-5 block font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
+              <h3 className="mt-3 text-lg sm:text-xl font-bold">{s.title}</h3>
+              <p className="mt-2.5 text-xs sm:text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
+              <span className="mt-4 sm:mt-5 block font-mono text-[10px] sm:text-[11px] uppercase tracking-wider text-muted-foreground">
                 {s.badge}
               </span>
             </div>
           ))}
         </div>
-        <div className="mt-10 flex flex-wrap gap-4 scroll-reveal delay-200">
+        <div className="mt-8 sm:mt-10 flex flex-wrap gap-3.5 scroll-reveal delay-200">
           <Btn to="/services">View All Services →</Btn>
           <Btn to="/contact" variant="outline">Get a Quote</Btn>
         </div>
       </section>
 
       {/* Flagship Technical Showcase */}
-      <section id="propulsion" className="scroll-mt-24 bg-navy py-24 text-navy-foreground on-navy overflow-hidden">
-        <div className="container-x grid gap-12 lg:grid-cols-2 lg:items-center">
+      <section id="propulsion" className="scroll-mt-24 bg-navy py-16 sm:py-24 text-navy-foreground on-navy overflow-hidden">
+        <div className="container-x grid gap-10 lg:grid-cols-2 lg:items-center">
           <div className="scroll-reveal scroll-reveal-left">
             <div className="flex flex-wrap gap-2 font-mono text-[11px] uppercase tracking-wider">
               <span className="rounded-full bg-accent px-3 py-1 text-accent-foreground font-semibold">Flagship Engineering</span>
               <span className="rounded-full border border-navy-foreground/20 px-3 py-1">24/7 Global Dispatch</span>
             </div>
-            <p className="eyebrow mt-6">Propulsion Plant Overhaul • Global Flying Squad</p>
-            <h3 className="mt-3 text-3xl font-bold md:text-4xl">High-Precision Marine Propulsion Overhauls</h3>
-            <p className="mt-5 leading-relaxed text-navy-muted">
+            <p className="eyebrow mt-5 sm:mt-6">Propulsion Plant Overhaul • Global Flying Squad</p>
+            <h3 className="mt-2.5 sm:mt-3 text-2xl sm:text-3xl lg:text-4xl font-bold">High-Precision Marine Propulsion Overhauls</h3>
+            <p className="mt-4 sm:mt-5 text-sm sm:text-base leading-relaxed text-navy-muted font-light">
               From ultra-large crude carriers (VLCC) to commercial cargo vessels, our Chief Engineers execute full disassembly, laser alignment, crankshaft rectification, and classification society renewals.
             </p>
-            <div className="mt-6 space-y-1 font-mono text-xs text-navy-muted">
+            <div className="mt-5 sm:mt-6 space-y-1 font-mono text-xs text-navy-muted">
               <p>Hydro-Acoustic Balancing: &lt; 34dB Vibration Isolation</p>
               <p>PROPULSION CAPACITY • UP TO 80,000 BHP</p>
             </div>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-7 sm:mt-8 flex flex-wrap gap-3">
               <Btn to="/contact">Inquire Scope Dossier</Btn>
               <Btn to="/fleet" variant="ghostLight">Fleet Experience</Btn>
             </div>
@@ -233,9 +233,9 @@ function Index() {
               ["Inspection Tolerances", "Micrometer Precision & Laser Deflection Alignment"],
               ["Classification Rigor", "IACS Standards + ISO 9001:2015 Certification"],
             ].map(([k, v]) => (
-              <div key={k} className="bg-navy p-6">
-                <dt className="font-mono text-[11px] uppercase tracking-widest text-accent">{k}</dt>
-                <dd className="mt-2 text-lg font-medium">{v}</dd>
+              <div key={k} className="bg-navy p-4 sm:p-6">
+                <dt className="font-mono text-[10px] sm:text-[11px] uppercase tracking-widest text-accent">{k}</dt>
+                <dd className="mt-1.5 sm:mt-2 text-base sm:text-lg font-medium">{v}</dd>
               </div>
             ))}
           </dl>
@@ -243,8 +243,8 @@ function Index() {
       </section>
 
       {/* About Us Preview */}
-      <section className="bg-secondary py-24 overflow-hidden">
-        <div className="container-x grid items-center gap-12 lg:grid-cols-2">
+      <section className="bg-secondary py-16 sm:py-24 overflow-hidden">
+        <div className="container-x grid items-center gap-10 lg:grid-cols-2">
           <div className="relative scroll-reveal scroll-reveal-left">
             <div aria-hidden className="dot-grid-dark absolute -left-6 -top-6 h-24 w-24" />
             <img
@@ -255,20 +255,20 @@ function Index() {
               height={960}
               className="relative rounded-sm object-cover shadow-xl"
             />
-            <div className="absolute -bottom-5 left-5 rounded-sm bg-navy px-5 py-3 text-sm text-navy-foreground shadow-md">
+            <div className="absolute -bottom-3 sm:-bottom-5 left-3 sm:left-5 rounded-sm bg-navy px-3.5 sm:px-5 py-2 sm:py-3 text-xs sm:text-sm text-navy-foreground shadow-md">
               Global Reach &amp; Support: <b>50+ Ports Worldwide</b>
             </div>
           </div>
 
           <div className="scroll-reveal scroll-reveal-right delay-150">
             <SectionHead eyebrow="About Us" title="Your Technical Partner in Maritime Excellence" />
-            <p className="mt-5 leading-relaxed text-muted-foreground">
+            <p className="mt-4 sm:mt-5 text-sm sm:text-base leading-relaxed text-muted-foreground font-light">
               Led by a team of highly experienced Chief Engineers, we are a premier marine engineering company specializing in diesel engine overhauls, generator maintenance, and comprehensive mechanical and electrical services worldwide.
             </p>
-            <p className="mt-4 leading-relaxed text-muted-foreground">
+            <p className="mt-3 sm:mt-4 text-sm sm:text-base leading-relaxed text-muted-foreground font-light">
               Our robust technical leadership ensures high-precision solutions that exceed international standards, with 24/7 rapid response capability across global ports.
             </p>
-            <div className="mt-8">
+            <div className="mt-6 sm:mt-8">
               <Btn to="/about">Learn More →</Btn>
             </div>
           </div>
@@ -276,22 +276,22 @@ function Index() {
       </section>
 
       {/* The Sarrgay Advantage */}
-      <section className="container-x py-24">
+      <section className="container-x py-16 sm:py-24">
         <SectionHead
           center
           eyebrow="Why Sarrgay Marine"
           title="THE SARRGAY ADVANTAGE"
           sub="Industry-leading expertise, global reach, and unwavering commitment to maritime safety and quality."
         />
-        <div className="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 sm:mt-14 grid gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
           {advantages.map((a, i) => (
             <div
               key={a.title}
-              className={`rounded-sm border-t-4 border-t-primary bg-card p-7 shadow-[0_10px_30px_-12px_color-mix(in_oklab,var(--navy)_25%,transparent)] transition hover:-translate-y-1 scroll-reveal delay-${((i % 3) + 1) * 150}`}
+              className={`rounded-sm border-t-4 border-t-primary bg-card p-5 sm:p-7 shadow-[0_10px_30px_-12px_color-mix(in_oklab,var(--navy)_25%,transparent)] transition hover:-translate-y-1 scroll-reveal delay-${((i % 3) + 1) * 150}`}
             >
-              <h3 className="text-lg font-bold">{a.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{a.desc}</p>
-              <span className="mt-4 inline-block rounded-full bg-secondary px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-primary font-medium">
+              <h3 className="text-base sm:text-lg font-bold">{a.title}</h3>
+              <p className="mt-2 text-xs sm:text-sm leading-relaxed text-muted-foreground font-light">{a.desc}</p>
+              <span className="mt-3.5 sm:mt-4 inline-block rounded-full bg-secondary px-3 py-1 font-mono text-[10px] sm:text-[11px] uppercase tracking-wider text-primary font-medium">
                 {a.tag}
               </span>
             </div>
@@ -300,7 +300,7 @@ function Index() {
       </section>
 
       {/* Precision Defined (Floating Glassmorphism Showcase) */}
-      <section className="relative overflow-hidden py-24 sm:py-32 bg-[#061224]">
+      <section className="relative overflow-hidden py-16 sm:py-24 md:py-32 bg-[#061224]">
         {/* Engine Room Atmospheric Background Image */}
         <img
           src={engine}
@@ -314,16 +314,16 @@ function Index() {
 
         <div className="container-x relative z-10 max-w-4xl lg:max-w-4.5xl">
           {/* Floating Glassmorphic Panel Matching Reference Card */}
-          <div className="relative overflow-hidden rounded-[26px] sm:rounded-[32px] border border-white/15 bg-white/[0.04] p-8 sm:p-10 md:p-12 lg:p-14 backdrop-blur-md shadow-[0_20px_50px_rgba(0,0,0,0.5),inset_0_1px_1px_rgba(255,255,255,0.15)] scroll-reveal">
-            <div className="relative z-10 grid gap-8 lg:grid-cols-2 lg:gap-12 lg:items-center">
+          <div className="relative overflow-hidden rounded-[20px] sm:rounded-[32px] border border-white/15 bg-white/[0.04] p-6 sm:p-10 md:p-12 lg:p-14 backdrop-blur-md shadow-[0_20px_50px_rgba(0,0,0,0.5),inset_0_1px_1px_rgba(255,255,255,0.15)] scroll-reveal">
+            <div className="relative z-10 grid gap-6 sm:gap-8 lg:grid-cols-2 lg:gap-12 lg:items-center">
               {/* Left Column: Eyebrow Badge + 2-Line Headline + Accent Rule */}
-              <div className="space-y-4">
-                <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-3 py-1 text-[11px] font-mono uppercase tracking-[0.18em] text-white/90 backdrop-blur-sm">
+              <div className="space-y-3.5 sm:space-y-4">
+                <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-3 py-1 text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.18em] text-white/90 backdrop-blur-sm">
                   <Anchor className="h-3 w-3 text-white/80" strokeWidth={2} />
                   <span>GLOBAL STANDARDS</span>
                 </div>
 
-                <h2 className="text-4xl sm:text-5xl lg:text-[50px] font-bold tracking-tight text-white leading-[1.05]">
+                <h2 className="text-3xl sm:text-5xl lg:text-[50px] font-bold tracking-tight text-white leading-[1.05]">
                   Precision<br />
                   Defined.
                 </h2>
@@ -334,8 +334,8 @@ function Index() {
               </div>
 
               {/* Right Column: Editorial Lead Copy + Circular Checkpoints */}
-              <div className="space-y-5 lg:border-l lg:border-white/15 lg:pl-10">
-                <p className="text-[15px] sm:text-base lg:text-[16.5px] text-white/85 leading-relaxed font-normal">
+              <div className="space-y-4 sm:space-y-5 lg:border-l lg:border-white/15 lg:pl-10">
+                <p className="text-sm sm:text-base lg:text-[16.5px] text-white/85 leading-relaxed font-normal">
                   Our global team of marine engineers delivers{" "}
                   <strong className="font-bold text-white">uncompromising expertise</strong>{" "}
                   at every port, on every vessel.

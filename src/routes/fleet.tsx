@@ -168,13 +168,13 @@ function Fleet() {
             </p>
 
             {/* Modern Pill Filters */}
-            <div className="pt-4 flex flex-wrap items-center justify-center gap-2">
+            <div className="pt-3 sm:pt-4 flex flex-wrap items-center justify-center gap-1.5 sm:gap-2">
               {filters.map((flt) => (
                 <button
                   key={flt}
                   type="button"
                   onClick={() => setActiveFilter(flt)}
-                  className={`rounded-full border px-4 py-1.5 text-xs font-mono transition cursor-pointer ${
+                  className={`rounded-full border px-3 sm:px-4 py-1.5 text-[11px] sm:text-xs font-mono transition cursor-pointer active:scale-95 ${
                     activeFilter === flt
                       ? "border-primary bg-primary text-primary-foreground font-semibold shadow-sm"
                       : "border-border/80 bg-card text-foreground/80 hover:border-primary/50 hover:bg-secondary/60"
@@ -187,7 +187,7 @@ function Fleet() {
           </div>
 
           {/* 3-Column Modern Clean Vessel Cards Matching Live Reference */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10">
             {filteredList.map((v) => (
               <div key={v.n} className="flex flex-col group">
                 {/* Title with Clean Bullet Point Above Image */}

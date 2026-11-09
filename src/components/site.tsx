@@ -22,24 +22,24 @@ const nav = [
 
 function Logo({ light }: { light?: boolean }) {
   return (
-    <Link to="/" className="flex items-center gap-3 group">
+    <Link to="/" className="flex items-center gap-2.5 sm:gap-3 group">
       <img
         src={light ? emblemLight : emblemNavy}
         alt="Sarrgay Marine"
         width={38}
         height={38}
-        className="h-9.5 w-9.5 object-contain shrink-0 transition-transform duration-300 group-hover:scale-105"
+        className="h-8.5 w-8.5 sm:h-9.5 sm:w-9.5 object-contain shrink-0 transition-transform duration-300 group-hover:scale-105"
       />
       <span className="leading-tight">
         <span
-          className={`block font-serif text-base sm:text-lg font-bold tracking-[0.16em] uppercase whitespace-nowrap transition-colors ${
+          className={`block font-serif text-[15px] sm:text-lg font-bold tracking-[0.14em] sm:tracking-[0.16em] uppercase whitespace-nowrap transition-colors ${
             light ? "text-white" : "text-foreground"
           }`}
         >
           SARRGAY MARINE
         </span>
         <span
-          className={`block text-[9.5px] font-sans font-medium uppercase tracking-[0.22em] transition-colors ${
+          className={`block text-[9px] sm:text-[9.5px] font-sans font-medium uppercase tracking-[0.2em] sm:tracking-[0.22em] transition-colors ${
             light ? "text-white/70" : "text-muted-foreground"
           }`}
         >
@@ -71,13 +71,15 @@ export function Header() {
   return (
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-        isTransparent
+        open
+          ? "border-b border-white/10 bg-navy text-white shadow-xl"
+          : isTransparent
           ? "border-b border-transparent bg-transparent shadow-none"
           : "border-b border-border/80 bg-background/95 shadow-[0_1px_12px_-6px_color-mix(in_oklab,var(--navy)_25%,transparent)] backdrop-blur-md"
       }`}
     >
       <div className="container-x flex h-18 items-center justify-between">
-        <Logo light={isTransparent} />
+        <Logo light={open || isTransparent} />
         <nav className="hidden items-center gap-8 text-sm font-medium lg:flex">
           {nav.map((n) => (
             <Link
@@ -115,39 +117,65 @@ export function Header() {
           </a>
         </div>
         <button
-          aria-label="Menu"
+          aria-label={open ? "Close menu" : "Open menu"}
           onClick={() => setOpen(!open)}
-          className="p-2 lg:hidden"
+          className="relative h-10 w-10 flex items-center justify-center rounded-md p-2 lg:hidden transition-colors"
         >
-          <div className="space-y-1.5">
-            <span className={`block h-0.5 w-6 transition-colors ${isTransparent ? "bg-white" : "bg-foreground"}`} />
-            <span className={`block h-0.5 w-6 transition-colors ${isTransparent ? "bg-white" : "bg-foreground"}`} />
-            <span className={`block h-0.5 w-6 transition-colors ${isTransparent ? "bg-white" : "bg-foreground"}`} />
+          <div className="relative w-5 h-4 flex flex-col justify-between">
+            <span
+              className={`block h-0.5 w-full rounded-full transition-all duration-300 ${
+                open || isTransparent ? "bg-white" : "bg-foreground"
+              } ${open ? "translate-y-1.5 rotate-45" : ""}`}
+            />
+            <span
+              className={`block h-0.5 w-full rounded-full transition-all duration-300 ${
+                open || isTransparent ? "bg-white" : "bg-foreground"
+              } ${open ? "opacity-0 scale-0" : ""}`}
+            />
+            <span
+              className={`block h-0.5 w-full rounded-full transition-all duration-300 ${
+                open || isTransparent ? "bg-white" : "bg-foreground"
+              } ${open ? "-translate-y-2 -rotate-45" : ""}`}
+            />
           </div>
         </button>
       </div>
 
       {open && (
-        <div className="border-t bg-navy text-navy-foreground lg:hidden shadow-xl border-white/15">
-          <div className="container-x py-5">
-            {nav.map((n) => (
-              <Link
-                key={n.to}
-                to={n.to}
-                onClick={() => setOpen(false)}
-                className="block border-b border-white/10 py-3 text-base text-white/90 hover:text-white last:border-0"
+        <div className="border-t bg-navy text-navy-foreground lg:hidden shadow-2xl border-white/10">
+          <div className="container-x py-5 space-y-1">
+            {nav.map((n) => {
+              const isActive = location.pathname === n.to;
+              return (
+                <Link
+                  key={n.to}
+                  to={n.to}
+                  onClick={() => setOpen(false)}
+                  className={`flex items-center justify-between rounded-md px-3.5 py-3 text-base transition-colors ${
+                    isActive
+                      ? "bg-white/15 text-white font-bold"
+                      : "text-white/85 hover:bg-white/10 hover:text-white font-medium"
+                  }`}
+                >
+                  <span>{n.label}</span>
+                  {isActive && <span className="h-2 w-2 rounded-full bg-accent" />}
+                </Link>
+              );
+            })}
+            <div className="pt-4 mt-3 border-t border-white/10 grid grid-cols-2 gap-2.5">
+              <a
+                href={TEL}
+                className="flex items-center justify-center rounded-sm bg-white text-navy py-2.5 text-center text-xs font-bold uppercase tracking-[0.14em] shadow-sm hover:bg-white/90 transition-colors"
               >
-                {n.label}
-              </Link>
-            ))}
-            <div className="mt-5">
+                Call Hotline
+              </a>
               <a
                 href={WHATSAPP}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center justify-center rounded-sm border border-white/40 py-3 text-center text-xs font-bold uppercase tracking-[0.16em] text-white hover:bg-white hover:text-navy transition-colors"
+                className="flex items-center justify-center rounded-sm border border-white/40 py-2.5 text-center text-xs font-bold uppercase tracking-[0.14em] text-white hover:bg-white/10 transition-colors"
               >
-                24/7 Hotline
+                WhatsApp Desk
               </a>
             </div>
           </div>
@@ -159,11 +187,38 @@ export function Header() {
 
 export function Footer() {
   return (
-    <footer className="bg-white text-[#1A1A1A] pt-8 sm:pt-10 pb-5 sm:pb-6">
-      <div className="container-x grid gap-8 sm:gap-10 md:grid-cols-2 lg:grid-cols-[1.3fr_1.25fr_1.25fr_1fr]">
-        {/* Column 1: Brand & Credential */}
-        <div className="flex flex-col justify-between space-y-3.5">
-          <div className="space-y-3">
+    <footer className="border-t border-border/80 bg-white text-[#1A1A1A] pt-10 sm:pt-14 pb-8 sm:pb-10">
+      <div className="container-x">
+        {/* Mobile Quick Action Strip (only on mobile) */}
+        <div className="mb-8 rounded-xl border border-primary/20 bg-secondary/60 p-4 sm:hidden flex flex-col gap-3 shadow-xs">
+          <div className="flex items-center justify-between">
+            <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-primary flex items-center gap-2">
+              <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
+              24/7 Technical Liaison
+            </span>
+            <span className="text-[10px] font-mono text-muted-foreground uppercase">Global Dispatch</span>
+          </div>
+          <div className="grid grid-cols-2 gap-2.5">
+            <a
+              href={TEL}
+              className="flex items-center justify-center gap-1.5 rounded-md bg-navy text-white py-2.5 px-3 text-xs font-bold font-mono tracking-tight shadow-sm active:scale-95 transition-transform"
+            >
+              Call Hotline
+            </a>
+            <a
+              href={WHATSAPP}
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center justify-center gap-1.5 rounded-md border border-border/80 bg-white text-navy py-2.5 px-3 text-xs font-bold font-mono tracking-tight shadow-xs active:scale-95 transition-transform"
+            >
+              WhatsApp Desk
+            </a>
+          </div>
+        </div>
+
+        <div className="grid gap-8 sm:gap-10 md:grid-cols-2 lg:grid-cols-[1.3fr_1.25fr_1.25fr_1fr]">
+          {/* Column 1: Brand & Credential */}
+          <div className="space-y-4">
             <Link to="/" className="inline-flex items-center gap-3 group">
               <img
                 src={emblemNavy}
@@ -176,125 +231,165 @@ export function Footer() {
                 SARRGAY MARINE
               </span>
             </Link>
-            <p className="max-w-xs text-xs leading-[1.75] text-[#555555] font-normal">
+            <p className="max-w-sm text-xs leading-[1.75] text-[#555555] font-normal">
               Your trusted technical partner in maritime excellence. Delivering precision engineering solutions and expert management for the global shipping industry.
             </p>
-          </div>
-          <p className="text-[11px] font-medium tracking-[0.16em] text-primary uppercase">
-            NAVAL WARRANT NO. 7192-MCO
-          </p>
-        </div>
-
-        {/* Column 2: Operational Hubs */}
-        <div className="space-y-3">
-          <h4 className="font-serif text-[11px] font-medium uppercase tracking-[0.22em] text-[#1A1A1A]">
-            OPERATIONAL HUBS
-          </h4>
-          <ul className="space-y-2 text-xs leading-[1.75] text-[#555555] font-normal">
-            <li>
-              <span className="font-medium text-[#1A1A1A]">Port of Kochi</span> · Central Engineering Operations Hub
-            </li>
-            <li>
-              <span className="font-medium text-[#1A1A1A]">Dubai Maritime City</span> · Middle East Technical Office
-            </li>
-            <li>
-              <span className="font-medium text-[#1A1A1A]">Singapore OPL</span> · Southeast Asia Flying Squad Hub
-            </li>
-          </ul>
-          <div className="pt-1 text-xs text-[#666666]">
-            <span className="text-[10px] uppercase tracking-wider font-medium text-[#1A1A1A] block mb-0.5">Classification Standards</span>
-            ABS · DNV · Lloyd's Register · IRS · ClassNK · BV
-          </div>
-        </div>
-
-        {/* Column 3: Core Capabilities */}
-        <div className="space-y-3">
-          <h4 className="font-serif text-[11px] font-medium uppercase tracking-[0.22em] text-[#1A1A1A]">
-            CORE CAPABILITIES
-          </h4>
-          <ul className="space-y-2 text-xs leading-[1.75] text-[#555555] font-normal">
-            <li>
-              <Link to="/services" className="hover:text-primary transition-colors">
-                Generator &amp; Auxiliary Engine Overhauls
-              </Link>
-            </li>
-            <li>
-              <Link to="/services" className="hover:text-primary transition-colors">
-                Main Propulsion Machinery Maintenance
-              </Link>
-            </li>
-            <li>
-              <Link to="/services" className="hover:text-primary transition-colors">
-                Dry Dock Assistance &amp; Superintendency
-              </Link>
-            </li>
-            <li>
-              <Link to="/services" className="hover:text-primary transition-colors">
-                Riding Squads &amp; Voyage Repairs (CDC/STCW)
-              </Link>
-            </li>
-            <li>
-              <Link to="/services" className="hover:text-primary transition-colors">
-                Mechanical, Electrical &amp; Automation Systems
-              </Link>
-            </li>
-          </ul>
-          <div className="pt-1 flex gap-4 text-xs text-[#666666]">
-            <a href="https://www.linkedin.com/company/sarrgaymarine/" target="_blank" rel="noreferrer" className="hover:text-primary transition-colors font-medium">LinkedIn</a>
-            <span>•</span>
-            <a href="https://www.instagram.com/sarrgaymarine/" target="_blank" rel="noreferrer" className="hover:text-primary transition-colors font-medium">Instagram</a>
-          </div>
-        </div>
-
-        {/* Column 4: Contact Us */}
-        <div className="space-y-3">
-          <h4 className="font-serif text-[11px] font-medium uppercase tracking-[0.22em] text-[#1A1A1A]">
-            CONTACT US
-          </h4>
-          <div className="space-y-2 text-xs">
             <div>
-              <span className="block text-[10px] font-medium uppercase tracking-wider text-[#777777] mb-0.5">
-                24/7 Hotline
+              <span className="inline-flex items-center gap-2 rounded-sm bg-secondary px-2.5 py-1 text-[10px] font-mono font-semibold tracking-[0.14em] text-primary uppercase border border-border/60">
+                NAVAL WARRANT NO. 7192-MCO
               </span>
+            </div>
+          </div>
+
+          {/* Column 2: Operational Hubs */}
+          <div className="space-y-3">
+            <h4 className="font-serif text-[11px] font-bold uppercase tracking-[0.2em] text-[#1A1A1A] pb-1 border-b border-border/40 sm:border-0">
+              OPERATIONAL HUBS
+            </h4>
+            <ul className="space-y-2.5 text-xs leading-relaxed text-[#555555]">
+              <li className="flex items-start gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-primary shrink-0 mt-1.5" />
+                <span>
+                  <strong className="font-semibold text-[#1A1A1A]">Port of Kochi</strong> — Central Operations Hub
+                </span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-primary shrink-0 mt-1.5" />
+                <span>
+                  <strong className="font-semibold text-[#1A1A1A]">Dubai Maritime City</strong> — Middle East Office
+                </span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-primary shrink-0 mt-1.5" />
+                <span>
+                  <strong className="font-semibold text-[#1A1A1A]">Singapore OPL</strong> — SE Asia Flying Squad
+                </span>
+              </li>
+            </ul>
+            <div className="pt-2">
+              <span className="text-[10px] uppercase tracking-wider font-semibold text-[#1A1A1A] block mb-1">
+                Classification Standards
+              </span>
+              <div className="flex flex-wrap gap-1.5 text-[10px] font-mono text-[#555555]">
+                {["ABS", "DNV", "Lloyd's", "IRS", "ClassNK", "BV"].map((cls) => (
+                  <span key={cls} className="rounded bg-secondary px-1.5 py-0.5 border border-border/50">
+                    {cls}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Column 3: Core Capabilities */}
+          <div className="space-y-3">
+            <h4 className="font-serif text-[11px] font-bold uppercase tracking-[0.2em] text-[#1A1A1A] pb-1 border-b border-border/40 sm:border-0">
+              CORE CAPABILITIES
+            </h4>
+            <ul className="space-y-2 text-xs leading-relaxed text-[#555555]">
+              <li>
+                <Link to="/services" className="hover:text-primary transition-colors py-0.5 block">
+                  Generator &amp; Auxiliary Engine Overhauls
+                </Link>
+              </li>
+              <li>
+                <Link to="/services" className="hover:text-primary transition-colors py-0.5 block">
+                  Main Propulsion Machinery Maintenance
+                </Link>
+              </li>
+              <li>
+                <Link to="/services" className="hover:text-primary transition-colors py-0.5 block">
+                  Dry Dock Assistance &amp; Superintendency
+                </Link>
+              </li>
+              <li>
+                <Link to="/services" className="hover:text-primary transition-colors py-0.5 block">
+                  Riding Squads &amp; Voyage Repairs (CDC/STCW)
+                </Link>
+              </li>
+              <li>
+                <Link to="/services" className="hover:text-primary transition-colors py-0.5 block">
+                  Mechanical, Electrical &amp; Automation Systems
+                </Link>
+              </li>
+            </ul>
+            <div className="pt-2 flex flex-wrap gap-2 text-xs">
               <a
-                href={TEL}
-                className="block w-fit font-serif text-base sm:text-lg font-normal tracking-tight text-[#1A1A1A] transition-colors hover:text-primary"
+                href="https://www.linkedin.com/company/sarrgaymarine/"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1 text-[11px] font-medium text-[#444444] hover:border-primary hover:text-primary transition-colors"
               >
-                {PHONE}
+                LinkedIn
+              </a>
+              <a
+                href="https://www.instagram.com/sarrgaymarine/"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1 text-[11px] font-medium text-[#444444] hover:border-primary hover:text-primary transition-colors"
+              >
+                Instagram
               </a>
             </div>
+          </div>
 
-            <div className="space-y-1">
-              <a
-                href={"mailto:" + EMAIL}
-                className="block w-fit text-[#555555] transition-colors hover:text-primary"
-              >
-                {EMAIL}
-              </a>
-              <a
-                href={"mailto:" + EMAIL_OPS}
-                className="block w-fit text-[#555555] transition-colors hover:text-primary"
-              >
-                {EMAIL_OPS}
-              </a>
+          {/* Column 4: Contact Us */}
+          <div className="space-y-3">
+            <h4 className="font-serif text-[11px] font-bold uppercase tracking-[0.2em] text-[#1A1A1A] pb-1 border-b border-border/40 sm:border-0">
+              CONTACT US
+            </h4>
+            <div className="space-y-2.5 text-xs">
+              <div>
+                <span className="block text-[10px] font-semibold uppercase tracking-wider text-[#777777] mb-0.5">
+                  24/7 Technical Liaison
+                </span>
+                <a
+                  href={TEL}
+                  className="block font-mono text-base font-bold text-navy hover:text-primary transition-colors"
+                >
+                  {PHONE}
+                </a>
+                <a
+                  href={"tel:" + PHONE_ALT.replace(/\s+/g, "")}
+                  className="block font-mono text-[11px] text-[#666666] hover:text-primary transition-colors"
+                >
+                  Alt: {PHONE_ALT}
+                </a>
+              </div>
+
+              <div className="space-y-1 pt-1 border-t border-border/40">
+                <a
+                  href={"mailto:" + EMAIL_OPS}
+                  className="block text-[#555555] hover:text-primary transition-colors font-mono text-[11px]"
+                >
+                  {EMAIL_OPS}
+                </a>
+                <a
+                  href={"mailto:" + EMAIL}
+                  className="block text-[#555555] hover:text-primary transition-colors font-mono text-[11px]"
+                >
+                  {EMAIL}
+                </a>
+              </div>
+
+              <p className="pt-1 text-[11px] leading-relaxed text-[#666666] max-w-xs border-t border-border/40">
+                {ADDRESS}
+              </p>
             </div>
-
-            <p className="pt-0.5 text-xs leading-relaxed text-[#666666] max-w-[240px]">
-              65/1599A, Mathilicherril, Shenoy Road, Kaloor, Kochi – 682017
-            </p>
           </div>
         </div>
-      </div>
 
-      {/* Bottom Bar */}
-      <div className="container-x mt-8 sm:mt-10 flex flex-col gap-2.5 text-[10px] font-normal uppercase tracking-[0.14em] text-[#666666] lg:flex-row lg:items-center lg:justify-between">
-        <span>© {new Date().getFullYear()} SARRGAY MARINE. ALL RIGHTS RESERVED.</span>
-        <div className="flex flex-wrap gap-x-8 gap-y-1">
-          <span>INDIAN &amp; INTERNATIONAL MARITIME REGISTRY</span>
-          <span>BESPOKE CLASSIFICATION LLOYD'S 100A1</span>
-          <Link to="/contact" className="hover:text-primary transition-colors">
-            TERMS &amp; MARITIME DISPATCHES
-          </Link>
+        {/* Bottom Bar */}
+        <div className="mt-8 sm:mt-12 pt-6 border-t border-border/70 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between text-[11px] font-mono text-[#666666]">
+          <span>© {new Date().getFullYear()} SARRGAY MARINE. ALL RIGHTS RESERVED.</span>
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-[10px] uppercase tracking-wider">
+            <span>IACS STANDARDS</span>
+            <span>&bull;</span>
+            <span>LLOYD'S 100A1</span>
+            <span>&bull;</span>
+            <Link to="/contact" className="hover:text-primary transition-colors underline-offset-2 hover:underline">
+              TERMS &amp; DISPATCH
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
@@ -326,13 +421,25 @@ export function SectionHead({ eyebrow, title, sub, center }: { eyebrow: string; 
   );
 }
 
-export function Btn({ children, href, to, variant = "primary" }: { children: ReactNode; href?: string; to?: "/" | "/about" | "/services" | "/fleet" | "/contact"; variant?: "primary" | "outline" | "ghostLight" }) {
+export function Btn({
+  children,
+  href,
+  to,
+  variant = "primary",
+  className = "",
+}: {
+  children: ReactNode;
+  href?: string;
+  to?: "/" | "/about" | "/services" | "/fleet" | "/contact";
+  variant?: "primary" | "outline" | "ghostLight";
+  className?: string;
+}) {
   const cls = {
     primary: "bg-primary text-primary-foreground hover:opacity-90 shadow-md",
     outline: "border border-foreground/20 hover:border-primary hover:text-primary",
     ghostLight: "border border-navy-foreground/30 text-navy-foreground hover:bg-navy-foreground/10",
   }[variant];
-  const c = `inline-flex items-center justify-center rounded-sm px-6 py-3 text-sm font-semibold transition ${cls}`;
+  const c = `inline-flex items-center justify-center rounded-sm px-6 py-3 text-sm font-semibold transition active:scale-[0.98] ${cls} ${className}`;
   if (to) return <Link to={to} className={c}>{children}</Link>;
   return <a href={href} target={href?.startsWith("http") ? "_blank" : undefined} rel="noreferrer" className={c}>{children}</a>;
 }

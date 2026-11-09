@@ -176,7 +176,7 @@ function About() {
           </div>
 
           {/* Compact Telemetry Strip */}
-          <div className="pt-6 grid grid-cols-2 gap-6 md:grid-cols-4">
+          <div className="pt-5 sm:pt-6 grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-4">
             {metrics.map((m) => (
               <div key={m.label} className="space-y-0.5">
                 <div className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight font-display drop-shadow-sm">
@@ -195,8 +195,8 @@ function About() {
       </section>
 
       {/* Editorial Narrative Section: The Heritage */}
-      <section className="container-x py-16 sm:py-24">
-        <div className="grid gap-12 lg:grid-cols-12 lg:items-start">
+      <section className="container-x py-12 sm:py-20">
+        <div className="grid gap-8 lg:gap-12 lg:grid-cols-12 lg:items-start">
           {/* Narrative Column */}
           <div className="lg:col-span-7 space-y-6">
             <span className="font-mono text-xs uppercase tracking-[0.22em] text-[#777777]">
@@ -284,7 +284,7 @@ function About() {
       </section>
 
       {/* Core Principles: Architectural 4-Column Layout */}
-      <section className="bg-[#F8F9FA] py-16 sm:py-24 border-y border-black/[0.06]">
+      <section className="bg-[#F8F9FA] py-12 sm:py-20 border-y border-black/[0.06]">
         <div className="container-x">
           <div className="max-w-2xl">
             <span className="font-mono text-xs uppercase tracking-[0.22em] text-[#777777]">
@@ -295,7 +295,7 @@ function About() {
             </h2>
           </div>
 
-          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-8 sm:mt-12 grid gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {pillars.map((p) => (
               <div
                 key={p.index}
