@@ -7,9 +7,20 @@ import {
   MapPin,
   ArrowRight,
   CheckCircle2,
+  Wrench,
 } from "lucide-react";
 import contactHero from "@/assets/contact-hero.jpg";
 import { WHATSAPP, meta } from "@/components/site";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectSeparator,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 export const Route = createFileRoute("/contact")({
   head: () =>
@@ -20,16 +31,90 @@ export const Route = createFileRoute("/contact")({
   component: Contact,
 });
 
-const serviceOptions = [
-  "Generator & Auxiliary Engine Maintenance",
-  "Main Engine Overhauls & Propulsion Care",
-  "Dry Dock Assistance & Superintendency",
-  "Mechanical & Electrical Systems Engineering",
-  "Sailing Teams & Riding Crew Deployment",
-  "24/7 Emergency Technical Repairs",
-  "Technical Scope Assessment",
-  "Other Requirements",
+interface ServiceOptionItem {
+  value: string;
+  label: string;
+  badge: string;
+  desc: string;
+}
+
+interface ServiceCategoryGroup {
+  group: string;
+  options: ServiceOptionItem[];
+}
+
+const serviceCategories: ServiceCategoryGroup[] = [
+  {
+    group: "Propulsion & Power Generation",
+    options: [
+      {
+        value: "Generator & Auxiliary Engine Maintenance",
+        label: "Generator & Auxiliary Engine Maintenance",
+        badge: "Power Plant",
+        desc: "Diagnostics, overhaul, fuel injection & governor calibration",
+      },
+      {
+        value: "Main Engine Overhauls & Propulsion Care",
+        label: "Main Engine Overhauls & Propulsion Care",
+        badge: "Propulsion",
+        desc: "Cylinder head, liner, piston, turbocharger & crankshaft care",
+      },
+    ],
+  },
+  {
+    group: "Superintendency & Voyage Support",
+    options: [
+      {
+        value: "Dry Dock Assistance & Superintendency",
+        label: "Dry Dock Assistance & Superintendency",
+        badge: "Shipyard",
+        desc: "Owner representation, docking specifications & class surveys",
+      },
+      {
+        value: "Sailing Teams & Riding Crew Deployment",
+        label: "Sailing Teams & Riding Crew Deployment",
+        badge: "Underway",
+        desc: "Certified fitters, welders & machinists dispatched globally",
+      },
+    ],
+  },
+  {
+    group: "Systems Engineering & Rapid Response",
+    options: [
+      {
+        value: "Mechanical & Electrical Systems Engineering",
+        label: "Mechanical & Electrical Systems Engineering",
+        badge: "Automation",
+        desc: "Switchboards, PLC control, hydraulics & auxiliary machinery",
+      },
+      {
+        value: "24/7 Emergency Technical Repairs",
+        label: "24/7 Emergency Technical Repairs",
+        badge: "Emergency",
+        desc: "Rapid attendance for critical voyage breakdowns & off-hire recovery",
+      },
+    ],
+  },
+  {
+    group: "Audits & Custom Scope",
+    options: [
+      {
+        value: "Technical Scope Assessment",
+        label: "Technical Scope Assessment",
+        badge: "Survey",
+        desc: "Pre-docking survey, condition audits & technical specifications",
+      },
+      {
+        value: "Other Requirements",
+        label: "Other Requirements",
+        badge: "Custom",
+        desc: "Tailored turnkey marine engineering & spare parts liaison",
+      },
+    ],
+  },
 ];
+
+const defaultService = serviceCategories[0].options[0].value;
 
 function Contact() {
   const [submitted, setSubmitted] = useState(false);
@@ -38,7 +123,7 @@ function Contact() {
     email: "",
     phone: "",
     vessel: "",
-    service: serviceOptions[0],
+    service: defaultService,
     message: "",
   });
 
@@ -254,21 +339,51 @@ function Contact() {
                 </div>
 
                 <div>
-                  <label className="block text-[11px] font-medium uppercase tracking-wider text-muted-foreground mb-1">
-                    Service Scope *
-                  </label>
-                  <select
-                    required
+                  <div className="flex items-center justify-between mb-1.5">
+                    <label className="block text-[11px] font-medium uppercase tracking-wider text-muted-foreground">
+                      Service Scope *
+                    </label>
+                    <span className="text-[10px] font-mono text-muted-foreground/70 hidden sm:inline">
+                      Engineering Division
+                    </span>
+                  </div>
+
+                  <Select
                     value={formState.service}
-                    onChange={(e) => setFormState({ ...formState, service: e.target.value })}
-                    className="w-full rounded-md border border-border/80 bg-background px-3 py-2.5 text-base sm:text-sm outline-none transition focus:border-primary focus:ring-1 focus:ring-primary"
+                    onValueChange={(val) => setFormState({ ...formState, service: val })}
                   >
-                    {serviceOptions.map((opt) => (
-                      <option key={opt} value={opt}>
-                        {opt}
-                      </option>
-                    ))}
-                  </select>
+                    <SelectTrigger
+                      className="w-full h-11 px-3.5 bg-background rounded-md border border-border/80 text-base sm:text-sm shadow-xs hover:border-primary/50 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all cursor-pointer"
+                      aria-label="Select Service Scope"
+                    >
+                      <div className="flex items-center gap-2.5 truncate text-left">
+                        <Wrench className="h-4 w-4 text-primary shrink-0" />
+                        <SelectValue placeholder="Choose engineering service..." />
+                      </div>
+                    </SelectTrigger>
+
+                    <SelectContent
+                      position="popper"
+                      className="max-h-96 min-w-[320px] sm:min-w-[440px] rounded-xl border border-border/80 bg-white/98 shadow-2xl backdrop-blur-md p-1.5 z-50"
+                    >
+                      {serviceCategories.map((group, groupIdx) => (
+                        <SelectGroup key={group.group}>
+                          {groupIdx > 0 && <SelectSeparator className="my-1.5 bg-border/60" />}
+                          <SelectLabel>{group.group}</SelectLabel>
+                          {group.options.map((opt) => (
+                            <SelectItem
+                              key={opt.value}
+                              value={opt.value}
+                              badge={opt.badge}
+                              description={opt.desc}
+                            >
+                              {opt.label}
+                            </SelectItem>
+                          ))}
+                        </SelectGroup>
+                      ))}
+                    </SelectContent>
+                  </Select>
                 </div>
 
                 <div>
