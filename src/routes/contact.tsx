@@ -10,7 +10,7 @@ import {
   Wrench,
 } from "lucide-react";
 import contactHero from "@/assets/contact-hero.jpg";
-import { WHATSAPP, meta } from "@/components/site";
+import { ADDRESS, COMPANY_NAME, UEN, WHATSAPP, meta } from "@/components/site";
 import {
   Select,
   SelectContent,
@@ -35,8 +35,8 @@ export const Route = createFileRoute("/contact")({
           "24/7 ship repair emergency hotline",
           "marine breakdown WhatsApp desk",
           "flying squad emergency mobilization",
-          "Sarrgay Marine Kochi headquarters",
-          "Shenoy Road Kaloor marine engineers",
+          "Sarrgay Marine Pte Ltd Singapore",
+          "20 Cecil Street marine engineering",
           "drydock superintendency quotation",
           "urgent voyage repair attendance",
           "Cochin port ship technical attendance",
@@ -219,12 +219,6 @@ function Contact() {
                 >
                   +91 80099 09888
                 </a>
-                <div className="text-xs text-white/60 font-mono">
-                  Secondary:{" "}
-                  <a href="tel:+918009980888" className="hover:text-white transition-colors">
-                    +91 80099 80888
-                  </a>
-                </div>
               </div>
 
               {/* WhatsApp Quick Link */}
@@ -272,8 +266,11 @@ function Contact() {
               <div className="flex items-start gap-3 text-xs text-white/70">
                 <MapPin className="h-4 w-4 text-primary shrink-0 mt-0.5" />
                 <div>
-                  <strong className="block text-white font-medium">Kochi Operations Headquarters</strong>
-                  <span className="leading-relaxed">65/1599A, Mathilicherril, Shenoy Road, Kaloor, Kochi – 682017, Kerala, India</span>
+                  <strong className="block text-white font-medium">Registered Office &bull; Singapore</strong>
+                  <span className="block text-[11px] font-mono text-white/80 mt-0.5">
+                    {COMPANY_NAME} &bull; UEN {UEN}
+                  </span>
+                  <span className="leading-relaxed">{ADDRESS}</span>
                 </div>
               </div>
             </div>

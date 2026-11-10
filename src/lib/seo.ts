@@ -2,16 +2,15 @@ export const SITE_URL = "https://sarrgaymarine.com";
 export const SITE_NAME = "SARRGAY MARINE";
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.jpg`;
 export const PHONE_PRIMARY = "+91 80099 09888";
-export const PHONE_SECONDARY = "+91 80099 80888";
 export const EMAIL_PRIMARY = "service@sarrgaymarine.com";
 export const EMAIL_GENERAL = "info@sarrgaymarine.com";
-export const ADDRESS_STREET = "65/1599A, Mathilicherril, Shenoy Road, Kaloor";
-export const ADDRESS_LOCALITY = "Kochi";
-export const ADDRESS_REGION = "Kerala";
-export const ADDRESS_POSTAL = "682017";
-export const ADDRESS_COUNTRY = "IN";
-export const GEO_LAT = 9.9982;
-export const GEO_LNG = 76.2999;
+export const ADDRESS_STREET = "20 Cecil Street, #05-03, PLUS";
+export const ADDRESS_LOCALITY = "Singapore";
+export const ADDRESS_REGION = "Singapore";
+export const ADDRESS_POSTAL = "049705";
+export const ADDRESS_COUNTRY = "SG";
+export const GEO_LAT = 1.2836;
+export const GEO_LNG = 103.8511;
 
 export const SOCIAL_LINKS = [
   "https://www.linkedin.com/company/sarrgaymarine/",
@@ -35,6 +34,8 @@ export function getOrganizationSchema() {
     "@type": ["Organization", "LocalBusiness", "ProfessionalService"],
     "@id": `${SITE_URL}/#organization`,
     name: "Sarrgay Marine",
+    legalName: "SARRGAY MARINE PTE. LTD.",
+    taxID: "202644957Z",
     alternateName: [
       "Sarrgay Marine Maritime Engineering",
       "Sarrgay Marine Technical Command",
@@ -105,13 +106,6 @@ export function getOrganizationSchema() {
         contactType: "emergency",
         availableLanguage: ["English", "Hindi", "Malayalam"],
         contactOption: "TollFree",
-        areaServed: "Worldwide",
-      },
-      {
-        "@type": "ContactPoint",
-        telephone: PHONE_SECONDARY,
-        contactType: "technical support",
-        availableLanguage: ["English", "Hindi"],
         areaServed: "Worldwide",
       },
     ],
@@ -238,6 +232,7 @@ const defaultKeywords = [
   "flying squad marine repairs",
   "riding crew deployment",
   "auxiliary engine overhaul",
+  "Singapore marine engineering",
   "Kochi marine engineering",
   "Indian Ocean ship maintenance",
   "MAN B&W overhaul",
@@ -269,8 +264,8 @@ export function buildPageMeta({
     { name: "googlebot", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
     
     // Geo / Local SEO
-    { name: "geo.region", content: "IN-KL" },
-    { name: "geo.placename", content: "Kochi, Kerala, India" },
+    { name: "geo.region", content: "SG" },
+    { name: "geo.placename", content: "Singapore" },
     { name: "geo.position", content: `${GEO_LAT};${GEO_LNG}` },
     { name: "ICBM", content: `${GEO_LAT}, ${GEO_LNG}` },
 

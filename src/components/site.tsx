@@ -5,13 +5,14 @@ import emblemLight from "@/assets/sarrgay-emblem-light.png";
 import { Button } from "@/components/ui/button";
 import { buildPageMeta, type PageMetaOptions } from "@/lib/seo";
 
+export const COMPANY_NAME = "SARRGAY MARINE PTE. LTD.";
+export const UEN = "202644957Z";
 export const PHONE = "+91 80099 09888";
-export const PHONE_ALT = "+91 80099 80888";
 export const TEL = "tel:+918009909888";
 export const WHATSAPP = "https://wa.me/918009909888";
 export const EMAIL = "info@sarrgaymarine.com";
 export const EMAIL_OPS = "service@sarrgaymarine.com";
-export const ADDRESS = "65/1599A, Mathilicherril, Shenoy Road, Kaloor, Kochi – 682017, Kerala, India";
+export const ADDRESS = "20 Cecil Street, #05-03, PLUS, Singapore 049705";
 
 const nav = [
   { to: "/", label: "Home" },
@@ -210,7 +211,7 @@ export function Footer() {
             </p>
             <div>
               <span className="inline-flex items-center gap-2 rounded-sm bg-secondary px-2.5 py-1 text-[10px] font-mono font-semibold tracking-[0.14em] text-primary uppercase border border-border/60">
-                NAVAL WARRANT NO. 7192-MCO
+                UEN {UEN} &bull; ACRA SINGAPORE
               </span>
             </div>
           </div>
@@ -240,18 +241,6 @@ export function Footer() {
                 </span>
               </li>
             </ul>
-            <div className="pt-2">
-              <span className="text-[10px] uppercase tracking-wider font-semibold text-[#1A1A1A] block mb-1">
-                Classification Standards
-              </span>
-              <div className="flex flex-wrap gap-1.5 text-[10px] font-mono text-[#555555]">
-                {["ABS", "DNV", "Lloyd's", "IRS", "ClassNK", "BV"].map((cls) => (
-                  <span key={cls} className="rounded bg-secondary px-1.5 py-0.5 border border-border/50">
-                    {cls}
-                  </span>
-                ))}
-              </div>
-            </div>
           </div>
 
           {/* Column 3: Core Capabilities */}
@@ -286,24 +275,6 @@ export function Footer() {
                 </Link>
               </li>
             </ul>
-            <div className="pt-2 flex flex-wrap gap-2 text-xs">
-              <a
-                href="https://www.linkedin.com/company/sarrgaymarine/"
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1 text-[11px] font-medium text-[#444444] hover:border-primary hover:text-primary transition-colors"
-              >
-                LinkedIn
-              </a>
-              <a
-                href="https://www.instagram.com/sarrgaymarine/"
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1 text-[11px] font-medium text-[#444444] hover:border-primary hover:text-primary transition-colors"
-              >
-                Instagram
-              </a>
-            </div>
           </div>
 
           {/* Column 4: Contact Us */}
@@ -322,12 +293,6 @@ export function Footer() {
                 >
                   {PHONE}
                 </a>
-                <a
-                  href={"tel:" + PHONE_ALT.replace(/\s+/g, "")}
-                  className="block font-mono text-[11px] text-[#666666] hover:text-primary transition-colors"
-                >
-                  Alt: {PHONE_ALT}
-                </a>
               </div>
 
               <div className="space-y-1 pt-1 border-t border-border/40">
@@ -345,24 +310,68 @@ export function Footer() {
                 </a>
               </div>
 
-              <p className="pt-1 text-[11px] leading-relaxed text-[#666666] max-w-xs border-t border-border/40">
-                {ADDRESS}
-              </p>
+              <div className="pt-1 border-t border-border/40">
+                <span className="block text-[10px] font-semibold uppercase tracking-wider text-[#777777] mb-0.5">
+                  Registered Office
+                </span>
+                <p className="text-[11px] leading-relaxed text-[#666666] max-w-xs">
+                  <span className="block font-medium text-[#1A1A1A]">{COMPANY_NAME}</span>
+                  {ADDRESS}
+                </p>
+              </div>
             </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
         <div className="mt-8 sm:mt-12 pt-6 border-t border-border/70 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between text-[11px] font-mono text-[#666666]">
-          <span>© {new Date().getFullYear()} SARRGAY MARINE. ALL RIGHTS RESERVED.</span>
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-[10px] uppercase tracking-wider">
-            <span>IACS STANDARDS</span>
-            <span>&bull;</span>
-            <span>LLOYD'S 100A1</span>
-            <span>&bull;</span>
+          <span>© {new Date().getFullYear()} {COMPANY_NAME} ALL RIGHTS RESERVED.</span>
+          <div className="flex flex-wrap items-center gap-3 text-[10px] uppercase tracking-wider">
             <Link to="/contact" className="hover:text-primary transition-colors underline-offset-2 hover:underline">
               TERMS &amp; DISPATCH
             </Link>
+            <div className="flex items-center gap-2">
+              <a
+                href="https://www.linkedin.com/company/sarrgaymarine/"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="LinkedIn"
+                title="LinkedIn"
+                className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-border text-[#444444] hover:border-primary hover:text-primary transition-colors"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                  className="h-3.5 w-3.5"
+                >
+                  <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
+                </svg>
+              </a>
+              <a
+                href="https://www.instagram.com/sarrgaymarine/"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Instagram"
+                title="Instagram"
+                className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-border text-[#444444] hover:border-primary hover:text-primary transition-colors"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                  className="h-3.5 w-3.5"
+                >
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                </svg>
+              </a>
+            </div>
           </div>
         </div>
       </div>

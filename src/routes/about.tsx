@@ -25,7 +25,6 @@ export const Route = createFileRoute("/about")({
           "about Sarrgay Marine",
           "marine engineering leadership",
           "veteran Chief Engineers superintendents",
-          "Lloyds Register 100A1 compliance",
           "IACS class engineering standards",
           "DG Shipping STCW certified squads",
           "marine technical management Kochi",
