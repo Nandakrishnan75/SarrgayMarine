@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from "next";
-import { Outfit, DM_Sans, JetBrains_Mono } from "next/font/google";
 import "@/styles.css";
 import { Header, Footer } from "@/components/site";
 import { Toaster } from "@/components/ui/sonner";
@@ -13,26 +12,6 @@ import {
   getWebsiteSchema,
 } from "@/lib/seo";
 
-const outfit = Outfit({
-  subsets: ["latin"],
-  variable: "--font-display",
-  display: "swap",
-  weight: ["500", "600", "700", "800"],
-});
-
-const dmSans = DM_Sans({
-  subsets: ["latin"],
-  variable: "--font-sans",
-  display: "swap",
-  weight: ["400", "500", "600", "700"],
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
-  display: "swap",
-  weight: ["400", "500", "600"],
-});
 
 export const viewport: Viewport = {
   themeColor: "#061220",
@@ -113,11 +92,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const websiteSchema = getWebsiteSchema();
 
   return (
-    <html
-      lang="en"
-      className={`${outfit.variable} ${dmSans.variable} ${jetbrainsMono.variable} antialiased`}
-    >
+    <html lang="en" className="antialiased">
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Outfit:wght@100..900&display=swap"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
