@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: "export",
+  distDir: "dist",
   reactStrictMode: true,
   eslint: {
     ignoreDuringBuilds: true,
@@ -8,7 +10,7 @@ const nextConfig = {
     ignoreBuildErrors: false,
   },
   images: {
-    formats: ["image/avif", "image/webp"],
+    unoptimized: true,
   },
 };
 
