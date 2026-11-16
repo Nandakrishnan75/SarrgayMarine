@@ -27,7 +27,7 @@ All engineering procedures, laser alignments, parts refurbishments, and voyage r
 - **ClassNK** — Nippon Kaiji Kyokai
 - **KR** — Korean Register
 - **IRS** — Indian Register of Shipping
-- **ISO 9001:2015** — Quality Management Certified Processes
+- **Meeting All Standards** — Quality Marine Engineering Processes Meeting International Standards
 - **IMO / SOLAS** — International Maritime Organization Safety of Life at Sea Conventions
 - **STCW 2010** — Standards of Training, Certification and Watchkeeping (Valid CDC Seafarer Documents)
 
@@ -143,8 +143,8 @@ All engineering procedures, laser alignments, parts refurbishments, and voyage r
   - _Engine Types:_ 2-Stroke & 4-Stroke Marine Diesel
   - _OEM Coverage:_ MAN B&W, Wärtsilä, WinGD, Caterpillar, Yanmar
   - _Inspection Tolerances:_ Micrometer Precision & Laser Deflection Alignment
-  - _Classification Rigor:_ IACS Standards + ISO 9001:2015 Certification
-- **Action Buttons:** `Inquire Scope Dossier` (`/contact`) & `Fleet Experience` (`/fleet`)
+  - _Classification Rigor:_ Meeting All Major Marine Engineering Standards
+- **Action Buttons:** `Inquire Technical Scope` (`/contact`) & `Fleet Experience` (`/fleet`)
 
 ### 4.4 About Leadership Section
 
@@ -211,7 +211,7 @@ All engineering procedures, laser alignments, parts refurbishments, and voyage r
   1. **Maritime Safety & Compliance:** Zero-compromise adherence to IMO codes, SOLAS conventions, and IACS classification rules across all dry dock and voyage overhauls.
   2. **Micrometer Precision Engineering:** Executing crankshaft alignments, cylinder honing, and bearing clearances strictly within OEM manufacturing tolerances.
   3. **Worldwide Mobilization:** Operating from key technical hubs in Kochi, Singapore, and Dubai, deploying flying squads to any global port or anchorage.
-  4. **Quality Certification:** Documented technical reports, non-destructive testing (NDT), and post-trial performance verifications with ISO 9001:2015 certification.
+  4. **Quality Standards:** Documented technical reports, non-destructive testing (NDT), and post-trial performance verifications meeting all international standards.
 
 ### 5.4 Technical Machinery & Manufacturer Scope
 
@@ -308,7 +308,7 @@ All engineering procedures, laser alignments, parts refurbishments, and voyage r
   - Class Standards: Lloyd's +100A1
   - Propulsion Coverage: Up to 80,000 BHP
   - Global Response: 24/7 Flying Squads
-  - Quality Index: ISO 9001:2015
+  - Quality Index: Meeting All Standards
 
 ### 7.2 Interactive Filter Categories
 
@@ -424,7 +424,7 @@ All engineering procedures, laser alignments, parts refurbishments, and voyage r
 
 - **Logo & Wordmark:** SARRGAY MARINE
 - **Mission Statement:** _Your trusted technical partner in maritime engineering. Delivering high-precision engine overhauls, generator maintenance, and rapid-response riding squads worldwide._
-- **Badge:** `ISO 9001:2015 CERTIFIED • CLASS APPROVED`
+- **Badge:** `MEETING ALL STANDARDS • CLASS COMPLIANT`
 
 ### Column 2: Core Capabilities
 

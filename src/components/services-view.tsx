@@ -238,7 +238,7 @@ const classes = [
   "ClassNK",
   "KR",
   "IRS",
-  "ISO 9001:2015",
+  "Meeting All Standards",
 ];
 
 export function ServicesView() {
@@ -544,7 +544,7 @@ export function ServicesView() {
             <p className="mt-3 text-sm sm:text-base text-navy-muted leading-relaxed">
               Eliminate off-hire completely. Our fully equipped sailing squads board at any major
               bunkering station or port, complete overhauls while underway, and disembark at your
-              destination with certified class handover dossiers.
+              destination with complete technical handover reports meeting all class standards.
             </p>
             <div className="mt-6 flex flex-wrap justify-center gap-3">
               <Btn href="/contact">Request Riding Squad Quote</Btn>

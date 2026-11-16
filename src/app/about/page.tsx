@@ -69,7 +69,7 @@ const pillars = [
     index: "04",
     title: "Audited Traceability",
     description:
-      "Transparency on every job. We deliver exhaustive surveyor dossiers with pre- and post-overhaul measurement logs, non-destructive testing (NDT), dye-penetrant reports, and official sea-trial indicator cards.",
+      "Transparency on every job. We deliver comprehensive technical reports with pre- and post-overhaul measurement logs, non-destructive testing (NDT), dye-penetrant reports, and official sea-trial indicator cards meeting all industry standards.",
   },
 ];
 
@@ -294,10 +294,10 @@ export default function AboutPage() {
               <div className="space-y-1">
                 <div className="font-mono uppercase tracking-wider text-[#1A1A1A] font-semibold flex items-center gap-1.5">
                   <Check className="h-3.5 w-3.5 text-primary" />
-                  <span>IACS Class Surveyor Dossiers</span>
+                  <span>Meeting All Standards</span>
                 </div>
                 <p className="text-[#666666] leading-relaxed">
-                  Complete documentation packages accepted by ABS, DNV, Lloyd’s Register, and IRS.
+                  Overhaul procedures and technical records aligned with all major international classification standards.
                 </p>
               </div>
             </div>

@@ -87,7 +87,7 @@ const classes = [
   "ClassNK",
   "KR",
   "IRS",
-  "ISO 9001:2015",
+  "Meeting All Standards",
 ];
 
 export function HomeView() {
@@ -253,7 +253,7 @@ export function HomeView() {
               <p>PROPULSION CAPACITY • UP TO 80,000 BHP</p>
             </div>
             <div className="mt-7 sm:mt-8 flex flex-wrap gap-3">
-              <Btn href="/contact">Inquire Scope Dossier</Btn>
+              <Btn href="/contact">Inquire Technical Scope</Btn>
               <Btn href="/fleet" variant="ghostLight">
                 Fleet Experience
               </Btn>
@@ -265,7 +265,7 @@ export function HomeView() {
               ["Engine Types", "2-Stroke & 4-Stroke Marine Diesel"],
               ["OEM Coverage", "MAN B&W, Wärtsilä, WinGD, Caterpillar, Yanmar"],
               ["Inspection Tolerances", "Micrometer Precision & Laser Deflection Alignment"],
-              ["Classification Rigor", "IACS Standards + ISO 9001:2015 Certification"],
+              ["Standards & Rigor", "Meeting All Major Marine Engineering Standards"],
             ].map(([k, v]) => (
               <div key={k} className="bg-navy p-4 sm:p-6">
                 <dt className="font-mono text-[10px] sm:text-[11px] uppercase tracking-widest text-accent">
@@ -381,7 +381,7 @@ export function HomeView() {
 
                 <div className="space-y-2.5 pt-1">
                   {[
-                    "ISO 9001:2015 Certified Processes",
+                    "Meeting All Major Marine Standards",
                     "24/7 Rapid Response Teams",
                     "Comprehensive Technical Reports",
                   ].map((chk, idx) => (
