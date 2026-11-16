@@ -9,9 +9,9 @@ import { toImageSrc } from "@/lib/utils";
 
 export const COMPANY_NAME = "SARRGAY MARINE PTE. LTD.";
 export const UEN = "202644957Z";
-export const PHONE = "+91 80099 09888";
-export const TEL = "tel:+918009909888";
-export const WHATSAPP = "https://wa.me/918009909888";
+export const PHONE = "+65 8114 7251";
+export const TEL = "tel:+6581147251";
+export const WHATSAPP = "https://wa.me/6581147251";
 export const EMAIL = "info@sarrgaymarine.com";
 export const EMAIL_OPS = "service@sarrgaymarine.com";
 export const ADDRESS = "20 Cecil Street, #05-03, PLUS, Singapore 049705";

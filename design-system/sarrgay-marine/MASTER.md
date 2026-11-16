@@ -80,14 +80,14 @@ All engineering procedures, laser alignments, parts refurbishments, and voyage r
   3. `Services` (`/services`)
   4. `Fleet Experience` (`/fleet`)
   5. `Contact` (`/contact`)
-- **Direct Hotline Action:** `24/7 Hotline` $\rightarrow$ Links to `+91 80099 09888` / WhatsApp
+- **Direct Hotline Action:** `24/7 Hotline` $\rightarrow$ Links to `+65 8114 7251` / WhatsApp
 
 ### Mobile Navigation Drawer
 
 - **Emblem & Wordmark:** SARRGAY MARINE
 - **Status Indicator:** `Active Port Readiness • ABS • DNV • LR Class Approved`
 - **Route Links:** Full menu stacked vertically with touch padding
-- **Emergency Action:** `24/7 Hotline: +91 80099 09888`
+- **Emergency Action:** `24/7 Hotline: +65 8114 7251`
 
 ---
 
@@ -101,7 +101,7 @@ All engineering procedures, laser alignments, parts refurbishments, and voyage r
 - **Sub-headline Copy:**  
   _Specializing in marine diesel generator maintenance, main engine overhauls, dry dock superintendency, and rapid-response sailing squads worldwide. Led by veteran Chief Engineers._
 - **Primary Action CTA:** `Explore Services` (Navigates to `/services`)
-- **Secondary Action CTA:** `WhatsApp 24/7` (Direct link to `https://wa.me/918009909888`)
+- **Secondary Action CTA:** `WhatsApp 24/7` (Direct link to `https://wa.me/6581147251`)
 - **Horizon Metrics Bar:**
   1. **100+** — Expert Engineers
   2. **50+** — Global Ports Served
@@ -179,9 +179,9 @@ All engineering procedures, laser alignments, parts refurbishments, and voyage r
 - **Eyebrow:** `Direct Technical Support`
 - **Heading (H2):** `Require Urgent Technical Support or Yard Mobilization?`
 - **Sub-copy:** _Our worldwide team of Chief Engineers and specialized riding squads are on standby 24/7 for immediate mobilization to your vessel._
-- **Primary CTA:** `WhatsApp Dispatch` (`https://wa.me/918009909888`)
+- **Primary CTA:** `WhatsApp Dispatch` (`https://wa.me/6581147251`)
 - **Secondary CTA:** `Transmit Inquiry Dossier` (`/contact`)
-- **Emergency Note:** `VHF Standby Ch. 16 • Emergency Response Hotline: +91 80099 09888`
+- **Emergency Note:** `VHF Standby Ch. 16 • Emergency Response Hotline: +65 8114 7251`
 
 ---
 
@@ -387,8 +387,8 @@ All engineering procedures, laser alignments, parts refurbishments, and voyage r
 
 ### 8.2 Direct Technical Liaison Channels
 
-1. **Direct Technical Hotline:** `+91 80099 09888` (24/7 Emergency Dispatch Standby)
-2. **Instant WhatsApp Liaison:** `+91 80099 09888` (Direct messaging with Senior Superintendents)
+1. **Direct Technical Hotline:** `+65 8114 7251` (24/7 Emergency Dispatch Standby)
+2. **Instant WhatsApp Liaison:** `+65 8114 7251` (Direct messaging with Senior Superintendents)
 3. **Direct Email Inquiry:** `info@sarrgaymarine.com` (Technical specs and tender dossiers)
 4. **Operational Base:** Kochi, India (Middle East & APAC Hubs in Dubai & Singapore)
 
@@ -444,7 +444,7 @@ All engineering procedures, laser alignments, parts refurbishments, and voyage r
 ### Column 4: Direct Liaison
 
 - **Title:** `Direct Liaison`
-- **Phone:** `+91 80099 09888`
+- **Phone:** `+65 8114 7251`
 - **Email:** `info@sarrgaymarine.com`
 - **Frequency:** `VHF Ch. 16 Standby • 24/7 Rapid Response`
 

@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const SITE_URL = "https://sarrgaymarine.com";
 export const SITE_NAME = "SARRGAY MARINE";
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.jpg`;
-export const PHONE_PRIMARY = "+91 80099 09888";
+export const PHONE_PRIMARY = "+65 8114 7251";
 export const EMAIL_PRIMARY = "service@sarrgaymarine.com";
 export const EMAIL_GENERAL = "info@sarrgaymarine.com";
 export const ADDRESS_STREET = "20 Cecil Street, #05-03, PLUS";

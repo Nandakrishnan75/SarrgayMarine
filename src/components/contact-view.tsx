@@ -3,7 +3,7 @@
 import { useState, type FormEvent } from "react";
 import { Phone, MessageSquare, Mail, MapPin, ArrowRight, CheckCircle2, Wrench } from "lucide-react";
 import contactHero from "@/assets/contact-hero.jpg";
-import { ADDRESS, COMPANY_NAME, UEN, WHATSAPP } from "@/components/site";
+import { ADDRESS, COMPANY_NAME, PHONE, TEL, UEN, WHATSAPP } from "@/components/site";
 import { toImageSrc } from "@/lib/utils";
 import {
   Select,
@@ -175,10 +175,10 @@ export function ContactView() {
                   <span>24/7 EMERGENCY HOTLINE</span>
                 </div>
                 <a
-                  href="tel:+918009909888"
+                  href={TEL}
                   className="block text-lg sm:text-xl font-bold font-mono text-white hover:text-primary transition-colors"
                 >
-                  +91 80099 09888
+                  {PHONE}
                 </a>
               </div>
 
@@ -263,7 +263,7 @@ export function ContactView() {
                 </h3>
                 <p className="text-sm text-muted-foreground font-light max-w-sm mx-auto leading-relaxed">
                   Our Chief Engineers have received your technical inquiry. For active underway
-                  emergencies, call our duty desk at +91 80099 09888.
+                  emergencies, call our duty desk at {PHONE}.
                 </p>
                 <div className="pt-4">
                   <button
@@ -321,7 +321,7 @@ export function ContactView() {
                     </label>
                     <input
                       type="tel"
-                      placeholder="+91 98765 43210"
+                      placeholder="+65 8123 4567"
                       value={formState.phone}
                       onChange={(e) => setFormState({ ...formState, phone: e.target.value })}
                       className="w-full rounded-md border border-border/80 bg-background px-3 py-2.5 text-base sm:text-sm outline-none transition focus:border-primary focus:ring-1 focus:ring-primary"
