@@ -426,27 +426,22 @@ All engineering procedures, laser alignments, parts refurbishments, and voyage r
 - **Mission Statement:** _Your trusted technical partner in maritime engineering. Delivering high-precision engine overhauls, generator maintenance, and rapid-response riding squads worldwide._
 - **Badge:** `ISO 9001:2015 CERTIFIED • CLASS APPROVED`
 
-### Column 2: Outposts & Operational Bases
+### Column 2: Core Capabilities
 
-- **Title:** `Outposts & Operational Bases`
-- **Locations:**
-  - Port of Kochi • Shipyard Operations Hub
-  - Singapore • Southeast Asia Marine Office
-  - Dubai Maritime City • Middle East Hub
-- **Quick Links:** About (`/about`), Services (`/services`), Fleet (`/fleet`), Contact (`/contact`)
+- **Title:** `Core Capabilities`
+- **Links:**
+  - Generator & Auxiliary Engine Overhauls
+  - Main Propulsion Machinery Maintenance
+  - Dry Dock Assistance & Superintendency
+  - Riding Squads & Voyage Repairs (CDC/STCW)
+  - Mechanical, Electrical & Automation Systems
 
-### Column 3: The Technical Dispatch
+### Column 3: Contact Us
 
-- **Title:** `Technical Dispatch`
-- **Description:** _Receive confidential technical bulletins on dock availability, maintenance protocols, and marine advisories._
-- **Subscription Action:** Input field + `JOIN` action button
-
-### Column 4: Direct Liaison
-
-- **Title:** `Direct Liaison`
-- **Phone:** `+65 8114 7251`
-- **Email:** `info@sarrgaymarine.com`
-- **Frequency:** `VHF Ch. 16 Standby • 24/7 Rapid Response`
+- **Title:** `Contact Us`
+- **Phone:** `+65 8114 7251` (24/7 Hotline)
+- **Emails:** `service@sarrgaymarine.com`, `info@sarrgaymarine.com`
+- **Registered Office:** SARRGAY MARINE PTE. LTD., 20 Cecil Street, #05-03, PLUS, Singapore 049705
 
 ### Bottom Compliance Bar
 

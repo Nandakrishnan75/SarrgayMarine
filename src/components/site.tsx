@@ -199,7 +199,7 @@ export function Footer() {
   return (
     <footer className="border-t border-border/80 bg-white text-[#1A1A1A] pt-10 sm:pt-14 pb-8 sm:pb-10">
       <div className="container-x">
-        <div className="grid gap-8 sm:gap-10 md:grid-cols-2 lg:grid-cols-[1.3fr_1.25fr_1.25fr_1fr]">
+        <div className="grid gap-8 sm:gap-10 md:grid-cols-2 lg:grid-cols-[1.5fr_1.3fr_1.2fr]">
           {/* Column 1: Brand & Credential */}
           <div className="space-y-4">
             <Link href="/" className="inline-flex items-center gap-3 group">
@@ -225,37 +225,7 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Column 2: Operational Hubs */}
-          <div className="space-y-3">
-            <h4 className="font-serif text-[11px] font-bold uppercase tracking-[0.2em] text-[#1A1A1A] pb-1 border-b border-border/40 sm:border-0">
-              OPERATIONAL HUBS
-            </h4>
-            <ul className="space-y-2.5 text-xs leading-relaxed text-[#555555]">
-              <li className="flex items-start gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-primary shrink-0 mt-1.5" />
-                <span>
-                  <strong className="font-semibold text-[#1A1A1A]">Port of Kochi</strong> — Central
-                  Operations Hub
-                </span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-primary shrink-0 mt-1.5" />
-                <span>
-                  <strong className="font-semibold text-[#1A1A1A]">Dubai Maritime City</strong> —
-                  Middle East Office
-                </span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-primary shrink-0 mt-1.5" />
-                <span>
-                  <strong className="font-semibold text-[#1A1A1A]">Singapore OPL</strong> — SE Asia
-                  Flying Squad
-                </span>
-              </li>
-            </ul>
-          </div>
-
-          {/* Column 3: Core Capabilities */}
+          {/* Column 2: Core Capabilities */}
           <div className="space-y-3">
             <h4 className="font-serif text-[11px] font-bold uppercase tracking-[0.2em] text-[#1A1A1A] pb-1 border-b border-border/40 sm:border-0">
               CORE CAPABILITIES
@@ -304,7 +274,7 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Column 4: Contact Us */}
+          {/* Column 3: Contact Us */}
           <div className="space-y-3">
             <h4 className="font-serif text-[11px] font-bold uppercase tracking-[0.2em] text-[#1A1A1A] pb-1 border-b border-border/40 sm:border-0">
               CONTACT US
