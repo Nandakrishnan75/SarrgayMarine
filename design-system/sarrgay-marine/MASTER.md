@@ -161,8 +161,8 @@ All engineering procedures, laser alignments, parts refurbishments, and voyage r
 - **Section Heading (H2):** `Classification Rigor & The Sarrgay Advantage`
 - **Section Subtitle:** _Setting the global benchmark in maritime engineering integrity, safety protocols, and technical execution._
 - **Advantage Pillars (6):**
-  1. **Classification Society Approved:** Strict compliance with Lloyd's Register, DNV, ABS, IRS, and Bureau Veritas standards for every repair and major survey.  
-     _Badge:_ LR +100A1 • DNV GL
+  1. **According to Standards Required by Class:** Strict compliance with Lloyd's Register, DNV, ABS, IRS, and Bureau Veritas standards for every repair and major survey.  
+     _Badge:_ LR • DNV • ABS Standards
   2. **Veteran Chief Engineers:** Hands-on leadership by certified Chief Marine Engineers with extensive sea-time experience across commercial fleets and superyachts.  
      _Badge:_ Master Technicians
   3. **24/7 Rapid Mobilization:** Urgent emergency teams and fly-in technicians deployed within hours to any global port or anchorage.  
