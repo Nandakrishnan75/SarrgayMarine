@@ -48,9 +48,9 @@ const services = [
 
 const advantages = [
   {
-    title: "Class Approved",
-    desc: "All work meets international classification society standards — ABS, DNV, Lloyd's Register, BV, ClassNK, KR, and IRS.",
-    tag: "ABS • DNV • LR Compliant",
+    title: "Class Standards",
+    desc: "All work is performed according to the standards required by class — ABS, DNV, Lloyd's Register, BV, ClassNK, KR, and IRS.",
+    tag: "ABS • DNV • LR Standards",
   },
   {
     title: "Global Reach",

@@ -85,7 +85,7 @@ All engineering procedures, laser alignments, parts refurbishments, and voyage r
 ### Mobile Navigation Drawer
 
 - **Emblem & Wordmark:** SARRGAY MARINE
-- **Status Indicator:** `Active Port Readiness • ABS • DNV • LR Class Approved`
+- **Status Indicator:** `Active Port Readiness • ABS • DNV • LR Class Standards Compliant`
 - **Route Links:** Full menu stacked vertically with touch padding
 - **Emergency Action:** `24/7 Hotline: +65 8114 7251`
 
@@ -106,7 +106,7 @@ All engineering procedures, laser alignments, parts refurbishments, and voyage r
   1. **100+** — Expert Engineers
   2. **50+** — Global Ports Served
   3. **24/7** — Rapid Mobilization
-  4. **100%** — Class Approved (ABS, DNV, LR, IRS)
+  4. **100%** — According to Standards Required by Class (ABS, DNV, LR, IRS)
 
 ### 4.2 Services Overview (Core Capabilities)
 

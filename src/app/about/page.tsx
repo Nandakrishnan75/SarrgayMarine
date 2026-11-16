@@ -42,7 +42,7 @@ const metrics = [
   {
     num: "100%",
     label: "Class Sign-off Rate",
-    detail: "Zero-defect survey approvals with ABS, DNV, Lloyd's & IRS",
+    detail: "Zero-defect survey sign-offs with ABS, DNV, Lloyd's & IRS",
   },
 ];
 

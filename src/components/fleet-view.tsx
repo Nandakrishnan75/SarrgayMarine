@@ -214,7 +214,7 @@ export function FleetView() {
         </div>
       </section>
 
-      {/* Class Approved Compliance Section */}
+      {/* Standards Required by Class Section */}
       <section className="py-16 md:py-24 bg-secondary/40 border-t border-border/70 overflow-hidden">
         <div className="container-x">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-center">
@@ -224,12 +224,12 @@ export function FleetView() {
                 <span>COMPLIANCE &bull; IACS SOCIETIES</span>
               </div>
               <h2 className="font-display text-3xl md:text-5xl font-bold uppercase tracking-tight text-foreground mb-4 leading-tight">
-                Class <span className="text-primary">Approved</span>
+                Class <span className="text-primary">Standards</span>
               </h2>
               <p className="text-muted-foreground mb-8 text-sm sm:text-base leading-relaxed font-light">
-                All repairs and overhauls meet the rigorous standards of major classification
-                societies. We ensure quality control through strict testing protocols and daily
-                superintendent sign-off.
+                All repairs and overhauls are performed according to the standards required by class
+                across major classification societies. We ensure quality control through strict testing
+                protocols and daily superintendent oversight.
               </p>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                 {complianceSocieties.map((n) => (
