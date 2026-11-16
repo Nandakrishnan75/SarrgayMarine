@@ -1,16 +1,10 @@
-import { createFileRoute } from "@tanstack/react-router";
+"use client";
+
 import { useState, type FormEvent } from "react";
-import {
-  Phone,
-  MessageSquare,
-  Mail,
-  MapPin,
-  ArrowRight,
-  CheckCircle2,
-  Wrench,
-} from "lucide-react";
+import { Phone, MessageSquare, Mail, MapPin, ArrowRight, CheckCircle2, Wrench } from "lucide-react";
 import contactHero from "@/assets/contact-hero.jpg";
-import { ADDRESS, COMPANY_NAME, UEN, WHATSAPP, meta } from "@/components/site";
+import { ADDRESS, COMPANY_NAME, UEN, WHATSAPP } from "@/components/site";
+import { toImageSrc } from "@/lib/utils";
 import {
   Select,
   SelectContent,
@@ -21,48 +15,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { getBreadcrumbSchema, SITE_URL } from "@/lib/seo";
-
-export const Route = createFileRoute("/contact")({
-  head: () =>
-    meta(
-      "Contact Technical Command | 24/7 Operations Desk | SARRGAY MARINE",
-      "Direct 24/7 connection with our Chief Engineers and operations superintendents for active vessel breakdown response, riding squad dispatch, and drydock inquiries.",
-      {
-        path: "/contact",
-        keywords: [
-          "contact marine engineers",
-          "24/7 ship repair emergency hotline",
-          "marine breakdown WhatsApp desk",
-          "flying squad emergency mobilization",
-          "Sarrgay Marine Pte Ltd Singapore",
-          "20 Cecil Street marine engineering",
-          "drydock superintendency quotation",
-          "urgent voyage repair attendance",
-          "Cochin port ship technical attendance",
-        ],
-        jsonLd: [
-          getBreadcrumbSchema([
-            { name: "Home", path: "/" },
-            { name: "Contact", path: "/contact" },
-          ]),
-          {
-            "@context": "https://schema.org",
-            "@type": "ContactPage",
-            "@id": `${SITE_URL}/contact#contactpage`,
-            name: "Contact Sarrgay Marine Technical Command",
-            url: `${SITE_URL}/contact`,
-            description:
-              "Direct 24/7 connection with our Chief Engineers and operations superintendents for active vessel breakdown response, riding squad dispatch, and drydock inquiries.",
-            mainEntity: {
-              "@id": `${SITE_URL}/#organization`,
-            },
-          },
-        ],
-      }
-    ),
-  component: Contact,
-});
 
 interface ServiceOptionItem {
   value: string;
@@ -90,52 +42,59 @@ const serviceCategories: ServiceCategoryGroup[] = [
         value: "Main Engine Overhauls & Propulsion Care",
         label: "Main Engine Overhauls & Propulsion Care",
         badge: "Propulsion",
-        desc: "Cylinder head, liner, piston, turbocharger & crankshaft care",
+        desc: "Pistons, liners, bearings & laser crankshaft alignment",
+      },
+      {
+        value: "Turbocharger & Governor Overhauls",
+        label: "Turbocharger & Governor Overhauls",
+        badge: "Rotor Dynamics",
+        desc: "Cartridge renewal, balancing & nozzle ring refurbishment",
       },
     ],
   },
   {
-    group: "Superintendency & Voyage Support",
+    group: "Shipyard & Voyage Solutions",
     options: [
       {
         value: "Dry Dock Assistance & Superintendency",
         label: "Dry Dock Assistance & Superintendency",
         badge: "Shipyard",
-        desc: "Owner representation, docking specifications & class surveys",
+        desc: "Owner representation, class liaison, underwater gear & hull",
       },
       {
         value: "Sailing Teams & Riding Crew Deployment",
         label: "Sailing Teams & Riding Crew Deployment",
         badge: "Underway",
-        desc: "Certified fitters, welders & machinists dispatched globally",
-      },
-    ],
-  },
-  {
-    group: "Systems Engineering & Rapid Response",
-    options: [
-      {
-        value: "Mechanical & Electrical Systems Engineering",
-        label: "Mechanical & Electrical Systems Engineering",
-        badge: "Automation",
-        desc: "Switchboards, PLC control, hydraulics & auxiliary machinery",
+        desc: "STCW/CDC teams for voyage maintenance with zero off-hire",
       },
       {
         value: "24/7 Emergency Technical Repairs",
         label: "24/7 Emergency Technical Repairs",
-        badge: "Emergency",
-        desc: "Rapid attendance for critical voyage breakdowns & off-hire recovery",
+        badge: "Casualty",
+        desc: "Rapid mobilization for blackouts, seizures & port detentions",
       },
     ],
   },
   {
-    group: "Audits & Custom Scope",
+    group: "Specialized Systems & Auxiliary",
     options: [
       {
-        value: "Technical Scope Assessment",
-        label: "Technical Scope Assessment",
-        badge: "Survey",
-        desc: "Pre-docking survey, condition audits & technical specifications",
+        value: "Mechanical & Electrical Systems Engineering",
+        label: "Mechanical & Electrical Systems Engineering",
+        badge: "Auxiliary",
+        desc: "Pumps, valves, Class H motor rewinding & 440V switchboards",
+      },
+      {
+        value: "Hydraulic Steering Gear & Deck Machinery",
+        label: "Hydraulic Steering Gear & Deck Machinery",
+        badge: "Hydraulics",
+        desc: "Rams, pumps, proportional valves & deck windlasses",
+      },
+      {
+        value: "LNG & Cryogenic Dual-Fuel Systems",
+        label: "LNG & Cryogenic Dual-Fuel Systems",
+        badge: "Cryogenic",
+        desc: "GVU overhaul, double-wall piping & ESD loop testing",
       },
       {
         value: "Other Requirements",
@@ -147,9 +106,10 @@ const serviceCategories: ServiceCategoryGroup[] = [
   },
 ];
 
-const defaultService = serviceCategories[0].options[0].value;
+const defaultService =
+  serviceCategories[0]?.options[0]?.value ?? "Generator & Auxiliary Engine Maintenance";
 
-function Contact() {
+export function ContactView() {
   const [submitted, setSubmitted] = useState(false);
   const [formState, setFormState] = useState({
     name: "",
@@ -165,6 +125,8 @@ function Contact() {
     setSubmitted(true);
   };
 
+  const contactHeroSrc = toImageSrc(contactHero);
+
   return (
     <div className="bg-white text-[#1A1A1A] pt-20 sm:pt-24 pb-8 sm:pb-10 border-b border-border">
       <div className="container-x max-w-6xl">
@@ -174,26 +136,24 @@ function Contact() {
             Contact Technical Command
           </h1>
           <p className="text-xs sm:text-sm text-muted-foreground font-light leading-relaxed max-w-xl mx-auto">
-            Direct connection with our Chief Engineers and operations superintendents for vessel maintenance, riding squads, or urgent emergency response.
+            Direct connection with our Chief Engineers and operations superintendents for vessel
+            maintenance, riding squads, or urgent emergency response.
           </p>
         </div>
 
-        {/* Unified Luxury Dual-Pane Card */}
+        {/* Unified Dual-Pane Card */}
         <div className="grid grid-cols-1 lg:grid-cols-12 rounded-2xl border border-border/80 bg-white shadow-xl overflow-hidden">
-          {/* Left Pane: Navy Command Desk with Visible Website Background Image */}
+          {/* Left Pane */}
           <div className="relative lg:col-span-5 bg-[#061220] text-white p-5 sm:p-7 md:p-8 flex flex-col justify-between overflow-hidden">
-            {/* Background Image on BG: Maritime vessel and superstructure with bottom pavement fully eliminated */}
             <img
-              src={contactHero}
+              src={contactHeroSrc}
               alt="Maritime Fleet Operations"
               className="absolute inset-0 w-full h-full object-cover object-top pointer-events-none opacity-35 filter contrast-125 brightness-90"
               width={1080}
               height={1080}
             />
-            {/* Dark Navy Gradient Overlay: smoothly fades into solid #061220 navy with zero gray bleeding */}
             <div className="absolute inset-0 bg-gradient-to-b from-[#061220]/85 via-[#061220]/80 to-[#061220] pointer-events-none" />
 
-            {/* Upper Content Section */}
             <div className="relative z-10 space-y-4">
               <div>
                 <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-white/60 font-semibold block">
@@ -203,7 +163,8 @@ function Contact() {
                   Operations Duty Desk
                 </h2>
                 <p className="mt-1 text-xs text-white/70 font-light leading-relaxed">
-                  Available 24/7/365 across Indian Ocean, Middle East, and Southeast Asian waters.
+                  Available 24/7/365 across Singapore, Indian Ocean, Middle East, and Southeast
+                  Asian waters.
                 </p>
               </div>
 
@@ -232,7 +193,9 @@ function Contact() {
                   <MessageSquare className="h-4 w-4 text-primary" />
                   <div>
                     <div className="font-semibold text-white">Direct WhatsApp Desk</div>
-                    <div className="text-[11px] text-white/60">Urgent breakdown diagnosis &bull; &lt; 5m response</div>
+                    <div className="text-[11px] text-white/60">
+                      Urgent breakdown diagnosis &bull; &lt; 5m response
+                    </div>
                   </div>
                 </div>
                 <ArrowRight className="h-4 w-4 text-white/60 group-hover:text-white group-hover:translate-x-1 transition-all" />
@@ -246,14 +209,24 @@ function Contact() {
                 </div>
                 <div className="space-y-2">
                   <div>
-                    <span className="block text-[10px] text-white/50 uppercase font-mono">Technical &amp; Drydock</span>
-                    <a href="mailto:service@sarrgaymarine.com" className="font-mono text-xs sm:text-sm text-white hover:text-primary transition-colors break-all">
+                    <span className="block text-[10px] text-white/50 uppercase font-mono">
+                      Technical &amp; Drydock
+                    </span>
+                    <a
+                      href="mailto:service@sarrgaymarine.com"
+                      className="font-mono text-xs sm:text-sm text-white hover:text-primary transition-colors break-all"
+                    >
                       service@sarrgaymarine.com
                     </a>
                   </div>
                   <div>
-                    <span className="block text-[10px] text-white/50 uppercase font-mono">Commercial &amp; General</span>
-                    <a href="mailto:info@sarrgaymarine.com" className="font-mono text-xs sm:text-sm text-white hover:text-primary transition-colors break-all">
+                    <span className="block text-[10px] text-white/50 uppercase font-mono">
+                      Commercial &amp; General
+                    </span>
+                    <a
+                      href="mailto:info@sarrgaymarine.com"
+                      className="font-mono text-xs sm:text-sm text-white hover:text-primary transition-colors break-all"
+                    >
                       info@sarrgaymarine.com
                     </a>
                   </div>
@@ -261,12 +234,14 @@ function Contact() {
               </div>
             </div>
 
-            {/* Lower Content Section: Anchors Address Elegantly on Desktop & Mobile */}
+            {/* Lower Content Section */}
             <div className="relative z-10 pt-4 mt-4 border-t border-white/10">
               <div className="flex items-start gap-3 text-xs text-white/70">
                 <MapPin className="h-4 w-4 text-primary shrink-0 mt-0.5" />
                 <div>
-                  <strong className="block text-white font-medium">Registered Office &bull; Singapore</strong>
+                  <strong className="block text-white font-medium">
+                    Registered Office &bull; Singapore
+                  </strong>
                   <span className="block text-[11px] font-mono text-white/80 mt-0.5">
                     {COMPANY_NAME} &bull; UEN {UEN}
                   </span>
@@ -276,7 +251,7 @@ function Contact() {
             </div>
           </div>
 
-          {/* Right Pane: Clean Architectural Form */}
+          {/* Right Pane */}
           <div className="lg:col-span-7 p-5 sm:p-8 md:p-10 flex flex-col justify-center bg-white">
             {submitted ? (
               <div className="py-12 text-center space-y-4">
@@ -287,7 +262,8 @@ function Contact() {
                   Inquiry Dispatched
                 </h3>
                 <p className="text-sm text-muted-foreground font-light max-w-sm mx-auto leading-relaxed">
-                  Our Chief Engineers have received your technical inquiry. For active underway emergencies, call our duty desk at +91 80099 09888.
+                  Our Chief Engineers have received your technical inquiry. For active underway
+                  emergencies, call our duty desk at +91 80099 09888.
                 </p>
                 <div className="pt-4">
                   <button
@@ -302,9 +278,7 @@ function Contact() {
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="border-b border-border/70 pb-2.5">
-                  <h2 className="text-base font-bold text-foreground">
-                    Request Technical Scope
-                  </h2>
+                  <h2 className="text-base font-bold text-foreground">Request Technical Scope</h2>
                   <p className="text-xs text-muted-foreground font-light">
                     Submit vessel requirements for immediate superintendent review.
                   </p>

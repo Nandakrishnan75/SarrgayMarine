@@ -80,8 +80,7 @@ const SelectContent = React.forwardRef<
       <SelectPrimitive.Viewport
         className={cn(
           "p-1.5",
-          position === "popper" &&
-            "w-full min-w-[var(--radix-select-trigger-width)]",
+          position === "popper" && "w-full min-w-[var(--radix-select-trigger-width)]",
         )}
       >
         {children}
@@ -98,56 +97,59 @@ const SelectLabel = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <SelectPrimitive.Label
     ref={ref}
-    className={cn("px-3 py-1.5 text-[10px] font-mono uppercase tracking-[0.18em] text-muted-foreground/80 font-semibold", className)}
+    className={cn(
+      "px-3 py-1.5 text-[10px] font-mono uppercase tracking-[0.18em] text-muted-foreground/80 font-semibold",
+      className,
+    )}
     {...props}
   />
 ));
 SelectLabel.displayName = SelectPrimitive.Label.displayName;
 
-export interface SelectItemProps
-  extends React.ComponentPropsWithoutRef<typeof SelectPrimitive.Item> {
+export interface SelectItemProps extends React.ComponentPropsWithoutRef<
+  typeof SelectPrimitive.Item
+> {
   description?: React.ReactNode;
   badge?: React.ReactNode;
 }
 
-const SelectItem = React.forwardRef<
-  React.ElementRef<typeof SelectPrimitive.Item>,
-  SelectItemProps
->(({ className, children, description, badge, ...props }, ref) => (
-  <SelectPrimitive.Item
-    ref={ref}
-    className={cn(
-      "relative flex w-full cursor-pointer select-none items-center rounded-lg py-2 pl-3 pr-8 text-sm outline-none transition-colors data-[disabled]:pointer-events-none data-[disabled]:opacity-50 hover:bg-muted/70 focus:bg-primary/10 focus:text-foreground data-[state=checked]:bg-primary/5 data-[state=checked]:text-primary data-[state=checked]:font-medium",
-      className,
-    )}
-    {...props}
-  >
-    <span className="absolute right-2.5 flex h-4 w-4 items-center justify-center text-primary">
-      <SelectPrimitive.ItemIndicator>
-        <Check className="h-4 w-4" />
-      </SelectPrimitive.ItemIndicator>
-    </span>
-    {description || badge ? (
-      <div className="flex flex-col gap-0.5 text-left">
-        <div className="flex items-center gap-2">
-          <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
-          {badge && (
-            <span className="text-[9px] font-mono uppercase px-1.5 py-0.5 rounded bg-muted text-muted-foreground border border-border/60 shrink-0 font-normal">
-              {badge}
+const SelectItem = React.forwardRef<React.ElementRef<typeof SelectPrimitive.Item>, SelectItemProps>(
+  ({ className, children, description, badge, ...props }, ref) => (
+    <SelectPrimitive.Item
+      ref={ref}
+      className={cn(
+        "relative flex w-full cursor-pointer select-none items-center rounded-lg py-2 pl-3 pr-8 text-sm outline-none transition-colors data-[disabled]:pointer-events-none data-[disabled]:opacity-50 hover:bg-muted/70 focus:bg-primary/10 focus:text-foreground data-[state=checked]:bg-primary/5 data-[state=checked]:text-primary data-[state=checked]:font-medium",
+        className,
+      )}
+      {...props}
+    >
+      <span className="absolute right-2.5 flex h-4 w-4 items-center justify-center text-primary">
+        <SelectPrimitive.ItemIndicator>
+          <Check className="h-4 w-4" />
+        </SelectPrimitive.ItemIndicator>
+      </span>
+      {description || badge ? (
+        <div className="flex flex-col gap-0.5 text-left">
+          <div className="flex items-center gap-2">
+            <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
+            {badge && (
+              <span className="text-[9px] font-mono uppercase px-1.5 py-0.5 rounded bg-muted text-muted-foreground border border-border/60 shrink-0 font-normal">
+                {badge}
+              </span>
+            )}
+          </div>
+          {description && (
+            <span className="text-[11px] text-muted-foreground font-light leading-snug">
+              {description}
             </span>
           )}
         </div>
-        {description && (
-          <span className="text-[11px] text-muted-foreground font-light leading-snug">
-            {description}
-          </span>
-        )}
-      </div>
-    ) : (
-      <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
-    )}
-  </SelectPrimitive.Item>
-));
+      ) : (
+        <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
+      )}
+    </SelectPrimitive.Item>
+  ),
+);
 SelectItem.displayName = SelectPrimitive.Item.displayName;
 
 const SelectSeparator = React.forwardRef<

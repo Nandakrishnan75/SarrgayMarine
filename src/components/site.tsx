@@ -1,9 +1,11 @@
-import { Link, useLocation } from "@tanstack/react-router";
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState, useEffect, type ReactNode } from "react";
 import emblemNavy from "@/assets/sarrgay-emblem.png";
 import emblemLight from "@/assets/sarrgay-emblem-light.png";
-import { Button } from "@/components/ui/button";
-import { buildPageMeta, type PageMetaOptions } from "@/lib/seo";
+import { toImageSrc } from "@/lib/utils";
 
 export const COMPANY_NAME = "SARRGAY MARINE PTE. LTD.";
 export const UEN = "202644957Z";
@@ -14,19 +16,19 @@ export const EMAIL = "info@sarrgaymarine.com";
 export const EMAIL_OPS = "service@sarrgaymarine.com";
 export const ADDRESS = "20 Cecil Street, #05-03, PLUS, Singapore 049705";
 
-const nav = [
-  { to: "/", label: "Home" },
-  { to: "/about", label: "About" },
-  { to: "/services", label: "Services" },
-  { to: "/fleet", label: "Fleet Experience" },
-  { to: "/contact", label: "Contact" },
+export const nav = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/services", label: "Services" },
+  { href: "/fleet", label: "Fleet Experience" },
+  { href: "/contact", label: "Contact" },
 ] as const;
 
-function Logo({ light }: { light?: boolean }) {
+export function Logo({ light }: { light?: boolean }) {
   return (
-    <Link to="/" className="flex items-center gap-2.5 sm:gap-3 group">
+    <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group">
       <img
-        src={light ? emblemLight : emblemNavy}
+        src={toImageSrc(light ? emblemLight : emblemNavy)}
         alt="Sarrgay Marine"
         width={38}
         height={38}
@@ -55,7 +57,7 @@ function Logo({ light }: { light?: boolean }) {
 export function Header() {
   const [open, setOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const location = useLocation();
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -67,7 +69,12 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const isLightPage = location.pathname === "/contact";
+  // Close mobile menu on route change
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+
+  const isLightPage = pathname === "/contact";
   const isTransparent = !isScrolled && !open && !isLightPage;
 
   return (
@@ -76,32 +83,33 @@ export function Header() {
         open
           ? "border-b border-white/10 bg-navy text-white shadow-xl"
           : isTransparent
-          ? "border-b border-transparent bg-transparent shadow-none"
-          : "border-b border-border/80 bg-background/95 shadow-[0_1px_12px_-6px_color-mix(in_oklab,var(--navy)_25%,transparent)] backdrop-blur-md"
+            ? "border-b border-transparent bg-transparent shadow-none"
+            : "border-b border-border/80 bg-background/95 shadow-[0_1px_12px_-6px_color-mix(in_oklab,var(--navy)_25%,transparent)] backdrop-blur-md"
       }`}
     >
       <div className="container-x flex h-18 items-center justify-between">
         <Logo light={open || isTransparent} />
         <nav className="hidden items-center gap-8 text-sm font-medium lg:flex">
-          {nav.map((n) => (
-            <Link
-              key={n.to}
-              to={n.to}
-              activeOptions={{ exact: true }}
-              className={`relative py-2 transition-colors after:absolute after:inset-x-0 after:bottom-0 after:h-0.5 after:origin-left after:scale-x-0 after:transition-transform hover:after:scale-x-100 ${
-                isTransparent
-                  ? "text-white/90 hover:text-white after:bg-white font-medium"
-                  : "text-muted-foreground hover:text-foreground after:bg-primary font-medium"
-              }`}
-              activeProps={{
-                className: isTransparent
-                  ? "text-white after:scale-x-100 font-bold"
-                  : "text-primary after:scale-x-100 font-bold",
-              }}
-            >
-              {n.label}
-            </Link>
-          ))}
+          {nav.map((n) => {
+            const isActive = pathname === n.href;
+            return (
+              <Link
+                key={n.href}
+                href={n.href}
+                className={`relative py-2 transition-colors after:absolute after:inset-x-0 after:bottom-0 after:h-0.5 after:origin-left after:transition-transform hover:after:scale-x-100 ${
+                  isActive
+                    ? isTransparent
+                      ? "text-white after:bg-white after:scale-x-100 font-bold"
+                      : "text-primary after:bg-primary after:scale-x-100 font-bold"
+                    : isTransparent
+                      ? "text-white/90 hover:text-white after:bg-white after:scale-x-0 font-medium"
+                      : "text-muted-foreground hover:text-foreground after:bg-primary after:scale-x-0 font-medium"
+                }`}
+              >
+                {n.label}
+              </Link>
+            );
+          })}
         </nav>
         <div className="hidden items-center lg:flex">
           {/* 24/7 Hotline Button — Direct WhatsApp Liaison */}
@@ -147,11 +155,11 @@ export function Header() {
         <div className="border-t bg-navy text-navy-foreground lg:hidden shadow-2xl border-white/10">
           <div className="container-x py-5 space-y-1">
             {nav.map((n) => {
-              const isActive = location.pathname === n.to;
+              const isActive = pathname === n.href;
               return (
                 <Link
-                  key={n.to}
-                  to={n.to}
+                  key={n.href}
+                  href={n.href}
                   onClick={() => setOpen(false)}
                   className={`flex items-center justify-between rounded-md px-3.5 py-3 text-base transition-colors ${
                     isActive
@@ -194,9 +202,9 @@ export function Footer() {
         <div className="grid gap-8 sm:gap-10 md:grid-cols-2 lg:grid-cols-[1.3fr_1.25fr_1.25fr_1fr]">
           {/* Column 1: Brand & Credential */}
           <div className="space-y-4">
-            <Link to="/" className="inline-flex items-center gap-3 group">
+            <Link href="/" className="inline-flex items-center gap-3 group">
               <img
-                src={emblemNavy}
+                src={toImageSrc(emblemNavy)}
                 alt="Sarrgay Marine"
                 width={34}
                 height={34}
@@ -207,7 +215,8 @@ export function Footer() {
               </span>
             </Link>
             <p className="max-w-sm text-xs leading-[1.75] text-[#555555] font-normal">
-              Your trusted technical partner in maritime excellence. Delivering precision engineering solutions and expert management for the global shipping industry.
+              Your trusted technical partner in maritime excellence. Delivering precision
+              engineering solutions and expert management for the global shipping industry.
             </p>
             <div>
               <span className="inline-flex items-center gap-2 rounded-sm bg-secondary px-2.5 py-1 text-[10px] font-mono font-semibold tracking-[0.14em] text-primary uppercase border border-border/60">
@@ -225,19 +234,22 @@ export function Footer() {
               <li className="flex items-start gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-primary shrink-0 mt-1.5" />
                 <span>
-                  <strong className="font-semibold text-[#1A1A1A]">Port of Kochi</strong> — Central Operations Hub
+                  <strong className="font-semibold text-[#1A1A1A]">Port of Kochi</strong> — Central
+                  Operations Hub
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-primary shrink-0 mt-1.5" />
                 <span>
-                  <strong className="font-semibold text-[#1A1A1A]">Dubai Maritime City</strong> — Middle East Office
+                  <strong className="font-semibold text-[#1A1A1A]">Dubai Maritime City</strong> —
+                  Middle East Office
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-primary shrink-0 mt-1.5" />
                 <span>
-                  <strong className="font-semibold text-[#1A1A1A]">Singapore OPL</strong> — SE Asia Flying Squad
+                  <strong className="font-semibold text-[#1A1A1A]">Singapore OPL</strong> — SE Asia
+                  Flying Squad
                 </span>
               </li>
             </ul>
@@ -250,27 +262,42 @@ export function Footer() {
             </h4>
             <ul className="space-y-2 text-xs leading-relaxed text-[#555555]">
               <li>
-                <Link to="/services" className="hover:text-primary transition-colors py-0.5 block">
+                <Link
+                  href="/services"
+                  className="hover:text-primary transition-colors py-0.5 block"
+                >
                   Generator &amp; Auxiliary Engine Overhauls
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="hover:text-primary transition-colors py-0.5 block">
+                <Link
+                  href="/services"
+                  className="hover:text-primary transition-colors py-0.5 block"
+                >
                   Main Propulsion Machinery Maintenance
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="hover:text-primary transition-colors py-0.5 block">
+                <Link
+                  href="/services"
+                  className="hover:text-primary transition-colors py-0.5 block"
+                >
                   Dry Dock Assistance &amp; Superintendency
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="hover:text-primary transition-colors py-0.5 block">
+                <Link
+                  href="/services"
+                  className="hover:text-primary transition-colors py-0.5 block"
+                >
                   Riding Squads &amp; Voyage Repairs (CDC/STCW)
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="hover:text-primary transition-colors py-0.5 block">
+                <Link
+                  href="/services"
+                  className="hover:text-primary transition-colors py-0.5 block"
+                >
                   Mechanical, Electrical &amp; Automation Systems
                 </Link>
               </li>
@@ -325,9 +352,14 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="mt-8 sm:mt-12 pt-6 border-t border-border/70 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between text-[11px] font-mono text-[#666666]">
-          <span>© {new Date().getFullYear()} {COMPANY_NAME} ALL RIGHTS RESERVED.</span>
+          <span>
+            © {new Date().getFullYear()} {COMPANY_NAME} ALL RIGHTS RESERVED.
+          </span>
           <div className="flex flex-wrap items-center gap-3 text-[10px] uppercase tracking-wider">
-            <Link to="/contact" className="hover:text-primary transition-colors underline-offset-2 hover:underline">
+            <Link
+              href="/contact"
+              className="hover:text-primary transition-colors underline-offset-2 hover:underline"
+            >
               TERMS &amp; DISPATCH
             </Link>
             <div className="flex items-center gap-2">
@@ -379,34 +411,70 @@ export function Footer() {
   );
 }
 
-export function PageHero({ eyebrow, title, sub, image }: { eyebrow: string; title: string; sub: string; image?: string }) {
+export function PageHero({
+  eyebrow,
+  title,
+  sub,
+  image,
+}: {
+  eyebrow: string;
+  title: string;
+  sub: string;
+  image?: any;
+}) {
+  const imgSrc = image?.src || image;
   return (
     <section className="relative overflow-hidden bg-navy text-navy-foreground on-navy pt-20 sm:pt-24">
-      {image && (
+      {imgSrc && (
         <img
-          src={image}
-          alt={title ? `${title} - Sarrgay Marine Maritime Operations` : "Maritime Engineering Operations"}
+          src={imgSrc}
+          alt={
+            title
+              ? `${title} - Sarrgay Marine Maritime Operations`
+              : "Maritime Engineering Operations"
+          }
           className="absolute inset-0 h-full w-full object-cover object-center"
           width={1920}
           height={1088}
         />
       )}
-      <div className={image ? "hero-overlay absolute inset-0" : "hidden"} />
-      <div aria-hidden className="dot-grid absolute right-10 top-24 h-20 w-28 opacity-50 pointer-events-none" />
+      <div className={imgSrc ? "hero-overlay absolute inset-0" : "hidden"} />
+      <div
+        aria-hidden
+        className="dot-grid absolute right-10 top-24 h-20 w-28 opacity-50 pointer-events-none"
+      />
       <div className="container-x relative py-12 sm:py-16 md:py-20 lg:py-24">
         <p className="eyebrow scroll-reveal">{eyebrow}</p>
-        <h1 className="mt-3.5 max-w-3xl text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold uppercase leading-[1.08] break-words scroll-reveal delay-100">{title}</h1>
-        <p className="mt-4 sm:mt-5 max-w-2xl text-sm sm:text-base leading-relaxed text-navy-muted md:text-lg scroll-reveal delay-200">{sub}</p>
+        <h1 className="mt-3.5 max-w-3xl text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold uppercase leading-[1.08] break-words scroll-reveal delay-100">
+          {title}
+        </h1>
+        <p className="mt-4 sm:mt-5 max-w-2xl text-sm sm:text-base leading-relaxed text-navy-muted md:text-lg scroll-reveal delay-200">
+          {sub}
+        </p>
       </div>
     </section>
   );
 }
 
-export function SectionHead({ eyebrow, title, sub, center }: { eyebrow: string; title: string; sub?: string; center?: boolean }) {
+export function SectionHead({
+  eyebrow,
+  title,
+  sub,
+  center,
+}: {
+  eyebrow: string;
+  title: string;
+  sub?: string;
+  center?: boolean;
+}) {
   return (
     <div className={`scroll-reveal ${center ? "mx-auto max-w-2xl text-center" : "max-w-2xl"}`}>
       <p className="eyebrow">{eyebrow}</p>
-      <h2 className={`${center ? "[&::after]:mx-auto " : ""}title-bar mt-3 text-3xl leading-tight md:text-4xl font-extrabold uppercase`}>{title}</h2>
+      <h2
+        className={`${center ? "[&::after]:mx-auto " : ""}title-bar mt-3 text-3xl leading-tight md:text-4xl font-extrabold uppercase`}
+      >
+        {title}
+      </h2>
       {sub && <p className="mt-4 leading-relaxed text-muted-foreground">{sub}</p>}
     </div>
   );
@@ -421,7 +489,7 @@ export function Btn({
 }: {
   children: ReactNode;
   href?: string;
-  to?: "/" | "/about" | "/services" | "/fleet" | "/contact";
+  to?: string;
   variant?: "primary" | "outline" | "ghostLight";
   className?: string;
 }) {
@@ -431,8 +499,29 @@ export function Btn({
     ghostLight: "border border-navy-foreground/30 text-navy-foreground hover:bg-navy-foreground/10",
   }[variant];
   const c = `inline-flex items-center justify-center rounded-sm px-6 py-3 text-sm font-semibold transition active:scale-[0.98] ${cls} ${className}`;
-  if (to) return <Link to={to} className={c}>{children}</Link>;
-  return <a href={href} target={href?.startsWith("http") ? "_blank" : undefined} rel="noreferrer" className={c}>{children}</a>;
+  const target = href || to;
+  if (
+    target &&
+    !target.startsWith("http") &&
+    !target.startsWith("tel:") &&
+    !target.startsWith("mailto:")
+  ) {
+    return (
+      <Link href={target} className={c}>
+        {children}
+      </Link>
+    );
+  }
+  return (
+    <a
+      href={target}
+      target={target?.startsWith("http") ? "_blank" : undefined}
+      rel={target?.startsWith("http") ? "noreferrer" : undefined}
+      className={c}
+    >
+      {children}
+    </a>
+  );
 }
 
 export function CtaBanner() {
@@ -466,17 +555,3 @@ export function Reveal({
     </div>
   );
 }
-
-export function meta(
-  title: string,
-  description: string,
-  options?: Omit<PageMetaOptions, "title" | "description">
-) {
-  return buildPageMeta({
-    title,
-    description,
-    ...options,
-  });
-}
-
-export { buildPageMeta };

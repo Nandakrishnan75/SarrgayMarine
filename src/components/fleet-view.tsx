@@ -1,14 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
+"use client";
+
 import { useState } from "react";
-import {
-  Anchor,
-  ArrowRight,
-  CheckCircle2,
-  Compass,
-  PhoneCall,
-  ShieldCheck,
-  Wrench,
-} from "lucide-react";
+import { Anchor, CheckCircle2, ShieldCheck, Wrench } from "lucide-react";
 import fleetHero from "@/assets/fleet-hero.jpg";
 import fleetVlcc from "@/assets/fleet-vlcc.jpg";
 import fleetGasLng from "@/assets/fleet-gas-lng.jpg";
@@ -18,36 +11,8 @@ import fleetContainer from "@/assets/fleet-container.jpg";
 import fleetRoro from "@/assets/fleet-roro.jpg";
 import fleetOffshore from "@/assets/fleet-offshore.jpg";
 import fleetInspection from "@/assets/fleet-inspection.jpg";
-import { Btn, WHATSAPP, meta } from "@/components/site";
-import { getBreadcrumbSchema } from "@/lib/seo";
-
-export const Route = createFileRoute("/fleet")({
-  head: () =>
-    meta(
-      "Fleet Experience & Vessel Types Serviced | SARRGAY MARINE",
-      "Specialized engineering support across VLCC crude tankers, LNG/LPG carriers, chemical carriers, container ships, bulkers, Ro-Ro carriers, and offshore support vessels.",
-      {
-        path: "/fleet",
-        keywords: [
-          "commercial fleet technical support",
-          "VLCC tanker machinery maintenance",
-          "LNG LPG carrier cryogenic engineering",
-          "chemical tanker cargo pumping overhaul",
-          "container vessel propulsion repair",
-          "bulk carrier dry dock superintendence",
-          "Ro-Ro car carrier engineering",
-          "offshore support vessel DP repair",
-          "IACS class fleet compliance",
-          "Indian Ocean vessel superintendents",
-        ],
-        jsonLd: getBreadcrumbSchema([
-          { name: "Home", path: "/" },
-          { name: "Fleet Experience", path: "/fleet" },
-        ]),
-      }
-    ),
-  component: Fleet,
-});
+import { Btn, WHATSAPP } from "@/components/site";
+import { toImageSrc } from "@/lib/utils";
 
 const vessels = [
   {
@@ -101,7 +66,15 @@ const vessels = [
   },
 ];
 
-const filters = ["All Vessels", "Tankers", "Gas Carriers", "Bulk Carriers", "Container", "Ro-Ro", "Offshore"];
+const filters = [
+  "All Vessels",
+  "Tankers",
+  "Gas Carriers",
+  "Bulk Carriers",
+  "Container",
+  "Ro-Ro",
+  "Offshore",
+];
 
 const complianceSocieties = ["ABS", "DNV", "LR", "BV", "NK", "KR", "IRS"];
 
@@ -113,18 +86,21 @@ const qualityProtocols = [
   "Detailed technical service reports and maintenance records",
 ];
 
-function Fleet() {
+export function FleetView() {
   const [activeFilter, setActiveFilter] = useState("All Vessels");
   const filteredList =
     activeFilter === "All Vessels" ? vessels : vessels.filter((v) => v.f === activeFilter);
 
+  const fleetHeroSrc = toImageSrc(fleetHero);
+  const fleetInspectionSrc = toImageSrc(fleetInspection);
+
   return (
     <div className="bg-white text-[#1A1A1A]">
-      {/* Modern Fleet Hero Header - Compact Architectural */}
+      {/* Modern Fleet Hero Header */}
       <section className="relative pt-24 sm:pt-28 pb-10 sm:pb-12 overflow-hidden bg-navy text-navy-foreground on-navy border-b border-white/10">
         <div className="absolute inset-0 z-0">
           <img
-            src={fleetHero}
+            src={fleetHeroSrc}
             alt="Commercial fleet vessels and offshore engineering support at sea"
             className="w-full h-full object-cover pointer-events-none"
             width={1920}
@@ -150,14 +126,13 @@ function Fleet() {
             </h1>
 
             <p className="text-xs sm:text-sm md:text-base text-navy-muted max-w-xl mx-auto leading-relaxed font-light">
-              Specialized technical support for commercial fleets. We handle global logistics, visa requirements, and tool clearance for rapid deployment across all vessel categories.
+              Specialized technical support for commercial fleets. We handle global logistics, visa
+              requirements, and tool clearance for rapid deployment across all vessel categories.
             </p>
 
-            {/* Quick Metrics Strip */}
             <div className="pt-2 flex flex-wrap items-center justify-center gap-2 text-[10px] sm:text-[11px] font-mono tracking-wider">
               <span className="inline-flex items-center gap-1.5 rounded-sm border border-white/20 bg-navy/60 backdrop-blur-sm px-2.5 py-1 text-accent">
-                <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-                7 VESSEL CATEGORIES
+                <span className="h-1.5 w-1.5 rounded-full bg-accent" />7 VESSEL CATEGORIES
               </span>
               <span className="inline-flex items-center gap-1.5 rounded-sm border border-white/20 bg-navy/60 backdrop-blur-sm px-2.5 py-1 text-navy-foreground/90">
                 WORLDWIDE PORT ACCESS
@@ -184,10 +159,11 @@ function Fleet() {
             </h2>
 
             <p className="text-sm sm:text-base text-muted-foreground font-light leading-relaxed max-w-xl mx-auto">
-              Specialized engineering, propulsion overhauls, and technical superintendency across global commercial vessel categories.
+              Specialized engineering, propulsion overhauls, and technical superintendency across
+              global commercial vessel categories.
             </p>
 
-            {/* Modern Pill Filters */}
+            {/* Pill Filters */}
             <div className="pt-3 sm:pt-4 flex flex-wrap items-center justify-center gap-1.5 sm:gap-2">
               {filters.map((flt) => (
                 <button
@@ -206,34 +182,34 @@ function Fleet() {
             </div>
           </div>
 
-          {/* 3-Column Modern Clean Vessel Cards Matching Live Reference */}
+          {/* 3-Column Modern Clean Vessel Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10">
-            {filteredList.map((v) => (
-              <div key={v.n} className="flex flex-col group">
-                {/* Title with Clean Bullet Point Above Image */}
-                <div className="mb-3.5 flex items-center gap-2.5">
-                  <span className="w-2 h-2 rounded-full bg-navy shrink-0" />
-                  <h3 className="text-lg sm:text-xl font-bold tracking-tight text-navy font-display">
-                    {v.n}
-                  </h3>
-                </div>
+            {filteredList.map((v) => {
+              const vImgSrc = toImageSrc(v.image);
+              return (
+                <div key={v.n} className="flex flex-col group">
+                  <div className="mb-3.5 flex items-center gap-2.5">
+                    <span className="w-2 h-2 rounded-full bg-navy shrink-0" />
+                    <h3 className="text-lg sm:text-xl font-bold tracking-tight text-navy font-display">
+                      {v.n}
+                    </h3>
+                  </div>
 
-                {/* Pure Clean Rounded Image Container with ZERO Overlays */}
-                <div className="relative aspect-[4/3] overflow-hidden rounded-2xl md:rounded-3xl border border-gray-100 shadow-lg shadow-navy/5 bg-navy/5">
-                  <img
-                    src={v.image}
-                    alt={`${v.n} (${v.c}) - Marine Engineering & Fleet Superintendency`}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    loading="lazy"
-                  />
-                </div>
+                  <div className="relative aspect-[4/3] overflow-hidden rounded-2xl md:rounded-3xl border border-gray-100 shadow-lg shadow-navy/5 bg-navy/5">
+                    <img
+                      src={vImgSrc}
+                      alt={`${v.n} (${v.c}) - Marine Engineering & Fleet Superintendency`}
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                  </div>
 
-                {/* Concise Engineering Scope Description */}
-                <p className="mt-3.5 text-xs sm:text-sm text-muted-foreground font-light leading-relaxed">
-                  {v.desc}
-                </p>
-              </div>
-            ))}
+                  <p className="mt-3.5 text-xs sm:text-sm text-muted-foreground font-light leading-relaxed">
+                    {v.desc}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -251,7 +227,9 @@ function Fleet() {
                 Class <span className="text-primary">Approved</span>
               </h2>
               <p className="text-muted-foreground mb-8 text-sm sm:text-base leading-relaxed font-light">
-                All repairs and overhauls meet the rigorous standards of major classification societies. We ensure quality control through strict testing protocols and daily superintendent sign-off.
+                All repairs and overhauls meet the rigorous standards of major classification
+                societies. We ensure quality control through strict testing protocols and daily
+                superintendent sign-off.
               </p>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                 {complianceSocieties.map((n) => (
@@ -260,9 +238,7 @@ function Fleet() {
                     className="flex items-center gap-3 p-3.5 bg-card rounded-xl border border-border/80 shadow-sm hover:shadow-md hover:border-primary/40 transition-all"
                   >
                     <CheckCircle2 className="h-4 w-4 text-primary shrink-0" />
-                    <span className="font-mono text-sm font-bold text-foreground">
-                      {n}
-                    </span>
+                    <span className="font-mono text-sm font-bold text-foreground">{n}</span>
                   </div>
                 ))}
               </div>
@@ -271,7 +247,7 @@ function Fleet() {
             {/* Quality Control Inspection Card */}
             <div className="relative group rounded-2xl md:rounded-3xl overflow-hidden aspect-[4/3] md:aspect-square shadow-xl border border-border/80">
               <img
-                src={fleetInspection}
+                src={fleetInspectionSrc}
                 alt="Marine engineer conducting Lloyd's Register class inspection and quality control audit"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"
@@ -296,7 +272,6 @@ function Fleet() {
       <section className="py-16 md:py-24 bg-white border-t border-border/70">
         <div className="container-x">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-center">
-            {/* Left Box: Technical Mobilization Dark Card */}
             <div className="lg:order-1 bg-navy text-white rounded-2xl md:rounded-3xl p-7 md:p-12 lg:p-14 shadow-2xl border border-white/10 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
               <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-accent font-semibold mb-4">
@@ -309,23 +284,22 @@ function Fleet() {
               </h3>
               <div className="space-y-4 relative z-10 text-navy-muted leading-relaxed text-xs sm:text-sm font-light">
                 <p>
-                  Our flying squads and riding crews mobilize with certified equipment, pre-cleared for international air freight and port access worldwide.
+                  Our flying squads and riding crews mobilize with certified equipment, pre-cleared
+                  for international air freight and port access worldwide.
                 </p>
                 <p>
-                  From Singapore to Rotterdam, Houston to Dubai, we ensure engineers arrive with the exact calibrated tooling required for zero-delay intervention.
+                  From Singapore to Rotterdam, Houston to Dubai, we ensure engineers arrive with the
+                  exact calibrated tooling required for zero-delay intervention.
                 </p>
               </div>
               <div className="mt-8 flex flex-wrap gap-3 relative z-10">
                 <Btn href={WHATSAPP} variant="ghostLight">
                   WhatsApp Duty Hotline
                 </Btn>
-                <Btn to="/contact">
-                  Request Mobilization
-                </Btn>
+                <Btn href="/contact">Request Mobilization</Btn>
               </div>
             </div>
 
-            {/* Right List: Rigorous Protocols */}
             <div className="lg:order-2 space-y-6">
               <div className="inline-flex items-center gap-2 bg-primary/10 px-4 py-1.5 rounded-full text-primary text-xs font-mono font-bold border border-primary/20">
                 <ShieldCheck className="h-3.5 w-3.5" />
@@ -364,12 +338,13 @@ function Fleet() {
               Ready to Optimize Your Fleet Operations?
             </h2>
             <p className="mt-2 text-sm text-muted-foreground font-light">
-              Our global team of marine engineers is ready to provide expert technical support for any vessel category, anywhere in the world.
+              Our global team of marine engineers is ready to provide expert technical support for
+              any vessel category, anywhere in the world.
             </p>
           </div>
           <div className="flex flex-wrap gap-3">
             <Btn href={WHATSAPP}>WhatsApp Duty Desk</Btn>
-            <Btn to="/contact" variant="outline">
+            <Btn href="/contact" variant="outline">
               Request Technical Scope
             </Btn>
           </div>

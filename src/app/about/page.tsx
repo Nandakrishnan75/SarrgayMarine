@@ -1,55 +1,26 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import {
-  ArrowUpRight,
-  Check,
-  Compass,
-  FileCheck2,
-  Gauge,
-  PhoneCall,
-  ShieldCheck,
-  Ship,
-} from "lucide-react";
+import type { Metadata } from "next";
+import Link from "next/link";
+import { ArrowUpRight, Check, Compass, PhoneCall } from "lucide-react";
 import engine from "@/assets/engine-room.jpg";
 import aboutHero from "@/assets/about-hero.jpg";
-import { Btn, WHATSAPP, TEL, PHONE, EMAIL, EMAIL_OPS, meta } from "@/components/site";
-import { getBreadcrumbSchema, SITE_URL } from "@/lib/seo";
+import { Btn, WHATSAPP, TEL, PHONE, EMAIL, EMAIL_OPS } from "@/components/site";
+import { buildNextMetadata, getBreadcrumbSchema, SITE_URL } from "@/lib/seo";
+import { toImageSrc } from "@/lib/utils";
 
-export const Route = createFileRoute("/about")({
-  head: () =>
-    meta(
-      "About Us | Technical Authority & Leadership | SARRGAY MARINE",
-      "Founded by senior Chief Engineers, Sarrgay Marine delivers technical precision, OEM tolerance compliance, Lloyd's/IACS standards, and worldwide riding squad deployment.",
-      {
-        path: "/about",
-        keywords: [
-          "about Sarrgay Marine",
-          "marine engineering leadership",
-          "veteran Chief Engineers superintendents",
-          "IACS class engineering standards",
-          "DG Shipping STCW certified squads",
-          "marine technical management Kochi",
-          "global maritime engineering authority",
-        ],
-        jsonLd: [
-          getBreadcrumbSchema([
-            { name: "Home", path: "/" },
-            { name: "About Us", path: "/about" },
-          ]),
-          {
-            "@context": "https://schema.org",
-            "@type": "AboutPage",
-            "@id": `${SITE_URL}/about#about`,
-            name: "About Sarrgay Marine Technical Authority",
-            description:
-              "Founded by senior Chief Engineers, Sarrgay Marine delivers technical precision, OEM tolerance compliance, Lloyd's/IACS standards, and worldwide riding squad deployment.",
-            mainEntity: {
-              "@id": `${SITE_URL}/#organization`,
-            },
-          },
-        ],
-      }
-    ),
-  component: About,
+export const metadata: Metadata = buildNextMetadata({
+  title: "About Us | Technical Authority & Leadership",
+  description:
+    "Founded by senior Chief Engineers, Sarrgay Marine delivers technical precision, OEM tolerance compliance, IACS standards, and worldwide riding squad deployment.",
+  path: "/about",
+  keywords: [
+    "about Sarrgay Marine",
+    "marine engineering leadership",
+    "veteran Chief Engineers superintendents",
+    "IACS class engineering standards",
+    "DG Shipping STCW certified squads",
+    "Singapore marine engineering authority",
+    "global maritime engineering authority",
+  ],
 });
 
 const metrics = [
@@ -61,7 +32,7 @@ const metrics = [
   {
     num: "50+",
     label: "Global Ports Serviced",
-    detail: "Rapid deployment across India, Singapore, UAE & Sri Lanka hubs",
+    detail: "Rapid deployment across Singapore, India, UAE & Sri Lanka hubs",
   },
   {
     num: "12 hrs",
@@ -158,20 +129,52 @@ const classRegistries = [
   { code: "ClassNK", name: "Nippon Kaiji Kyokai" },
 ];
 
-function About() {
+export default function AboutPage() {
+  const breadcrumbJson = getBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "About Us", path: "/about" },
+  ]);
+
+  const aboutPageJson = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "@id": `${SITE_URL}/about#about`,
+    name: "About Sarrgay Marine Technical Authority",
+    description:
+      "Founded by senior Chief Engineers, Sarrgay Marine delivers technical precision, OEM tolerance compliance, IACS standards, and worldwide riding squad deployment.",
+    mainEntity: {
+      "@id": `${SITE_URL}/#organization`,
+    },
+  };
+
+  const aboutHeroSrc = toImageSrc(aboutHero);
+  const engineSrc = toImageSrc(engine);
+
   return (
     <div className="bg-white text-[#1A1A1A]">
-      {/* Short, Modern Architectural Header with Clear Atmospheric Background Image */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJson) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutPageJson) }}
+      />
+
+      {/* Short, Modern Architectural Header */}
       <section className="relative overflow-hidden bg-navy text-navy-foreground on-navy pt-24 sm:pt-28 pb-10 sm:pb-12 border-b border-white/10">
         <img
-          src={aboutHero}
+          src={aboutHeroSrc}
           alt="Chief Engineer and navigation command deck at sea"
           className="absolute inset-0 h-full w-full object-cover object-center pointer-events-none"
           width={1920}
           height={1088}
         />
         <div className="hero-overlay absolute inset-0 pointer-events-none" />
-        <div aria-hidden className="dot-grid absolute right-8 top-12 h-20 w-28 opacity-40 pointer-events-none" />
+        <div
+          aria-hidden
+          className="dot-grid absolute right-8 top-12 h-20 w-28 opacity-40 pointer-events-none"
+        />
 
         <div className="container-x relative z-10">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 sm:pb-8 border-b border-white/15">
@@ -186,7 +189,8 @@ function About() {
               </h1>
 
               <p className="mt-3 text-sm sm:text-base text-navy-muted leading-relaxed max-w-xl">
-                Founded and commanded by veteran seagoing Chief Engineers. Delivering certified propulsion overhauls, auxiliary restoration, and shipyard superintendency worldwide.
+                Founded and commanded by veteran seagoing Chief Engineers. Delivering certified
+                propulsion overhauls, auxiliary restoration, and shipyard superintendency worldwide.
               </p>
             </div>
 
@@ -215,9 +219,7 @@ function About() {
                 <div className="font-mono text-[11px] uppercase tracking-wider text-accent font-semibold">
                   {m.label}
                 </div>
-                <p className="text-xs text-navy-muted font-light leading-snug">
-                  {m.detail}
-                </p>
+                <p className="text-xs text-navy-muted font-light leading-snug">{m.detail}</p>
               </div>
             ))}
           </div>
@@ -227,7 +229,6 @@ function About() {
       {/* Editorial Narrative Section: The Heritage */}
       <section className="container-x py-12 sm:py-20">
         <div className="grid gap-8 lg:gap-12 lg:grid-cols-12 lg:items-start">
-          {/* Narrative Column */}
           <div className="lg:col-span-7 space-y-6">
             <span className="font-mono text-xs uppercase tracking-[0.22em] text-[#777777]">
               OUR FOUNDATION
@@ -238,15 +239,22 @@ function About() {
             </h2>
 
             <blockquote className="border-l-2 border-[#1A1A1A] pl-5 italic font-serif text-lg text-[#333333] leading-relaxed my-6">
-              "At sea, mechanical reliability is not a negotiable metric — it is the absolute foundation of voyage safety, crew security, and charter-party integrity."
+              "At sea, mechanical reliability is not a negotiable metric — it is the absolute
+              foundation of voyage safety, crew security, and charter-party integrity."
             </blockquote>
 
             <p className="text-base text-[#444444] leading-relaxed font-light">
-              Sarrgay Marine was established by seagoing Chief Engineers who spent decades operating high-pressure marine propulsion machinery through relentless ocean conditions. We intimately understand what it takes to protect shipowners from catastrophic off-hire downtime, strict Port State Control detentions, and unexpected shipyard budget variations.
+              Sarrgay Marine was established by seagoing Chief Engineers who spent decades operating
+              high-pressure marine propulsion machinery through relentless ocean conditions. We
+              intimately understand what it takes to protect shipowners from catastrophic off-hire
+              downtime, strict Port State Control detentions, and unexpected shipyard budget
+              variations.
             </p>
 
             <p className="text-base text-[#444444] leading-relaxed font-light">
-              From our technical operations hub in Kochi to active flying squad operations across Singapore, Fujairah, and Colombo, we deploy multidisciplinary riding crews and shipyard superintendents trained to execute with micrometer precision.
+              From our registered office in Singapore and technical hubs in Kochi and Dubai, we
+              deploy multidisciplinary riding crews and shipyard superintendents trained to execute
+              with micrometer precision across global ports.
             </p>
 
             {/* Micro Specs List */}
@@ -257,7 +265,8 @@ function About() {
                   <span>Licensed Chief Engineers</span>
                 </div>
                 <p className="text-[#666666] leading-relaxed">
-                  Every overhaul and dock attendance is supervised by former sea-going Chief Engineers.
+                  Every overhaul and dock attendance is supervised by former sea-going Chief
+                  Engineers.
                 </p>
               </div>
 
@@ -267,7 +276,8 @@ function About() {
                   <span>0.01 mm Tolerance Logging</span>
                 </div>
                 <p className="text-[#666666] leading-relaxed">
-                  Optical laser bore alignment, crankshaft deflections, and journal clearance verification.
+                  Optical laser bore alignment, crankshaft deflections, and journal clearance
+                  verification.
                 </p>
               </div>
 
@@ -297,7 +307,7 @@ function About() {
           <div className="lg:col-span-5 space-y-3">
             <div className="overflow-hidden rounded-sm border border-black/[0.08] bg-[#F7F7F7]">
               <img
-                src={engine}
+                src={engineSrc}
                 alt="Chief Marine Engineer inspecting cylinder head and fuel injection assembly"
                 loading="lazy"
                 width={1280}
@@ -307,7 +317,7 @@ function About() {
             </div>
             <div className="flex items-center justify-between text-[11px] font-mono text-[#777777] px-1">
               <span>FIG. 01 — ENGINE ROOM OVERHAUL &amp; CALIBRATION</span>
-              <span>KOCHI / SINGAPORE</span>
+              <span>SINGAPORE / GLOBAL HUBS</span>
             </div>
           </div>
         </div>
@@ -332,12 +342,8 @@ function About() {
                 className="pt-6 border-t border-black/15 flex flex-col justify-between space-y-4"
               >
                 <div>
-                  <span className="font-serif text-2xl text-[#888888] font-light">
-                    {p.index}
-                  </span>
-                  <h3 className="mt-2 font-serif text-lg font-medium text-[#1A1A1A]">
-                    {p.title}
-                  </h3>
+                  <span className="font-serif text-2xl text-[#888888] font-light">{p.index}</span>
+                  <h3 className="mt-2 font-serif text-lg font-medium text-[#1A1A1A]">{p.title}</h3>
                   <p className="mt-3 text-xs sm:text-sm text-[#555555] font-light leading-relaxed">
                     {p.description}
                   </p>
@@ -351,7 +357,7 @@ function About() {
         </div>
       </section>
 
-      {/* Technical Competency Matrix: Clean Editorial Catalogue */}
+      {/* Technical Competency Matrix */}
       <section className="container-x py-16 sm:py-24">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-10 border-b border-black/[0.08]">
           <div className="max-w-2xl">
@@ -362,11 +368,13 @@ function About() {
               Comprehensive OEM Competency
             </h2>
             <p className="mt-3 text-sm text-[#666666] font-light leading-relaxed">
-              Our engineers possess specialized tooling, original clearance manuals, and hands-on overhaul experience across the world's most demanding marine propulsion and auxiliary systems.
+              Our engineers possess specialized tooling, original clearance manuals, and hands-on
+              overhaul experience across the world's most demanding marine propulsion and auxiliary
+              systems.
             </p>
           </div>
           <Link
-            to="/services"
+            href="/services"
             className="inline-flex items-center text-xs font-mono uppercase tracking-wider text-[#1A1A1A] hover:text-primary transition font-medium group"
           >
             <span>Full Service Portfolio</span>
@@ -390,12 +398,8 @@ function About() {
               </div>
 
               <div>
-                <h3 className="font-serif text-xl font-medium text-[#1A1A1A]">
-                  {c.title}
-                </h3>
-                <p className="text-xs font-mono text-[#777777] mt-0.5">
-                  {c.subtitle}
-                </p>
+                <h3 className="font-serif text-xl font-medium text-[#1A1A1A]">{c.title}</h3>
+                <p className="text-xs font-mono text-[#777777] mt-0.5">{c.subtitle}</p>
               </div>
 
               <ul className="space-y-2 pt-2 border-t border-black/[0.06]">
@@ -424,7 +428,8 @@ function About() {
             Recognized by Leading International Registers
           </h3>
           <p className="mx-auto mt-1.5 max-w-xl text-xs text-[#666666] font-light">
-            All major overhauls, laser alignments, and structural renewals are documented in direct coordination with IACS member classification societies.
+            All major overhauls, laser alignments, and structural renewals are documented in direct
+            coordination with IACS member classification societies.
           </p>
 
           <div className="mt-6 flex flex-wrap justify-center items-center gap-x-8 gap-y-3 text-xs font-mono tracking-widest text-[#333333]">
@@ -437,17 +442,20 @@ function About() {
         </div>
       </section>
 
-      {/* Technical Consultation & Engagement (CTA with Clear Atmospheric Background Image) */}
+      {/* Technical Consultation & Engagement */}
       <section className="relative overflow-hidden bg-navy text-navy-foreground on-navy py-14 sm:py-18 border-t border-white/10">
         <img
-          src={engine}
+          src={engineSrc}
           alt="Engine room technical assembly"
           className="absolute inset-0 h-full w-full object-cover object-center pointer-events-none"
           width={1920}
           height={960}
         />
         <div className="hero-overlay absolute inset-0 pointer-events-none" />
-        <div aria-hidden className="dot-grid absolute left-8 bottom-6 h-16 w-24 opacity-30 pointer-events-none" />
+        <div
+          aria-hidden
+          className="dot-grid absolute left-8 bottom-6 h-16 w-24 opacity-30 pointer-events-none"
+        />
 
         <div className="container-x relative z-10">
           <div className="grid gap-8 lg:grid-cols-12 lg:items-center">
@@ -460,24 +468,38 @@ function About() {
                 Consult With Our Chief Engineers
               </h2>
               <p className="text-sm sm:text-base text-navy-muted leading-relaxed max-w-2xl">
-                Whether facing an urgent voyage breakdown, planning scheduled dry-dock superintendency, or requesting flying squad mobilization across Indian or international ports, our technical command desk is available 24/7.
+                Whether facing an urgent voyage breakdown, planning scheduled dry-dock
+                superintendency, or requesting flying squad mobilization across international ports,
+                our technical command desk is available 24/7.
               </p>
 
               <div className="pt-2 flex flex-wrap gap-x-8 gap-y-2 text-xs font-mono">
                 <div>
-                  <span className="block text-[10px] text-navy-muted uppercase tracking-wider">Direct Emergency Line</span>
-                  <a href={TEL} className="text-white hover:text-accent transition font-serif text-base">
+                  <span className="block text-[10px] text-navy-muted uppercase tracking-wider">
+                    Direct Emergency Line
+                  </span>
+                  <a
+                    href={TEL}
+                    className="text-white hover:text-accent transition font-serif text-base"
+                  >
                     {PHONE}
                   </a>
                 </div>
                 <div>
-                  <span className="block text-[10px] text-navy-muted uppercase tracking-wider">Operations Dispatch</span>
-                  <a href={"mailto:" + EMAIL_OPS} className="text-white hover:text-accent transition">
+                  <span className="block text-[10px] text-navy-muted uppercase tracking-wider">
+                    Operations Dispatch
+                  </span>
+                  <a
+                    href={"mailto:" + EMAIL_OPS}
+                    className="text-white hover:text-accent transition"
+                  >
                     {EMAIL_OPS}
                   </a>
                 </div>
                 <div>
-                  <span className="block text-[10px] text-navy-muted uppercase tracking-wider">General Inquiries</span>
+                  <span className="block text-[10px] text-navy-muted uppercase tracking-wider">
+                    General Inquiries
+                  </span>
                   <a href={"mailto:" + EMAIL} className="text-white hover:text-accent transition">
                     {EMAIL}
                   </a>
@@ -490,7 +512,7 @@ function About() {
                 <PhoneCall className="mr-2 h-4 w-4" />
                 WhatsApp 24/7 Desk
               </Btn>
-              <Btn to="/contact" variant="ghostLight">
+              <Btn href="/contact" variant="ghostLight">
                 Submit Technical Tender
               </Btn>
             </div>

@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+
 export const SITE_URL = "https://sarrgaymarine.com";
 export const SITE_NAME = "SARRGAY MARINE";
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.jpg`;
@@ -25,7 +27,6 @@ export interface PageMetaOptions {
   image?: string;
   imageAlt?: string;
   type?: "website" | "article" | "profile";
-  jsonLd?: Record<string, unknown> | Array<Record<string, unknown>>;
 }
 
 export function getOrganizationSchema() {
@@ -36,10 +37,7 @@ export function getOrganizationSchema() {
     name: "Sarrgay Marine",
     legalName: "SARRGAY MARINE PTE. LTD.",
     taxID: "202644957Z",
-    alternateName: [
-      "Sarrgay Marine Maritime Engineering",
-      "Sarrgay Marine Technical Command",
-    ],
+    alternateName: ["Sarrgay Marine Maritime Engineering", "Sarrgay Marine Technical Command"],
     url: SITE_URL,
     logo: `${SITE_URL}/favicon.png`,
     image: DEFAULT_OG_IMAGE,
@@ -63,15 +61,7 @@ export function getOrganizationSchema() {
     },
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",
-      dayOfWeek: [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-        "Sunday",
-      ],
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
       opens: "00:00",
       closes: "23:59",
     },
@@ -211,7 +201,7 @@ export function getServicesSchema() {
         itemOffered: {
           "@type": "Service",
           name: svc.name,
-          description: svc.desc,
+          description: svc.description,
           category: svc.category,
           provider: {
             "@id": `${SITE_URL}/#organization`,
@@ -222,7 +212,7 @@ export function getServicesSchema() {
   };
 }
 
-const defaultKeywords = [
+export const defaultKeywords = [
   "marine engineering",
   "maritime engineering services",
   "ship repair company",
@@ -242,81 +232,66 @@ const defaultKeywords = [
   "24/7 emergency ship repair",
 ];
 
-export function buildPageMeta({
+export function buildNextMetadata({
   title,
   description,
   path = "/",
   keywords = defaultKeywords,
   image = DEFAULT_OG_IMAGE,
   imageAlt = "Sarrgay Marine Technical Command - Maritime Engineering Services",
-  type = "website",
-  jsonLd,
-}: PageMetaOptions) {
+}: PageMetaOptions): Metadata {
   const canonicalUrl = `${SITE_URL}${path === "/" ? "" : path}`;
-  const keywordsStr = Array.from(new Set([...keywords, ...defaultKeywords])).join(", ");
-
-  const metaList = [
-    { title },
-    { name: "description", content: description },
-    { name: "keywords", content: keywordsStr },
-    { name: "author", content: "Sarrgay Marine Technical Command" },
-    { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
-    { name: "googlebot", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
-    
-    // Geo / Local SEO
-    { name: "geo.region", content: "SG" },
-    { name: "geo.placename", content: "Singapore" },
-    { name: "geo.position", content: `${GEO_LAT};${GEO_LNG}` },
-    { name: "ICBM", content: `${GEO_LAT}, ${GEO_LNG}` },
-
-    // Open Graph
-    { property: "og:site_name", content: SITE_NAME },
-    { property: "og:locale", content: "en_US" },
-    { property: "og:type", content: type },
-    { property: "og:title", content: title },
-    { property: "og:description", content: description },
-    { property: "og:url", content: canonicalUrl },
-    { property: "og:image", content: image },
-    { property: "og:image:secure_url", content: image },
-    { property: "og:image:width", content: "1200" },
-    { property: "og:image:height", content: "630" },
-    { property: "og:image:alt", content: imageAlt },
-    { property: "og:image:type", content: "image/jpeg" },
-
-    // Twitter Card
-    { name: "twitter:card", content: "summary_large_image" },
-    { name: "twitter:title", content: title },
-    { name: "twitter:description", content: description },
-    { name: "twitter:image", content: image },
-    { name: "twitter:image:alt", content: imageAlt },
-  ];
-
-  const linksList = [
-    { rel: "canonical", href: canonicalUrl },
-  ];
-
-  const scriptsList: Array<{ type: string; children: string }> = [];
-
-  if (jsonLd) {
-    if (Array.isArray(jsonLd)) {
-      jsonLd.forEach((schema) => {
-        scriptsList.push({
-          type: "application/ld+json",
-          children: JSON.stringify(schema),
-        });
-      });
-    } else {
-      scriptsList.push({
-        type: "application/ld+json",
-        children: JSON.stringify(jsonLd),
-      });
-    }
-  }
+  const keywordsList = Array.from(new Set([...keywords, ...defaultKeywords]));
 
   return {
-    meta: metaList,
-    links: linksList,
-    scripts: scriptsList,
+    title,
+    description,
+    keywords: keywordsList,
+    authors: [{ name: "Sarrgay Marine Technical Command" }],
+    creator: "SARRGAY MARINE PTE. LTD.",
+    publisher: "SARRGAY MARINE PTE. LTD.",
+    metadataBase: new URL(SITE_URL),
+    alternates: {
+      canonical: canonicalUrl,
+    },
+    openGraph: {
+      title,
+      description,
+      url: canonicalUrl,
+      siteName: SITE_NAME,
+      locale: "en_US",
+      type: "website",
+      images: [
+        {
+          url: image,
+          width: 1200,
+          height: 630,
+          alt: imageAlt,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [image],
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
+    },
+    other: {
+      "geo.region": "SG",
+      "geo.placename": "Singapore",
+      "geo.position": `${GEO_LAT};${GEO_LNG}`,
+      ICBM: `${GEO_LAT}, ${GEO_LNG}`,
+    },
   };
 }
-
